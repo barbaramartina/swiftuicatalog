@@ -24,6 +24,7 @@ This catalog will allow developers who already know the theoretical aspects of [
 - Select a VIEW you want to develop (example "toggles" or "sliders")
 - Check if it is free to take (no other PR is made)
 - Create a branch named like the VIEW you want to contribute to (the name is the one you see when you run the demo App, example "toggles")
+- Replace this section "{ YOUR NAME HERE 🏆 }" with your name. Commit it.
 - Inmediately create a DRAFT Pull Request (So other can see it's taken)
 - Develop
 - Convert the DRAFT to an OPEN Pull Request
