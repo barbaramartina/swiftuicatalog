@@ -7,7 +7,7 @@ https://user-images.githubusercontent.com/815372/126070955-7a030d10-7f40-4ae5-b7
 
 # Goal
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. For example all the possible containers (like form, group, groupBox, controlGroup), all the hierarchical views (such as tabs view, outline views, diclosure views). 
-This catalog will allow developers who already know the theoretical aspects of (data / state handling)[https://developer.apple.com/documentation/swiftui/state-and-data-flow] and SwiftUI (App Structure and Behaviour)[https://developer.apple.com/documentation/swiftui/app-structure-and-behavior] to discover and reused easily UI elements to compose SwiftUI Interfaces.
+This catalog will allow developers who already know the theoretical aspects of [data / state handling](https://developer.apple.com/documentation/swiftui/state-and-data-flow) and SwiftUI [App Structure and Behaviour](https://developer.apple.com/documentation/swiftui/app-structure-and-behavior) to discover and reused easily UI elements to compose SwiftUI Interfaces.
 
 # You can use this catalog for:
 - Discovering SwiftUI controls, layouts, containers, gestures (for iPadOS and iOS)
