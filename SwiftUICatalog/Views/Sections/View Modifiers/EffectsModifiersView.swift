@@ -35,7 +35,111 @@ import SwiftUI
 
 struct EffectsModifiersView: View {
     var body: some View {
-        Text("Effects modifiers examples")
+        
+        List {
+
+            Group {
+                
+                VStack(alignment: .center) {
+                    
+                    HeaderView(title: "Border & blur effect")
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFill()
+                        // border effect
+                        .border(Color.pink, width: 10)
+                        .frame(width: 200, height: 200)
+                }
+                
+            }
+            // blur effect
+            .blur(radius: 1.0)
+            // end of group
+            
+            Group {
+                
+                HeaderView(title: "Clip Shape & color inverted effect")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 300, height: 300)
+                    .clipShape(Circle())
+                
+                
+            }
+            .colorInvert()
+            // end of group
+
+            Group {
+                HeaderView(title: "Brigthness effect")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .brightness(0.3)
+            }
+            // end of group
+
+            Group {
+                HeaderView(title: "Color multiply & Contrast effect")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    
+            }
+            // color effect
+            .colorMultiply(.blue)
+            // Defines the content shape for hit testing.
+            .contentShape(Circle())
+            .contrast(3.0)
+             // end of group
+
+            Group {
+                
+                HeaderView(title: "Blend mode effect")
+                HStack {
+                    VStack {
+                        Color.yellow.frame(width: 50, height: 50, alignment: .center)
+                        Color.red.frame(width: 50, height: 50, alignment: .center)
+                            .rotationEffect(.degrees(45))
+                            .padding(-20)
+                            // blend mode
+                            .blendMode(.colorBurn)
+                    }
+                    .padding(10)
+                    VStack {
+                        Color.yellow.frame(width: 50, height: 50, alignment: .center)
+                        Color.red.frame(width: 50, height: 50, alignment: .center)
+                            .rotationEffect(.degrees(45))
+                            .padding(-20)
+                            // blend mode
+                            .blendMode(.luminosity)
+                    }
+                    .padding(10)
+                    VStack {
+                        Color.yellow.frame(width: 50, height: 50, alignment: .center)
+                        Color.red.frame(width: 50, height: 50, alignment: .center)
+                            .rotationEffect(.degrees(45))
+                            .padding(-20)
+                            // blend mode
+                            .blendMode(.lighten)
+                    }
+                    .padding(10)
+
+                    VStack {
+                        Color.yellow.frame(width: 50, height: 50, alignment: .center)
+                        Color.red.frame(width: 50, height: 50, alignment: .center)
+                            .rotationEffect(.degrees(45))
+                            .padding(-20)
+                            // blend mode
+                            .blendMode(.exclusion)
+                    }
+                    .padding(10)
+
+                }
+            }
+        }
+        // accent color effect
+        .accentColor(.green)
     }
 }
 
