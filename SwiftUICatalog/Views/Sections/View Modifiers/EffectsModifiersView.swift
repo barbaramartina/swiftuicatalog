@@ -35,12 +35,180 @@ import SwiftUI
 
 struct EffectsModifiersView: View {
     var body: some View {
-        Text("Effects modifiers examples")
+        
+        List {
+
+            // MARK: -
+            
+            Group {
+                
+                HeaderView(title: "Rotation with shadow")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .clipped()
+                    .shadow(radius: 10)
+                    .rotationEffect(Angle(degrees: 30))
+
+                
+            }
+            .padding(.top, 50)
+            .padding(.bottom, 100)
+
+            // MARK: - Masking
+            
+            Group {
+                
+                HeaderView(title: "Masking")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .mask(Text("Awesome Robbie. Corgie is a very special breed is not so easy to find around the world")
+                            .font(.largeTitle)
+                            .fontWeight(.black)
+                            .multilineTextAlignment(.center)
+                            .frame(width:320, height: 220))
+                
+            }
+
+            // MARK: - gray scale and luminance to alpha
+            
+            Group {
+                
+                HeaderView(title: "Gray scale")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .grayscale(0.30)
+                    .hoverEffect(.highlight)
+                    .luminanceToAlpha()
+            }
+
+            // MARK: - Border & blur effect
+            
+            Group {
+                
+                VStack(alignment: .center) {
+                    
+                    HeaderView(title: "Border & blur effect")
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFill()
+                        // border effect
+                        .border(Color.pink, width: 10)
+                        .frame(width: 200, height: 200)
+                }
+                
+            }
+            // blur effect
+            .blur(radius: 1.0)
+            // end of group
+            
+            // MARK: - Clip Shape & color inverted effect
+            
+            Group {
+                
+                HeaderView(title: "Clip Shape & color inverted effect")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 300, height: 300)
+                    .clipShape(Circle())
+                
+                
+            }
+            .colorInvert()
+            // end of group
+
+            // MARK: - Brigthness effect
+            
+            Group {
+                HeaderView(title: "Brigthness effect")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    .brightness(0.3)
+            }
+            // end of group
+
+            // MARK: - Color multiply & Contrast effect
+            
+            Group {
+                HeaderView(title: "Color multiply & Contrast effect")
+                Image("corgie-love")
+                    .resizable()
+                    .scaledToFill()
+                    
+            }
+            // color effect
+            .colorMultiply(.blue)
+            // Defines the content shape for hit testing.
+            .contentShape(Circle())
+            .contrast(3.0)
+             // end of group
+
+            // MARK: - Blend mode effect
+            
+            Group {
+                
+                HeaderView(title: "Blend mode effect")
+                HStack {
+                    BlendExamplesView()
+                }
+            }
+            
+        }
+        // accent color effect
+        .accentColor(.green)
+      
     }
 }
 
 struct EffectsModifiersView_Previews: PreviewProvider {
     static var previews: some View {
         EffectsModifiersView()
+    }
+}
+
+struct BlendExamplesView: View {
+    var body: some View {
+        VStack {
+            Color.yellow.frame(width: 50, height: 50, alignment: .center)
+            Color.red.frame(width: 50, height: 50, alignment: .center)
+                .rotationEffect(.degrees(45))
+                .padding(-20)
+                // blend mode
+                .blendMode(.colorBurn)
+        }
+        .padding(20)
+        VStack {
+            Color.yellow.frame(width: 50, height: 50, alignment: .center)
+            Color.red.frame(width: 50, height: 50, alignment: .center)
+                .rotationEffect(.degrees(45))
+                .padding(-20)
+                // blend mode
+                .blendMode(.luminosity)
+        }
+        .padding(20)
+        VStack {
+            Color.yellow.frame(width: 50, height: 50, alignment: .center)
+            Color.red.frame(width: 50, height: 50, alignment: .center)
+                .rotationEffect(.degrees(45))
+                .padding(-20)
+                // blend mode
+                .blendMode(.lighten)
+        }
+        .padding(20)
+
+        VStack {
+            Color.yellow.frame(width: 50, height: 50, alignment: .center)
+            Color.red.frame(width: 50, height: 50, alignment: .center)
+                .rotationEffect(.degrees(45))
+                .padding(-20)
+                // blend mode
+                .blendMode(.exclusion)
+        }
+        .padding(20)
+
     }
 }
