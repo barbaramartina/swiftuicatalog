@@ -82,8 +82,8 @@ struct ContentView: View {
                                  label: "Texts")
                             Link(destination: LabelsView(),
                                  label: "Labels")
-                            Link(destination: MenuesComponentView(),
-                                 label: "Menues")
+                            Link(destination: MenusComponentView(),
+                                 label: "Menus")
                             Link(destination: TogglesView(),
                                  label: "Toggles")
                             Link(destination: SlidersView(),

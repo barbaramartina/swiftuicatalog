@@ -15,7 +15,7 @@
 		7624F861269C383B00474E0B /* ButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F860269C383B00474E0B /* ButtonsView.swift */; };
 		7624F863269C388900474E0B /* SheetsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F862269C388900474E0B /* SheetsView.swift */; };
 		7624F865269C38ED00474E0B /* AlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F864269C38ED00474E0B /* AlertsView.swift */; };
-		7624F867269C38FA00474E0B /* MenuesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F866269C38FA00474E0B /* MenuesView.swift */; };
+		7624F867269C38FA00474E0B /* MenusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F866269C38FA00474E0B /* MenusView.swift */; };
 		7624F869269C391700474E0B /* PopoversView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F868269C391700474E0B /* PopoversView.swift */; };
 		7624F86B269C392500474E0B /* StatusBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F86A269C392500474E0B /* StatusBarsView.swift */; };
 		7624F86D269C392E00474E0B /* ToolbarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F86C269C392E00474E0B /* ToolbarsView.swift */; };
@@ -67,7 +67,7 @@
 		7624F860269C383B00474E0B /* ButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsView.swift; sourceTree = "<group>"; };
 		7624F862269C388900474E0B /* SheetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetsView.swift; sourceTree = "<group>"; };
 		7624F864269C38ED00474E0B /* AlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsView.swift; sourceTree = "<group>"; };
-		7624F866269C38FA00474E0B /* MenuesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuesView.swift; sourceTree = "<group>"; };
+		7624F866269C38FA00474E0B /* MenusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenusView.swift; sourceTree = "<group>"; };
 		7624F868269C391700474E0B /* PopoversView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoversView.swift; sourceTree = "<group>"; };
 		7624F86A269C392500474E0B /* StatusBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarsView.swift; sourceTree = "<group>"; };
 		7624F86C269C392E00474E0B /* ToolbarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarsView.swift; sourceTree = "<group>"; };
@@ -210,7 +210,7 @@
 				7624F86E269C395D00474E0B /* ImagesView.swift */,
 				7624F85D269C33CC00474E0B /* TextsView.swift */,
 				7624F89626A4407500474E0B /* LabelsView.swift */,
-				7624F866269C38FA00474E0B /* MenuesView.swift */,
+				7624F866269C38FA00474E0B /* MenusView.swift */,
 				7624F88A26A43EF500474E0B /* TogglesView.swift */,
 				7624F88C26A43F2900474E0B /* SlidersView.swift */,
 				7624F88E26A43F5900474E0B /* SteppersView.swift */,
@@ -403,7 +403,7 @@
 				7624F873269C398400474E0B /* NavigationView.swift in Sources */,
 				7624F89326A43FB200474E0B /* DatePickersView.swift in Sources */,
 				7624F8BF26A45FDD00474E0B /* EffectsModifiersView.swift in Sources */,
-				7624F867269C38FA00474E0B /* MenuesView.swift in Sources */,
+				7624F867269C38FA00474E0B /* MenusView.swift in Sources */,
 				7624F8BD26A45FB200474E0B /* TextModifiersView.swift in Sources */,
 				7624F84F269C337D00474E0B /* SwiftUICatalogApp.swift in Sources */,
 				7624F861269C383B00474E0B /* ButtonsView.swift in Sources */,
