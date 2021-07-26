@@ -1,5 +1,5 @@
 //
-//  MenuesComponentView.swift
+//  MenusComponentView.swift
 //  SwiftUICatalog
 //
 // MIT License
@@ -31,14 +31,14 @@ import SwiftUI
 /// Samples on how to create menues in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/menu
 ///
-struct MenuesComponentView: View {
+struct MenusComponentView: View {
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct MenuesComponentView_Previews: PreviewProvider {
+struct MenusComponentView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuesComponentView()
+        MenusComponentView()
     }
 }
