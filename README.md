@@ -1,7 +1,7 @@
 # SwiftUI Catalog
 An open source catalog, under MIT License, containing components, controls, effects, styles, layouts, containers, modifiers and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.
 
-* I'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.*
+I'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
 
 https://user-images.githubusercontent.com/815372/126070955-7a030d10-7f40-4ae5-b769-1bf8a9823366.mp4
