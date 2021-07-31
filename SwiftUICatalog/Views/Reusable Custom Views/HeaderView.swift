@@ -17,8 +17,7 @@ struct HeaderView: View {
             .fontWeight(.black)
             .foregroundColor(.accentColor)
             .multilineTextAlignment(.center)
-            .lineLimit(3)
-            .minimumScaleFactor(0.7)
             .padding(.top, 16)
+            .padding(.bottom, 16)
     }
 }
