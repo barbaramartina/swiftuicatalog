@@ -292,11 +292,3 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
-
-// MARK: - CATALOG SECTIONS
-
-struct CatalogSection: Identifiable {
-    let id = UUID()
-    let name: String
-    let views: [AnyView]
-}
