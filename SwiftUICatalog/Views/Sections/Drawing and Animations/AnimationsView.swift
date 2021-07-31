@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Rodeker
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -40,13 +40,272 @@ import SwiftUI
 ///
 
 struct AnimationsView: View {
+    
+    // MARK: - Properties
+    
+    @State private var animate1 = false
+    @State private var animate2 = false
+    @State private var animate3 = false
+    
+    
+    // MARK: - Body
+    
+    
     var body: some View {
-        Text("Animations in SwiftUI")
+        
+        NavigationView {
+            
+            List {
+                Link(destination: PropertiesAnimationsView(),
+                     label: "Properties animations")
+                Link(destination: TransitionsAnimationsView(),
+                     label: "Transitions animations")
+            }
+
+        }
+        .navigationTitle("Animations")
+        .padding(.top, 24)
+
     }
 }
+
+// MARK: - previews
 
 struct AnimationsView_Previews: PreviewProvider {
     static var previews: some View {
         AnimationsView()
+            .previewLayout(.sizeThatFits)
+    }
+}
+
+// MARK: - extensions of animations
+
+
+extension Animation {
+    static func ripple(index: Int) -> Animation {
+        Animation.spring(dampingFraction: 0.5)
+            .speed(2)
+            .delay(0.03 * Double(index))
+    }
+}
+
+// MARK: - Properties animations
+
+struct PropertiesAnimationsView: View {
+    
+    // MARK: - Properties
+    
+    @State private var animate1 = false
+    @State private var animate2 = false
+    @State private var animate3 = false
+    @State private var animate4 = false
+
+    
+    // MARK: - Body
+    
+
+    var body: some View {
+        
+        VStack(alignment: .center) {
+            List {
+                Text( "*Touch on the images")
+                    .font(.footnote)
+                
+                // MARK: - animating local properties
+                
+                Group {
+                    HeaderView(title: "Animating a toggle on a boolean")
+                    Text("This is how you animate changes in the properties of your views")
+                        .font(.footnote)
+                        .lineLimit(2)
+                    Button(action: {
+                        withAnimation(.easeInOut(duration: 3)) {
+                            self.animate3.toggle()
+                        }
+                    }) {
+                        HStack {
+                            Spacer()
+                            Image("corgie-love")
+                                .resizable()
+                                .rotationEffect(.degrees(animate3 ? 90 : 0))
+                                .scaleEffect(animate3 ? 1.2 : 1)
+                                .frame(width: 200, height: 200)
+                            Spacer()
+                        }
+                        .padding()
+                        // end of h stack
+                    }
+                    // end of h stack
+                }
+                // end of group
+                
+                
+                // MARK: - rotation animated
+                Group {
+                    HeaderView(title: "Rotation animated easeIn Out")
+                    Text( "This is how you  apply animations to an image view on the transition from 1.0 scale to 1.2 and from 0 degrees to 90 degress")
+                        .font(.footnote)
+                        .lineLimit(3)
+                    Button(action: {
+                        self.animate1.toggle()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Image("corgie-love")
+                                .resizable()
+                                .rotationEffect(.degrees(animate1 ? 90 : 0))
+                                .scaleEffect(animate1 ? 1.2 : 1)
+                                .frame(width: 200, height: 200)
+                                .animation(.easeInOut.repeatCount(3))
+                            Spacer()
+                        }
+                        .padding()
+                        // end of h stack
+                    }
+                }
+                // end of group
+                
+                // MARK: - Spring rotation
+                Group {
+                    HeaderView(title: "Rotation animation with Spring")
+                    Button(action: {
+                        self.animate2.toggle()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Image("corgie-love")
+                                .resizable()
+                                .rotationEffect(.degrees(animate2 ? 90 : 0))
+                                .scaleEffect(animate2 ? 1.2 : 1)
+                                .frame(width: 200, height: 200)
+                                .animation(.spring().repeatCount(3))
+                            Spacer()
+                        }
+                        .padding()
+                        // end of h stack
+                    }
+                    // end of h stack
+                }
+                // end of group
+                
+                // MARK: - ripple
+                Group {
+                    HeaderView(title: "Ripple animation")
+                    Button(action: {
+                        self.animate4.toggle()
+                    }) {
+                        HStack {
+                            Spacer()
+                            Image("corgie-love")
+                                .resizable()
+                                .rotationEffect(.degrees(animate4 ? 90 : 0))
+                                .scaleEffect(animate4 ? 1.2 : 1)
+                                .frame(width: 200, height: 200)
+                                .animation(.ripple(index: 2))
+                            Spacer()
+                        }
+                        .padding()
+                        // end of h stack
+                    }
+                    // end of h stack
+                }
+                // end of group
+
+            }
+            // end of list
+        }
+        // end of v stack
+
+    }
+    
+}
+
+// MARK: - transitions
+
+struct TransitionsAnimationsView: View {
+    
+    // MARK: - Properties
+    
+    @State private var animate1 = false
+    @State private var animate2 = false
+    @State private var animate3 = false
+
+    
+    // MARK: - Body
+    
+
+    var body: some View {
+        
+        Button(action: {
+            withAnimation {
+                self.animate1.toggle()
+                self.animate2 = false
+                self.animate3 = false
+            }
+        }, label: {
+            Text("Slide in & out")
+        })
+        .padding()
+        .border(Color.black, width: 1)
+
+        Button(action: {
+            withAnimation {
+                self.animate2.toggle()
+                self.animate1 = false
+                self.animate3 = false
+            }
+        }, label: {
+            Text("Transition with opacity")
+        })
+        .padding()
+        .border(Color.black, width: 1)
+
+        Button(action: {
+            withAnimation {
+                self.animate3.toggle()
+                self.animate2 = false
+                self.animate1 = false
+            }
+        }, label: {
+            Text("Transition moving and fading")
+        })
+        .padding()
+        .border(Color.black, width: 1)
+
+        if animate1 {
+            Image("corgie-love")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .transition(.slide)
+        }
+
+        if animate2 {
+            Image("corgie-love")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .transition(.opacity)
+        }
+        
+        if animate3 {
+            Image("corgie-love")
+                .resizable()
+                .frame(width: 200, height: 200)
+                .transition(.moveAndFade)
+        }
+
+    }
+
+}
+
+// MARK: - custom transitions
+        
+
+extension AnyTransition {
+    static var moveAndFade: AnyTransition {
+        let insertion = AnyTransition.move(edge: .leading)
+            .combined(with: .opacity)
+        let removal = AnyTransition.scale
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
     }
 }
