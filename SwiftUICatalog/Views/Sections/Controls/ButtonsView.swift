@@ -44,15 +44,53 @@ struct ButtonsComponentsView: View {
     
     // MARK: - Body
     
-
+    
     var body: some View {
         ScrollView {
-            // MARK: - basics
+            
+            
+            // MARK: - basics of buttons
             Group {
                 HeaderView(title: "The basics of buttons")
-                Button(action: {}, label: {
-                    Text("Button with text")
-                })
+                
+                Divider()
+
+                HStack {
+                    Text("Rounded borders:")
+                    Spacer()
+                    Button(action: {},
+                           label: {
+                            Text("Click")
+                                .fontWeight(.bold)
+                                .font(.title)
+                                .foregroundColor(.yellow)
+                                .padding()
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .stroke(Color.accentColor, lineWidth: 5)
+                                )
+                           })
+                    
+                }
+                
+                HStack {
+                    Text("Stroked borders:")
+                    Spacer()
+                    Button(action: {}) {
+                        Text("Click")
+                            .fontWeight(.bold)
+                            .font(.title)
+                            .foregroundColor(.yellow)
+                            .padding()
+                            .overlay(
+                                Capsule(style: .continuous)
+                                    .stroke(Color.accentColor,
+                                            style: StrokeStyle(lineWidth: 5, dash: [10]))
+                            )
+                    }
+                }
+                
+            
                 HStack {
                     Text("Button with image:")
                     Spacer()
@@ -77,24 +115,43 @@ struct ButtonsComponentsView: View {
                     })
                 }
             }
-            .padding(5)
+            .padding(.top, 6)
+            .padding(.bottom, 12)
+            .padding(.leading, 16)
+            .padding(.trailing, 24)
+            
+            Divider()
             
             // MARK: - styling
             Group {
                 HeaderView(title: "Styling buttons")
-                Button("Style me: bordered", action: {})
-                    .buttonStyle(BorderlessButtonStyle())
-                Button("Style me: plain", action: {})
-                    .buttonStyle(PlainButtonStyle())
-            }
-            .padding(5)
-            
+                
+                HStack {
+                    Text("BorderlessButtonStyle:")
+                    Spacer()
+                    Button("Style me: borderless", action: {})
+                        .buttonStyle(BorderlessButtonStyle())
+                }
+                .padding(.bottom, 12)
 
+                HStack {
+                    Text("PlainButtonStyle:")
+                    Spacer()
+                    Button("Style me: plain", action: {})
+                        .buttonStyle(PlainButtonStyle())
+                }
+                .padding(.bottom, 12)
+            }
+            .padding(.leading, 16)
+            .padding(.trailing, 16)
+
+            
         }
-        .padding(.top, 48)
         
     }
 }
+
+// MARK: - previews
 
 struct ButtonsComponentsView_Previews: PreviewProvider {
     static var previews: some View {
