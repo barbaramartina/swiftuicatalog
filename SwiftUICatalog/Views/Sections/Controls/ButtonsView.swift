@@ -61,14 +61,9 @@ struct ButtonsComponentsView: View {
                     Button(action: {},
                            label: {
                             Text("Click")
-                                .fontWeight(.bold)
-                                .font(.title)
-                                .foregroundColor(.yellow)
-                                .padding()
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .stroke(Color.accentColor, lineWidth: 5)
-                                )
+                                .modifier(ButtonFontModifier())
+                                .modifier(ButtonRoundedModifier(radius: 10,
+                                                                lineWidth: 5))
                            })
                     
                 }
@@ -79,10 +74,7 @@ struct ButtonsComponentsView: View {
                     Button(action: {},
                            label: {
                             Text("Click")
-                                .fontWeight(.bold)
-                                .font(.title)
-                                .foregroundColor(.yellow)
-                                .padding()
+                                .modifier(ButtonFontModifier())
                                 .overlay(
                                     RoundedCorners(tl: 10,
                                                    tr: 0,
@@ -99,10 +91,7 @@ struct ButtonsComponentsView: View {
                     Spacer()
                     Button(action: {}) {
                         Text("Click")
-                            .fontWeight(.bold)
-                            .font(.title)
-                            .foregroundColor(.yellow)
-                            .padding()
+                            .modifier(ButtonFontModifier())
                             .overlay(
                                 Capsule(style: .continuous)
                                     .stroke(Color.accentColor,
@@ -127,28 +116,22 @@ struct ButtonsComponentsView: View {
                     Button(action: {}, label: {
                         Label {
                             Text("Add person")
-                                .font(.title)
-                                .fontWeight(.bold)
-                                .foregroundColor(.yellow)
-                                .padding()
+                                .modifier(ButtonFontModifier())
                         } icon: {
                             Image(systemName: "person")
                                 .padding()
                         }
                     })
-                    .border(Color.accentColor, width: 5)
+                    .modifier(ButtonBorderModifier())
                 }
                 HStack {
                     Text("Button with label")
                     Spacer()
                     Button(action: {}, label: {
                         Text("Add ")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .foregroundColor(.yellow)
-                            .padding()
+                            .modifier(ButtonFontModifier())
                     })
-                    .border(Color.accentColor, width: 5)
+                    .modifier(ButtonBorderModifier())
                 }
             }
             .padding(.top, 6)
