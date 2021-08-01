@@ -102,6 +102,17 @@ struct ButtonsComponentsView: View {
                 
             
                 HStack {
+                    Text("Button with plan background")
+                    Spacer()
+                    Button(action: {}, label: {
+                        Text("Click")
+                            .padding()
+                            .modifier(ButtonFontModifier())
+                    })
+                    .background(Color.accentColor)
+                }
+
+                HStack {
                     Text("Button with image")
                     Spacer()
                     Button(action: {}, label: {
@@ -110,6 +121,7 @@ struct ButtonsComponentsView: View {
                     })
                     .border(Color.accentColor, width: 5)
                 }
+                
                 HStack {
                     Text("Button with icon & label")
                     Spacer()
@@ -124,6 +136,7 @@ struct ButtonsComponentsView: View {
                     })
                     .modifier(ButtonBorderModifier())
                 }
+                
                 HStack {
                     Text("Button with label")
                     Spacer()
