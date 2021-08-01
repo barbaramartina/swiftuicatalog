@@ -56,6 +56,8 @@ struct AnimationsView: View {
         NavigationView {
             
             List {
+                Link(destination:                         RobbieWithPulseView(),
+                     label: "Pulse animation")
                 Link(destination: PropertiesAnimationsView(),
                      label: "Properties animations")
                 Link(destination: TransitionsAnimationsView(),
@@ -118,9 +120,6 @@ struct PropertiesAnimationsView: View {
                 
                 Group {
                     HeaderView(title: "Animating a toggle on a boolean")
-                    Text("This is how you animate changes in the properties of your views")
-                        .font(.footnote)
-                        .lineLimit(2)
                     Button(action: {
                         withAnimation(.easeInOut(duration: 3)) {
                             self.animate3.toggle()
@@ -146,9 +145,6 @@ struct PropertiesAnimationsView: View {
                 // MARK: - rotation animated
                 Group {
                     HeaderView(title: "Rotation animated easeIn Out")
-                    Text( "This is how you  apply animations to an image view on the transition from 1.0 scale to 1.2 and from 0 degrees to 90 degress")
-                        .font(.footnote)
-                        .lineLimit(3)
                     Button(action: {
                         self.animate1.toggle()
                     }) {
