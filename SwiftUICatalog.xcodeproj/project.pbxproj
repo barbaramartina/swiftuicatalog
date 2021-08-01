@@ -57,6 +57,7 @@
 		76A45AFC26B6A6FF0075190A /* ButtonFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFB26B6A6FF0075190A /* ButtonFontModifier.swift */; };
 		76A45AFE26B6AA3A0075190A /* ButtonBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFD26B6AA3A0075190A /* ButtonBorderModifier.swift */; };
 		76A45B0026B6ABE90075190A /* ButtonRoundedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFF26B6ABE90075190A /* ButtonRoundedModifier.swift */; };
+		76A45B0226B711A50075190A /* RobbieWithPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45B0126B711A50075190A /* RobbieWithPulse.swift */; };
 		76EF639626B69CC7002980A7 /* MotionsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EF639526B69CC7002980A7 /* MotionsAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		76A45AFB26B6A6FF0075190A /* ButtonFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFontModifier.swift; sourceTree = "<group>"; };
 		76A45AFD26B6AA3A0075190A /* ButtonBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBorderModifier.swift; sourceTree = "<group>"; };
 		76A45AFF26B6ABE90075190A /* ButtonRoundedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRoundedModifier.swift; sourceTree = "<group>"; };
+		76A45B0126B711A50075190A /* RobbieWithPulse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobbieWithPulse.swift; sourceTree = "<group>"; };
 		76EF639526B69CC7002980A7 /* MotionsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionsAnimation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -208,6 +210,7 @@
 				7624F862269C388900474E0B /* SheetsView.swift */,
 				7624F8AA26A45C1B00474E0B /* TimelineViews.swift */,
 				7624F8AC26A45C4A00474E0B /* SpacersDividersView.swift */,
+				76A45B0126B711A50075190A /* RobbieWithPulse.swift */,
 			);
 			path = "Additional Views";
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				7624F865269C38ED00474E0B /* AlertsView.swift in Sources */,
 				7624F89126A43F7D00474E0B /* PickersView.swift in Sources */,
 				7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */,
+				76A45B0226B711A50075190A /* RobbieWithPulse.swift in Sources */,
 				7624F8AD26A45C4A00474E0B /* SpacersDividersView.swift in Sources */,
 				7624F86D269C392E00474E0B /* ToolbarsView.swift in Sources */,
 				76EF639626B69CC7002980A7 /* MotionsAnimation.swift in Sources */,

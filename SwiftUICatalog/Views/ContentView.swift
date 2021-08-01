@@ -33,8 +33,6 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var pulsing: Bool = false
-    
     // MARK: - Body
     
     var body: some View {
@@ -50,26 +48,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        ZStack {
-                            Circle()
-                                .frame(width: 220, height: 220)
-                                .foregroundColor(.yellow)
-                                .scaleEffect(pulsing ? 1.2 : 1.0)
-                                .opacity(pulsing ? 0.1 : 1.0)
-                                .animation(.easeInOut(duration: 1)
-                                .repeatForever(autoreverses: true).speed(0.5))
-                                .onAppear() {
-                                    self.pulsing.toggle()
-                                }
-                            
-                            Image("corgie-love")
-                                .resizable()
-                                .scaledToFill()
-                            .frame(width: 200, height: 200)
-                            .clipShape(Circle())
-                        }
-                        .padding(24)
-                        
+                        RobbieWithPulseView()
                         Text("Robbi, the corgie, is happy with your contributions to the SwiftUI Catalog")
                             .font(.footnote)
                             .fontWeight(.ultraLight)
