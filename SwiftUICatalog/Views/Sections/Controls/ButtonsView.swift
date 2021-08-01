@@ -56,7 +56,7 @@ struct ButtonsComponentsView: View {
                 Divider()
 
                 HStack {
-                    Text("Rounded borders:")
+                    Text("Rounded borders")
                     Spacer()
                     Button(action: {},
                            label: {
@@ -74,7 +74,28 @@ struct ButtonsComponentsView: View {
                 }
                 
                 HStack {
-                    Text("Stroked borders:")
+                    Text("Specific Rounded borders with custom shape")
+                    Spacer()
+                    Button(action: {},
+                           label: {
+                            Text("Click")
+                                .fontWeight(.bold)
+                                .font(.title)
+                                .foregroundColor(.yellow)
+                                .padding()
+                                .overlay(
+                                    RoundedCorners(tl: 10,
+                                                   tr: 0,
+                                                   bl: 0,
+                                                   br: 10)
+                                        .stroke(Color.accentColor, lineWidth: 5)
+                                )
+                           })
+                    
+                }
+
+                HStack {
+                    Text("Stroked borders")
                     Spacer()
                     Button(action: {}) {
                         Text("Click")
@@ -92,27 +113,42 @@ struct ButtonsComponentsView: View {
                 
             
                 HStack {
-                    Text("Button with image:")
+                    Text("Button with image")
                     Spacer()
                     Button(action: {}, label: {
                         Image(systemName: "person")
+                            .padding()
                     })
+                    .border(Color.accentColor, width: 5)
                 }
                 HStack {
-                    Text("Button with label:")
+                    Text("Button with icon & label")
                     Spacer()
                     Button(action: {}, label: {
-                        Label("Add person",
-                              systemImage: "person")
+                        Label {
+                            Text("Add person")
+                                .font(.title)
+                                .fontWeight(.bold)
+                                .foregroundColor(.yellow)
+                                .padding()
+                        } icon: {
+                            Image(systemName: "person")
+                                .padding()
+                        }
                     })
+                    .border(Color.accentColor, width: 5)
                 }
                 HStack {
-                    Text("Button with image and text")
+                    Text("Button with label")
                     Spacer()
                     Button(action: {}, label: {
                         Text("Add ")
-                        Image(systemName: "person")
+                            .font(.title)
+                            .fontWeight(.bold)
+                            .foregroundColor(.yellow)
+                            .padding()
                     })
+                    .border(Color.accentColor, width: 5)
                 }
             }
             .padding(.top, 6)
@@ -157,5 +193,47 @@ struct ButtonsComponentsView_Previews: PreviewProvider {
     static var previews: some View {
         ButtonsComponentsView()
             .previewLayout(.sizeThatFits)
+    }
+}
+
+// MARK: - custom borders shape
+//. thanks to https://stackoverflow.com/questions/56760335/round-specific-corners-swiftui
+
+struct RoundedCorners: Shape {
+    var tl: CGFloat = 0.0
+    var tr: CGFloat = 0.0
+    var bl: CGFloat = 0.0
+    var br: CGFloat = 0.0
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        let w = rect.size.width
+        let h = rect.size.height
+
+        // Make sure we do not exceed the size of the rectangle
+        let tr = min(min(self.tr, h/2), w/2)
+        let tl = min(min(self.tl, h/2), w/2)
+        let bl = min(min(self.bl, h/2), w/2)
+        let br = min(min(self.br, h/2), w/2)
+
+        path.move(to: CGPoint(x: tl, y: 0))
+        path.addLine(to: CGPoint(x: w - tr, y: 0))
+        path.addArc(center: CGPoint(x: w - tr, y: tr), radius: tr,
+                    startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 0), clockwise: false)
+
+        path.addLine(to: CGPoint(x: w, y: h - br))
+        path.addArc(center: CGPoint(x: w - br, y: h - br), radius: br,
+                    startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 90), clockwise: false)
+
+        path.addLine(to: CGPoint(x: bl, y: h))
+        path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl,
+                    startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
+
+        path.addLine(to: CGPoint(x: 0, y: tl))
+        path.addArc(center: CGPoint(x: tl, y: tl), radius: tl,
+                    startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
+
+        return path
     }
 }
