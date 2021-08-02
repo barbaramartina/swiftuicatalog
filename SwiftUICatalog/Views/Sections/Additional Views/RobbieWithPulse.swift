@@ -29,7 +29,7 @@ struct RobbieWithPulseView: View {
                 .scaledToFill()
             .frame(width: 200, height: 200)
             .clipShape(Circle())
-                .padding(.top, 10)
+          
         }
         .padding(24)
     }
