@@ -50,12 +50,111 @@ import SwiftUI
 
 struct ShapesView: View {
     var body: some View {
-        Text("Shape, Rectangle, Circle, Ellipse, Capsule and Path in SwiftUI")
+        
+        
+        ScrollView {
+            
+            // MARK: - rectangle
+            
+            Group {
+                HeaderView(title: "Rectangle")
+                Rectangle()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+            }
+            
+            // MARK: - Circle
+            
+            Group {
+                HeaderView(title: "Circle")
+                Circle()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+            }
+            
+            // MARK: - Ellipse
+            
+            Group {
+                HeaderView(title: "Ellipse")
+                Ellipse()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 200)
+            }
+            
+            // MARK: - capsule
+            
+            Group {
+                HeaderView(title: "Capsule")
+                Capsule()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 150)
+
+            }
+            
+            // MARK: - rounded rectangle
+            
+            Group {
+                HeaderView(title: "Rounded Rectangle")
+                RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+            }
+            
+            // MARK: - custom
+            
+            Group {
+                HeaderView(title: "Custom shape")
+                CustomShape()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+            }
+
+            // MARK: - insetable shape
+            
+            Group {
+                HeaderView(title: "Insettable shape")
+                Rectangle()
+                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                     lineCap: CGLineCap.round,
+                                                     lineJoin: CGLineJoin.miter,
+                                                     miterLimit: 2,
+                                                     dash: [1, 2],
+                                                     dashPhase: 4))
+                    .frame(width: 100, height: 100)
+            }
+
+
+        }
+        // end of scroll view
+        .padding()
+        
     }
 }
 
 struct ShapesView_Previews: PreviewProvider {
     static var previews: some View {
         ShapesView()
+    }
+}
+
+struct CustomShape: Shape {
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        let radius = min(rect.midX, rect.midY)
+        
+        path.addArc(
+            center: CGPoint(x: rect.midX, y: rect.midY),
+            radius: radius,
+            startAngle: Angle(degrees: 0),
+            endAngle: Angle(degrees: 180),
+            clockwise: true)
+        
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+        
+        path.closeSubpath()
+        
+        return path
     }
 }
