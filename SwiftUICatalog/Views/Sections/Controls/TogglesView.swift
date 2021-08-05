@@ -38,6 +38,7 @@ struct TogglesView: View {
 
     var body: some View {
         VStack(spacing: 20) {
+            HeaderView(title: "Toggles")
             Toggle(
                 isOn: $isBasicToggleOn,
                 label: {
