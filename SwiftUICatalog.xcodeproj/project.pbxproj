@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184E8FE726BEAA3F00296C8D /* ComposingGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */; };
 		7624F84F269C337D00474E0B /* SwiftUICatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */; };
 		7624F851269C337D00474E0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F850269C337D00474E0B /* ContentView.swift */; };
 		7624F853269C338000474E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7624F852269C338000474E0B /* Assets.xcassets */; };
@@ -57,6 +58,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposingGestureView.swift; sourceTree = "<group>"; };
 		7624F84B269C337D00474E0B /* SwiftUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalogApp.swift; sourceTree = "<group>"; };
 		7624F850269C337D00474E0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				7624F8BA26A45E8100474E0B /* GesturesView.swift */,
+				184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */,
 			);
 			path = Gestures;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 				7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */,
 				7624F8AD26A45C4A00474E0B /* SpacersDividersView.swift in Sources */,
 				7624F86D269C392E00474E0B /* ToolbarsView.swift in Sources */,
+				184E8FE726BEAA3F00296C8D /* ComposingGestureView.swift in Sources */,
 				7624F8B226A45CDF00474E0B /* GraphicContextsView.swift in Sources */,
 				7624F869269C391700474E0B /* PopoversView.swift in Sources */,
 				7624F871269C396600474E0B /* ListsView.swift in Sources */,
