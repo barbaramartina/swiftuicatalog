@@ -47,7 +47,6 @@
 		7624F8AB26A45C1B00474E0B /* TimelineViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8AA26A45C1B00474E0B /* TimelineViews.swift */; };
 		7624F8AD26A45C4A00474E0B /* SpacersDividersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8AC26A45C4A00474E0B /* SpacersDividersView.swift */; };
 		7624F8B026A45CBB00474E0B /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8AF26A45CBB00474E0B /* CanvasView.swift */; };
-		7624F8B226A45CDF00474E0B /* GraphicContextsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8B126A45CDF00474E0B /* GraphicContextsView.swift */; };
 		7624F8B426A45D0600474E0B /* ShapesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8B326A45D0600474E0B /* ShapesView.swift */; };
 		7624F8B626A45D9100474E0B /* AnimationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8B526A45D9100474E0B /* AnimationsView.swift */; };
 		7624F8B826A45DDE00474E0B /* GeometriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8B726A45DDE00474E0B /* GeometriesView.swift */; };
@@ -59,6 +58,7 @@
 		76A45AFE26B6AA3A0075190A /* ButtonBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFD26B6AA3A0075190A /* ButtonBorderModifier.swift */; };
 		76A45B0026B6ABE90075190A /* ButtonRoundedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFF26B6ABE90075190A /* ButtonRoundedModifier.swift */; };
 		76A45B0226B711A50075190A /* RobbieWithPulse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45B0126B711A50075190A /* RobbieWithPulse.swift */; };
+		76CD566526BFE1DE00779C4F /* GraphicContextsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8B126A45CDF00474E0B /* GraphicContextsView.swift */; };
 		76EF639626B69CC7002980A7 /* MotionsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EF639526B69CC7002980A7 /* MotionsAnimation.swift */; };
 /* End PBXBuildFile section */
 
@@ -420,6 +420,7 @@
 				7624F86D269C392E00474E0B /* ToolbarsView.swift in Sources */,
 				184E8FE726BEAA3F00296C8D /* ComposingGestureView.swift in Sources */,
 				76EF639626B69CC7002980A7 /* MotionsAnimation.swift in Sources */,
+				76CD566526BFE1DE00779C4F /* GraphicContextsView.swift in Sources */,
 				7624F869269C391700474E0B /* PopoversView.swift in Sources */,
 				7624F871269C396600474E0B /* ListsView.swift in Sources */,
 				7624F89726A4407500474E0B /* LabelsView.swift in Sources */,
