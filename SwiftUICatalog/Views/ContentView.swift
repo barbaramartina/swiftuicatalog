@@ -173,6 +173,8 @@ struct ContentView: View {
                                 .padding(.bottom, 16)) {
                         Link(destination: GesturesView(),
                              label: "Gestures")
+                        Link(destination: ComposingGesturesView(),
+                             label: "Composing Gestures")
                         
                     }
                     
