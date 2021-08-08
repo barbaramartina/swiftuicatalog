@@ -52,18 +52,22 @@ struct ImagesComponentView: View {
             Group {
                 HeaderView(title: "Images from bundle")
                 // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFit()
                 Text("Corgie scaled to fit")
                 Image("corgie-love")
                     .resizable()
-                    .scaledToFill()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
                 Text("Corgie scaled to fill")
                 Image("corgie-love")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
+                    .frame(width: 200, height: 200)
                 Text("Corgie aspect ratio")
+                Image("corgie-love")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                Text("Corgie and circled overlay")
                 Image("corgie-love")
                     .resizable()
                     .scaledToFit()
@@ -72,8 +76,7 @@ struct ImagesComponentView: View {
                             .opacity(0.5)
                     )
                     .clipShape(Circle())
-                Text("Corgie and circled overlay")
-                Image("corgie-love", label: Text("I'm a lovely and cuddling corgie"))
+                    .frame(width: 200, height: 200)
 
             }
             .padding(5)
@@ -81,19 +84,19 @@ struct ImagesComponentView: View {
             Group {
                 HeaderView(title: "Fitting images ")
                 
+                Text("Corgie fitting in a fixed frame")
                 Image("corgie-love")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 400, alignment: .topLeading)
                     .border(Color.blue)
                     .clipped()
-                Text("Corgie fitting in a fixed frame")
                 
+                Text("Tiled corgie")
                 Image("corgie-love")
                     .resizable(resizingMode: .tile)
                     .frame(width: 370, height: 900, alignment: .topLeading)
                     .border(Color.blue)
-                Text("Tiled corgie")
             }
             .padding(5)
 

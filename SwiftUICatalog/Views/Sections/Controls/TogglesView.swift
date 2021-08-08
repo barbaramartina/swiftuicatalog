@@ -32,8 +32,77 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/toggle
 ///
 struct TogglesView: View {
+    @State var isBasicToggleOn: Bool = true
+    @State var isSwitchToggleOn: Bool = true
+    @State var isCustomToggleOn: Bool = true
+
     var body: some View {
-        Text("Toggles examples")
+        VStack(spacing: 20) {
+            HeaderView(title: "Toggles")
+            Toggle(
+                isOn: $isBasicToggleOn,
+                label: {
+                    Text("Default Toggle Style")
+                }
+            )
+            .toggleStyle(DefaultToggleStyle())
+
+            Toggle(
+                isOn: $isSwitchToggleOn,
+                label: {
+                    Text("Switch Toggle Style")
+                }
+            )
+            .toggleStyle(SwitchToggleStyle(tint: Color.purple))
+
+            Toggle(
+                isOn: $isCustomToggleOn,
+                label: {
+                    Text("Custom Toggle Style")
+                }
+            )
+            .toggleStyle(CustomToggleStyle())
+
+        }
+        .padding()
+    }
+}
+
+struct CustomToggleStyle: ToggleStyle {
+    func makeBody(configuration: ToggleStyle.Configuration) -> some View {
+        HStack {
+            configuration.label
+            Spacer()
+            Button(
+                action: {
+                    configuration.isOn = !configuration.isOn
+                },
+                label: {
+                    Rectangle()
+                        .fill(configuration.isOn ? Color.purple : .blue.opacity(0.5))
+                        .frame(
+                            width: 50,
+                            height: 30
+                        )
+                        .overlay(
+                            Ellipse()
+                                .frame(
+                                    width: 20,
+                                    height: configuration.isOn ? 20 : 5
+                                )
+                                .foregroundColor(.white)
+                                .offset(
+                                    x: configuration.isOn ? 11 : -11,
+                                    y: 0
+                                )
+                                .animation(Animation.linear(duration: 0.1))
+                        )
+                        .cornerRadius(20)
+
+                }
+            )
+            .buttonStyle(PlainButtonStyle())
+        }
     }
 }
 
