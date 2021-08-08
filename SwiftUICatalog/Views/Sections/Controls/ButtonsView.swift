@@ -51,13 +51,13 @@ struct ButtonsComponentsView: View {
             
             // MARK: - basics of buttons
             Group {
-                HeaderView(title: "The basics of buttons")
                 
-                Divider()
+                Group {
+                    Text("Rounded Button")
+                        .fontWeight(.heavy)
+                    Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier")
+                        .fontWeight(.light)
 
-                HStack {
-                    Text("Rounded borders")
-                    Spacer()
                     Button(action: {},
                            label: {
                             Text("Click")
@@ -65,12 +65,15 @@ struct ButtonsComponentsView: View {
                                 .modifier(ButtonRoundedModifier(radius: 10,
                                                                 lineWidth: 5))
                            })
-                    
                 }
-                
-                HStack {
+                .padding()
+
+                Group {
                     Text("Specific Rounded borders with custom shape")
-                    Spacer()
+                        .fontWeight(.heavy)
+                    Text("Sometime we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
+                        .fontWeight(.light)
+
                     Button(action: {},
                            label: {
                             Text("Click")
@@ -83,12 +86,14 @@ struct ButtonsComponentsView: View {
                                         .stroke(Color.accentColor, lineWidth: 5)
                                 )
                            })
-                    
                 }
+                .padding()
 
-                HStack {
+                Group {
                     Text("Stroked borders")
-                    Spacer()
+                        .fontWeight(.heavy)
+                    Text("Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle")
+                        .fontWeight(.light)
                     Button(action: {}) {
                         Text("Click")
                             .modifier(ButtonFontModifier())
@@ -99,11 +104,11 @@ struct ButtonsComponentsView: View {
                             )
                     }
                 }
-                
+                .padding()
             
-                HStack {
+                Group {
                     Text("Button with plan background")
-                    Spacer()
+                        .fontWeight(.heavy)
                     Button(action: {}, label: {
                         Text("Click")
                             .padding()
@@ -111,20 +116,22 @@ struct ButtonsComponentsView: View {
                     })
                     .background(Color.accentColor)
                 }
+                .padding()
 
-                HStack {
+                Group {
                     Text("Button with image")
-                    Spacer()
+                        .fontWeight(.heavy)
                     Button(action: {}, label: {
                         Image(systemName: "person")
                             .padding()
                     })
                     .border(Color.accentColor, width: 5)
                 }
-                
-                HStack {
+                .padding()
+
+                Group {
                     Text("Button with icon & label")
-                    Spacer()
+                        .fontWeight(.heavy)
                     Button(action: {}, label: {
                         Label {
                             Text("Add person")
@@ -136,49 +143,40 @@ struct ButtonsComponentsView: View {
                     })
                     .modifier(ButtonBorderModifier())
                 }
-                
-                HStack {
+                .padding()
+
+                Group {
                     Text("Button with label")
-                    Spacer()
+                        .fontWeight(.heavy)
                     Button(action: {}, label: {
                         Text("Add ")
                             .modifier(ButtonFontModifier())
                     })
                     .modifier(ButtonBorderModifier())
                 }
-            }
-            .padding(.top, 6)
-            .padding(.bottom, 12)
-            .padding(.leading, 16)
-            .padding(.trailing, 24)
-            
-            Divider()
-            
-            // MARK: - styling
-            Group {
-                HeaderView(title: "Styling buttons")
-                
-                HStack {
-                    Text("BorderlessButtonStyle:")
-                    Spacer()
+                .padding()
+
+                // MARK: - styling
+                Group {
+                    Text("BorderlessButtonStyle")
+                        .fontWeight(.heavy)
                     Button("Style me: borderless", action: {})
                         .buttonStyle(BorderlessButtonStyle())
-                }
-                .padding(.bottom, 12)
-
-                HStack {
-                    Text("PlainButtonStyle:")
-                    Spacer()
+                    
+                    
+                    Text("PlainButtonStyle")
+                        .fontWeight(.heavy)
                     Button("Style me: plain", action: {})
                         .buttonStyle(PlainButtonStyle())
                 }
-                .padding(.bottom, 12)
-            }
-            .padding(.leading, 16)
-            .padding(.trailing, 16)
+                .padding()
+                // end of group
 
-            
+            }
+            // end of main group
+      
         }
+        // end of scrollview list
         
     }
 }
