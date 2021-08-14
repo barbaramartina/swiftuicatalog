@@ -38,7 +38,16 @@ import SwiftUI
 
 struct ContainersView: View {
     var body: some View {
-        Text("Form, group, GroupBox & Control Group in SwiftUI")
+        HeaderView(title:"Form, group, GroupBox & Control Group in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

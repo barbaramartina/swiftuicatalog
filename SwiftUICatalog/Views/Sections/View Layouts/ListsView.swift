@@ -42,7 +42,23 @@ struct ListsComponentView: View {
     @State private var singleSelection : UUID?
     
     var body: some View {
+        
         List(selection: $singleSelection){
+             
+            HStack {
+                Spacer()
+                HeaderView(title: "Lists in SwiftUI")
+                Spacer()
+            }
+            // contextual information
+            Group {
+                Text("An example of a list with sections")
+                    .fontWeight(.heavy)
+                Text("Here we show an example of how a list can be configured based of the data coming from a double entry structure (countries and dog's breeds)")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
             ForEach(countries) { c in
                 Section(header: Text("\(c.name)")
                             .font(.title)

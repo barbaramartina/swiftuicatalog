@@ -35,7 +35,16 @@ import SwiftUI
 
 struct TablesView: View {
     var body: some View {
-        Text("Table views in SwiftUI")
+        HeaderView( title: "Table views in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

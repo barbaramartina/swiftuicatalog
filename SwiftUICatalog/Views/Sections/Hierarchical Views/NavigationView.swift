@@ -35,7 +35,16 @@ import SwiftUI
 ///
 struct NavigationBarsComponentView: View {
     var body: some View {
-        Text("Navigation Views in SwiftUI")
+        HeaderView( title: "Navigation Views in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

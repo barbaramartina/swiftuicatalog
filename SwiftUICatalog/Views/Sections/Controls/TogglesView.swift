@@ -37,8 +37,20 @@ struct TogglesView: View {
     @State var isCustomToggleOn: Bool = true
 
     var body: some View {
-        VStack(spacing: 20) {
-            HeaderView(title: "Toggles")
+        VStack() {
+
+            HeaderView(title: "Toggles in SwiftUI")
+
+            
+            // Contextual information: a short intro to the elements we are showcasing
+            Group {
+                Text("Toggles")
+                    .fontWeight(.heavy)
+                Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
             Toggle(
                 isOn: $isBasicToggleOn,
                 label: {
@@ -62,9 +74,10 @@ struct TogglesView: View {
                 }
             )
             .toggleStyle(CustomToggleStyle())
-
+            Spacer()
         }
         .padding()
+      
     }
 }
 

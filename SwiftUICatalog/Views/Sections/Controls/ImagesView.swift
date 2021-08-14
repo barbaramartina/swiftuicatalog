@@ -38,36 +38,53 @@ struct ImagesComponentView: View {
     var body: some View {
         ScrollView {
             
+            HeaderView(title: "Images in SwiftUI")
+
             // MARK: - SF Symbols
+            
+            // Contextual information: a short intro to the elements we are showcasing
             Group {
-                HeaderView(title: "Images with SF Symbols")
+                Text("Images with SF Symbols")
+                    .fontWeight(.heavy)
+                Text("With over 3,100 symbols, SF Symbols is a library designed by Apple. You can find more about SF Symbols in https://developer.apple.com/sf-symbols")
+                    .fontWeight(.light)
                 HStack(alignment: .center, spacing: 20) {
                     Image(systemName: "house.circle")
                     Image(systemName: "square.circle")
                     Image(systemName: "dpad")
                 }
             }
-            .padding(5)
+            .padding()
             
             Group {
-                HeaderView(title: "Images from bundle")
-                // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
+                Text("Images from Bundle")
+                    .fontWeight(.heavy)
+                Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
+                    .fontWeight(.light)
+               // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
                 Text("Corgie scaled to fit")
+                    .fontWeight(.semibold)
                 Image("corgie-love")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
+
                 Text("Corgie scaled to fill")
+                        .fontWeight(.semibold)
                 Image("corgie-love")
                     .resizable()
                     .scaledToFill()
                     .frame(width: 200, height: 200)
+
                 Text("Corgie aspect ratio")
+                        .fontWeight(.semibold)
                 Image("corgie-love")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 200)
+
                 Text("Corgie and circled overlay")
+                    .fontWeight(.semibold)
                 Image("corgie-love")
                     .resizable()
                     .scaledToFit()
@@ -79,12 +96,11 @@ struct ImagesComponentView: View {
                     .frame(width: 200, height: 200)
 
             }
-            .padding(5)
+            .padding()
             
             Group {
-                HeaderView(title: "Fitting images ")
-                
                 Text("Corgie fitting in a fixed frame")
+                    .fontWeight(.semibold)
                 Image("corgie-love")
                     .resizable()
                     .scaledToFit()
@@ -93,17 +109,16 @@ struct ImagesComponentView: View {
                     .clipped()
                 
                 Text("Tiled corgie")
+                    .fontWeight(.semibold)
                 Image("corgie-love")
                     .resizable(resizingMode: .tile)
                     .frame(width: 370, height: 900, alignment: .topLeading)
                     .border(Color.blue)
             }
-            .padding(5)
+            .padding()
 
         }
-        .padding(.top, 12)
-        .padding(.leading, 16)
-        .padding(.trailing, 16)
+      
     }
 }
 
