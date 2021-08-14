@@ -49,9 +49,21 @@ struct LabelsView: View {
     var body: some View {
         
         ScrollView {
+            
+            HeaderView(title: "Labels in SwiftUI")
+
             // MARK: - LABEL TYPE
             Group {
-                HeaderView(title: "Label Types")
+                
+                // Contextual information: a short intro to the elements we are showcasing
+                Group {
+                    Text("Label Types")
+                        .fontWeight(.heavy)
+                    Text("You can create a label in SwiftUI by adding an icon to it, using only a text or conbining text and icons in one label")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
                 VStack {
                     Spacer()
                     HStack {
@@ -125,14 +137,21 @@ struct LabelsView: View {
             // MARK: - LABEL GROUPS
             Group {
                 VStack{
-                    HeaderView(title: "Label groups")
+                    Group {
+                        Text( "Label groups")
+                            .fontWeight(.heavy)
+                        Text("Labels can be grouped in other containers to layout them as a group")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
                     VStack {
                         Label("Rain", systemImage: "cloud.rain")
                         Label("Snow", systemImage: "snow")
                         Label("Sun", systemImage: "sun.max")
                     }
-                    
-                    HeaderView(title: "Label group (Label only)")
+                    .foregroundColor(.accentColor)
+                    .padding()
                     
                     /// To apply a common label style to a group of labels, apply the style
                     /// to the view hierarchy that contains the labels:
@@ -142,21 +161,30 @@ struct LabelsView: View {
                         Label("Sun", systemImage: "sun.max")
                     }
                     .labelStyle(titleOnly)
+                    .padding()
                     
-                    HeaderView(title: "Label group (Icon only)")
+                
                     VStack {
                         Label("", systemImage: "cloud.rain")
                         Label("", systemImage: "snow")
                         Label("", systemImage: "sun.max")
                     }
-                }.padding()
+                    .foregroundColor(.accentColor)
+}
             }
             Spacer()
             
             // MARK: - LABEL WITH CUSTOM VIEWS
             Group{
                 VStack {
-                    HeaderView(title: "Label With Custom Views")
+                    Group {
+                        Text( "Label With Custom Views")
+                            .fontWeight(.heavy)
+                        Text("It's also possible to make labels using views to compose the label's icon")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
                     /// It's also possible to make labels using views to compose the label's icon
                     /// programmatically, rather than using a pre-made image. In this example, the
                     /// icon portion of the label uses a filled ``Circle`` overlaid
@@ -170,17 +198,24 @@ struct LabelsView: View {
                             .foregroundColor(.secondary)
                     } icon: {
                         Circle()
-                            .fill(Color.gray)
+                            .fill(Color.accentColor)
                             .frame(width: 44, height: 44, alignment: .center)
-                            .overlay(Text("A+"))
+                            .overlay(Text("A+").foregroundColor(.white))
                     }
+                    .padding()
                 }
-                .padding()
+              
             }
             
             // MARK: - TRUNCATION AND MULTILINE
             Group {
-                HeaderView(title: "truncations and multiline")
+                Group {
+                    Text("truncations and multiline")
+                        .fontWeight(.heavy)
+                    Text("Similar configuration as there were in UIKit can be applied in SwiftUI to manage truncation and multiline text in a label")
+                        .fontWeight(.light)
+                }
+                .padding()
                 
                 Label(
                     title: { Text("Very long text truncated")
@@ -188,7 +223,7 @@ struct LabelsView: View {
                     },
                     icon: {}
                 )
-                .frame(width: 150, height: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .frame(width: 150, height: 100, alignment: .center)
                 .lineLimit(1)
                 .allowsTightening(false)
                 .truncationMode(.middle)
@@ -204,7 +239,7 @@ struct LabelsView: View {
                 .allowsTightening(true)
                 .truncationMode(.middle)
             }
-            .padding(5)
+       
         }
     }
 }

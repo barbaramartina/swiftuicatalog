@@ -36,7 +36,16 @@ import SwiftUI
 
 struct TextModifiersView: View {
     var body: some View {
-        Text("Examples of all possible text modifiers to be used")
+        HeaderView( title: "Examples of all possible text modifiers to be used")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

@@ -34,7 +34,15 @@ import SwiftUI
 ///
 struct ColorPickersView: View {
     var body: some View {
-        Text("Color Picker in SwiftUI")
+        HeaderView( title:"Color Picker in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
     }
 }
 

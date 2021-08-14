@@ -41,27 +41,68 @@ struct TextsComponentsView: View {
     
     var body: some View {
         ScrollView {
+            
+            HeaderView(title: "TextViews in SwiftUI")
+
+            
             // MARK: - FONTS
             Group {
-                HeaderView(title: "Available fonts")
+                
+                // Contextual information: a short intro to the elements we are showcasing
+                Group {
+                    Text("Available fonts")
+                        .fontWeight(.heavy)
+                    Text("To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined")
+                        .fontWeight(.light)
+                }
+                .padding()
 
                 Spacer()
                 Group {
-                    Text("Title")
-                        .font(.title)
-                    Text("Title 2")
-                        .font(.title2)
-                    Text("Title 3")
-                        .font(.title3)
+                    Group {
+                        Text("Headline")
+                            .font(.headline)
+                        Text("Sub headline")
+                            .font(.subheadline)
+                        Text("Large title")
+                            .font(.largeTitle)
+                        Text("Title")
+                            .font(.title)
+                        Text("Title 2")
+                            .font(.title2)
+                    }
+                    Group {
+                        Text("Title 3")
+                            .font(.title3)
+                        Text("Body")
+                            .font(.body)
+                        Text("Callout")
+                            .font(.callout)
+                        Text("Caption")
+                            .font(.caption)
+                        Text("Caption 2")
+                            .font(.caption2)
+                        Text("Footnote")
+                            .font(.footnote)
+                    }
+
                 }
                 .padding(5)
                 Spacer()
                 Spacer()
 
             }
+            
             // MARK: - FONT WEIGHTS
             Group {
-                HeaderView(title: "Available font weights")
+                
+                Group {
+                    Text("Available font weights")
+                        .fontWeight(.heavy)
+                    Text("Fonts can also be assigned a weight, which will change the appereance of the font")
+                        .fontWeight(.light)
+                }
+                .padding()
 
                 Group {
                     Text("Weight Black")
@@ -88,9 +129,12 @@ struct TextsComponentsView: View {
                 Spacer()
 
             }
+            
             // MARK: - FONTS ITALIC, BOLD
             Group {
-                HeaderView(title: "Text, italic, bold")
+                Text( "Text, italic, bold")
+                    .fontWeight(.heavy)
+                    .padding()
 
                 Group {
                     Text("Italic")
@@ -112,12 +156,13 @@ struct TextsComponentsView: View {
                                 y: 3.0)
 
                 }
-                .padding(5)
-                Spacer()
+              
             }
             // MARK: - TRUNCATION AND MULTILINE
             Group {
-                HeaderView(title: "Text, truncations and multiline")
+                Text( "Text, truncations and multiline")
+                    .fontWeight(.heavy)
+                    .padding()
 
                 Text("Very long text truncated")
                     .frame(width: 150)
@@ -128,10 +173,13 @@ struct TextsComponentsView: View {
                 Text("Multiline text arranged in how many lines as it is needed")
                     .multilineTextAlignment(.center)
             }
-            .padding(5)
+            
+          
             // MARK: - TRANSLATIONS
             Group {
-                HeaderView(title: "Text and translations")
+                Text( "Text and translations")
+                    .fontWeight(.heavy)
+                    .padding()
 
                 Group {
                     // automatically looks in the bundle localised strings file
@@ -139,13 +187,20 @@ struct TextsComponentsView: View {
                     // skip trying to localise the string
                     Text(verbatim: "nottranslated")
                 }
-                .padding(5)
-                Spacer()
+              
             }
+            
             // MARK: - TEXT AND DATES
             Group {
                 Group {
-                    HeaderView(title: "Text and dates")
+                    Group {
+                        Text("Text and dates")
+                            .fontWeight(.heavy)
+                        Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
                     HStack {
                         Text("Text with date:")
                         Spacer()
@@ -178,7 +233,14 @@ struct TextsComponentsView: View {
             // MARK: - text controls
             Group {
                 Group {
-                    HeaderView(title: "Text controls")
+                    
+                    Group {
+                        Text("Text controls")
+                            .fontWeight(.heavy)
+                        Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
+                            .fontWeight(.light)
+                    }
+                    .padding()
 
                     HStack {
                         Text("Text field:")

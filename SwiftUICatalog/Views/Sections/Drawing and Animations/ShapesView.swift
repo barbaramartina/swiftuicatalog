@@ -54,65 +54,64 @@ struct ShapesView: View {
         
         ScrollView {
             
-            // MARK: - rectangle
+            HeaderView(title: "Shapes in SwiftUI")
+            
+            // contextual information
+            Group {
+                Text("Rectangles, circles, ellipse and capsules")
+                    .fontWeight(.heavy)
+                
+                Text("SwiftUI brings some pre-defined shapes like rectabgles and circles. But there is also the chance to define your own shapes by creating a path")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
             
             Group {
-                HeaderView(title: "Rectangle")
+                // MARK: - rectangle
                 Rectangle()
                     .fill(Color.yellow)
                     .frame(width: 100, height: 100)
-            }
-            
-            // MARK: - Circle
-            
-            Group {
-                HeaderView(title: "Circle")
+                // MARK: - Circle
                 Circle()
                     .fill(Color.yellow)
                     .frame(width: 100, height: 100)
-            }
-            
-            // MARK: - Ellipse
-            
-            Group {
-                HeaderView(title: "Ellipse")
-                Ellipse()
-                    .fill(Color.yellow)
-                    .frame(width: 100, height: 200)
-            }
-            
-            // MARK: - capsule
-            
-            Group {
-                HeaderView(title: "Capsule")
-                Capsule()
-                    .fill(Color.yellow)
-                    .frame(width: 100, height: 150)
+                // MARK: - Ellipse
+                    Ellipse()
+                        .fill(Color.yellow)
+                        .frame(width: 100, height: 200)
+                // MARK: - capsule
+                    Capsule()
+                        .fill(Color.yellow)
+                        .frame(width: 100, height: 150)
 
+                // MARK: - rounded rectangle
+                   RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                     .fill(Color.yellow)
+                     .frame(width: 100, height: 100)
+                
             }
-            
-            // MARK: - rounded rectangle
-            
-            Group {
-                HeaderView(title: "Rounded Rectangle")
-                RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                    .fill(Color.yellow)
-                    .frame(width: 100, height: 100)
-            }
+            .padding()
+           
+        
             
             // MARK: - custom
             
             Group {
-                HeaderView(title: "Custom shape")
+                
+                Text("Custom shape")
+                    .fontWeight(.heavy)
                 CustomShape()
                     .fill(Color.yellow)
                     .frame(width: 100, height: 100)
             }
+            .padding()
 
             // MARK: - insetable shape
             
             Group {
-                HeaderView(title: "Insettable shape")
+                Text("Insettable shape")
+                    .fontWeight(.heavy)
                 Rectangle()
                     .strokeBorder(style: StrokeStyle(lineWidth: 5,
                                                      lineCap: CGLineCap.round,
@@ -122,6 +121,7 @@ struct ShapesView: View {
                                                      dashPhase: 4))
                     .frame(width: 100, height: 100)
             }
+            .padding()
 
 
         }

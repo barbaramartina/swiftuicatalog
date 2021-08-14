@@ -55,16 +55,30 @@ struct AnimationsView: View {
         
         NavigationView {
             
+            
             List {
+                
+                HeaderView(title: "Animations in SwiftUI")
+
                 Link(destination:                         RobbieWithPulseView(),
                      label: "Pulse animation")
                 Link(destination: PropertiesAnimationsView(),
                      label: "Properties animations")
                 Link(destination: TransitionsAnimationsView(),
                      label: "Transitions animations")
-                Link(destination: MotionAnimationView(),
+                Link(destination: VStack {
+                    Group {
+                        Text("Circles in motion animation")
+                            .fontWeight(.heavy)
+                        Text("A custom complex animation using geometryr reader to create shapes and make them move and scale around the screen")
+                            .fontWeight(.light)
+                        MotionAnimationView()
+                    }
+                    .padding()
+                } ,
                      label: "Moving circles animations")
             }
+            Spacer()
 
         }
         .navigationTitle("Animations")
@@ -111,15 +125,22 @@ struct PropertiesAnimationsView: View {
 
     var body: some View {
         
-        VStack(alignment: .center) {
-            List {
-                Text( "*Touch on the images")
-                    .font(.footnote)
+            ScrollView {
                 
+                HeaderView(title: "Animating an image in SwiftUI")
                 // MARK: - animating local properties
                 
                 Group {
-                    HeaderView(title: "Animating a toggle on a boolean")
+                    
+                    Group {
+                        Text( "Animating a toggle on a boolean")
+                            .fontWeight(.heavy)
+                        Text("Using a boolean you can play around with different types of animations")
+                            .fontWeight(.light)
+
+                    }
+                    .padding()
+                    
                     Button(action: {
                         withAnimation(.easeInOut(duration: 3)) {
                             self.animate3.toggle()
@@ -144,7 +165,14 @@ struct PropertiesAnimationsView: View {
                 
                 // MARK: - rotation animated
                 Group {
-                    HeaderView(title: "Rotation animated easeIn Out")
+                    Group {
+                        Text( "Rotation animated")
+                            .fontWeight(.heavy)
+                        Text("Using a rotation effect and changing the degrees of the angle you can achieve a different animation")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
                     Button(action: {
                         self.animate1.toggle()
                     }) {
@@ -166,7 +194,15 @@ struct PropertiesAnimationsView: View {
                 
                 // MARK: - Spring rotation
                 Group {
-                    HeaderView(title: "Rotation animation with Spring")
+                    Group {
+                        Text("Rotation animation with Spring")
+                            .fontWeight(.heavy)
+                        Text("A different type of effect is achieved by using a spring animation")
+                            .fontWeight(.light)
+
+                    }
+                    .padding()
+                    
                     Button(action: {
                         self.animate2.toggle()
                     }) {
@@ -189,7 +225,13 @@ struct PropertiesAnimationsView: View {
                 
                 // MARK: - ripple
                 Group {
-                    HeaderView(title: "Ripple animation")
+                    Group {
+                        Text("Ripple animation")
+                            .fontWeight(.heavy)
+                        Text("Here's an example of how to use your custom defined animation to simulate a ripple effect on an image")
+                            .fontWeight(.light)
+                    }
+                    .padding()
                     Button(action: {
                         self.animate4.toggle()
                     }) {
@@ -212,8 +254,6 @@ struct PropertiesAnimationsView: View {
 
             }
             // end of list
-        }
-        // end of v stack
 
     }
     

@@ -55,10 +55,21 @@ struct DatePickersView: View {
 
     var body: some View {
         
-        List {
+        ScrollView {
+            
+            HeaderView(title: "DatePickers in SwiftUI")
+            
             // MARK: - date picker no range limit
             Group {
-                HeaderView(title: "No range limit")
+                
+                Group {
+                    Text( "No range limit")
+                        .fontWeight(.heavy)
+                    Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
                 DatePicker(
                     "Start Date 1",
                     selection: $date1,
@@ -71,8 +82,16 @@ struct DatePickersView: View {
             }
             
             // MARK: - date picker with range limit
+            
             Group {
-                HeaderView(title: "Range limit")
+                Group {
+                    Text("Range limit")
+                        .fontWeight(.heavy)
+                    Text("Ranges can be configured using the in: parameter")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
                 DatePicker(
                     "Start Date 2",
                      selection: $date2,
@@ -83,8 +102,16 @@ struct DatePickersView: View {
             }
             
             // MARK: - date pickers wheels
+            
             Group {
-                HeaderView(title: "Style wheels")
+                Group {
+                    Text( "Style wheels")
+                        .fontWeight(.heavy)
+                    Text("The date picker can adopt different style, here we show the WHEELS style")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
                 DatePicker(
                     "Start Date 3",
                     selection: $date3,
@@ -93,9 +120,17 @@ struct DatePickersView: View {
                 .datePickerStyle(WheelDatePickerStyle())
                 .padding()
             }
+            
             // MARK: - date pickers compact
             Group {
-                HeaderView(title: "Style compact")
+                Group {
+                    Text("Style compact")
+                        .fontWeight(.heavy)
+                    Text("Compact styles make the date picker appear in one line, from which it is expanded")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
                 DatePicker(
                     "Start Date 4",
                     selection: $date4,
@@ -104,9 +139,19 @@ struct DatePickersView: View {
                 .datePickerStyle(CompactDatePickerStyle())
                 .padding()
             }
+            
             // MARK: - date pickers graphical
+            
             Group {
-                HeaderView(title: "Style graphical")
+                
+                Group {
+                    Text("Style graphical")
+                        .fontWeight(.heavy)
+                    Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
                 DatePicker(
                     "Start Date 4",
                     selection: $date4,

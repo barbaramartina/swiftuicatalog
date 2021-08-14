@@ -38,7 +38,16 @@ import SwiftUI
 
 struct GridsView: View {
     var body: some View {
-        Text("Lazy / H & V Grids in SwiftUI")
+        HeaderView( title: "Lazy / H & V Grids in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

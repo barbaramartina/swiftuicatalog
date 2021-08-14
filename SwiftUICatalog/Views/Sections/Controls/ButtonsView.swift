@@ -46,12 +46,15 @@ struct ButtonsComponentsView: View {
     
     
     var body: some View {
+        
         ScrollView {
             
+            HeaderView(title: "Buttons in SwiftUI")
             
             // MARK: - basics of buttons
             Group {
                 
+                // Contextual information: a short intro to the elements we are showcasing
                 Group {
                     Text("Rounded Button")
                         .fontWeight(.heavy)

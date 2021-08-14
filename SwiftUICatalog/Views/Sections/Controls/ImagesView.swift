@@ -38,7 +38,11 @@ struct ImagesComponentView: View {
     var body: some View {
         ScrollView {
             
+            HeaderView(title: "Images in SwiftUI")
+
             // MARK: - SF Symbols
+            
+            // Contextual information: a short intro to the elements we are showcasing
             Group {
                 Text("Images with SF Symbols")
                     .fontWeight(.heavy)
