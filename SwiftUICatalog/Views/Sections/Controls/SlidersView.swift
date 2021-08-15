@@ -47,8 +47,17 @@ struct SlidersView: View {
     
     var body: some View {
 
-        List {
-            HeaderView(title: "Slider with continued values")
+        ScrollView {
+            HeaderView(title: "Sliders in SwiftUI")
+
+            Group {
+                Text( "Slider with continued values")
+                    .fontWeight(.heavy)
+                Text("A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt.")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
             VStack {
                 Slider(
                     value: $grams1,
@@ -64,7 +73,14 @@ struct SlidersView: View {
             .padding(10)
             // end of v stack
             
-            HeaderView(title: "Slider with steps")
+            Group {
+                Text("Slider with steps")
+                    .fontWeight(.heavy)
+                Text("A slider can also be configured with a step value, that will make the choose values jump depending on the size of the step, for example here from 20 to 20 more.")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
             VStack {
                 Slider(
                     value: $grams2,
@@ -81,7 +97,14 @@ struct SlidersView: View {
             .padding(10)
             // end of v stack
             
-            HeaderView(title: "Slider with VoiceOver Label & min / max values")
+            Group {
+                Text( "Slider with VoiceOver Label & min / max values")
+                    .fontWeight(.heavy)
+                Text("A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
             VStack {
                 Slider(value: $grams3,
                        in: 0...1000,

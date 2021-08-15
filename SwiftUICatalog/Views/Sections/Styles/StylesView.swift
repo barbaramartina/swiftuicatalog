@@ -35,7 +35,16 @@ import SwiftUI
 ///
 struct StylesView: View {
     var body: some View {
-        Text("Styling views in SwiftUI")
+        HeaderView( title: "Styling views in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

@@ -48,12 +48,7 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     VStack {
-                        Image("corgie-love")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 200, height: 200)
-                            .overlay(Color.gray.opacity(0.2))
-                            .clipShape(Circle())
+                        RobbieWithPulseView()
                         Text("Robbi, the corgie, is happy with your contributions to the SwiftUI Catalog")
                             .font(.footnote)
                             .fontWeight(.ultraLight)
@@ -178,6 +173,8 @@ struct ContentView: View {
                                 .padding(.bottom, 16)) {
                         Link(destination: GesturesView(),
                              label: "Gestures")
+                        Link(destination: ComposingGesturesView(),
+                             label: "Composing Gestures")
                         
                     }
                     

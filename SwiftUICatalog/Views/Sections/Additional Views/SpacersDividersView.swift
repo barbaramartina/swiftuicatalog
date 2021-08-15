@@ -37,7 +37,16 @@ import SwiftUI
 
 struct SpacersDividersView: View {
     var body: some View {
-        Text("Spacers and dividers in SwiftUI")
+        HeaderView( title:"Spacers and dividers in SwiftUI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

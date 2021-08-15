@@ -38,10 +38,19 @@ struct MenusComponentView: View {
     
     var body: some View {
         ScrollView{
+            
+            HeaderView(title: "Menues in SwiftUI")
+
             Group {
-                HeaderView(title: "Menus")
-                Text("A control for presenting a menu of actions.")
-                    .fontWeight(.regular)
+                
+                // Contextual information: a short intro to the elements we are showcasing
+                Group {
+                    Text( "Menus")
+                        .fontWeight(.heavy)
+                    Text("A control for presenting a menu of actions.")
+                        .fontWeight(.light)
+                }
+                
                 HStack {
                     Text("Menu + Sub-Menu").fontWeight(.light)
                     Spacer()

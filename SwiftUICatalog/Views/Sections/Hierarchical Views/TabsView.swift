@@ -36,7 +36,16 @@ import SwiftUI
 
 struct TabsView: View {
     var body: some View {
-        Text("Tab views in Swift UI")
+        HeaderView( title: "Tab views in Swift UI")
+        
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("title")
+                .fontWeight(.heavy)
+            Text("description of what we show case")
+                .fontWeight(.light)
+        }
+        .padding()
     }
 }
 

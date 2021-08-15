@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Martina Rodeker
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -50,12 +50,111 @@ import SwiftUI
 
 struct ShapesView: View {
     var body: some View {
-        Text("Shape, Rectangle, Circle, Ellipse, Capsule and Path in SwiftUI")
+        
+        
+        ScrollView {
+            
+            HeaderView(title: "Shapes in SwiftUI")
+            
+            // contextual information
+            Group {
+                Text("Rectangles, circles, ellipse and capsules")
+                    .fontWeight(.heavy)
+                
+                Text("SwiftUI brings some pre-defined shapes like rectabgles and circles. But there is also the chance to define your own shapes by creating a path")
+                    .fontWeight(.light)
+            }
+            .padding()
+            
+            
+            Group {
+                // MARK: - rectangle
+                Rectangle()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+                // MARK: - Circle
+                Circle()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+                // MARK: - Ellipse
+                    Ellipse()
+                        .fill(Color.yellow)
+                        .frame(width: 100, height: 200)
+                // MARK: - capsule
+                    Capsule()
+                        .fill(Color.yellow)
+                        .frame(width: 100, height: 150)
+
+                // MARK: - rounded rectangle
+                   RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                     .fill(Color.yellow)
+                     .frame(width: 100, height: 100)
+                
+            }
+            .padding()
+           
+        
+            
+            // MARK: - custom
+            
+            Group {
+                
+                Text("Custom shape")
+                    .fontWeight(.heavy)
+                CustomShape()
+                    .fill(Color.yellow)
+                    .frame(width: 100, height: 100)
+            }
+            .padding()
+
+            // MARK: - insetable shape
+            
+            Group {
+                Text("Insettable shape")
+                    .fontWeight(.heavy)
+                Rectangle()
+                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                     lineCap: CGLineCap.round,
+                                                     lineJoin: CGLineJoin.miter,
+                                                     miterLimit: 2,
+                                                     dash: [1, 2],
+                                                     dashPhase: 4))
+                    .frame(width: 100, height: 100)
+            }
+            .padding()
+
+
+        }
+        // end of scroll view
+        .padding()
+        
     }
 }
 
 struct ShapesView_Previews: PreviewProvider {
     static var previews: some View {
         ShapesView()
+    }
+}
+
+struct CustomShape: Shape {
+    
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        let radius = min(rect.midX, rect.midY)
+        
+        path.addArc(
+            center: CGPoint(x: rect.midX, y: rect.midY),
+            radius: radius,
+            startAngle: Angle(degrees: 0),
+            endAngle: Angle(degrees: 180),
+            clockwise: true)
+        
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
+        
+        path.closeSubpath()
+        
+        return path
     }
 }

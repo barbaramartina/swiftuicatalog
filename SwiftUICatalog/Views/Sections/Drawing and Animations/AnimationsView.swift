@@ -55,16 +55,35 @@ struct AnimationsView: View {
         
         NavigationView {
             
+            
             List {
+                
+                HeaderView(title: "Animations in SwiftUI")
+
+                Link(destination:                         RobbieWithPulseView(),
+                     label: "Pulse animation")
                 Link(destination: PropertiesAnimationsView(),
                      label: "Properties animations")
                 Link(destination: TransitionsAnimationsView(),
                      label: "Transitions animations")
+                Link(destination: VStack {
+                    Group {
+                        Text("Circles in motion animation")
+                            .fontWeight(.heavy)
+                        Text("A custom complex animation using geometryr reader to create shapes and make them move and scale around the screen")
+                            .fontWeight(.light)
+                        MotionAnimationView()
+                    }
+                    .padding()
+                } ,
+                     label: "Moving circles animations")
             }
+            Spacer()
 
         }
         .navigationTitle("Animations")
         .padding(.top, 24)
+        .background(Color.white)
 
     }
 }
@@ -106,18 +125,22 @@ struct PropertiesAnimationsView: View {
 
     var body: some View {
         
-        VStack(alignment: .center) {
-            List {
-                Text( "*Touch on the images")
-                    .font(.footnote)
+            ScrollView {
                 
+                HeaderView(title: "Animating an image in SwiftUI")
                 // MARK: - animating local properties
                 
                 Group {
-                    HeaderView(title: "Animating a toggle on a boolean")
-                    Text("This is how you animate changes in the properties of your views")
-                        .font(.footnote)
-                        .lineLimit(2)
+                    
+                    Group {
+                        Text( "Animating a toggle on a boolean")
+                            .fontWeight(.heavy)
+                        Text("Using a boolean you can play around with different types of animations")
+                            .fontWeight(.light)
+
+                    }
+                    .padding()
+                    
                     Button(action: {
                         withAnimation(.easeInOut(duration: 3)) {
                             self.animate3.toggle()
@@ -142,10 +165,14 @@ struct PropertiesAnimationsView: View {
                 
                 // MARK: - rotation animated
                 Group {
-                    HeaderView(title: "Rotation animated easeIn Out")
-                    Text( "This is how you  apply animations to an image view on the transition from 1.0 scale to 1.2 and from 0 degrees to 90 degress")
-                        .font(.footnote)
-                        .lineLimit(3)
+                    Group {
+                        Text( "Rotation animated")
+                            .fontWeight(.heavy)
+                        Text("Using a rotation effect and changing the degrees of the angle you can achieve a different animation")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
                     Button(action: {
                         self.animate1.toggle()
                     }) {
@@ -167,7 +194,15 @@ struct PropertiesAnimationsView: View {
                 
                 // MARK: - Spring rotation
                 Group {
-                    HeaderView(title: "Rotation animation with Spring")
+                    Group {
+                        Text("Rotation animation with Spring")
+                            .fontWeight(.heavy)
+                        Text("A different type of effect is achieved by using a spring animation")
+                            .fontWeight(.light)
+
+                    }
+                    .padding()
+                    
                     Button(action: {
                         self.animate2.toggle()
                     }) {
@@ -190,7 +225,13 @@ struct PropertiesAnimationsView: View {
                 
                 // MARK: - ripple
                 Group {
-                    HeaderView(title: "Ripple animation")
+                    Group {
+                        Text("Ripple animation")
+                            .fontWeight(.heavy)
+                        Text("Here's an example of how to use your custom defined animation to simulate a ripple effect on an image")
+                            .fontWeight(.light)
+                    }
+                    .padding()
                     Button(action: {
                         self.animate4.toggle()
                     }) {
@@ -213,8 +254,6 @@ struct PropertiesAnimationsView: View {
 
             }
             // end of list
-        }
-        // end of v stack
 
     }
     
@@ -236,41 +275,53 @@ struct TransitionsAnimationsView: View {
 
     var body: some View {
         
-        Button(action: {
-            withAnimation {
-                self.animate1.toggle()
-                self.animate2 = false
-                self.animate3 = false
-            }
-        }, label: {
-            Text("Slide in & out")
-        })
-        .padding()
-        .border(Color.black, width: 1)
+        if self.animate2 == false && self.animate3 == false {
+            Button(action: {
+                withAnimation {
+                    self.animate1.toggle()
+                }
+            }, label: {
+                Text("Slide in & out")
+                    .modifier(ButtonFontModifier())
 
-        Button(action: {
-            withAnimation {
-                self.animate2.toggle()
-                self.animate1 = false
-                self.animate3 = false
-            }
-        }, label: {
-            Text("Transition with opacity")
-        })
-        .padding()
-        .border(Color.black, width: 1)
+            })
+            .padding()
+            .modifier(ButtonRoundedModifier(radius: 10,
+                                            lineWidth: 5))
 
-        Button(action: {
-            withAnimation {
-                self.animate3.toggle()
-                self.animate2 = false
-                self.animate1 = false
-            }
-        }, label: {
-            Text("Transition moving and fading")
-        })
-        .padding()
-        .border(Color.black, width: 1)
+        }
+
+        if self.animate1 == false && self.animate3 == false {
+            Button(action: {
+                withAnimation {
+                    self.animate2.toggle()
+                }
+            }, label: {
+                Text("Transition with opacity")
+                    .modifier(ButtonFontModifier())
+
+            })
+            .padding()
+            .modifier(ButtonRoundedModifier(radius: 10,
+                                            lineWidth: 5))
+
+        }
+
+        if self.animate1 == false && self.animate2 == false {
+            Button(action: {
+                withAnimation {
+                    self.animate3.toggle()
+                }
+            }, label: {
+                Text("Transition moving and fading")
+                    .modifier(ButtonFontModifier())
+
+            })
+            .padding()
+            .modifier(ButtonRoundedModifier(radius: 10,
+                                            lineWidth: 5))
+
+        }
 
         if animate1 {
             Image("corgie-love")
