@@ -34,7 +34,9 @@ import SwiftUI
 ///
 struct ColorPickersView: View {
     
-    @State private var bgColor =
+    @State private var bgColor1 =
+        Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+    @State private var bgColor2 =
         Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     
     var body: some View {
@@ -46,7 +48,7 @@ struct ColorPickersView: View {
                     Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
                         .padding()
                     ColorPicker("Alignment Guides",
-                                selection: $bgColor)
+                                selection: $bgColor1)
                     HStack{
                         Text("with opacity")
                             .fontWeight(.ultraLight)
@@ -54,7 +56,7 @@ struct ColorPickersView: View {
                     }
                     Spacer(minLength: 40)
                     ColorPicker("Alignment Guides",
-                                selection: $bgColor,
+                                selection: $bgColor2,
                                 supportsOpacity: false)
                     HStack{
                         Text("without opacity")
