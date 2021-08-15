@@ -34,18 +34,78 @@ import SwiftUI
 ///
 
 struct ProgressViews: View {
+    
+    @State private var progress = 0.5
+    
+    @State private var loadAmount = 0.0
+    let timer = Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         
-        HeaderView(title: "ProgressView in SwiftUI")
-        
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        ScrollView {
+            HeaderView(title: "ProgressView in SwiftUI")
+            Group {
+                VStack {
+                    Text("Use a progress view to show that a task is making progress towards completion. A progress view can show both determinate (percentage complete) and indeterminate (progressing or not) types of progress.")
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Spacer(minLength: 20)
+                    Text("Create a determinate progress view by initializing a ProgressView with a binding to a numeric value that indicates the progress, and a total value that represents completion of the task. By default, the progress is 0.0 and the total is 1.0.")
+                        .multilineTextAlignment(.leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding()
+                    
+                    Spacer(minLength: 10)
+                    
+                    Text("Progress Views")
+                    VStack {
+                        ProgressView(value: progress)
+                        Button("More", action: { progress += 0.05 })
+                    }
+                    Spacer(minLength: 40)
+                    
+                    Text("Styling Progress Views")
+                    /**
+                     Styling Progress Views
+                     
+                     You can customize the appearance and interaction of progress views by creating styles that conform to the ProgressViewStyle protocol. To set a specific style for all progress view instances within a view, use the progressViewStyle(_:) modifier.
+                     */
+                    VStack {
+                        ProgressView(value: 0.25)
+                        ProgressView(value: 0.75)
+                    }
+                    .progressViewStyle(DarkBlueShadowProgressViewStyle())
+                    Spacer(minLength: 40)
+                }
+                .padding()
+                VStack {
+                    Text("Styling Progress View + Timer")
+                    VStack {
+                        ProgressView("Loading…", value: loadAmount, total: 100.0)
+                    }
+                    .progressViewStyle(DarkBlueShadowProgressViewStyle())
+                    .onReceive(timer) { _ in
+                        if loadAmount < 100.0 {
+                            loadAmount += 1.0
+                        }
+                    }
+                }
+                .padding()
+            }
         }
-        .padding()
+    }
+}
+
+/**
+ Styling Progress Views
+ 
+ In the following example, a custom style adds a dark blue shadow to all progress views within the enclosing VStack:
+ */
+struct DarkBlueShadowProgressViewStyle: ProgressViewStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        ProgressView(configuration)
+            .shadow(color: Color(red: 0, green: 0, blue: 0.6),
+                    radius: 4.0, x: 1.0, y: 2.0)
     }
 }
 
