@@ -33,15 +33,37 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/colorpicker
 ///
 struct ColorPickersView: View {
+    
+    @State private var bgColor =
+        Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+    
     var body: some View {
-        HeaderView( title:"Color Picker in SwiftUI")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        ScrollView{
+            Group {
+                VStack {
+                    HeaderView( title:"Color Picker in SwiftUI")
+                    Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
+                        .padding()
+                    ColorPicker("Alignment Guides",
+                                selection: $bgColor)
+                    HStack{
+                        Text("with opacity")
+                            .fontWeight(.ultraLight)
+                        Spacer()
+                    }
+                    Spacer(minLength: 40)
+                    ColorPicker("Alignment Guides",
+                                selection: $bgColor,
+                                supportsOpacity: false)
+                    HStack{
+                        Text("without opacity")
+                            .fontWeight(.ultraLight)
+                        Spacer()
+                    }
+                }
+            }
+            .padding()
         }
     }
 }
