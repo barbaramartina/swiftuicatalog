@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Martina Rodeker
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -34,18 +34,83 @@ import SwiftUI
 ///
 
 struct ProgressViews: View {
+    
+    @State private var progress = 0.0
+    let timer = Timer.publish(every: 0.5,
+                              on: .main,
+                              in: .common).autoconnect()
+    
+    
     var body: some View {
         
-        HeaderView(title: "ProgressView in SwiftUI")
-        
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        ScrollView {
+            
+            HeaderView(title: "ProgressView in SwiftUI")
+            
+            // Contextual information: a short intro to the elements we are showcasing
+            Group {
+                
+                Group {
+               
+                    Text("Are used to indicate steps in a tasks or to show the user feedback while waiting. The first example is a linear progress view with text")
+                        .fontWeight(.light)
+                    
+                    ProgressView("Downloading…", value: progress,
+                                 
+                                 total: 100)
+                    
+                    Text("Simple progress views, with an spinner can be configured when no value are passed as parameter")
+                        .fontWeight(.light)
+                    
+                    ProgressView()
+                    
+                    Text("A spinner can also be shown with a text associated")
+                        .fontWeight(.light)
+                    
+                    ProgressView("Downloading")
+                       
+                    ProgressView("Please wait...")
+                        .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                }
+                
+                Text("The color of the spinner can be chosen with a tint color")
+                    .fontWeight(.light)
+                
+                ProgressView("Please wait...", value: progress,
+                             
+                             total: 100)
+                    .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
+                    .foregroundColor(.yellow)
+                
+                Text("Also any view can be included inside the progress view, such as in this case, a button")
+                    .fontWeight(.light)
+                
+                ProgressView {
+                    Button(action: {
+                        // to do: your cancellation logic
+                    }) {
+                        Text("Cancel download")
+                            .fontWeight(.heavy)
+                            .foregroundColor(.accentColor)
+                    }
+                    .padding()
+                    .background(Color.yellow)
+                    .cornerRadius(5)
+                }
+                
+                
+                
+            }
+            .padding()
+            
         }
-        .padding()
+        // end scroll view
+        .onReceive(timer) { _ in
+            if progress < 100 {
+                progress += 2
+            }
+        }
+        
     }
 }
 
