@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Ali Ghayeni H
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -37,17 +37,103 @@ import SwiftUI
 ///
 
 struct GridsView: View {
+    
+    var rows: [GridItem] =
+        Array(repeating: .init(.fixed(20)), count: 2)
+    var columns: [GridItem] =
+        Array(repeating: .init(.flexible()), count: 2)
+    @Environment(\.openURL) var openURL
+    
     var body: some View {
-        HeaderView( title: "Lazy / H & V Grids in SwiftUI")
-        
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        Group{
+            ScrollView {
+                VStack {
+                    HStack {
+                        Spacer()
+                        HeaderView(title: "Lazy / H & V Grids in SwiftUI")
+                        Spacer()
+                    }
+                    // MARK: - Grid Item
+                    Group {
+                        Text("Grid Item")
+                            .fontWeight(.light)
+                        Text("A description of a single grid item, such as a row or a column.")
+                            .fontWeight(.light)
+                        Text("You use GridItem instances to configure the layout of items in LazyHGrid and LazyVGrid views. Each grid item specifies layout properties like spacing and alignment, which the grid view uses to size and position all items in a given column or row.")
+                            .fontWeight(.light)
+                        Text("The grid is “lazy,” in that the grid view does not create items until they are needed.")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
+                    // MARK: - Lazy Horizontal Grid
+                    Group {
+                        Text("Lazy Horizontal Grid")
+                            .fontWeight(.light)
+                        Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
+                    ScrollView(.horizontal) {
+                        LazyHGrid(rows: rows, alignment: .top) {
+                            ForEach((0...79), id: \.self) {
+                                let codepoint = $0 + 0x1f600
+                                let codepointString = String(format: "%02X", codepoint)
+                                Text("\(codepointString)")
+                                    .font(.footnote)
+                                let emoji = String(Character(UnicodeScalar(codepoint)!))
+                                Text("\(emoji)")
+                                    .font(.largeTitle)
+                            }
+                        }
+                        .frame(width: 100, height: 100, alignment: .center)
+                    }
+                    .padding(.leading, 20)
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            openURL(URL(string: "https://developer.apple.com/documentation/swiftui/lazyhgrid")!)
+                        }, label: {
+                            Text("the LazyHGrid Doc!")
+                        })
+                    }
+                    .padding(.trailing, 10)
+                    
+                    // MARK: - Lazy Vertical Grid
+                    Group {
+                        Text("Lazy Vertical Grid")
+                            .fontWeight(.light)
+                        Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
+                            .fontWeight(.light)
+                    }
+                    .padding()
+                    
+                    ScrollView {
+                        LazyVGrid(columns: columns) {
+                            ForEach((0...79), id: \.self) {
+                                let codepoint = $0 + 0x1f600
+                                let codepointString = String(format: "%02X", codepoint)
+                                Text("\(codepointString)")
+                                let emoji = String(Character(UnicodeScalar(codepoint)!))
+                                Text("\(emoji)")
+                            }
+                        }
+                    }
+                    .frame(width: 300, height: 150, alignment: .center)
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            openURL(URL(string: "https://developer.apple.com/documentation/swiftui/lazyvgrid")!)
+                        }, label: {
+                            Text("the LazyVGrid Doc!")
+                        })
+                    }
+                    .padding(.trailing, 10)
+                }
+            }
         }
-        .padding()
+        
     }
 }
 
