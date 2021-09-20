@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Martina 
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -37,17 +37,72 @@ import SwiftUI
 ///
 
 struct ContainersView: View {
+    
+    @State var toggleOn: Bool = true
+    
     var body: some View {
-        HeaderView(title:"Form, group, GroupBox & Control Group in SwiftUI")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        ScrollView {
+            VStack {
+                
+                HeaderView(title:"Form, group, GroupBox & Control Group in SwiftUI")
+                
+                // Contextual information: a short intro to the elements we are showcasing
+                Group {
+                    Text("View containers")
+                        .fontWeight(.heavy)
+                    Text("Some controls in SwiftUI allows grouping of other views, for example the Form component allows to group other views together and platform specific styling is then applied to all the contained views")
+                        .fontWeight(.light)
+                    
+                }.padding()
+                
+                Form {
+                    Section(header: Text("Section 1")) {
+                        Toggle(
+                            isOn: $toggleOn,
+                            label: {
+                                Text("Option 1")
+                            }
+                            
+                        )
+                        Toggle(
+                            isOn: $toggleOn,
+                            label: {
+                                Text("Option 2")
+                            }
+                        )
+                    }
+                    Section(header: Text("Section 2")) {
+                        Button("Action 1") {}
+                    }
+                }
+                .frame(height: 250)
+                
+                
+                Text("Similarly, GroupBox is used for distinguishing a set of views in the screen (in an alert type box)")
+                    .fontWeight(.light)
+                
+                GroupBox(label:
+                            Label("Terms and conditions", systemImage: "building.columns").padding(),
+                         content: {
+                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tempor erat, non semper lorem. Suspendisse ac dui posuere, egestas elit ac, viverra mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam bibendum mattis libero, ac porta magna blandit et. Vivamus vel elementum sapien. Proin ut orci vitae eros lobortis facilisis nec id leo. Ut vestibulum mauris nulla, eget efficitur risus facilisis euismod. Fusce arcu libero, mollis non volutpat vitae, interdum vitae odio. Suspendisse in quam egestas, rutrum massa vitae, consectetur enim.")
+                            HStack {
+                                Spacer()
+                                Button(action: {},
+                                       label: {
+                                        Text("Accept")
+                                       })
+                                    .foregroundColor(.accentColor)
+                            }
+                         }
+                )
+                .padding()
+                
+            }
+            .padding()
+            
         }
-        .padding()
+        
     }
 }
 
