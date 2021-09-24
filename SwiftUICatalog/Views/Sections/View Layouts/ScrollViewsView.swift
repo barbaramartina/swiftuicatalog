@@ -36,17 +36,91 @@ import SwiftUI
 ///
 
 struct ScrollViewsView: View {
+    
+    @Namespace var topID
+    @Namespace var bottomID
+    
     var body: some View {
-        HeaderView( title: "Scroll views in SwiftUI")
-        
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
+        ScrollView {
+            HeaderView( title: "Scroll views in SwiftUI")
+            // MARK: -Vertical Scroll View
+            Group {
+                Text("ScrollView")
+                    .fontWeight(.heavy)
+                Text("The scroll view displays its content within the scrollable content region. As the user performs platform-appropriate scroll gestures, the scroll view adjusts what portion of the underlying content is visible. ScrollView can scroll horizontally, vertically, or both, but does not provide zooming functionality.")
+                    .fontWeight(.light)
+            }
+            .padding()
+            Text("Vertical ScrollView")
                 .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+            ScrollView {
+                VStack(spacing: 20) {
+                    ForEach(0..<20) {
+                        Text("Cell \($0)")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .frame(width: 200, height: 200)
+                            .background(Color.blue)
+                    }
+                }
+            }
+            .frame(height: 350)
+            // MARK: -Horizontal Scroll View
+            Text("Horizontal ScrollView")
+                .fontWeight(.heavy)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 20) {
+                    ForEach(0..<20) {
+                        Text("Cell \($0)")
+                            .foregroundColor(.white)
+                            .font(.largeTitle)
+                            .frame(width: 200, height: 200)
+                            .background(Color.gray)
+                    }
+                }
+            }
+            // MARK: -Scroll View Reader
+            Group {
+                Text("ScrollViewReader + ScrollViewProxy")
+                    .fontWeight(.heavy)
+                Text("A view that provides programmatic scrolling, by working with a proxy to scroll to known child views.")
+                    .fontWeight(.light)
+                Text("The following example creates a ScrollView containing 100 views that together display a color gradient. It also contains two buttons, one each at the top and bottom. The top button tells the ScrollViewProxy to scroll to the bottom button, and vice versa.")
+                    .fontWeight(.light)
+                Text("A proxy value that supports programmatic scrolling of the scrollable views within a view hierarchy.")
+                    .fontWeight(.light)
+            }
+            .padding()
+            ScrollViewReader { proxy in
+                ScrollView {
+                    Button("Scroll to Bottom") {
+                        withAnimation {
+                            proxy.scrollTo(bottomID)
+                        }
+                    }
+                    .id(topID)
+                    
+                    VStack(spacing: 0) {
+                        ForEach(0..<100) { i in
+                            color(fraction: Double(i) / 100)
+                                .frame(height: 32)
+                        }
+                    }
+                    
+                    Button("Top") {
+                        withAnimation {
+                            proxy.scrollTo(topID)
+                        }
+                    }
+                    .id(bottomID)
+                }
+            }
+            .frame(height: 350)
         }
-        .padding()
+    }
+    
+    func color(fraction: Double) -> Color {
+        Color(red: fraction, green: 1 - fraction, blue: 0.5)
     }
 }
 
