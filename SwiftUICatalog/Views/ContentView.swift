@@ -118,8 +118,6 @@ struct ContentView: View {
                              label: "Containers")
                         Link(destination: ScrollViewsView(),
                              label: "Scrollviews")
-                        Link(destination: TablesView(),
-                             label: "Tables")
                     }
                     // end of Group View Layouts
                     

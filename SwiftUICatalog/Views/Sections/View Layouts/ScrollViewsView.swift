@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Martina
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,17 +36,51 @@ import SwiftUI
 ///
 
 struct ScrollViewsView: View {
+
+    @State private var topButtonId: String = "top-button"
+    @State private var bottomButtonId: String = "bottom-button"
+
     var body: some View {
-        HeaderView( title: "Scroll views in SwiftUI")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        ScrollViewReader { proxy in
+            
+            ScrollView {
+                
+                // Contextual information: a short intro to the elements we are showcasing
+                Group {
+                    Text("Scrollviews in SwiftUI")
+                        .fontWeight(.heavy)
+                    Text("Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views")
+                        .fontWeight(.light)
+                }
+                .padding()
+
+                
+                Button("Scroll to Bottom") {
+                    withAnimation {
+                        proxy.scrollTo(bottomButtonId)
+                    }
+                }
+                .padding()
+                .id(topButtonId)
+
+                VStack(spacing: 0) {
+                    ForEach(0..<100) { i in
+                        Text("Row \(i)")
+                            .multilineTextAlignment(.leading)
+                    }
+                }
+
+                Button("Back to Top") {
+                    withAnimation {
+                        proxy.scrollTo(topButtonId)
+                    }
+                }
+                .padding()
+                .id(bottomButtonId)
+            }
         }
-        .padding()
+        
     }
 }
 
