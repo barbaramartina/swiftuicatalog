@@ -40,7 +40,6 @@
 		7624F89D26A45A1D00474E0B /* GridsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F89C26A45A1D00474E0B /* GridsView.swift */; };
 		7624F89F26A45A6800474E0B /* ContainersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F89E26A45A6800474E0B /* ContainersView.swift */; };
 		7624F8A126A45AB900474E0B /* ScrollViewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8A026A45AB900474E0B /* ScrollViewsView.swift */; };
-		7624F8A326A45AF000474E0B /* TablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8A226A45AF000474E0B /* TablesView.swift */; };
 		7624F8A526A45B7C00474E0B /* OutlinesGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8A426A45B7C00474E0B /* OutlinesGroupsView.swift */; };
 		7624F8A726A45B9D00474E0B /* DisclosureGroupsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8A626A45B9D00474E0B /* DisclosureGroupsView.swift */; };
 		7624F8A926A45BD100474E0B /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8A826A45BD100474E0B /* TabsView.swift */; };
@@ -98,7 +97,6 @@
 		7624F89C26A45A1D00474E0B /* GridsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridsView.swift; sourceTree = "<group>"; };
 		7624F89E26A45A6800474E0B /* ContainersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersView.swift; sourceTree = "<group>"; };
 		7624F8A026A45AB900474E0B /* ScrollViewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewsView.swift; sourceTree = "<group>"; };
-		7624F8A226A45AF000474E0B /* TablesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TablesView.swift; sourceTree = "<group>"; };
 		7624F8A426A45B7C00474E0B /* OutlinesGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinesGroupsView.swift; sourceTree = "<group>"; };
 		7624F8A626A45B9D00474E0B /* DisclosureGroupsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureGroupsView.swift; sourceTree = "<group>"; };
 		7624F8A826A45BD100474E0B /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 				7624F89C26A45A1D00474E0B /* GridsView.swift */,
 				7624F89E26A45A6800474E0B /* ContainersView.swift */,
 				7624F8A026A45AB900474E0B /* ScrollViewsView.swift */,
-				7624F8A226A45AF000474E0B /* TablesView.swift */,
 			);
 			path = "View Layouts";
 			sourceTree = "<group>";
@@ -411,7 +408,6 @@
 				7624F89526A4402E00474E0B /* ColorPickersView.swift in Sources */,
 				7624F8A726A45B9D00474E0B /* DisclosureGroupsView.swift in Sources */,
 				7624F87F26A439D900474E0B /* LinkView.swift in Sources */,
-				7624F8A326A45AF000474E0B /* TablesView.swift in Sources */,
 				7624F865269C38ED00474E0B /* AlertsView.swift in Sources */,
 				7624F89126A43F7D00474E0B /* PickersView.swift in Sources */,
 				7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */,
