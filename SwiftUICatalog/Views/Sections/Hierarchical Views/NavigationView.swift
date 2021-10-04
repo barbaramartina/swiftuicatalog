@@ -34,17 +34,40 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/navigationlink
 ///
 struct NavigationBarsComponentView: View {
+    
+    struct Reminder {
+        let title: String
+        let text: String
+    }
+    
+    @State var reminders: [Reminder] = [
+        Reminder(title: "2021-10-21", text: "Pick up John from school"),
+        Reminder(title: "Coffee", text: "we are running out of coffee"),
+        Reminder(title: "Washing machine", text: "Call the handy man, the machine broke"),
+        Reminder(title: "Hairdresser", text: "Johninstrasse 14, 09:00")
+    ]
+    
     var body: some View {
-        HeaderView( title: "Navigation Views in SwiftUI")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        NavigationView {
+            
+            List {
+                NavigationLink(reminders[0].title,
+                               destination: Text(reminders[0].text))
+                NavigationLink(reminders[1].title,
+                               destination: Text(reminders[1].text))
+                NavigationLink(reminders[2].title,
+                               destination: Text(reminders[2].text))
+                NavigationLink(reminders[3].title,
+                               destination: Text(reminders[3].text))
+            }
+            .navigationTitle("Reminders")
+            // adjusting the navigation view style with these options: https://developer.apple.com/documentation/swiftui/navigationviewstyle
+            .navigationViewStyle(DoubleColumnNavigationViewStyle())
+            // end of list
+            
         }
-        .padding()
+        // end of navigation view
     }
 }
 
