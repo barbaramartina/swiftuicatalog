@@ -42,6 +42,16 @@ struct ButtonsComponentsView: View {
     
     @State private var pastedText: String = ""
     
+    /// configuration of the first button: background color
+    @State private var color: Color = Color.clear
+    /// configuration of the first button: border color
+    @State private var colorBorder: Color = Color.accentColor
+    /// configuration of the first button: border width
+    @State private var borderWidth: Double = 1
+    /// configuration of the first button: custom font
+    @State private var font: UIFont = UIFont.preferredFont(forTextStyle: .body)
+
+    
     // MARK: - Body
     
     
@@ -64,10 +74,33 @@ struct ButtonsComponentsView: View {
                     Button(action: {},
                            label: {
                             Text("Click")
-                                .modifier(ButtonFontModifier())
+                                .modifier(ButtonFontModifier(font: Font(font)))
                                 .modifier(ButtonRoundedModifier(radius: 10,
-                                                                lineWidth: 5))
+                                                                lineWidth: CGFloat(borderWidth),
+                                                                color: colorBorder))
                            })
+                        .background(color)
+                    
+                    ColorPicker("Background color:",
+                                selection: $color,
+                                supportsOpacity: false)
+
+                    ColorPicker("Border color:",
+                                selection: $colorBorder,
+                                supportsOpacity: false)
+
+                    HStack {
+                        Text("Border width:")
+                            .fontWeight(.light)
+
+                        Slider(
+                            value: $borderWidth,
+                            in: 0...10,
+                            step: 1,
+                            onEditingChanged: {_ in }
+                        )
+
+                    }
                 }
                 .padding()
 

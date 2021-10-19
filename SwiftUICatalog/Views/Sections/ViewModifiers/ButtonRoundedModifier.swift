@@ -11,12 +11,13 @@ struct ButtonRoundedModifier: ViewModifier {
     
     var radius: CGFloat
     var lineWidth: CGFloat
+    var color: Color = Color.accentColor
     
     func body(content: Content) -> some View {
         content
             .overlay(
                 RoundedRectangle(cornerRadius: radius)
-                    .stroke(Color.accentColor,
+                    .stroke(color,
                             lineWidth: lineWidth)
             )
         

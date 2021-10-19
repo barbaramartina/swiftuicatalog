@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ButtonFontModifier: ViewModifier {
     
-    private let font = Font.system(.title).weight(.bold)
+    var font = Font.system(.title).weight(.bold)
 
     func body(content: Content) -> some View {
         content
