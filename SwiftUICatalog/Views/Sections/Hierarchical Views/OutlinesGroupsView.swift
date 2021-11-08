@@ -69,10 +69,8 @@ struct OutlinesGroupsView: View {
     
     var body: some View {
         ScrollView {
-            // Contextual information: a short intro to the elements we are showcasing
             Group {
-                Text("Outlines Group Views")
-                    .fontWeight(.heavy)
+                HeaderView( title: "Outlines Group Views")
                 Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
                     .fontWeight(.light)
             }
@@ -85,6 +83,7 @@ struct OutlinesGroupsView: View {
             .padding()
             
             Group {
+                // MARK: - Outline Group in SwiftUI
                 OutlineGroup(data, children: \.children) { item in
                     Text("\(item.description)")}
             }
