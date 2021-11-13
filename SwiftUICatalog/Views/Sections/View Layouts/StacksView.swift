@@ -41,7 +41,7 @@ import SwiftUI
 struct StacksView: View {
     
     let colors: [Color] =
-        [ .yellow, .green, .blue, .purple]
+        [ Color("secondary"), .green, .blue, .purple]
     
     var body: some View {
         ScrollView () {

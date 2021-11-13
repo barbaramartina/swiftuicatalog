@@ -57,7 +57,7 @@ struct PickersView: View {
                             .font(.subheadline)
                             .tag(Flavor.star)
                     }
-                    .background(Color.yellow)
+                    .background(Color("secondary"))
                 }
             }
             Group {

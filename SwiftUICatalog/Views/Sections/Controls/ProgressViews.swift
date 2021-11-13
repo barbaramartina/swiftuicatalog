@@ -80,7 +80,7 @@ struct ProgressViews: View {
                              
                              total: 100)
                     .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
-                    .foregroundColor(.yellow)
+                    .foregroundColor(Color("secondary"))
                 
                 Text("Also any view can be included inside the progress view, such as in this case, a button")
                     .fontWeight(.light)
@@ -94,7 +94,7 @@ struct ProgressViews: View {
                             .foregroundColor(.accentColor)
                     }
                     .padding()
-                    .background(Color.yellow)
+                    .background(Color("secondary"))
                     .cornerRadius(5)
                 }
                 

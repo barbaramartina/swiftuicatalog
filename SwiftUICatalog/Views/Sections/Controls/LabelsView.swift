@@ -142,6 +142,7 @@ struct LabelsView: View {
                             .fontWeight(.heavy)
                         Text("Labels can be grouped in other containers to layout them as a group")
                             .fontWeight(.light)
+                        
                     }
                     .padding()
                     
@@ -195,7 +196,7 @@ struct LabelsView: View {
                             .foregroundColor(.primary)
                         Text("Lightning SubHeadline")
                             .font(.subheadline)
-                            .foregroundColor(.secondary)
+                            .foregroundColor(Color("secondary"))
                     } icon: {
                         Circle()
                             .fill(Color.accentColor)
