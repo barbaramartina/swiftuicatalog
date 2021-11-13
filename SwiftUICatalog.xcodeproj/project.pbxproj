@@ -55,6 +55,7 @@
 		7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */; };
 		768F61D327404D29005E070E /* ContributionWantedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D227404D29005E070E /* ContributionWantedView.swift */; };
 		768F61D5274054D2005E070E /* ContributedByView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D4274054D2005E070E /* ContributedByView.swift */; };
+		768F61D727405C8F005E070E /* DocumentationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D627405C8F005E070E /* DocumentationLinkView.swift */; };
 		76A45AFC26B6A6FF0075190A /* ButtonFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFB26B6A6FF0075190A /* ButtonFontModifier.swift */; };
 		76A45AFE26B6AA3A0075190A /* ButtonBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFD26B6AA3A0075190A /* ButtonBorderModifier.swift */; };
 		76A45B0026B6ABE90075190A /* ButtonRoundedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76A45AFF26B6ABE90075190A /* ButtonRoundedModifier.swift */; };
@@ -115,6 +116,7 @@
 		7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutModifiersView.swift; sourceTree = "<group>"; };
 		768F61D227404D29005E070E /* ContributionWantedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionWantedView.swift; sourceTree = "<group>"; };
 		768F61D4274054D2005E070E /* ContributedByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributedByView.swift; sourceTree = "<group>"; };
+		768F61D627405C8F005E070E /* DocumentationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationLinkView.swift; sourceTree = "<group>"; };
 		76A45AFB26B6A6FF0075190A /* ButtonFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFontModifier.swift; sourceTree = "<group>"; };
 		76A45AFD26B6AA3A0075190A /* ButtonBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBorderModifier.swift; sourceTree = "<group>"; };
 		76A45AFF26B6ABE90075190A /* ButtonRoundedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRoundedModifier.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				7624F87E26A439D900474E0B /* LinkView.swift */,
 				768F61D227404D29005E070E /* ContributionWantedView.swift */,
 				768F61D4274054D2005E070E /* ContributedByView.swift */,
+				768F61D627405C8F005E070E /* DocumentationLinkView.swift */,
 			);
 			path = "Reusable Custom Views";
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				7624F851269C337D00474E0B /* ContentView.swift in Sources */,
 				7624F877269C39D100474E0B /* StylesView.swift in Sources */,
 				7624F86B269C392500474E0B /* StatusBarsView.swift in Sources */,
+				768F61D727405C8F005E070E /* DocumentationLinkView.swift in Sources */,
 				7624F8AB26A45C1B00474E0B /* TimelineViews.swift in Sources */,
 				7624F873269C398400474E0B /* NavigationView.swift in Sources */,
 				7624F89326A43FB200474E0B /* DatePickersView.swift in Sources */,

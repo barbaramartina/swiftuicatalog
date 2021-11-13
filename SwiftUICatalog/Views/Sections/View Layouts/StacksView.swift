@@ -50,6 +50,13 @@ struct StacksView: View {
                 VStack {
                     HStack {
                         Spacer()
+                        HStack {
+                            Spacer()
+                            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/hstack")
+            
+                        }
+                        .padding(.trailing)
+
                         HeaderView(title: "Lazy / H - V & Z Stack views in SwiftUI")
                         Spacer()
                     }

@@ -50,6 +50,12 @@ struct GridsView: View {
                 VStack {
                     HStack {
                         Spacer()
+                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
+                    }
+                    .padding(.trailing)
+
+                    HStack {
+                        Spacer()
                         HeaderView(title: "Lazy / H & V Grids in SwiftUI")
                         Spacer()
                     }

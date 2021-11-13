@@ -38,6 +38,11 @@ struct ImagesComponentView: View {
     var body: some View {
         ScrollView {
             
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image")
+            }
+            .padding(.trailing)
             HeaderView(title: "Images in SwiftUI")
 
             // MARK: - SF Symbols

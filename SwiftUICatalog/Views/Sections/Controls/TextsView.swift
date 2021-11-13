@@ -42,6 +42,11 @@ struct TextsComponentsView: View {
     var body: some View {
         ScrollView {
             
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
+            }
+            .padding(.trailing)
             HeaderView(title: "TextViews in SwiftUI")
 
             

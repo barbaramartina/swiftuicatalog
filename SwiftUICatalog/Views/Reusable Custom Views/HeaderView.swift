@@ -12,12 +12,12 @@ struct HeaderView: View {
     var title: String
     
     var body: some View {
-        Text(title)
+        Text(title.uppercased())
             .font(.title)
             .fontWeight(.black)
             .foregroundColor(.accentColor)
             .multilineTextAlignment(.center)
-            .padding(.top, 16)
+            .padding(.top, 24)
             .padding(.bottom, 16)
     }
 }

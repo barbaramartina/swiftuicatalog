@@ -59,7 +59,13 @@ struct ButtonsComponentsView: View {
         
         ScrollView {
             
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
+            }
+            .padding(.trailing)
             HeaderView(title: "Buttons in SwiftUI")
+
             
             // MARK: - basics of buttons
             Group {
@@ -211,7 +217,6 @@ struct ButtonsComponentsView: View {
             }
             // end of main group
       
-            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)

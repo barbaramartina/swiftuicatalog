@@ -61,6 +61,12 @@ struct SteppersView: View {
     
     var body: some View {
         ScrollView {
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper")
+            }
+            .padding(.trailing)
+
             HeaderView(title: "Steppers in SwiftUI")
             Group {
                 Text("Stepper View")

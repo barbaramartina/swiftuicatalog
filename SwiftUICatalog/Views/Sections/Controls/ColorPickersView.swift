@@ -44,6 +44,11 @@ struct ColorPickersView: View {
         ScrollView{
             Group {
                 VStack {
+                    HStack {
+                        Spacer()
+                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker")
+                    }
+                    .padding(.trailing)
                     HeaderView( title:"Color Picker in SwiftUI")
                     Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
                         .padding()

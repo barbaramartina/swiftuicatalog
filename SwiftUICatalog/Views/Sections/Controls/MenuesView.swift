@@ -39,6 +39,11 @@ struct MenusComponentView: View {
     var body: some View {
         ScrollView{
             
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu")
+            }
+            .padding(.trailing)
             HeaderView(title: "Menues in SwiftUI")
 
             Group {

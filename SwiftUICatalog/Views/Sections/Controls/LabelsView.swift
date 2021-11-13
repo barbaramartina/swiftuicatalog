@@ -50,6 +50,12 @@ struct LabelsView: View {
         
         ScrollView {
             
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label")
+            }
+            .padding(.trailing)
+
             HeaderView(title: "Labels in SwiftUI")
 
             // MARK: - LABEL TYPE

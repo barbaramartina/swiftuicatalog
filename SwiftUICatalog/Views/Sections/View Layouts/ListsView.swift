@@ -47,9 +47,17 @@ struct ListsComponentView: View {
              
             HStack {
                 Spacer()
+                HStack {
+                    Spacer()
+                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list")
+                }
+            
+                .padding(.trailing)
+
                 HeaderView(title: "Lists in SwiftUI")
-                Spacer()
             }
+          
+          
             // contextual information
             Group {
                 Text("An example of a list with sections")

@@ -98,6 +98,12 @@ struct ComposingGesturesView: View {
                 self.viewState.height += drag.translation.height
             }
         ScrollView {
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures")
+            }
+            .padding(.trailing)
+            
             HeaderView(title: "Composing SwiftUI Gestures")
             Text("Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI.")
                 .fontWeight(.light)

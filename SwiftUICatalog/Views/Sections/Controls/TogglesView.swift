@@ -39,6 +39,11 @@ struct TogglesView: View {
     var body: some View {
         VStack() {
 
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
+            }
+            .padding(.trailing)
             HeaderView(title: "Toggles in SwiftUI")
 
             

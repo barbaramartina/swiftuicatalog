@@ -40,6 +40,13 @@ struct TabsView: View {
 
     var body: some View {
         ScrollView {
+            
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
+            }
+            .padding(.trailing)
+
             HeaderView( title: "TabView")
             
             Group {

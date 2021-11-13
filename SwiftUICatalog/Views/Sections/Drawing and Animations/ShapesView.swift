@@ -54,6 +54,12 @@ struct ShapesView: View {
         
         ScrollView {
             
+            HStack {
+                Spacer()
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape")
+            }
+            .padding(.trailing)
+
             HeaderView(title: "Shapes in SwiftUI")
             
             // contextual information
