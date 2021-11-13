@@ -40,12 +40,25 @@ struct ContentView: View {
         NavigationView {
             
             List {
-                Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
-                    .font(.footnote)
-                    .fontWeight(.light)
-                    .padding(.bottom, 24)
-                    .padding(.top, 24)
-                    .padding(.bottom, 16)
+                HStack {
+                    
+                    Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
+                        .font(.footnote)
+                        .fontWeight(.light)
+                        .padding(.bottom, 24)
+                        .padding(.top, 24)
+                        .padding(.bottom, 16)
+                    
+                    Button(action: {
+                        UIApplication.shared.open(URL(string: "https://github.com/barbaramartina/swiftuicatalog/")!)
+                    },
+                           label: {
+                        Image("github")
+                            .resizable()
+                            .frame(width: 50, height: 50)
+                           })
+                    
+                }
                 // end of Hstack
                 
                 Group {
