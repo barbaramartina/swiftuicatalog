@@ -30,16 +30,12 @@ import SwiftUI
 
 struct AlertsComponentView: View {
     var body: some View {
-        HeaderView( title: "Alerts examples")
-        
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+
+        VStack {
+            HeaderView( title: "Alerts examples")
+            ContributionWantedView()
         }
-        .padding()
+        
     }
 }
 

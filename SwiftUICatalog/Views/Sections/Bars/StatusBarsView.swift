@@ -34,7 +34,11 @@ import SwiftUI
 ///
 struct StatusBarsComponentView: View {
     var body: some View {
-        Text("Status bars in SwiftUI")
+        
+        VStack {
+            HeaderView( title: "Status bars in SwiftUI")
+            ContributionWantedView()
+        }
     }
 }
 

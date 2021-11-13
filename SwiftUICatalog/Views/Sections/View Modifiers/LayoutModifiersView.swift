@@ -36,16 +36,12 @@ import SwiftUI
 
 struct LayoutModifiersView: View {
     var body: some View {
-        HeaderView( title: "Examples of layout modifiers")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        VStack {
+            HeaderView( title: "Examples of layout modifiers")
+            ContributionWantedView()
         }
-        .padding()
+
     }
 }
 

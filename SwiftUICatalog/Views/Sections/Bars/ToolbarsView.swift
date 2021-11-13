@@ -34,7 +34,12 @@ import SwiftUI
 ///
 struct ToolbarsComponentView: View {
     var body: some View {
-        Text("Toolbars in SwiftUI")
+        
+        VStack {
+            HeaderView( title: "Toolbars in SwiftUI")
+            ContributionWantedView()
+        }
+
     }
 }
 

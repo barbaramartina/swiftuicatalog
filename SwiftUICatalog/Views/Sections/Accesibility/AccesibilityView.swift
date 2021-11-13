@@ -30,7 +30,11 @@ import SwiftUI
 
 struct AccesibilityView: View {
     var body: some View {
-        Text("Accesibility in SwiftUI")
+        VStack {
+            HeaderView( title: "Accesibility in SwiftUI")
+            ContributionWantedView()
+        }
+
     }
 }
 

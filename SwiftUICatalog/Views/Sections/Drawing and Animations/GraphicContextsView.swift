@@ -36,16 +36,14 @@ import SwiftUI
 
 struct GraphicContextsView: View {
     var body: some View {
-        HeaderView( title: "Graphic contexts in SwiftUI")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        VStack {
+
+            HeaderView( title: "Graphic contexts in SwiftUI")
+            ContributionWantedView()
+
         }
-        .padding()
+        
     }
 }
 

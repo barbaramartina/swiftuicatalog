@@ -43,10 +43,9 @@ struct ContentView: View {
                 Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
                     .font(.footnote)
                     .fontWeight(.light)
-                    .padding(.bottom, 30)
-                
-                .padding(.top, 16)
-                .padding(.bottom, 16)
+                    .padding(.bottom, 24)
+                    .padding(.top, 24)
+                    .padding(.bottom, 16)
                 // end of Hstack
                 
                 Group {
@@ -259,9 +258,10 @@ struct ContentView: View {
                 
             }
             .navigationTitle("Components Catalog")
-            .padding(.top, 24)
+            .padding(.top, -20)
             // end of LIST
         }
+      
         // end of navigationview
     }
 }

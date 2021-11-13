@@ -43,16 +43,11 @@ import SwiftUI
 
 struct GeometriesView: View {
     var body: some View {
-        HeaderView( title: "Geometry, readers, proxy, effects, anchors, edges, angles, and projections in SwiftUI")
         
-        // Contextual information: a short intro to the elements we are showcasing
-        Group {
-            Text("title")
-                .fontWeight(.heavy)
-            Text("description of what we show case")
-                .fontWeight(.light)
+        VStack {
+            HeaderView( title: "Geometry, readers, proxy, effects, anchors, edges, angles, and projections in SwiftUI")
+            ContributionWantedView()
         }
-        .padding()
     }
 }
 
