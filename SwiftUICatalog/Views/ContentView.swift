@@ -45,16 +45,6 @@ struct ContentView: View {
                     .fontWeight(.light)
                     .padding(.bottom, 30)
                 
-                HStack {
-                    Spacer()
-                    VStack {
-                        RobbieWithPulseView()
-                        Text("Robbi, the corgie, is happy with your contributions to the SwiftUI Catalog")
-                            .font(.footnote)
-                            .fontWeight(.ultraLight)
-                    }
-                    Spacer()
-                }
                 .padding(.top, 16)
                 .padding(.bottom, 16)
                 // end of Hstack
