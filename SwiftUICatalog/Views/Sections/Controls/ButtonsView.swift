@@ -107,7 +107,7 @@ struct ButtonsComponentsView: View {
                 Group {
                     Text("Specific Rounded borders with custom shape")
                         .fontWeight(.heavy)
-                    Text("Sometime we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
+                    Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
                         .fontWeight(.light)
 
                     Button(action: {},
