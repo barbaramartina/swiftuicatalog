@@ -64,6 +64,10 @@ struct ColorPickersView: View {
                         Spacer()
                     }
                 }
+                ContributedByView(name: "Ali Ghayeni H",
+                                  link: "https://github.com/alighayeni")
+                    .padding(.top, 80)
+
             }
             .padding()
         }

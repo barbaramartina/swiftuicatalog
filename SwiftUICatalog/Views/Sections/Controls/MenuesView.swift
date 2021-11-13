@@ -108,6 +108,11 @@ struct MenusComponentView: View {
                 .fontWeight(.medium)
                 .padding()
             
+            ContributedByView(name: "Ali Ghayeni H",
+                              link: "https://github.com/alighayeni")
+                .padding(.top, 80)
+
+            
             /* available only on iOS version 15 or above */
             /*
                  Group {

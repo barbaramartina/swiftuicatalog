@@ -71,6 +71,7 @@ struct MotionAnimationView: View {
             // this allows the rendering to be faster and powered by metal
             .drawingGroup()
             // end of z stack
+            
         }
         // end of geometry
     }

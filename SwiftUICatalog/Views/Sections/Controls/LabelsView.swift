@@ -240,7 +240,11 @@ struct LabelsView: View {
                 .allowsTightening(true)
                 .truncationMode(.middle)
             }
-       
+            
+            ContributedByView(name: "Ali Ghayeni H",
+                              link: "https://github.com/alighayeni")
+                .padding(.top, 80)
+
         }
     }
 }

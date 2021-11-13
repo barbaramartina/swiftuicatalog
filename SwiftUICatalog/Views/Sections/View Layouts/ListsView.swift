@@ -92,6 +92,11 @@ struct ListsComponentView: View {
                     // end of for each
                 }
             }
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+
         }
         .listStyle(PlainListStyle())
         .navigationTitle("Dogs 🐶 & countries")

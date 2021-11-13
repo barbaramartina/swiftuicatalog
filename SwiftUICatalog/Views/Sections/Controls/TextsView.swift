@@ -259,6 +259,9 @@ struct TextsComponentsView: View {
                 .padding(5)
                 Spacer()
             }
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
 
 
         }

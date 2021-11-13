@@ -89,7 +89,13 @@ struct SteppersView: View {
                 .padding(10)
             }
             .padding()
+            
+            ContributedByView(name: "Ali Ghayeni H",
+                              link: "https://github.com/alighayeni")
+                .padding(.top, 80)
+
         }
+        // end of scrollview
         
     }
 }

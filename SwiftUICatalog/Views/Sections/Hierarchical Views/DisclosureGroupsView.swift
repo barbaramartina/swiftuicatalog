@@ -81,8 +81,15 @@ struct DisclosureGroupsView: View {
                 })
             }
             .padding(.trailing, 10)
+            
+            
+            ContributedByView(name: "Ali Ghayeni H",
+                              link: "https://github.com/alighayeni")
+                .padding(.top, 80)
         }
         .padding()
+        
+
     }
 }
 

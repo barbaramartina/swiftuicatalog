@@ -114,7 +114,14 @@ struct ComposingGesturesView: View {
                 .shadow(radius: dragState.isActive ? 8 : 0)
                 .animation(.linear(duration: minimumLongPressDuration))
                 .gesture(longPressDrag)
+            
+            ContributedByView(name: "Ali Ghayeni H",
+                              link: "https://github.com/alighayeni")
+                .padding(.top, 80)
+
         }
+        
+        
     }
     
 }

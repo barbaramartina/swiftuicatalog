@@ -103,6 +103,10 @@ struct ProgressViews: View {
             }
             .padding()
             
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+
         }
         // end scroll view
         .onReceive(timer) { _ in

@@ -79,6 +79,11 @@ struct ScrollViewsView: View {
                 .padding()
                 .id(bottomButtonId)
             }
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+
         }
         
     }

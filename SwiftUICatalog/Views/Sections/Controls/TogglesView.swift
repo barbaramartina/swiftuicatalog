@@ -75,6 +75,11 @@ struct TogglesView: View {
             )
             .toggleStyle(CustomToggleStyle())
             Spacer()
+
+            ContributedByView(name: "Freddy Hernandez Jr",
+                              link: "https://github.com/freddy1h")
+                .padding(.top, 80)
+
         }
         .padding()
       
@@ -111,10 +116,12 @@ struct CustomToggleStyle: ToggleStyle {
                                 .animation(Animation.linear(duration: 0.1))
                         )
                         .cornerRadius(20)
+                    
 
                 }
             )
             .buttonStyle(PlainButtonStyle())
+
         }
     }
 }

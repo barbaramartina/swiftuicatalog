@@ -211,6 +211,10 @@ struct ButtonsComponentsView: View {
             }
             // end of main group
       
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
         }
         // end of scrollview list
         

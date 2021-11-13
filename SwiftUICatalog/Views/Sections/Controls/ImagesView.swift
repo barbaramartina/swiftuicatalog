@@ -116,6 +116,11 @@ struct ImagesComponentView: View {
                     .border(Color.blue)
             }
             .padding()
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+
 
         }
       

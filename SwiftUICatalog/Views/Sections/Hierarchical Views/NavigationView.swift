@@ -60,11 +60,18 @@ struct NavigationBarsComponentView: View {
                                destination: Text(reminders[2].text))
                 NavigationLink(reminders[3].title,
                                destination: Text(reminders[3].text))
+                
+                
             }
             .navigationTitle("Reminders")
             // adjusting the navigation view style with these options: https://developer.apple.com/documentation/swiftui/navigationviewstyle
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             // end of list
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+
             
         }
         // end of navigation view

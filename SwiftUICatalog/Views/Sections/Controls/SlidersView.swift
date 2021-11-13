@@ -124,9 +124,14 @@ struct SlidersView: View {
                         Text("This is a slider for grams")
                        })
                     .padding(30)
+                
+                
             }
             .padding(10)
             // end of v stack
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
 
         }
         // end of LIST

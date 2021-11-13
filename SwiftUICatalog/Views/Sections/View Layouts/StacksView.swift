@@ -176,6 +176,10 @@ struct StacksView: View {
                         .foregroundColor(.white)
                 }
             }
+            ContributedByView(name: "Ali Ghayeni H",
+                              link: "https://github.com/alighayeni")
+                .padding(.top, 80)
+
         }
     }
 }

@@ -252,6 +252,10 @@ struct PropertiesAnimationsView: View {
                 }
                 // end of group
 
+                ContributedByView(name: "Barbara Martina",
+                                  link: "https://github.com/barbaramartina")
+                    .padding(.top, 80)
+
             }
             // end of list
 
