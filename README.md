@@ -1,7 +1,7 @@
 # SwiftUI Catalog
 An open source catalog, under MIT License, containing components, controls, effects, styles, layouts, containers, modifiers and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.
 
-I'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
+We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
 
 [![Demo](https://i9.ytimg.com/vi/3sTYxTmiX0I/mq3.jpg?sqp=CISUwIwG&rs=AOn4CLD1j8VlXFoA6MCPXYrbclKharkyQQ)](https://www.youtube.com/watch?v=3sTYxTmiX0I)
@@ -34,3 +34,11 @@ This catalog will allow developers who already know the theoretical aspects of [
 
 If you have any other suggestion or wish regarding this catalog please open an ISSUE and we can discuss it there.
 
+_________________
+
+We want to make the project available not only for developers, but also for non-technical persons in your teams. That's why we plan to publish the SwiftUI Catalog in the App Store. Publishing in the App Store requires being a member of the Apple Developer Program, which costs 99 USD / year, costs that we plan to afford by ourselves at the moment, additionally to the time and energy we dedicate to building the catalog. 
+
+We'd very grateful if you decide to support us to afford the membership.
+We also decided that a 1% of your contribution will go fund research in new carbon extraction technologies, through Stripe (our payment processor). 
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/swiftuicatalog)
