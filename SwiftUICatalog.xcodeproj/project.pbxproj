@@ -53,6 +53,8 @@
 		7624F8BD26A45FB200474E0B /* TextModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8BC26A45FB200474E0B /* TextModifiersView.swift */; };
 		7624F8BF26A45FDD00474E0B /* EffectsModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */; };
 		7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */; };
+		7682268C2754FB10000B44AA /* SwiftUICatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */; };
+		768226942754FB1C000B44AA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768226932754FB1C000B44AA /* SnapshotHelper.swift */; };
 		768F61D327404D29005E070E /* ContributionWantedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D227404D29005E070E /* ContributionWantedView.swift */; };
 		768F61D5274054D2005E070E /* ContributedByView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D4274054D2005E070E /* ContributedByView.swift */; };
 		768F61D727405C8F005E070E /* DocumentationLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D627405C8F005E070E /* DocumentationLinkView.swift */; };
@@ -63,6 +65,16 @@
 		76CD566526BFE1DE00779C4F /* GraphicContextsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8B126A45CDF00474E0B /* GraphicContextsView.swift */; };
 		76EF639626B69CC7002980A7 /* MotionsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EF639526B69CC7002980A7 /* MotionsAnimation.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7682268E2754FB10000B44AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7624F843269C337D00474E0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7624F84A269C337D00474E0B;
+			remoteInfo = SwiftUICatalog;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposingGestureView.swift; sourceTree = "<group>"; };
@@ -114,6 +126,10 @@
 		7624F8BC26A45FB200474E0B /* TextModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifiersView.swift; sourceTree = "<group>"; };
 		7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsModifiersView.swift; sourceTree = "<group>"; };
 		7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutModifiersView.swift; sourceTree = "<group>"; };
+		768226892754FB10000B44AA /* SwiftUICatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUICatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalogUITests.swift; sourceTree = "<group>"; };
+		7682268D2754FB10000B44AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		768226932754FB1C000B44AA /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		768F61D227404D29005E070E /* ContributionWantedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributionWantedView.swift; sourceTree = "<group>"; };
 		768F61D4274054D2005E070E /* ContributedByView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributedByView.swift; sourceTree = "<group>"; };
 		768F61D627405C8F005E070E /* DocumentationLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentationLinkView.swift; sourceTree = "<group>"; };
@@ -132,6 +148,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		768226862754FB10000B44AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -139,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				7624F84D269C337D00474E0B /* SwiftUICatalog */,
+				7682268A2754FB10000B44AA /* SwiftUICatalogUITests */,
 				7624F84C269C337D00474E0B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				7624F84B269C337D00474E0B /* SwiftUICatalog.app */,
+				768226892754FB10000B44AA /* SwiftUICatalogUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -324,6 +349,16 @@
 			path = Gestures;
 			sourceTree = "<group>";
 		};
+		7682268A2754FB10000B44AA /* SwiftUICatalogUITests */ = {
+			isa = PBXGroup;
+			children = (
+				768226932754FB1C000B44AA /* SnapshotHelper.swift */,
+				7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */,
+				7682268D2754FB10000B44AA /* Info.plist */,
+			);
+			path = SwiftUICatalogUITests;
+			sourceTree = "<group>";
+		};
 		76A45AFA26B6A6DE0075190A /* ViewModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +389,24 @@
 			productReference = 7624F84B269C337D00474E0B /* SwiftUICatalog.app */;
 			productType = "com.apple.product-type.application";
 		};
+		768226882754FB10000B44AA /* SwiftUICatalogUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 768226922754FB10000B44AA /* Build configuration list for PBXNativeTarget "SwiftUICatalogUITests" */;
+			buildPhases = (
+				768226852754FB10000B44AA /* Sources */,
+				768226862754FB10000B44AA /* Frameworks */,
+				768226872754FB10000B44AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7682268F2754FB10000B44AA /* PBXTargetDependency */,
+			);
+			name = SwiftUICatalogUITests;
+			productName = SwiftUICatalogUITests;
+			productReference = 768226892754FB10000B44AA /* SwiftUICatalogUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -365,6 +418,10 @@
 				TargetAttributes = {
 					7624F84A269C337D00474E0B = {
 						CreatedOnToolsVersion = 12.5.1;
+					};
+					768226882754FB10000B44AA = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 7624F84A269C337D00474E0B;
 					};
 				};
 			};
@@ -382,6 +439,7 @@
 			projectRoot = "";
 			targets = (
 				7624F84A269C337D00474E0B /* SwiftUICatalog */,
+				768226882754FB10000B44AA /* SwiftUICatalogUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -393,6 +451,13 @@
 			files = (
 				7624F856269C338000474E0B /* Preview Assets.xcassets in Resources */,
 				7624F853269C338000474E0B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		768226872754FB10000B44AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,7 +524,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		768226852754FB10000B44AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7682268C2754FB10000B44AA /* SwiftUICatalogUITests.swift in Sources */,
+				768226942754FB1C000B44AA /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7682268F2754FB10000B44AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7624F84A269C337D00474E0B /* SwiftUICatalog */;
+			targetProxy = 7682268E2754FB10000B44AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		7624F858269C338000474E0B /* Debug */ = {
@@ -622,6 +704,44 @@
 			};
 			name = Release;
 		};
+		768226902754FB10000B44AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L3WP439C7;
+				INFOPLIST_FILE = SwiftUICatalogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = barbara.martina.SwiftUICatalogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftUICatalog;
+			};
+			name = Debug;
+		};
+		768226912754FB10000B44AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8L3WP439C7;
+				INFOPLIST_FILE = SwiftUICatalogUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = barbara.martina.SwiftUICatalogUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftUICatalog;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -639,6 +759,15 @@
 			buildConfigurations = (
 				7624F85B269C338000474E0B /* Debug */,
 				7624F85C269C338000474E0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		768226922754FB10000B44AA /* Build configuration list for PBXNativeTarget "SwiftUICatalogUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				768226902754FB10000B44AA /* Debug */,
+				768226912754FB10000B44AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
