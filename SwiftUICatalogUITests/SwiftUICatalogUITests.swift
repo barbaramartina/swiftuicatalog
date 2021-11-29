@@ -21,7 +21,7 @@ class SwiftUICatalogUITests: XCTestCase {
     func testGoToMenu() throws {
         snapshot("01")
         let tablesQuery = app.tables
-        let menusButton = tablesQuery/*@START_MENU_TOKEN@*/.buttons["Menus"]/*[[".cells[\"Menus\"].buttons[\"Menus\"]",".buttons[\"Menus\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Menus"]/*[[".cells[\"Menus\"].buttons[\"Menus\"]",".buttons[\"Menus\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         snapshot("02")
     }
 
