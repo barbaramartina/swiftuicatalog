@@ -4,7 +4,7 @@ An open source catalog, under MIT License, containing components, controls, effe
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
 
-[![Demo](https://i9.ytimg.com/vi/3sTYxTmiX0I/mq3.jpg?sqp=CISUwIwG&rs=AOn4CLD1j8VlXFoA6MCPXYrbclKharkyQQ)](https://www.youtube.com/watch?v=3sTYxTmiX0I)
+[![Demo](https://github.com/barbaramartina/swiftuicatalog/blob/main/demos/yt_logo_rgb_light.png)](https://www.youtube.com/watch?v=3sTYxTmiX0I)
 
 
 # Goal
