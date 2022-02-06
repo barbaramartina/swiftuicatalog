@@ -16,12 +16,16 @@ class SwiftUICatalogUITests: XCTestCase {
         setupSnapshot(app)
         app.launch()
         
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            app.navigationBars.children(matching: .button).firstMatch.tap()
+        }
+
     }
     
     func testGoToMenu() throws {
         snapshot("01")
         let tablesQuery = app.tables
-        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Menus"]/*[[".cells[\"Menus\"].buttons[\"Menus\"]",".buttons[\"Menus\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        tablesQuery/*@START_MENU_TOKEN@*/.buttons["Menus"]/*[[".cells[\"Menus\"].buttons[\"Menus\"]",".buttons[\"Menus\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
         snapshot("02")
     }
 
@@ -42,5 +46,6 @@ class SwiftUICatalogUITests: XCTestCase {
         tablesQuery.buttons["Pickers"].tap()
         snapshot("05")
     }
+  
 
 }
