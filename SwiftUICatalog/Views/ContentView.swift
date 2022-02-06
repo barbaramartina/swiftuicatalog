@@ -266,7 +266,23 @@ struct ContentView: View {
                          label: "Spacer")
                 }
                 // end of Group ADDITIONAL VIEWS
+
+                // MARK: - Composed components
                 
+                Section(header: Text("Composed components to help speed up development")
+                            .font(.title)
+                            .fontWeight(.black)
+                            .foregroundColor(.accentColor)
+                            .padding(.top, 16)
+                            .padding(.bottom, 16)) {
+                    
+                    Link(destination: CommonlyUsedViews(),
+                         label: "Commonly used views")
+                    Link(destination: CollectionsViews(),
+                         label: "Collections of components")
+                }
+                // end of Group ADDITIONAL VIEWS
+
                 
                 
             }
