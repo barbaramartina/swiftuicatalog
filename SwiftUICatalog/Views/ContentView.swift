@@ -271,7 +271,7 @@ struct ContentView: View {
                 
             }
             .navigationTitle("Components Catalog")
-            .padding(.top, -20)
+            .padding(.top, 20)
             // end of LIST
         }
       
