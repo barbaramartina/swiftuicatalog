@@ -16,8 +16,7 @@ struct SheetView: View {
     // MARK: - Properties
 
     @Environment(\.presentationMode) var presentationMode
-    /// iOS 15 dismiss
-    //@Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) var dismiss
 
     // MARK: - Body
 

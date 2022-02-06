@@ -18,8 +18,7 @@ struct RobbieWithPulseView: View {
                 .foregroundColor(Color("secondary"))
                 .scaleEffect(pulsing ? 1.2 : 1.0)
                 .opacity(pulsing ? 0.1 : 1.0)
-                .animation(.easeInOut(duration: 1)
-                .repeatForever(autoreverses: true).speed(0.5))
+                .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true).speed(0.5), value: pulsing)
                 .onAppear() {
                     self.pulsing.toggle()
                 }

@@ -38,7 +38,7 @@ import SwiftUI
 
 struct ComposingGesturesView: View {
     
-    enum DragState {
+    enum DragState: Equatable {
         case inactive
         case pressing
         case dragging(translation: CGSize)
@@ -116,9 +116,9 @@ struct ComposingGesturesView: View {
                     x: viewState.width + dragState.translation.width,
                     y: viewState.height + dragState.translation.height
                 )
-                .animation(nil)
+                .animation(.easeInOut, value: dragState)
                 .shadow(radius: dragState.isActive ? 8 : 0)
-                .animation(.linear(duration: minimumLongPressDuration))
+                .animation(.linear(duration: minimumLongPressDuration), value: dragState)
                 .gesture(longPressDrag)
             
             ContributedByView(name: "Ali Ghayeni H",

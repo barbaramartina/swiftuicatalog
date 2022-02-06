@@ -118,7 +118,6 @@ struct CustomToggleStyle: ToggleStyle {
                                     x: configuration.isOn ? 11 : -11,
                                     y: 0
                                 )
-                                .animation(Animation.linear(duration: 0.1))
                         )
                         .cornerRadius(20)
                     

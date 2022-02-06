@@ -189,7 +189,7 @@ struct PropertiesAnimationsView: View {
                                 .rotationEffect(.degrees(animate1 ? 90 : 0))
                                 .scaleEffect(animate1 ? 1.2 : 1)
                                 .frame(width: 200, height: 200)
-                                .animation(.easeInOut.repeatCount(3))
+                                .animation(.easeInOut.repeatCount(3), value: animate1)
                             Spacer()
                         }
                         .padding()
@@ -219,7 +219,7 @@ struct PropertiesAnimationsView: View {
                                 .rotationEffect(.degrees(animate2 ? 90 : 0))
                                 .scaleEffect(animate2 ? 1.2 : 1)
                                 .frame(width: 200, height: 200)
-                                .animation(.spring().repeatCount(3))
+                                .animation(.spring().repeatCount(3), value: animate2)
                             Spacer()
                         }
                         .padding()
@@ -248,7 +248,7 @@ struct PropertiesAnimationsView: View {
                                 .rotationEffect(.degrees(animate4 ? 90 : 0))
                                 .scaleEffect(animate4 ? 1.2 : 1)
                                 .frame(width: 200, height: 200)
-                                .animation(.ripple(index: 2))
+                                .animation(.ripple(index: 2), value: animate4)
                             Spacer()
                         }
                         .padding()
