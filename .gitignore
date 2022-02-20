@@ -1,7 +1,6 @@
 .DS_Store
 *.xcuserstate
-/SwiftUICatalog.xcodeproj/project.xcworkspace/xcuserdata/barbararodeker.xcuserdatad/UserInterfaceState.xcuserstate
+/SwiftUICatalog.xcodeproj/project.xcworkspace/xcuserdata/*
 /screenshots/screenshots.html
 /screenshots
 /SwiftUICatalog.xcodeproj/xcshareddata
-/SwiftUICatalog.xcodeproj/xcuserdata/barbararodeker.xcuserdatad/xcschemes/xcschememanagement.plist
