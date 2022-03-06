@@ -55,7 +55,6 @@ struct DisclosureGroupsView: View {
             }
             .padding(.trailing)
 
-            HeaderView( title: "Disclosure groups in SwiftUI")
             Group {
                 Text("A view that shows or hides another content view, based on the state of a disclosure control.")
                     .fontWeight(.light)

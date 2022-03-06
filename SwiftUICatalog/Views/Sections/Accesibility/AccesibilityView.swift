@@ -31,7 +31,6 @@ import SwiftUI
 struct AccesibilityView: View {
     var body: some View {
         VStack {
-            HeaderView( title: "Accesibility in SwiftUI")
             ContributionWantedView()
         }
 

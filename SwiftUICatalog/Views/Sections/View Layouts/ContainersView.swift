@@ -50,7 +50,6 @@ struct ContainersView: View {
                     DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup")
                 }
                 .padding(.trailing)
-                HeaderView(title:"Form, group, GroupBox & Control Group in SwiftUI")
                 
                 // Contextual information: a short intro to the elements we are showcasing
                 Group {

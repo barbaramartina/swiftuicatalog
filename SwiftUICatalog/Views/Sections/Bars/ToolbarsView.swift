@@ -36,7 +36,6 @@ struct ToolbarsComponentView: View {
     var body: some View {
         
         VStack {
-            HeaderView( title: "Toolbars in SwiftUI")
             ContributionWantedView()
         }
 

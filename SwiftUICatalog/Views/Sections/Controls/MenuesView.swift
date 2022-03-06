@@ -44,7 +44,6 @@ struct MenusComponentView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu")
             }
             .padding(.trailing)
-            HeaderView(title: "Menues in SwiftUI")
 
             Group {
                 

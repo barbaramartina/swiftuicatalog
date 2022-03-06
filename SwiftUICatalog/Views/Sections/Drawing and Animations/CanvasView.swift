@@ -65,8 +65,6 @@ struct CanvasView: View {
             }
             .padding(.trailing)
             
-            HeaderView( title: "Canvas in SwiftUI")
-            
             Group {
                 Text("Canvas views")
                     .fontWeight(.heavy)

@@ -11,7 +11,6 @@ struct CollectionsViews: View {
     var body: some View {
         
         VStack {
-            HeaderView( title: "Examples of views presented in collections, i.e: horizontal carrousels, table views, 2x2 columns grid.")
             ContributionWantedView()
         }
         

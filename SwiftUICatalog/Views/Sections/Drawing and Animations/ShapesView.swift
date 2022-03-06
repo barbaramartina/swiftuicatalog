@@ -60,8 +60,6 @@ struct ShapesView: View {
             }
             .padding(.trailing)
 
-            HeaderView(title: "Shapes in SwiftUI")
-            
             // contextual information
             Group {
                 Text("Rectangles, circles, ellipse and capsules")

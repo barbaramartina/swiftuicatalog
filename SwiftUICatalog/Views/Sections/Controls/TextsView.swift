@@ -47,7 +47,6 @@ struct TextsComponentsView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
             }
             .padding(.trailing)
-            HeaderView(title: "TextViews in SwiftUI")
 
             
             // MARK: - FONTS

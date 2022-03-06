@@ -64,7 +64,6 @@ struct ButtonsComponentsView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
             }
             .padding(.trailing)
-            HeaderView(title: "Buttons in SwiftUI")
 
             
             // MARK: - basics of buttons

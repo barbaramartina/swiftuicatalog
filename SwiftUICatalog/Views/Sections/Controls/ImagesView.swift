@@ -43,7 +43,6 @@ struct ImagesComponentView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image")
             }
             .padding(.trailing)
-            HeaderView(title: "Images in SwiftUI")
 
             // MARK: - SF Symbols
             

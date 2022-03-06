@@ -67,7 +67,6 @@ struct SteppersView: View {
             }
             .padding(.trailing)
 
-            HeaderView(title: "Steppers in SwiftUI")
             Group {
                 Text("Stepper View")
                     .fontWeight(.heavy)

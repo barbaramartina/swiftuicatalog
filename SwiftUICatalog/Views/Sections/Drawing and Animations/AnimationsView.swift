@@ -63,7 +63,6 @@ struct AnimationsView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/animation")
             }
             .padding(.trailing)
-HeaderView(title: "Animations in SwiftUI")
 
                 Link(destination:                         RobbieWithPulseView(),
                      label: "Pulse animation")
@@ -132,8 +131,6 @@ struct PropertiesAnimationsView: View {
         
             ScrollView {
                 
-            
-                HeaderView(title: "Animating an image in SwiftUI")
                 // MARK: - animating local properties
                 
                 Group {

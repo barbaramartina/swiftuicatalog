@@ -38,7 +38,6 @@ struct TextModifiersView: View {
     var body: some View {
         
         VStack {
-            HeaderView( title: "Examples of all possible text modifiers to be used")
             ContributionWantedView()
 
         }

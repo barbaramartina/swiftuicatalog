@@ -38,7 +38,6 @@ struct TimelineViews: View {
     var body: some View {
         
         VStack {
-            HeaderView( title: "Timeline views in SwiftUI")
             ContributionWantedView()
         }
     }

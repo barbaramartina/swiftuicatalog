@@ -56,8 +56,7 @@ struct LabelsView: View {
             }
             .padding(.trailing)
 
-            HeaderView(title: "Labels in SwiftUI")
-
+  
             // MARK: - LABEL TYPE
             Group {
                 

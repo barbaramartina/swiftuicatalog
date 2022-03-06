@@ -57,8 +57,6 @@ struct StacksView: View {
                         }
                         .padding(.trailing)
 
-                        HeaderView(title: "Lazy / H - V & Z Stack views in SwiftUI")
-                        Spacer()
                     }
                     // contextual information
                     Group {

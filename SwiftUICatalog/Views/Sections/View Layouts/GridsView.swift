@@ -54,11 +54,6 @@ struct GridsView: View {
                     }
                     .padding(.trailing)
 
-                    HStack {
-                        Spacer()
-                        HeaderView(title: "Lazy / H & V Grids in SwiftUI")
-                        Spacer()
-                    }
                     // MARK: - Grid Item
                     Group {
                         Text("Grid Item")

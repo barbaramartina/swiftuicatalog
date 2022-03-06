@@ -53,7 +53,6 @@ struct SlidersView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider")
             }
             .padding(.trailing)
-            HeaderView(title: "Sliders in SwiftUI")
 
             Group {
                 Text( "Slider with continued values")

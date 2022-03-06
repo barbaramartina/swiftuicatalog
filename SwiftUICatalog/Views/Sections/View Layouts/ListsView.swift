@@ -54,7 +54,6 @@ struct ListsComponentView: View {
             
                 .padding(.trailing)
 
-                HeaderView(title: "Lists in SwiftUI")
             }
           
           

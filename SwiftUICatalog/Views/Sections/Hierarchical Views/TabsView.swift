@@ -47,8 +47,6 @@ struct TabsView: View {
             }
             .padding(.trailing)
 
-            HeaderView( title: "TabView")
-            
             Group {
                 Text("A view that switches between multiple child views using interactive user interface elements.")
                     .fontWeight(.light)

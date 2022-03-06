@@ -76,7 +76,6 @@ struct OutlinesGroupsView: View {
                 }
                 .padding(.trailing)
 
-                HeaderView( title: "Outlines Group Views")
                 Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
                     .fontWeight(.light)
             }

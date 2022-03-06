@@ -62,7 +62,6 @@ struct DatePickersView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker")
             }
             .padding(.trailing)
-            HeaderView(title: "DatePickers in SwiftUI")
             
             // MARK: - date picker no range limit
             Group {

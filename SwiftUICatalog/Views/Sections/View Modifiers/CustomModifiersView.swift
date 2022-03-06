@@ -38,7 +38,6 @@ struct CustomModifiersView: View {
     var body: some View {
         
         VStack {
-            HeaderView(title : "Some custom modifiers in SwiftUI")
             ContributionWantedView()
         }
     }

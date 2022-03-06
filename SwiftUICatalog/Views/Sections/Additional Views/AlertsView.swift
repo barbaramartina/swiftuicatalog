@@ -32,7 +32,6 @@ struct AlertsComponentView: View {
     var body: some View {
 
         VStack {
-            HeaderView( title: "Alerts examples")
             ContributionWantedView()
         }
         

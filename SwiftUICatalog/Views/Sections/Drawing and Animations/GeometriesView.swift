@@ -45,7 +45,6 @@ struct GeometriesView: View {
     var body: some View {
         
         VStack {
-            HeaderView( title: "Geometry, readers, proxy, effects, anchors, edges, angles, and projections in SwiftUI")
             ContributionWantedView()
         }
     }

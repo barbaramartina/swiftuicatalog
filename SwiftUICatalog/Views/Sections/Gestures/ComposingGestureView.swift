@@ -104,7 +104,6 @@ struct ComposingGesturesView: View {
             }
             .padding(.trailing)
             
-            HeaderView(title: "Composing SwiftUI Gestures")
             Text("Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI.")
                 .fontWeight(.light)
                 .padding()

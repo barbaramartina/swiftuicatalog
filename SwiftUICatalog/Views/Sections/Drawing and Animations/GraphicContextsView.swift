@@ -39,7 +39,6 @@ struct GraphicContextsView: View {
         
         VStack {
 
-            HeaderView( title: "Graphic contexts in SwiftUI")
             ContributionWantedView()
 
         }

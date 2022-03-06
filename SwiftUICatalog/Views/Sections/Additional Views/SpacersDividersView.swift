@@ -39,7 +39,6 @@ struct SpacersDividersView: View {
     var body: some View {
 
         VStack {
-            HeaderView( title:"Spacers and dividers in SwiftUI")
             ContributionWantedView()
         }
     }

@@ -50,7 +50,6 @@ struct ProgressViews: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview")
             }
             .padding(.trailing)
-            HeaderView(title: "ProgressView in SwiftUI")
             
             // Contextual information: a short intro to the elements we are showcasing
             Group {

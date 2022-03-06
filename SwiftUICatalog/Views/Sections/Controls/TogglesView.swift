@@ -44,7 +44,6 @@ struct TogglesView: View {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
             }
             .padding(.trailing)
-            HeaderView(title: "Toggles in SwiftUI")
 
             
             // Contextual information: a short intro to the elements we are showcasing

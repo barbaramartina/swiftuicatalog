@@ -84,8 +84,6 @@ struct GesturesView: View {
                     }
                     .padding(.trailing)
 
-                    HeaderView(title: "Gestures")
-                    Spacer()
                     Text("Gesture modifiers handle all of the logic needed to process user-input events such as touches, and recognize when those events match a known gesture pattern, such as a long press or rotation. When recognizing a pattern, SwiftUI runs a callback you use to update the state of a view or perform an action.")
                         .padding()
                     Spacer()

@@ -36,7 +36,6 @@ struct StatusBarsComponentView: View {
     var body: some View {
         
         VStack {
-            HeaderView( title: "Status bars in SwiftUI")
             ContributionWantedView()
         }
     }
