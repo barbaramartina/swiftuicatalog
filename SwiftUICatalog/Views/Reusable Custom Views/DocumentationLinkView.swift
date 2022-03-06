@@ -19,15 +19,19 @@ struct DocumentationLinkView: View {
             
         },
                label: {
-           
-            Text("official docs")
-                .fontWeight(.ultraLight)
-                .padding(9)
-            Image("apple-icon")
-                .resizable()
-                .frame(width: 30, height: 30)
-                .padding(.leading, -16)
+            
+            VStack {
+                HStack {
+                    Spacer()
+                    Image(systemName: "square.and.arrow.up")
+                        .resizable()
+                        .frame(width: 24, height: 30)
+                        .padding(.trailing, 16)
+                }
+                Divider()
+            }
         })
+        
            
 
     }
