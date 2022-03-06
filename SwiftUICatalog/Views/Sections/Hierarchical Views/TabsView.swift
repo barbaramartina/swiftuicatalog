@@ -41,11 +41,7 @@ struct TabsView: View {
     var body: some View {
         ScrollView {
             
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
-            }
-            .padding(.trailing)
+            DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
 
             Group {
                 Text("A view that switches between multiple child views using interactive user interface elements.")

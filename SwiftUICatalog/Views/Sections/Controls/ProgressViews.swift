@@ -45,12 +45,8 @@ struct ProgressViews: View {
         
         ScrollView {
             
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview")
-            }
-            .padding(.trailing)
-            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview")
+
             // Contextual information: a short intro to the elements we are showcasing
             Group {
                 

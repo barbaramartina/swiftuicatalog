@@ -48,11 +48,8 @@ struct GridsView: View {
         Group{
             ScrollView {
                 VStack {
-                    HStack {
-                        Spacer()
-                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
-                    }
-                    .padding(.trailing)
+                    
+                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
 
                     // MARK: - Grid Item
                     Group {

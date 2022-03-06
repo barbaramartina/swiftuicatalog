@@ -49,11 +49,7 @@ struct DisclosureGroupsView: View {
         
         ScrollView {
             
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup")
-            }
-            .padding(.trailing)
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup")
 
             Group {
                 Text("A view that shows or hides another content view, based on the state of a disclosure control.")

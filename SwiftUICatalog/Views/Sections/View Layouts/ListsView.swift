@@ -45,18 +45,8 @@ struct ListsComponentView: View {
         
         List(selection: $singleSelection){
              
-            HStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list")
-                }
-            
-                .padding(.trailing)
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list")
 
-            }
-          
-          
             // contextual information
             Group {
                 Text("An example of a list with sections")

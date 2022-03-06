@@ -48,11 +48,8 @@ struct SlidersView: View {
     var body: some View {
 
         ScrollView {
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider")
-            }
-            .padding(.trailing)
+
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider")
 
             Group {
                 Text( "Slider with continued values")

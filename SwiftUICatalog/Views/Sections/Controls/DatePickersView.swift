@@ -57,12 +57,8 @@ struct DatePickersView: View {
         
         ScrollView {
             
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker")
-            }
-            .padding(.trailing)
-            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker")
+
             // MARK: - date picker no range limit
             Group {
                 

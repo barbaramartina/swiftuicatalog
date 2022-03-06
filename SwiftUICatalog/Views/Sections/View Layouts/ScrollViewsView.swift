@@ -46,12 +46,8 @@ struct ScrollViewsView: View {
             
             ScrollView {
                 
-                HStack {
-                    Spacer()
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview")
-                }
-                .padding(.trailing)
-                
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview")
+
                 // Contextual information: a short intro to the elements we are showcasing
                 Group {
                     Text("Scrollviews in SwiftUI")

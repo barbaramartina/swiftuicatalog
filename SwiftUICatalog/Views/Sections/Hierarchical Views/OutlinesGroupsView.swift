@@ -70,11 +70,8 @@ struct OutlinesGroupsView: View {
     var body: some View {
         ScrollView {
             Group {
-                HStack {
-                    Spacer()
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
-                }
-                .padding(.trailing)
+                
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
 
                 Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
                     .fontWeight(.light)

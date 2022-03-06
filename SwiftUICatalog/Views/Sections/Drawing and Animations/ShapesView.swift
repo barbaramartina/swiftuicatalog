@@ -54,11 +54,7 @@ struct ShapesView: View {
         
         ScrollView {
             
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape")
-            }
-            .padding(.trailing)
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape")
 
             // contextual information
             Group {

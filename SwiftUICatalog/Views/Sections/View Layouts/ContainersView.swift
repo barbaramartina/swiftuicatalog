@@ -45,12 +45,8 @@ struct ContainersView: View {
         ScrollView {
             VStack {
                 
-                HStack {
-                    Spacer()
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup")
-                }
-                .padding(.trailing)
-                
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup")
+
                 // Contextual information: a short intro to the elements we are showcasing
                 Group {
                     Text("View containers")

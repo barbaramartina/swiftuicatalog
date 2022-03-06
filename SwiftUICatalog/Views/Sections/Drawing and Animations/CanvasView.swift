@@ -59,12 +59,8 @@ struct CanvasView: View {
     var body: some View {
         
         ScrollView {
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
-            }
-            .padding(.trailing)
-            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
+
             Group {
                 Text("Canvas views")
                     .fontWeight(.heavy)

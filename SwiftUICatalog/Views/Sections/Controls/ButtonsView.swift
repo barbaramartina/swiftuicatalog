@@ -59,11 +59,7 @@ struct ButtonsComponentsView: View {
         
         ScrollView {
             
-            HStack {
-                Spacer()
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
-            }
-            .padding(.trailing)
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
 
             
             // MARK: - basics of buttons
