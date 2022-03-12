@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Martina
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -35,12 +35,117 @@ import SwiftUI
 ///
 
 struct GraphicContextsView: View {
+    
+    private let path = Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)))
+    
     var body: some View {
         
-        VStack {
+        ScrollView {
+            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/graphicscontext")
+            
+            Group {
+                Text("Graphic Contexts")
+                    .fontWeight(.heavy)
+                
+                Text("A view providing a space for 2D drawing, images, texts or even other views. You can create copies of the initial context, this will add an extra drawing (transparent) layer in a tree")
+                    .fontWeight(.light)
+                
+                HStack {
+                    Spacer()
+                    Canvas { context, size in
+                        
+                        // drawing directives sorting matters. Try out changing this .fill to the end to see how it renders.
+                        context.fill(
+                            path,
+                            with: .color(.blue))
+                        
+                        context.fill(path,
+                                     with: .linearGradient(Gradient(colors: [.white.opacity(0.5), .black.opacity(0.4)]),
+                                                           startPoint: .zero,
+                                                           endPoint: CGPoint(x: size.width, y: size.height)))
+                        
+                        // draw in a second context / layer
+                        var copyOfContext = context
+                        let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
+                        copyOfContext.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
+                        copyOfContext.fill(
+                            Path(ellipseIn: CGRect(origin: .zero, size: size)),
+                            with: .color(.yellow))
+                        
+                        
+                        
+                    }
+                    .frame(width: 150)
+                    Spacer()
+                    
+                }
+                .frame(height: 150)
+                // end canvas 1
+                
+                // MARK: - gradients
+                
+                Text("In a canvas you can draw different types of gradients")
+                    .fontWeight(.light)
+                
+                Text("Linear gradient")
+                    .fontWeight(.heavy)
+                
+                
+                HStack {
+                    Spacer()
+                    Canvas {  context, size in
+                        
+                        context.fill(path,
+                                     with: .linearGradient(Gradient(colors: [.white.opacity(0.5), .black.opacity(0.4)]),
+                                                           
+                                                           startPoint: .zero,
+                                                           
+                                                           endPoint: CGPoint(x: size.width, y: size.height)))
+                        
+                        
+                    }
+                    .frame(width: 150)
+                    Spacer()
 
-            ContributionWantedView()
+                }
+                .frame(height: 150)
+                // end linear gradient
+                
+                
+                // radial gradient
+                Text("Radial gradient")
+                    .fontWeight(.heavy)
+                
+                HStack {
+                    Spacer()
+                    Canvas {  context, size in
+                        
+                        context.fill(path,
+                                     with: .radialGradient(Gradient(colors: [.blue.opacity(0.8), .white.opacity(0.1)]),
+                                                           center: CGPoint(x: 60, y: 60),
+                                                           startRadius: 2,
+                                                           endRadius: 150))
+                        
+                        
+                    }
+                    .frame(width: 150)
 
+                    Spacer()
+                }
+                .frame(height: 150)
+                
+                
+                // end canvas gradients
+                
+            }
+            // end group
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+
+            
         }
         
     }
