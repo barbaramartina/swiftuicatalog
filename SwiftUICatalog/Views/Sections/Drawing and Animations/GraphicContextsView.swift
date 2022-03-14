@@ -36,7 +36,15 @@ import SwiftUI
 
 struct GraphicContextsView: View {
     
+    /// width of the path we want to work with
+    private let width: CGFloat = 200
+    /// height of the path we want to work with
+    private let height: CGFloat = 200
+    /// path to use for rendering different drawings
     private let path = Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)))
+    /// colors for the gradients to showcase
+    private let gradientColors: [Color] = [.yellow.opacity(0.5),
+                                  .blue.opacity(0.4)]
     
     var body: some View {
         
@@ -61,7 +69,7 @@ struct GraphicContextsView: View {
                             with: .color(.blue))
                         
                         context.fill(path,
-                                     with: .linearGradient(Gradient(colors: [.white.opacity(0.5), .black.opacity(0.4)]),
+                                     with: .linearGradient(Gradient(colors:gradientColors),
                                                            startPoint: .zero,
                                                            endPoint: CGPoint(x: size.width, y: size.height)))
                         
@@ -76,40 +84,27 @@ struct GraphicContextsView: View {
                         
                         
                     }
-                    .frame(width: 150)
+                    .frame(width: width)
                     Spacer()
                     
                 }
-                .frame(height: 150)
-                // end canvas 1
+                .frame(height: height)
+                // end canvas 1: context and copy of context
                 
                 // MARK: - gradients
-                
-                Text("In a canvas you can draw different types of gradients")
-                    .fontWeight(.light)
-                
+         
                 Text("Linear gradient")
                     .fontWeight(.heavy)
                 
-                
-                HStack {
-                    Spacer()
-                    Canvas {  context, size in
-                        
-                        context.fill(path,
-                                     with: .linearGradient(Gradient(colors: [.white.opacity(0.5), .black.opacity(0.4)]),
-                                                           
-                                                           startPoint: .zero,
-                                                           
-                                                           endPoint: CGPoint(x: size.width, y: size.height)))
-                        
-                        
-                    }
-                    .frame(width: 150)
-                    Spacer()
-
-                }
-                .frame(height: 150)
+                GradientContainer(name: "Linear",
+                                  height: height,
+                                  width: width,
+                                  gradient: .linearGradient(Gradient(colors: gradientColors),
+                                                        
+                                                        startPoint: .zero,
+                                                        
+                                                        endPoint: CGPoint(x: width, y: height)),
+                                  path: path)
                 // end linear gradient
                 
                 
@@ -117,28 +112,29 @@ struct GraphicContextsView: View {
                 Text("Radial gradient")
                     .fontWeight(.heavy)
                 
-                HStack {
-                    Spacer()
-                    Canvas {  context, size in
-                        
-                        context.fill(path,
-                                     with: .radialGradient(Gradient(colors: [.blue.opacity(0.8), .white.opacity(0.1)]),
-                                                           center: CGPoint(x: 60, y: 60),
-                                                           startRadius: 2,
-                                                           endRadius: 150))
-                        
-                        
-                    }
-                    .frame(width: 150)
-
-                    Spacer()
-                }
-                .frame(height: 150)
+                GradientContainer(name: "Radial",
+                                  height: height,
+                                  width: width,
+                                  gradient: .radialGradient(Gradient(colors: gradientColors),
+                                                        center: CGPoint(x: 60, y: 60),
+                                                        startRadius: 2,
+                                                        endRadius: 150),
+                                  path: path)
+                // end radial gradient
                 
-                
-                // end canvas gradients
+                // conic gradient
+                GradientContainer(name: "Conic",
+                                  height: height,
+                                  width: width,
+                                  gradient: .conicGradient(Gradient(colors: gradientColors),
+                                                       center: CGPoint(x: 70, y: 70),
+                                                       angle: Angle(degrees: 45),
+                                                       options: .linearColor),
+                                  path: path)
+                // end conic gradient
                 
             }
+            .padding()
             // end group
             
             ContributedByView(name: "Barbara Martina",
@@ -155,4 +151,39 @@ struct GraphicContextsView_Previews: PreviewProvider {
     static var previews: some View {
         GraphicContextsView()
     }
+}
+
+/// Auxiliar view to stack a gradient in a horizontal stack view
+private struct GradientContainer: View {
+    
+    let name: String
+    let height: CGFloat
+    let width: CGFloat
+    let gradient: GraphicsContext.Shading
+    let path: Path
+    
+    var body: some View {
+        
+        VStack {
+            Text(name)
+                .fontWeight(.heavy)
+            
+            HStack {
+                Spacer()
+                Canvas {  context, size in
+                    
+                    context.fill(path,
+                                 with: gradient)
+                    
+                    
+                }
+                .frame(width: width)
+                Spacer()
+
+            }
+            .frame(height: height)
+        }
+
+    }
+
 }
