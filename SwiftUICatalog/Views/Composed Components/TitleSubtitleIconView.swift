@@ -7,6 +7,16 @@
 
 import SwiftUI
 
+///
+/// A view commonly used includes a title, a longer description and an icon.
+/// This view allows to create this combination of items easily.
+///
+///  TITLE                                              (ICON)
+///  LONGER DESCRIPTION
+///
+///  The ICON vertical and horizontal alignments can be configured.
+///  As well as the font, weight and paddings of the view.
+///
 struct TitleSubtitleIconView: View {
     
     struct Configuration {
