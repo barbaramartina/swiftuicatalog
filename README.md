@@ -1,6 +1,7 @@
 # SwiftUI Catalog
 An open source catalog, under MIT License, containing components, controls, effects, styles, layouts, containers, modifiers and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.
 
+
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
 
@@ -8,10 +9,15 @@ We'd like to promote this as a collaborative initiative developed over time, you
 
 
 # Goal
-There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. For example all the possible containers (like form, group, groupBox, controlGroup), all the hierarchical views (such as tabs view, outline views, diclosure views). 
+There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
+
+For example all the possible containers (like form, group, groupBox, controlGroup), all the hierarchical views (such as tabs view, outline views, diclosure views). 
+
+
 This catalog will allow developers who already know the theoretical aspects of [data / state handling](https://developer.apple.com/documentation/swiftui/state-and-data-flow) and SwiftUI [App Structure and Behaviour](https://developer.apple.com/documentation/swiftui/app-structure-and-behavior) to discover and reused easily UI elements to compose SwiftUI Interfaces.
 
 # You can use this catalog for:
+
 - Discovering SwiftUI controls, layouts, containers, gestures (for iPadOS and iOS)
 - Copy and paste the code you need into your (also commercial) projects (that's why I have chosen MIT License so the source code here can be freely shared, as long as an attribution is displayed)
 - Contributing to some of the sections and share your code with others (see below "How to contribute?"
