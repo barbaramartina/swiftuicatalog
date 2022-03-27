@@ -18,12 +18,10 @@ struct ImageWithOverlayView<Overlay: View>: View {
     
     let image: String
     let overlay: Overlay
-    let verticalAlignment: VerticalAlignment
-    let horizontalAligment: HorizontalAlignment
+    let alignment: Alignment
     
     var body: some View {
-        ZStack(alignment: Alignment(horizontal: .leading,
-                                    vertical: .top)) {
+        ZStack(alignment: alignment) {
             Image(image)
                 .resizable()
                 .scaledToFit()
@@ -35,8 +33,7 @@ struct ImageWithOverlayView<Overlay: View>: View {
 //        Image(image)
 //            .resizable()
 //            .scaledToFit()
-//            .overlay(overlay, alignment: Alignment(horizontal: horizontalAligment,
-//                                                   vertical: verticalAlignment))
+//            .overlay(overlay, alignment: aligment)
 
     }
 }
@@ -45,7 +42,7 @@ struct ImageWithOverlayView_Previews: PreviewProvider {
     static var previews: some View {
         ImageWithOverlayView(image: "cocker",
                              overlay: Text("Nice puppy :)"),
-                             verticalAlignment: .top,
-                             horizontalAligment: .leading)
+                             alignment: Alignment(horizontal: .leading,
+                                                  vertical: .top))
     }
 }
