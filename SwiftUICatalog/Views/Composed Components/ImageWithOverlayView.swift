@@ -13,7 +13,7 @@ import SwiftUI
 ///
 /// In this case you can pass any type of view to
 /// be presented as an overlay on top of an image
-/// 
+///
 struct ImageWithOverlayView<Overlay: View>: View {
     
     let image: String
@@ -30,6 +30,14 @@ struct ImageWithOverlayView<Overlay: View>: View {
             overlay
                 .padding()
         }
+        
+        // Another Alternative implementation for simple composiitions can be done by using the standard overlay modifier
+//        Image(image)
+//            .resizable()
+//            .scaledToFit()
+//            .overlay(overlay, alignment: Alignment(horizontal: horizontalAligment,
+//                                                   vertical: verticalAlignment))
+
     }
 }
 
