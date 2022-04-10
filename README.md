@@ -4,6 +4,10 @@ An open source catalog, under MIT License, containing components, controls, effe
 
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
+<img width="364" alt="Screen Shot 2022-04-10 at 6 39 21 PM" src="https://user-images.githubusercontent.com/815372/162630103-a5dcf4a0-ff53-4111-891c-a8f579a44fa2.png">
+<img width="364" alt="Screen Shot 2022-04-10 at 6 39 48 PM" src="https://user-images.githubusercontent.com/815372/162630112-65a7961e-87af-415c-b88b-55415caece0f.png">
+<img width="364" alt="Screen Shot 2022-04-10 at 6 40 04 PM" src="https://user-images.githubusercontent.com/815372/162630120-8289df24-2838-4a54-b1c7-942cd4a9818b.png">
+
 
 [![Demo](https://github.com/barbaramartina/swiftuicatalog/blob/main/demos/yt_logo_rgb_light.png)](https://www.youtube.com/watch?v=3sTYxTmiX0I)
 
