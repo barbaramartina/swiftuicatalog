@@ -8,10 +8,6 @@ We'd like to promote this as a collaborative initiative developed over time, you
 <img width="364" alt="Screen Shot 2022-04-10 at 6 39 48 PM" src="https://user-images.githubusercontent.com/815372/162630112-65a7961e-87af-415c-b88b-55415caece0f.png">
 <img width="364" alt="Screen Shot 2022-04-10 at 6 40 04 PM" src="https://user-images.githubusercontent.com/815372/162630120-8289df24-2838-4a54-b1c7-942cd4a9818b.png">
 
-
-[![Demo](https://github.com/barbaramartina/swiftuicatalog/blob/main/demos/yt_logo_rgb_light.png)](https://www.youtube.com/watch?v=3sTYxTmiX0I)
-
-
 # Goal
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
 
