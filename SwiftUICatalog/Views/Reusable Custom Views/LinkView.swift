@@ -7,7 +7,12 @@
 
 import SwiftUI
 
-struct Link<Destination> : View where Destination : View {
+
+struct Link<Destination> : View, Hashable, Identifiable where Destination : View {
+    
+    var id: String {
+        return label
+    }
     
     var destination: Destination
     var label: String
@@ -21,4 +26,16 @@ struct Link<Destination> : View where Destination : View {
         }
         .padding(.bottom, 5)
     }
+    
+    // MARK: - HASHABLE
+    
+    static func == (lhs: Link<Destination>, rhs: Link<Destination>) -> Bool {
+        return lhs.label == rhs.label
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
 }

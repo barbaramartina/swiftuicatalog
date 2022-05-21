@@ -14,7 +14,9 @@ import SwiftUI
 /// In this case you can pass any type of view to
 /// be presented as an overlay on top of an image
 ///
-struct ImageWithOverlayView<Overlay: View>: View {
+struct ImageWithOverlayView<Overlay: View>: View, Identifiable {
+    
+    let id: String = "ImageWithOverlayView"
     
     let image: String
     let overlay: Overlay

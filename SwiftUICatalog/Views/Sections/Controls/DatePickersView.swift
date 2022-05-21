@@ -32,9 +32,11 @@ import SwiftUI
 /// Examples on how to use DATE PICKERS in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/datepicker
 ///
-struct DatePickersView: View {
+struct DatePickersView: View, Comparable {
     
     // MARK: - properties
+    
+    let id: String = "DatePickersView"
     
     @State private var date1 = Date()
     @State private var date2 = Date()
@@ -55,6 +57,8 @@ struct DatePickersView: View {
 
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker")
@@ -166,7 +170,7 @@ struct DatePickersView: View {
                 .padding(.top, 80)
 
 
-        }
+        })
         .padding(.leading, 16)
         .padding(.trailing, 16)
 
@@ -180,3 +184,20 @@ struct DatePickersView_Previews: PreviewProvider {
         DatePickersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension DatePickersView {
+    
+    static func == (lhs: DatePickersView, rhs: DatePickersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

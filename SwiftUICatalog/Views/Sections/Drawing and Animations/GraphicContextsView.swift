@@ -34,9 +34,11 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/graphicscontext
 ///
 
-struct GraphicContextsView: View {
+struct GraphicContextsView: View, Comparable {
     
-    /// width of the path we want to work with
+    let id: String = "GraphicContextsView"
+    
+   /// width of the path we want to work with
     private let width: CGFloat = 200
     /// height of the path we want to work with
     private let height: CGFloat = 200
@@ -48,6 +50,8 @@ struct GraphicContextsView: View {
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/graphicscontext")
@@ -142,7 +146,8 @@ struct GraphicContextsView: View {
                 .padding(.top, 80)
 
             
-        }
+        })
+        // end of page container
         
     }
 }
@@ -187,3 +192,20 @@ private struct GradientContainer: View {
     }
 
 }
+
+// MARK: - HASHABLE
+
+extension GraphicContextsView {
+    
+    static func == (lhs: GraphicContextsView, rhs: GraphicContextsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

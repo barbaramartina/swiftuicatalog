@@ -8,7 +8,10 @@
 import SwiftUI
 
 
-struct HeaderView: View {
+struct HeaderView: View, Identifiable {
+    
+    let id: String = "HeaderView"
+    
     var title: String
     
     var body: some View {

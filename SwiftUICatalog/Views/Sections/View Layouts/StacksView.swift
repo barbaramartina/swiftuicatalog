@@ -38,13 +38,18 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/lazyvstack
 ///
 
-struct StacksView: View {
+struct StacksView: View, Comparable {
     
-    let colors: [Color] =
+    
+    let id: String = "StacksView"
+    
+   let colors: [Color] =
         [ Color("secondary"), .green, .blue, .purple]
     
     var body: some View {
-        ScrollView () {
+        PageContainer(content:
+
+                        ScrollView () {
             
             Group{
                 VStack {
@@ -177,7 +182,8 @@ struct StacksView: View {
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
-        }
+        })
+        // end of page container
     }
 }
 
@@ -186,3 +192,20 @@ struct StacksView_Previews: PreviewProvider {
         StacksView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension StacksView {
+    
+    static func == (lhs: StacksView, rhs: StacksView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

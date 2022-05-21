@@ -35,12 +35,18 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/scrollviewproxy
 ///
 
-struct ScrollViewsView: View {
+struct ScrollViewsView: View, Comparable {
 
-    @State private var topButtonId: String = "top-button"
+    
+    let id: String = "ScrollViewsView"
+    
+  @State private var topButtonId: String = "top-button"
     @State private var bottomButtonId: String = "bottom-button"
 
     var body: some View {
+        
+        PageContainer(content:
+
         
         ScrollViewReader { proxy in
             
@@ -86,7 +92,8 @@ struct ScrollViewsView: View {
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
 
-        }
+        })
+        // end of page container
         
     }
 }
@@ -96,3 +103,20 @@ struct ScrollViewsView_Previews: PreviewProvider {
         ScrollViewsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension ScrollViewsView {
+    
+    static func == (lhs: ScrollViewsView, rhs: ScrollViewsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

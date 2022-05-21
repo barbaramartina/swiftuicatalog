@@ -31,12 +31,18 @@ import SwiftUI
 /// Examples on how to use TOGGLES in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/toggle
 ///
-struct TogglesView: View {
+struct TogglesView: View, Comparable {
+    
+    let id: String = "TogglesView"
+    
     @State var isBasicToggleOn: Bool = true
     @State var isSwitchToggleOn: Bool = true
     @State var isCustomToggleOn: Bool = true
 
     var body: some View {
+        
+        PageContainer(content:
+
         VStack() {
 
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
@@ -80,8 +86,9 @@ struct TogglesView: View {
                               link: "https://github.com/freddy1h")
                 .padding(.top, 80)
 
-        }
+        })
         .padding()
+                      
       
     }
 }
@@ -130,3 +137,20 @@ struct TogglesView_Previews: PreviewProvider {
         TogglesView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension TogglesView {
+    
+    static func == (lhs: TogglesView, rhs: TogglesView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

@@ -34,7 +34,9 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/disclosuregroup
 ///
 
-struct DisclosureGroupsView: View {
+struct DisclosureGroupsView: View, Comparable {
+    
+    let id: String = "DisclosureGroupsView"
     
     @Environment(\.openURL) var openURL
     
@@ -47,6 +49,8 @@ struct DisclosureGroupsView: View {
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup")
@@ -90,6 +94,8 @@ struct DisclosureGroupsView: View {
                 .padding(.top, 80)
         }
         .padding()
+                      )
+        // end of page container
         
 
     }
@@ -100,3 +106,20 @@ struct DisclosureGroupsView_Previews: PreviewProvider {
         DisclosureGroupsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension DisclosureGroupsView {
+    
+    static func == (lhs: DisclosureGroupsView, rhs: DisclosureGroupsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

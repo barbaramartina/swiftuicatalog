@@ -32,13 +32,18 @@ import SwiftUI
 /// Examples on how to use PICKERS in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/picker
 ///
-struct PickersView: View {
+struct PickersView: View, Comparable {
+    
+    let id: String = "PickersView"
     
     @State private var selectedFlavor = Flavor.strawberry
     @State private var selectedTopping = Topping.nuts
     @State var suggestedTopping: Topping = .cookies
     
     var body: some View {
+        
+        PageContainer(content:
+
         ScrollView{
             Group {
                 VStack{
@@ -119,7 +124,8 @@ struct PickersView: View {
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
-        }
+        })
+        // end of page container
     }
 }
 
@@ -155,3 +161,20 @@ struct PickersView_Previews: PreviewProvider {
         PickersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension PickersView {
+    
+    static func == (lhs: PickersView, rhs: PickersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

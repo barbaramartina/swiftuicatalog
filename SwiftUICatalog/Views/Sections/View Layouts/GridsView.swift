@@ -36,15 +36,21 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/griditem
 ///
 
-struct GridsView: View {
+struct GridsView: View, Comparable {
     
-    var rows: [GridItem] =
+    
+    let id: String = "GridsView"
+    
+  var rows: [GridItem] =
         Array(repeating: .init(.fixed(20)), count: 2)
     var columns: [GridItem] =
         Array(repeating: .init(.flexible()), count: 2)
     @Environment(\.openURL) var openURL
     
     var body: some View {
+        
+        PageContainer(content:
+
         Group{
             ScrollView {
                 VStack {
@@ -134,7 +140,8 @@ struct GridsView: View {
                     .padding(.top, 80)
             }
 
-        }
+        })
+        // end of page container
         
     }
 }
@@ -144,3 +151,20 @@ struct GridsView_Previews: PreviewProvider {
         GridsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension GridsView {
+    
+    static func == (lhs: GridsView, rhs: GridsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

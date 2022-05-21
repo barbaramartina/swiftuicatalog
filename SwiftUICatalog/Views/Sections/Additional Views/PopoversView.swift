@@ -28,13 +28,51 @@
 
 import SwiftUI
 
-struct PopoversComponentView: View {
+struct PopoversComponentView: View, Comparable {
+    
+    let id: String = "PopoversComponentView"
+    
+    @State private var showingPopover = false
+    private let documentationURLString = "https://developer.apple.com/documentation/swiftui/button/popover(ispresented:attachmentanchor:arrowedge:content:)"
+
     var body: some View {
         
-        VStack {
-            HeaderView( title: "Popovers examples")
-            ContributionWantedView()
-        }
+        PageContainer(content:
+
+        ScrollView {
+            DocumentationLinkView(link: documentationURLString)
+            
+            WebView(url: URL(string: documentationURLString)!)
+                .frame(height: 400)
+            
+            Button(action: {
+                showingPopover = true
+            },
+                   label: {
+                    Text("Show menu")
+                        .modifier(ButtonFontModifier())
+                        .overlay(
+                            RoundedCorners(tl: 10,
+                                           tr: 0,
+                                           bl: 0,
+                                           br: 10)
+                                .stroke(Color.accentColor, lineWidth: 5)
+                        )
+            })
+            .popover(isPresented: $showingPopover,
+                     arrowEdge: .bottom) {
+                VStack {
+                    Text("Here you can insert any other type of view for your popover")
+                    Divider()
+                    Button("Click to dismiss") {
+                        showingPopover = false
+                    }
+                }
+                .padding()
+            }
+
+        })
+        //end of page container
         
     }
 }
@@ -44,3 +82,20 @@ struct PopoversComponentView_Previews: PreviewProvider {
         PopoversComponentView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension PopoversComponentView {
+    
+    static func == (lhs: PopoversComponentView, rhs: PopoversComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

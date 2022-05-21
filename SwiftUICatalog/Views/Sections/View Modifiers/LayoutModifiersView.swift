@@ -34,7 +34,10 @@ import SwiftUI
 /// Open the "Add modifier" panels in XCode and inspect all possible "Layout Modifiers" to provide examples here
 ///
 
-struct LayoutModifiersView: View {
+struct LayoutModifiersView: View, Comparable {
+    
+    let id: String = "LayoutModifiersView"
+    
     var body: some View {
         
         VStack {
@@ -50,3 +53,20 @@ struct LayoutModifiersView_Previews: PreviewProvider {
         LayoutModifiersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension LayoutModifiersView {
+    
+    static func == (lhs: LayoutModifiersView, rhs: LayoutModifiersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

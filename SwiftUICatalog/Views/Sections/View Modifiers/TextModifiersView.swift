@@ -34,12 +34,16 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/text
 ///
 
-struct TextModifiersView: View {
+struct TextModifiersView: View, Comparable {
+    
+    let id: String = "TextModifiersView"
     
     @State private var text1: String = ""
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
             
@@ -282,7 +286,8 @@ struct TextModifiersView: View {
             }
             
 
-        }
+        })
+        // end of page container
     }
 }
 
@@ -291,3 +296,20 @@ struct TextModifiersView_Previews: PreviewProvider {
         TextModifiersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension TextModifiersView {
+    
+    static func == (lhs: TextModifiersView, rhs: TextModifiersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

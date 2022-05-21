@@ -35,12 +35,20 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/divider
 ///
 
-struct SpacersDividersView: View {
-    var body: some View {
+struct SpacersDividersView: View, Comparable {
+    
+    let id: String = "SpacersDividersView"
+    
+   var body: some View {
+
+       PageContainer(content:
 
         VStack {
             ContributionWantedView()
         }
+                     
+                     )
+       // end of page container
     }
 }
 
@@ -49,3 +57,20 @@ struct SpacersDividersView_Previews: PreviewProvider {
         SpacersDividersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension SpacersDividersView {
+    
+    static func == (lhs: SpacersDividersView, rhs: SpacersDividersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

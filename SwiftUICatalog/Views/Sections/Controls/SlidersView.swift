@@ -30,12 +30,15 @@ import SwiftUI
 ///
 /// Examples on how to use SLIDERS in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/slider
-/// 
-struct SlidersView: View {
+///
+struct SlidersView: View, Comparable {
     
     // MARK: - Properties
     
-    @State private var grams1 = 15.0
+    
+    let id: String = "SlidersView"
+    
+   @State private var grams1 = 15.0
     @State private var grams2 = 15.0
     @State private var grams3 = 15.0
     @State private var isEditing1 = false
@@ -46,6 +49,8 @@ struct SlidersView: View {
     
     
     var body: some View {
+
+        PageContainer(content:
 
         ScrollView {
 
@@ -134,8 +139,8 @@ struct SlidersView: View {
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
 
-        }
-        // end of LIST
+        })
+        // end of Page container
     }
 }
 
@@ -144,3 +149,20 @@ struct SlidersView_Previews: PreviewProvider {
         SlidersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension SlidersView {
+    
+    static func == (lhs: SlidersView, rhs: SlidersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

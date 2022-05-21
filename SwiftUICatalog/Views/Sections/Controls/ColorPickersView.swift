@@ -32,15 +32,19 @@ import SwiftUI
 /// Examples on how to use COLOR PICKERS in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/colorpicker
 ///
-struct ColorPickersView: View {
+struct ColorPickersView: View, Comparable {
     
-    @State private var bgColor1 =
+    let id: String = "ColorPickersView"
+    
+   @State private var bgColor1 =
         Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     @State private var bgColor2 =
         Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView{
             Group {
                 VStack {
@@ -71,7 +75,7 @@ struct ColorPickersView: View {
 
             }
             .padding()
-        }
+        })
     }
 }
 
@@ -80,3 +84,20 @@ struct ColorPickersView_Previews: PreviewProvider {
         ColorPickersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension ColorPickersView {
+    
+    static func == (lhs: ColorPickersView, rhs: ColorPickersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

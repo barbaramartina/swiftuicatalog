@@ -32,8 +32,11 @@ import SwiftUI
 /// Example on how to set and configure Tool Bars on SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/view/toolbar(id:content:)
 ///
-struct ToolbarsComponentView: View {
-    var body: some View {
+struct ToolbarsComponentView: View, Comparable {
+    
+    let id: String = "ToolbarsComponentView"
+    
+   var body: some View {
         
         VStack {
             ContributionWantedView()
@@ -47,3 +50,20 @@ struct ToolbarsComponentView_Previews: PreviewProvider {
         ToolbarsComponentView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension ToolbarsComponentView {
+    
+    static func == (lhs: ToolbarsComponentView, rhs: ToolbarsComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

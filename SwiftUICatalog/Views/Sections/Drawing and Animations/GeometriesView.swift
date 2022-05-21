@@ -41,13 +41,17 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/vectorarithmetic
 ///
 
-struct GeometriesView: View {
+struct GeometriesView: View, Comparable {
+    
+    let id: String = "GeometriesView"
     
     @State private var offset: CGFloat = 200
     @State private var textDirection: CGFloat = 1
 
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/geometryreader")
@@ -108,6 +112,8 @@ struct GeometriesView: View {
             
             
         }
+                      )
+        // end of page container
     }
 }
 
@@ -144,3 +150,20 @@ struct PingPongEffect: GeometryEffect {
                                                      ty: 0))
     }
 }
+
+// MARK: - HASHABLE
+
+extension GeometriesView {
+    
+    static func == (lhs: GeometriesView, rhs: GeometriesView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

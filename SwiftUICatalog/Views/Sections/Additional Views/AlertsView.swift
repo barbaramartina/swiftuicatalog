@@ -28,12 +28,19 @@
 
 import SwiftUI
 
-struct AlertsComponentView: View {
+struct AlertsComponentView: View, Comparable {
+    
+    let id: String = "AlertsComponentView"
+    
     var body: some View {
+
+        PageContainer(content:
 
         VStack {
             ContributionWantedView()
         }
+                      )
+        // end of page container
         
     }
 }
@@ -43,3 +50,20 @@ struct AlertsComponentView_Previews: PreviewProvider {
         AlertsComponentView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension AlertsComponentView {
+    
+    static func == (lhs: AlertsComponentView, rhs: AlertsComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

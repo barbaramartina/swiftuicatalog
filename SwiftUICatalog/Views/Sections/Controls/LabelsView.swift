@@ -33,8 +33,10 @@ import SwiftUI
 /// Examples on how to use LABELS in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/label
 ///
-struct LabelsView: View {
+struct LabelsView: View, Comparable {
     
+    let id: String = "LabelsView"
+
     // Label Style
     // https://developer.apple.com/documentation/swiftui/labelstyle
     // please note that: some of the label style is available from iOS version 14.5 or above.
@@ -48,6 +50,7 @@ struct LabelsView: View {
     
     var body: some View {
         
+        PageContainer(content:
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label")
@@ -246,7 +249,7 @@ struct LabelsView: View {
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
-        }
+        })
     }
 }
 
@@ -264,3 +267,20 @@ struct LabelsView_Previews: PreviewProvider {
         LabelsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension LabelsView: Hashable {
+    
+    static func == (lhs: LabelsView, rhs: LabelsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

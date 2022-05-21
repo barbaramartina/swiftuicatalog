@@ -34,7 +34,10 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/viewmodifier
 ///
 
-struct CustomModifiersView: View {
+struct CustomModifiersView: View, Comparable {
+    
+    let id: String = "CustomModifiersView"
+    
     var body: some View {
         
         VStack {
@@ -48,3 +51,20 @@ struct EffectsComponentView_Previews: PreviewProvider {
         CustomModifiersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension CustomModifiersView {
+    
+    static func == (lhs: CustomModifiersView, rhs: CustomModifiersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

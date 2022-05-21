@@ -31,266 +31,234 @@
 
 import SwiftUI
 
+protocol Comparable: Hashable & Equatable & Identifiable {}
+
+
 struct ContentView: View {
+    
+    private let gradient = LinearGradient(colors: [Color("PaleGreen"),Color("LightBraun")],
+                                          startPoint: .top,
+                                          endPoint: .bottom)
+
+    init(){
+        UITableView.appearance().backgroundColor = .clear
+    }
     
     // MARK: - Body
     
     var body: some View {
         
         NavigationView {
-            
-            List {
-                HStack {
-                    
-                    Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
-                        .font(.footnote)
-                        .fontWeight(.light)
-                        .padding(.bottom, 24)
-                        .padding(.top, 24)
-                        .padding(.bottom, 16)
-                    
-                    Button(action: {
-                        UIApplication.shared.open(URL(string: "https://github.com/barbaramartina/swiftuicatalog/")!)
-                    },
-                           label: {
-                        Image("github")
-                            .resizable()
-                            .frame(width: 50, height: 50)
-                           })
-                    
-                }
-                // end of Hstack
+            ZStack {
+                gradient
+                    .ignoresSafeArea()
                 
-                Group {
-                    // MARK: - CONTROLS
-                    
-                    Section(header: Text("Controls")
-                                .font(.title)
-                                .fontWeight(.black)
-                                .foregroundColor(.accentColor)
-                                .padding(.top, 16)
-                                .padding(.bottom, 16)) {
+                    List {
                         Group {
-                            Link(destination: ButtonsComponentsView(),
-                                 label: "Buttons")
-                            Link(destination: ImagesComponentView(),
-                                 label: "Images")
-                            Link(destination: TextsComponentsView(),
-                                 label: "Texts")
-                            Link(destination: LabelsView(),
-                                 label: "Labels")
-                            Link(destination: MenusComponentView(),
-                                 label: "Menus")
-                            Link(destination: TogglesView(),
-                                 label: "Toggles")
-                            Link(destination: SlidersView(),
-                                 label: "Sliders")
+                            
+                            Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
+                                .font(.footnote)
+                                .fontWeight(.light)
+                                .padding(.top, 24)
+                                .padding(.bottom, 16)
+                            
+                            Button(action: {
+                                UIApplication.shared.open(URL(string: "https://github.com/barbaramartina/swiftuicatalog/")!)
+                            },
+                                   label: {
+                                Image("github")
+                                    .resizable()
+                                    .frame(width: 50, height: 50)
+                                   })
                             
                         }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of section
+                        
                         Group {
-                            Link(destination: SteppersView(),
-                                 label: "Steppers")
-                            Link(destination: PickersView(),
-                                 label: "Pickers")
-                            Link(destination: DatePickersView(),
-                                 label: "Date Pickers")
-                            Link(destination: ColorPickersView(),
-                                 label: "Color pickers")
-                            Link(destination: ProgressViews(),
-                                 label: "Progress View")
+                            Section(header: Text("Controls")
+                                .modifier(ListSectionFontModifier())) {
+                                    Group {
+                                    Link(destination: ButtonsComponentsView(),
+                                         label: "Buttons")
+                                    Link(destination: ImagesComponentView(),
+                                         label: "Images")
+                                    Link(destination: TextsComponentsView(),
+                                         label: "Texts")
+                                    Link(destination: LabelsView(),
+                                         label: "Labels")
+                                    Link(destination: MenusComponentView(),
+                                         label: "Menus")
+                                    }
+                                    Group {
+                                    Link(destination: TogglesView(),
+                                         label: "Toggles")
+                                    Link(destination: SlidersView(),
+                                         label: "Sliders")
+                                    Link(destination: SteppersView(),
+                                         label: "Steppers")
+                                    Link(destination: PickersView(),
+                                         label: "Pickers")
+                                    Link(destination: DatePickersView(),
+                                         label: "Date Pickers")
+                                    Link(destination: ColorPickersView(),
+                                         label: "Color pickers")
+                                    Link(destination: ProgressViews(),
+                                         label: "Progress View")
+                                    }
+
+                                }
+                                .listRowBackground(Color("LightBraun"))
+
+                            
+                            // MARK: - LAYOUTS
+                            
+                            Section(header: Text("Layouts")
+                                .modifier(ListSectionFontModifier())) {
+                                Link(destination: ListsComponentView(),
+                                     label: "Lists")
+                                Link(destination: StacksView(),
+                                     label: "Stacks")
+                                Link(destination: GridsView(),
+                                     label: "Grids")
+                                Link(destination: ContainersView(),
+                                     label: "Containers")
+                                Link(destination: ScrollViewsView(),
+                                     label: "Scrollviews")
+                            }
+                                .listRowBackground(Color("LightBraun"))
+                            // end of section View Layouts
+                            
+                            // MARK: - navigation
+                            
+                            Section(header: Text("Hierachical Views")   .modifier(ListSectionFontModifier())) {
+                                Link(destination: NavigationBarsComponentView(),
+                                     label: "Navigation")
+                                Link(destination: OutlinesGroupsView(),
+                                     label: "Outlines")
+                                Link(destination: DisclosureGroupsView(),
+                                     label: "Disclosures")
+                                Link(destination: TabsView(),
+                                     label: "Tabs")
+                            }
+                            .listRowBackground(Color("LightBraun"))
+                            // end of Group Navigation View
+                            
+                            // MARK: - DRAWING AND ANIMATIONS
+                            
+                            Section(header: Text("Drawing and animations")                                .modifier(ListSectionFontModifier())) {
+                                Link(destination: CanvasView(),
+                                     label: "Canvas")
+                                Link(destination: GraphicContextsView(),
+                                     label: "Graphic Context")
+                                Link(destination: ShapesView(),
+                                     label: "Shapes")
+                                Link(destination: AnimationsView(),
+                                     label: "Animations")
+                                Link(destination: GeometriesView(),
+                                     label: "Geometries")
+                            }
+                            .listRowBackground(Color("LightBraun"))
+                            // end of drawing
+
+                            // MARK: - GESTURES
+                            
+                            Section(header: Text("Gestures")                                .modifier(ListSectionFontModifier())) {
+                                Link(destination: GesturesView(),
+                                     label: "Gestures")
+                                Link(destination: ComposingGesturesView(),
+                                     label: "Composing Gestures")
+                            }
+                            .listRowBackground(Color("LightBraun"))
+
                         }
-                    }
-                    
-                    
-                    // MARK: - LAYOUTS
-                    
-                    Section(header: Text("Layouts")
-                                .font(.title)
-                                .fontWeight(.black)
-                                .foregroundColor(.accentColor)
-                                .padding(.top, 16)
-                                .padding(.bottom, 16)) {
-                        Link(destination: ListsComponentView(),
-                             label: "Lists")
-                        Link(destination: StacksView(),
-                             label: "Stacks")
-                        Link(destination: GridsView(),
-                             label: "Grids")
-                        Link(destination: ContainersView(),
-                             label: "Containers")
-                        Link(destination: ScrollViewsView(),
-                             label: "Scrollviews")
-                    }
-                    // end of Group View Layouts
-                    
-                    // MARK: - navigation
-                    
-                    Section(header: Text("Hierachical Views")
-                                .font(.title)
-                                .fontWeight(.black)
-                                .foregroundColor(.accentColor)
-                                .padding(.top, 16)
-                                .padding(.bottom, 16)) {
-                        Link(destination: NavigationBarsComponentView(),
-                             label: "Navigation")
-                        Link(destination: OutlinesGroupsView(),
-                             label: "Outlines")
-                        Link(destination: DisclosureGroupsView(),
-                             label: "Disclosures")
-                        Link(destination: TabsView(),
-                             label: "Tabs")
-                    }
-                    // end of Group Navigation View
-                    
-                    // MARK: - DRAWING AND ANIMATIONS
-                    
-                    Section(header: Text("Drawing and animations")
-                                .font(.title)
-                                .fontWeight(.black)
-                                .foregroundColor(.accentColor)
-                                .padding(.top, 16)
-                                .padding(.bottom, 16)) {
-                        Link(destination: CanvasView(),
-                             label: "Canvas")
-                        Link(destination: GraphicContextsView(),
-                             label: "Graphic Context")
-                        Link(destination: ShapesView(),
-                             label: "Shapes")
-                        Link(destination: AnimationsView(),
-                             label: "Animations")
-                        Link(destination: GeometriesView(),
-                             label: "Geometries")
+                        
+                        // MARK: - VIEW MODIFIERS
+                        
+                        Section(header: Text("View modifiers")                                .modifier(ListSectionFontModifier())) {
+                            Link(destination: CustomModifiersView(),
+                                 label: "Custom view modifiers")
+                            Link(destination: TextModifiersView(),
+                                 label: "Text modifiers")
+                            Link(destination: EffectsModifiersView(),
+                                 label: "Effect modifiers")
+                            Link(destination: LayoutModifiersView(),
+                                 label: "Layout modifiers")
+                            
+                        }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of Group view modifiers
+                        
+                        // MARK: - ACCESSIBILITY
+                        
+                        Section(header: Text("Accesibility")                                .modifier(ListSectionFontModifier())) {
+                            
+                            Link(destination: AccesibilityView(),
+                                 label: "Accesibility")
+                        }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of group accesibility
+                        
+                        // MARK: - status and tool bars
+                        
+                        Section(header: Text("Status and tool bars")                                .modifier(ListSectionFontModifier())) {
+                            Link(destination: StatusBarsComponentView(),
+                                 label: "Status Bars")
+                            Link(destination: ToolbarsComponentView(),
+                                 label: "Tool Bars")
+                        }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of group Bars
+                        
+                        // MARK: - STYLES ON VIEWS
+                        
+                        Section(header: Text("Styling")                                .modifier(ListSectionFontModifier())) {
+                            
+                            Link(destination: StylesView(),
+                                 label: "Styles")
+                        }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of Group Styles
+                        
+                        // MARK: - ADDITIONAL VIEWS
+                        
+                        Section(header: Text("Popovers, alerts and sheets")                                .modifier(ListSectionFontModifier())) {
+                            
+                            Link(destination: PopoversComponentView(),
+                                 label: "Popovers")
+                            Link(destination: SheetView(),
+                                 label: "Sheets")
+                            Link(destination: AlertsComponentView(),
+                                 label: "Alerts")
+                            Link(destination: TimelineViews(),
+                                 label: "Timelines")
+                            Link(destination: SpacersDividersView(),
+                                 label: "Spacer")
+                        }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of Group ADDITIONAL VIEWS
+
+                        // MARK: - Composed components
+                        
+                        Section(header: Text("Composed components to help speed up development")                                .modifier(ListSectionFontModifier())) {
+                            
+                            Link(destination: CommonlyUsedViews(),
+                                 label: "Commonly used views")
+                            Link(destination: CollectionsViews(),
+                                 label: "Collections of components")
+                        }
+                        .listRowBackground(Color("LightBraun"))
+                        // end of Group composed VIEWS
                         
                     }
-                    
-                    // MARK: - GESTURES
-                    
-                    Section(header: Text("Gestures")
-                                .font(.title)
-                                .fontWeight(.black)
-                                .foregroundColor(.accentColor)
-                                .padding(.top, 16)
-                                .padding(.bottom, 16)) {
-                        Link(destination: GesturesView(),
-                             label: "Gestures")
-                        Link(destination: ComposingGesturesView(),
-                             label: "Composing Gestures")
-                        
-                    }
-                    
-                }
-                
-                // MARK: - VIEW MODIFIERS
-                
-                Section(header: Text("View modifiers")
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(.accentColor)
-                            .padding(.top, 16)
-                            .padding(.bottom, 16)) {
-                    Link(destination: CustomModifiersView(),
-                         label: "Custom view modifiers")
-                    Link(destination: TextModifiersView(),
-                         label: "Text modifiers")
-                    Link(destination: EffectsModifiersView(),
-                         label: "Effect modifiers")
-                    Link(destination: LayoutModifiersView(),
-                         label: "Layout modifiers")
-                    
-                }
-                // end of Group view modifiers
-                
-                // MARK: - ACCESSIBILITY
-                
-                Section(header: Text("Accesibility")
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(.accentColor)
-                            .padding(.top, 16)
-                            .padding(.bottom, 16)) {
-                    
-                    Link(destination: AccesibilityView(),
-                         label: "Accesibility")
-                    
-                }
-                // end of group accesibility
-                
-                // MARK: - status and tool bars
-                
-                Section(header: Text("Status and tool bars")
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(.accentColor)
-                            .padding(.top, 16)
-                            .padding(.bottom, 16)) {
-                    Link(destination: StatusBarsComponentView(),
-                         label: "Status Bars")
-                    Link(destination: ToolbarsComponentView(),
-                         label: "Tool Bars")
-                    
-                }
-                // end of group Bars
-                
-                // MARK: - STYLES ON VIEWS
-                
-                Section(header: Text("Styling")
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(.accentColor)
-                            .padding(.top, 16)
-                            .padding(.bottom, 16)) {
-                    
-                    Link(destination: StylesView(),
-                         label: "Styles")
-                }
-                // end of Group Styles
-                
-                // MARK: - ADDITIONAL VIEWS
-                
-                Section(header: Text("Popovers, alerts and sheets")
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(.accentColor)
-                            .padding(.top, 16)
-                            .padding(.bottom, 16)) {
-                    
-                    Link(destination: PopoversComponentView(),
-                         label: "Popovers")
-                    Link(destination: SheetView(),
-                         label: "Sheets")
-                    Link(destination: AlertsComponentView(),
-                         label: "Alerts")
-                    Link(destination: TimelineViews(),
-                         label: "Timelines")
-                    Link(destination: SpacersDividersView(),
-                         label: "Spacer")
-                }
-                // end of Group ADDITIONAL VIEWS
+                    .background(Color("LightGreen"))
+                    .navigationTitle("Components Catalog")
+                    // end of LIST
 
-                // MARK: - Composed components
-                
-                Section(header: Text("Composed components to help speed up development")
-                            .font(.title)
-                            .fontWeight(.black)
-                            .foregroundColor(.accentColor)
-                            .padding(.top, 16)
-                            .padding(.bottom, 16)) {
-                    
-                    Link(destination: CommonlyUsedViews(),
-                         label: "Commonly used views")
-                    Link(destination: CollectionsViews(),
-                         label: "Collections of components")
                 }
-                // end of Group ADDITIONAL VIEWS
-
+            
                 
-                
-            }
-            .navigationTitle("Components Catalog")
-            .padding(.top, 20)
-            // end of LIST
         }
-      
         // end of navigationview
     }
 }
@@ -306,3 +274,5 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
+
+

@@ -33,17 +33,20 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION:
 /// https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures
 /// https://developer.apple.com/documentation/swiftui/composing-swiftui-gestures
-/// 
+///
 ///
 
-struct GesturesView: View {
+struct GesturesView: View, Comparable {
     
-    @GestureState var isDetectingLongPress = false
-    @State var totalNumberOfTaps = 0
-    @State var customText = "No Tap Detected yet!"
+    let id: String = "GesturesView"
+    
+    @GestureState private var isDetectingLongPress = false
+    @State private var totalNumberOfTaps = 0
+    @State private var customText = "No Tap Detected yet!"
     
     var body: some View {
         
+      
         //MARK: Gestures
         let tap = TapGesture()
             .onEnded{ _ in
@@ -195,6 +198,7 @@ struct GesturesView: View {
                 .padding(.top, 80)
 
         }
+                      
     }
 }
 
@@ -203,3 +207,20 @@ struct GesturesView_Previews: PreviewProvider {
         GesturesView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension GesturesView {
+    
+    static func == (lhs: GesturesView, rhs: GesturesView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

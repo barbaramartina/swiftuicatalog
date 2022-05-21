@@ -45,13 +45,17 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/offsetshape
 /// https://developer.apple.com/documentation/swiftui/transformedshape
 /// https://developer.apple.com/documentation/swiftui/containerrelativeshape
-/// 
+///
 ///
 
-struct ShapesView: View {
+struct ShapesView: View, Comparable {
+    
+    let id: String = "ShapesView"
+    
     var body: some View {
         
-        
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape")
@@ -130,6 +134,8 @@ struct ShapesView: View {
         }
         // end of scroll view
         .padding()
+                      )
+        // end of page container
         
     }
 }
@@ -161,3 +167,20 @@ struct CustomShape: Shape {
         return path
     }
 }
+
+// MARK: - HASHABLE
+
+extension ShapesView {
+    
+    static func == (lhs: ShapesView, rhs: ShapesView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

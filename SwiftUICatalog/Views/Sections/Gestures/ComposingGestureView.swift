@@ -36,7 +36,9 @@ import SwiftUI
 ///
 ///
 
-struct ComposingGesturesView: View {
+struct ComposingGesturesView: View, Comparable {
+    
+    let id: String = "ComposingGesturesView"
     
     enum DragState: Equatable {
         case inactive
@@ -71,12 +73,13 @@ struct ComposingGesturesView: View {
         }
     }
     
-    @GestureState var dragState = DragState.inactive
-    @State var viewState = CGSize.zero
-    let minimumLongPressDuration = 0.5
+    @GestureState private var dragState = DragState.inactive
+    @State private var viewState = CGSize.zero
+    private let minimumLongPressDuration = 0.5
     
     var body: some View {
         
+       
         let longPressDrag = LongPressGesture(minimumDuration: minimumLongPressDuration)
             .sequenced(before: DragGesture())
             .updating($dragState) { value, state, transaction in
@@ -122,6 +125,7 @@ struct ComposingGesturesView: View {
 
         }
         
+        // end of page container
         
     }
     
@@ -132,3 +136,20 @@ struct ComposingGesturesView_Previews: PreviewProvider {
         ComposingGesturesView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension ComposingGesturesView {
+    
+    static func == (lhs: ComposingGesturesView, rhs: ComposingGesturesView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

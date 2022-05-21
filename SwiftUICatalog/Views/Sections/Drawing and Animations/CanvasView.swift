@@ -34,9 +34,11 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/canvas
 ///
 
-struct CanvasView: View {
+struct CanvasView: View, Comparable {
     
-    let spaces: [CGRect] = [CGRect(x: 0,
+    let id: String = "CanvasView"
+    
+    private let spaces: [CGRect] = [CGRect(x: 0,
                                    y: 0,
                                    width: 100,
                                    height: 100),
@@ -48,8 +50,8 @@ struct CanvasView: View {
                                    y: 0,
                                    width: 200,
                                    height: 200)]
-    let circle = Image(systemName: "circle")
-    let square = Image(systemName: "square")
+    private let circle = Image(systemName: "circle")
+    private let square = Image(systemName: "square")
     
     enum ViewId: Int {
         case circle
@@ -58,6 +60,8 @@ struct CanvasView: View {
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
 
@@ -115,6 +119,8 @@ struct CanvasView: View {
 
             
         }
+                      )
+        // end of page container
     }
 }
 
@@ -123,3 +129,20 @@ struct CanvasView_Previews: PreviewProvider {
         CanvasView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension CanvasView {
+    
+    static func == (lhs: CanvasView, rhs: CanvasView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

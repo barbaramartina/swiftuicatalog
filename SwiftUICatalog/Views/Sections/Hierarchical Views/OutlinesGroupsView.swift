@@ -33,9 +33,11 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION:     https://developer.apple.com/documentation/swiftui/outlinegroup
 ///
 
-struct OutlinesGroupsView: View {
+struct OutlinesGroupsView: View, Comparable {
     
-    @Environment(\.openURL) var openURL
+    let id: String = "OutlinesGroupsView"
+    
+   @Environment(\.openURL) var openURL
 
     struct FileItem: Hashable, Identifiable, CustomStringConvertible {
         var id: Self { self }
@@ -68,6 +70,9 @@ struct OutlinesGroupsView: View {
     
     
     var body: some View {
+        
+        PageContainer(content:
+
         ScrollView {
             Group {
                 
@@ -105,7 +110,7 @@ struct OutlinesGroupsView: View {
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
-        }
+        })
     }
 }
 
@@ -114,3 +119,20 @@ struct OutlinesGroupsView_Previews: PreviewProvider {
         OutlinesGroupsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension OutlinesGroupsView {
+    
+    static func == (lhs: OutlinesGroupsView, rhs: OutlinesGroupsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

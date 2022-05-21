@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct CommonlyUsedViews: View {
+struct CommonlyUsedViews: View, Comparable {
+    
+    let id: String = "CommonlyUsedViews"
+    
     var body: some View {
         
         ScrollView {

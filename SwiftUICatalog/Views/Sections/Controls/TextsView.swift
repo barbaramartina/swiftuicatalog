@@ -34,12 +34,17 @@ import SwiftUI
 /// of the SwiftUI TEXT control
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/text
 ///
-struct TextsComponentsView: View {
+struct TextsComponentsView: View, Comparable {
+    
+    let id: String = "TextsComponentsView"
     
     @State private var textFieldValue: String = ""
     @State private var secureFieldValue: String = ""
     
     var body: some View {
+        
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
@@ -264,7 +269,7 @@ struct TextsComponentsView: View {
                 .padding(.top, 80)
 
 
-        }
+        })
     }
 }
 
@@ -273,3 +278,21 @@ struct TextsComponentsView_Previews: PreviewProvider {
         TextsComponentsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension TextsComponentsView {
+    
+    static func == (lhs: TextsComponentsView, rhs: TextsComponentsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+
+

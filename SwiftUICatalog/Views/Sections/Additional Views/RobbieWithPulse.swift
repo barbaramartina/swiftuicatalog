@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct RobbieWithPulseView: View {
+struct RobbieWithPulseView: View, Comparable {
+    
+    let id: String = "RobbieWithPulseView"
     
     @State private var pulsing: Bool = false
     
@@ -32,6 +34,18 @@ struct RobbieWithPulseView: View {
         }
         .padding(24)
     }
+    
+    // MARK: - HASHABLE
+    
+    static func == (lhs: RobbieWithPulseView, rhs: RobbieWithPulseView) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(pulsing)
+    }
+
+
 }
 
 struct RobbieWithPulse_Previews: PreviewProvider {
@@ -39,3 +53,4 @@ struct RobbieWithPulse_Previews: PreviewProvider {
         RobbieWithPulseView()
     }
 }
+

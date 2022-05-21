@@ -32,7 +32,10 @@ import SwiftUI
 /// Example on how to set and configure status Bars on SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/text/statusbar(hidden:)
 ///
-struct StatusBarsComponentView: View {
+struct StatusBarsComponentView: View, Comparable {
+    
+    let id: String = "StatusBarsComponentView"
+    
     var body: some View {
         
         VStack {
@@ -46,3 +49,20 @@ struct StatusBarsComponentView_Previews: PreviewProvider {
         StatusBarsComponentView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension StatusBarsComponentView {
+    
+    static func == (lhs: StatusBarsComponentView, rhs: StatusBarsComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

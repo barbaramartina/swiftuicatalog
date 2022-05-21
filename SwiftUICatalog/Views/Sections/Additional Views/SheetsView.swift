@@ -11,10 +11,13 @@ import SwiftUI
 /// Examples on how to make use of sheets in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/view/sheet(ispresented:ondismiss:content:)
 ///
-struct SheetView: View {
+struct SheetView: View, Comparable {
     
     // MARK: - Properties
 
+    
+    let id: String = "SheetView"
+    
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) var dismiss
 
@@ -22,6 +25,9 @@ struct SheetView: View {
 
     
     var body: some View {
+        
+        PageContainer(content:
+
         Button("Press to dismiss") {
             presentationMode.wrappedValue.dismiss()
             // iOS15 dismiss
@@ -31,6 +37,9 @@ struct SheetView: View {
         .padding()
         .background(Color.black)
         .cornerRadius(6)
+                      
+                      )
+        // end of page container
         
     }
 }
@@ -104,4 +113,21 @@ struct SheetsView_Previews: PreviewProvider {
         
     }
 }
+
+
+// MARK: - HASHABLE
+
+extension SheetView {
+    
+    static func == (lhs: SheetView, rhs: SheetView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
 

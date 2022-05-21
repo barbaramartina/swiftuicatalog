@@ -34,7 +34,10 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/timelineview
 ///
 
-struct TimelineViews: View {
+struct TimelineViews: View, Comparable {
+    
+    let id: String = "TimelineViews"
+    
     var body: some View {
         
         VStack {
@@ -48,3 +51,20 @@ struct TimelineViews_Previews: PreviewProvider {
         TimelineViews()
     }
 }
+
+// MARK: - HASHABLE
+
+extension TimelineViews {
+    
+    static func == (lhs: TimelineViews, rhs: TimelineViews) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

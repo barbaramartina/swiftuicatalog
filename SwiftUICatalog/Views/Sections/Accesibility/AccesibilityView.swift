@@ -28,8 +28,11 @@
 
 import SwiftUI
 
-struct AccesibilityView: View {
-    var body: some View {
+struct AccesibilityView: View, Comparable {
+    
+    let id: String = "AccesibilityView"
+    
+   var body: some View {
         VStack {
             ContributionWantedView()
         }

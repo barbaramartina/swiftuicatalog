@@ -7,7 +7,10 @@
 
 import SwiftUI
 
-struct ContributionWantedView: View {
+struct ContributionWantedView: View, Identifiable {
+    
+    let id: String = "ContributionWantedView"
+    
     var body: some View {
 
         VStack {

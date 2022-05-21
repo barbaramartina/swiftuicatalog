@@ -33,14 +33,16 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/navigationview
 /// https://developer.apple.com/documentation/swiftui/navigationlink
 ///
-struct NavigationBarsComponentView: View {
+struct NavigationBarsComponentView: View, Comparable {
     
     struct Reminder {
         let title: String
         let text: String
     }
     
-    @State var reminders: [Reminder] = [
+    let id: String = "NavigationBarsComponentView"
+    
+   @State private var reminders: [Reminder] = [
         Reminder(title: "2021-10-21", text: "Pick up John from school"),
         Reminder(title: "Coffee", text: "we are running out of coffee"),
         Reminder(title: "Washing machine", text: "Call the handy man, the machine broke"),
@@ -49,6 +51,8 @@ struct NavigationBarsComponentView: View {
     
     var body: some View {
         
+        PageContainer(content:
+
         NavigationView {
             
             List {
@@ -75,6 +79,8 @@ struct NavigationBarsComponentView: View {
             
         }
         // end of navigation view
+                      )
+        // end of page container
     }
 }
 
@@ -83,3 +89,20 @@ struct NavigationBarsComponentView_Previews: PreviewProvider {
         NavigationBarsComponentView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension NavigationBarsComponentView {
+    
+    static func == (lhs: NavigationBarsComponentView, rhs: NavigationBarsComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

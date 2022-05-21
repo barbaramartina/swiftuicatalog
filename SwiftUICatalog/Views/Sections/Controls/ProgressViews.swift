@@ -33,16 +33,20 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION:     https://developer.apple.com/documentation/swiftui/progressview
 ///
 
-struct ProgressViews: View {
+struct ProgressViews: View, Comparable {
+    
+    let id: String = "ProgressViews"
     
     @State private var progress = 0.0
-    let timer = Timer.publish(every: 0.5,
+    private let timer = Timer.publish(every: 0.5,
                               on: .main,
                               in: .common).autoconnect()
     
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview")
@@ -113,7 +117,8 @@ struct ProgressViews: View {
             if progress < 100 {
                 progress += 2
             }
-        }
+        })
+        // end of page container
         
     }
 }
@@ -123,3 +128,20 @@ struct ProgressViews_Previews: PreviewProvider {
         ProgressViews()
     }
 }
+
+// MARK: - HASHABLE
+
+extension ProgressViews {
+    
+    static func == (lhs: ProgressViews, rhs: ProgressViews) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

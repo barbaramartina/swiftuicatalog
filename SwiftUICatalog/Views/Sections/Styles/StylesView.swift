@@ -33,7 +33,10 @@ import SwiftUI
 /// components
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/view-styles
 ///
-struct StylesView: View {
+struct StylesView: View, Comparable {
+    
+    let id: String = "StylesView"
+    
     var body: some View {
         
         VStack {
@@ -49,3 +52,20 @@ struct StylesView_Previews: PreviewProvider {
         StylesView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension StylesView {
+    
+    static func == (lhs: StylesView, rhs: StylesView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

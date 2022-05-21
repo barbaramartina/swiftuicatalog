@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		184E8FE726BEAA3F00296C8D /* ComposingGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */; };
+		761CB9DB28392D13007A552F /* ListSectionFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761CB9DA28392D13007A552F /* ListSectionFontModifier.swift */; };
+		761CB9DD28396FEA007A552F /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761CB9DC28396FEA007A552F /* PageContainer.swift */; };
 		7624F84F269C337D00474E0B /* SwiftUICatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */; };
 		7624F851269C337D00474E0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F850269C337D00474E0B /* ContentView.swift */; };
 		7624F853269C338000474E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7624F852269C338000474E0B /* Assets.xcassets */; };
@@ -53,6 +55,7 @@
 		7624F8BD26A45FB200474E0B /* TextModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8BC26A45FB200474E0B /* TextModifiersView.swift */; };
 		7624F8BF26A45FDD00474E0B /* EffectsModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */; };
 		7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */; };
+		767808D92838F42500660931 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767808D82838F42500660931 /* WebView.swift */; };
 		7682268C2754FB10000B44AA /* SwiftUICatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */; };
 		768226942754FB1C000B44AA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768226932754FB1C000B44AA /* SnapshotHelper.swift */; };
 		768F61D327404D29005E070E /* ContributionWantedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768F61D227404D29005E070E /* ContributionWantedView.swift */; };
@@ -83,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposingGestureView.swift; sourceTree = "<group>"; };
+		761CB9DA28392D13007A552F /* ListSectionFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionFontModifier.swift; sourceTree = "<group>"; };
+		761CB9DC28396FEA007A552F /* PageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
 		7624F84B269C337D00474E0B /* SwiftUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalogApp.swift; sourceTree = "<group>"; };
 		7624F850269C337D00474E0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +136,7 @@
 		7624F8BC26A45FB200474E0B /* TextModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifiersView.swift; sourceTree = "<group>"; };
 		7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsModifiersView.swift; sourceTree = "<group>"; };
 		7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutModifiersView.swift; sourceTree = "<group>"; };
+		767808D82838F42500660931 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		768226892754FB10000B44AA /* SwiftUICatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUICatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalogUITests.swift; sourceTree = "<group>"; };
 		7682268D2754FB10000B44AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 			children = (
 				7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */,
 				7624F85F269C343300474E0B /* Views */,
+				767808DF2839270600660931 /* Extensions */,
 				7624F852269C338000474E0B /* Assets.xcassets */,
 				7624F857269C338000474E0B /* Info.plist */,
 				7624F854269C338000474E0B /* Preview Content */,
@@ -225,6 +232,8 @@
 				768F61D227404D29005E070E /* ContributionWantedView.swift */,
 				768F61D4274054D2005E070E /* ContributedByView.swift */,
 				768F61D627405C8F005E070E /* DocumentationLinkView.swift */,
+				767808D82838F42500660931 /* WebView.swift */,
+				761CB9DC28396FEA007A552F /* PageContainer.swift */,
 			);
 			path = "Reusable Custom Views";
 			sourceTree = "<group>";
@@ -360,6 +369,13 @@
 			path = Gestures;
 			sourceTree = "<group>";
 		};
+		767808DF2839270600660931 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		7682268A2754FB10000B44AA /* SwiftUICatalogUITests */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +404,7 @@
 				76A45AFB26B6A6FF0075190A /* ButtonFontModifier.swift */,
 				76A45AFD26B6AA3A0075190A /* ButtonBorderModifier.swift */,
 				76A45AFF26B6ABE90075190A /* ButtonRoundedModifier.swift */,
+				761CB9DA28392D13007A552F /* ListSectionFontModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -496,6 +513,7 @@
 				7624F87B269C39EC00474E0B /* AccesibilityView.swift in Sources */,
 				769AB09F27B036D0005238A0 /* HeaderImageTitleSubtitleView.swift in Sources */,
 				7624F89B26A459A100474E0B /* StacksView.swift in Sources */,
+				767808D92838F42500660931 /* WebView.swift in Sources */,
 				7624F8A926A45BD100474E0B /* TabsView.swift in Sources */,
 				7624F8B626A45D9100474E0B /* AnimationsView.swift in Sources */,
 				7624F8BB26A45E8100474E0B /* GesturesView.swift in Sources */,
@@ -515,6 +533,7 @@
 				76A45B0226B711A50075190A /* RobbieWithPulse.swift in Sources */,
 				7624F8AD26A45C4A00474E0B /* SpacersDividersView.swift in Sources */,
 				7624F86D269C392E00474E0B /* ToolbarsView.swift in Sources */,
+				761CB9DB28392D13007A552F /* ListSectionFontModifier.swift in Sources */,
 				184E8FE726BEAA3F00296C8D /* ComposingGestureView.swift in Sources */,
 				76EF639626B69CC7002980A7 /* MotionsAnimation.swift in Sources */,
 				769AB0A527B0374C005238A0 /* ImageWithOverlayView.swift in Sources */,
@@ -548,6 +567,7 @@
 				7624F88B26A43EF500474E0B /* TogglesView.swift in Sources */,
 				7624F89D26A45A1D00474E0B /* GridsView.swift in Sources */,
 				76A45AFE26B6AA3A0075190A /* ButtonBorderModifier.swift in Sources */,
+				761CB9DD28396FEA007A552F /* PageContainer.swift in Sources */,
 				7624F875269C398D00474E0B /* CustomModifiersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

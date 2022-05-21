@@ -7,9 +7,13 @@
 
 import SwiftUI
 
-struct ContributedByView: View {
+struct ContributedByView: View, Identifiable {
     
-    /// contributor's name
+    var id: String {
+        return name + link
+    }
+    
+  /// contributor's name
     let name: String
     /// link of the contributor
     let link: String

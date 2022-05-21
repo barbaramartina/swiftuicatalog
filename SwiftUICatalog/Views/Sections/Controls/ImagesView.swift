@@ -34,8 +34,14 @@ import SwiftUI
 /// of the SwiftUI IMAGE control
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/image
 ///
-struct ImagesComponentView: View {
+struct ImagesComponentView: View, Comparable {
+    
+    let id: String = "ImagesComponentView"
+
     var body: some View {
+        
+        PageContainer(content:
+             
         ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image")
@@ -122,7 +128,7 @@ struct ImagesComponentView: View {
                 .padding(.top, 80)
 
 
-        }
+        })
       
     }
 }
@@ -133,3 +139,21 @@ struct ImagesComponentView_Previews: PreviewProvider {
             .previewLayout(.sizeThatFits)
     }
 }
+
+// MARK: - HASHABLE
+
+extension ImagesComponentView {
+    
+    static func == (lhs: ImagesComponentView, rhs: ImagesComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+
+

@@ -7,7 +7,9 @@
 
 import SwiftUI
 
-struct HeaderImageTitleSubtitle: View {
+struct HeaderImageTitleSubtitle: View, Identifiable {
+    
+    let id: String = "HeaderImageTitleSubtitle"
     
     struct Configuration {
         let title: String

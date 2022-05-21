@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-struct CollectionsViews: View {
-    var body: some View {
+struct CollectionsViews: View, Comparable {
+    
+    let id: String = "CollectionsViews"
+    
+   var body: some View {
         
         VStack {
             ContributionWantedView()

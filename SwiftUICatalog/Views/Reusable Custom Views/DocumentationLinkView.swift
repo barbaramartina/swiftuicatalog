@@ -8,9 +8,14 @@
 import SwiftUI
 
 /// A view with a link to Apple Docs
-struct DocumentationLinkView: View {
+struct DocumentationLinkView: View, Identifiable {
     
-    let link: String
+    
+    var id: String {
+        return link
+    }
+    
+  let link: String
     
     var body: some View {
         
@@ -29,6 +34,19 @@ struct DocumentationLinkView: View {
                         .padding(.trailing, 16)
                 }
                 Divider()
+                
+                WebView(url: URL(string:link)!)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color("Dark").opacity(0.75),
+                                    lineWidth: 2)
+                    )
+                    .frame(height: 300)
+                    .padding(16)
+
+                Divider()
+
+
             }
         })
         

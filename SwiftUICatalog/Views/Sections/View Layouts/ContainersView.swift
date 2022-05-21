@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 Barbara Martina 
+// Copyright (c) 2021 Barbara Martina
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,12 +36,16 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/form
 ///
 
-struct ContainersView: View {
+struct ContainersView: View, Comparable {
+    
+    let id: String = "ContainersView"
     
     @State var toggleOn: Bool = true
     
     var body: some View {
         
+        PageContainer(content:
+
         ScrollView {
             VStack {
                 
@@ -105,7 +109,8 @@ struct ContainersView: View {
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
 
-        }
+        })
+        // end of page container
         
     }
 }
@@ -115,3 +120,20 @@ struct ContainersView_Previews: PreviewProvider {
         ContainersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension ContainersView {
+    
+    static func == (lhs: ContainersView, rhs: ContainersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

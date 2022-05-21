@@ -34,11 +34,16 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/tabview
 ///
 
-struct TabsView: View {
+struct TabsView: View, Comparable {
+    
+    let id: String = "TabsView"
     
     @Environment(\.openURL) var openURL
 
     var body: some View {
+        
+        PageContainer(content:
+
         ScrollView {
             
             DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
@@ -92,7 +97,8 @@ struct TabsView: View {
                 .padding(.top, 80)
 
             
-        }
+        })
+        // end of page container
     }
 }
 
@@ -101,3 +107,20 @@ struct TabsView_Previews: PreviewProvider {
         TabsView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension TabsView {
+    
+    static func == (lhs: TabsView, rhs: TabsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

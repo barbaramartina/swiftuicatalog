@@ -32,9 +32,12 @@ import SwiftUI
 /// Examples on how to use STEPPERs in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/stepper
 ///
-struct SteppersView: View {
+struct SteppersView: View, Comparable {
     
     //MARK: - Variables
+    
+    let id: String = "SteppersView"
+    
     @State private var firstStepperValue = 0
     @State private var SecondStepperValue = 0
 
@@ -60,6 +63,9 @@ struct SteppersView: View {
     }
     
     var body: some View {
+        
+        PageContainer(content:
+
         ScrollView {
 
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper")
@@ -96,8 +102,8 @@ struct SteppersView: View {
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
-        }
-        // end of scrollview
+        })
+        // end of page container
         
     }
 }
@@ -107,3 +113,20 @@ struct SteppersView_Previews: PreviewProvider {
         SteppersView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension SteppersView {
+    
+    static func == (lhs: SteppersView, rhs: SteppersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

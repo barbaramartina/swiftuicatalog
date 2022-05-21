@@ -36,12 +36,14 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/animatablepair
 /// https://developer.apple.com/documentation/swiftui/emptyanimatabledata
 /// https://developer.apple.com/documentation/swiftui/anytransition
-/// 
+///
 ///
 
-struct AnimationsView: View {
+struct AnimationsView: View, Comparable {
     
     // MARK: - Properties
+    
+    let id: String = "AnimationsView"
     
     @State private var animate1 = false
     @State private var animate2 = false
@@ -114,9 +116,11 @@ extension Animation {
 
 // MARK: - Properties animations
 
-struct PropertiesAnimationsView: View {
+struct PropertiesAnimationsView: View, Comparable {
     
     // MARK: - Properties
+    
+    let id: String = "PropertiesAnimationsView"
     
     @State private var animate1 = false
     @State private var animate2 = false
@@ -266,11 +270,14 @@ struct PropertiesAnimationsView: View {
     
 }
 
+
 // MARK: - transitions
 
-struct TransitionsAnimationsView: View {
+struct TransitionsAnimationsView: View, Comparable {
     
     // MARK: - Properties
+    
+    let id: String = "TransitionsAnimationsView"
     
     @State private var animate1 = false
     @State private var animate2 = false
@@ -282,6 +289,7 @@ struct TransitionsAnimationsView: View {
 
     var body: some View {
         
+         
         if self.animate2 == false && self.animate3 == false {
             Button(action: {
                 withAnimation {
@@ -350,6 +358,8 @@ struct TransitionsAnimationsView: View {
                 .frame(width: 200, height: 200)
                 .transition(.moveAndFade)
         }
+                      
+        // end of page container
 
     }
 
@@ -357,7 +367,6 @@ struct TransitionsAnimationsView: View {
 
 // MARK: - custom transitions
         
-
 extension AnyTransition {
     static var moveAndFade: AnyTransition {
         let insertion = AnyTransition.move(edge: .leading)
@@ -367,3 +376,46 @@ extension AnyTransition {
         return .asymmetric(insertion: insertion, removal: removal)
     }
 }
+
+// MARK: - HASHABLE
+
+extension AnimationsView {
+    
+    static func == (lhs: AnimationsView, rhs: AnimationsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+extension TransitionsAnimationsView {
+    
+    static func == (lhs: TransitionsAnimationsView, rhs: TransitionsAnimationsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+extension PropertiesAnimationsView {
+    
+    static func == (lhs: PropertiesAnimationsView, rhs: PropertiesAnimationsView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

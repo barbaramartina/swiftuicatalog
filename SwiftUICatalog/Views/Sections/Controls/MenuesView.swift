@@ -31,12 +31,18 @@ import SwiftUI
 /// Samples on how to create menus in SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/menu
 ///
-struct MenusComponentView: View {
+struct MenusComponentView: View, Comparable {
     
+    let id: String = "MenusComponentView"
+    
+
     //Custom Menu item Style
     private let redBorderMenuStyle: RedBorderMenuStyle = RedBorderMenuStyle.init()
     
     var body: some View {
+        
+        PageContainer(content:
+
         ScrollView{
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu")
@@ -143,7 +149,7 @@ struct MenusComponentView: View {
                 .padding()
             */
             
-        }
+        })
     }
     
     func duplicate() { action() }
@@ -190,3 +196,20 @@ struct MenusComponentView_Previews: PreviewProvider {
         MenusComponentView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension MenusComponentView {
+    
+    static func == (lhs: MenusComponentView, rhs: MenusComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

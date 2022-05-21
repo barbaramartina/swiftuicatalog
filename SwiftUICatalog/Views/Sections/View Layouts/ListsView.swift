@@ -18,9 +18,12 @@ import SwiftUI
 /// And FOREACH, to compute views on iterations
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/foreach
 ///
-struct ListsComponentView: View {
+struct ListsComponentView: View, Comparable {
     
     // MARK: - Properties
+    
+    let id: String = "ListsComponentView"
+    
     @State private var multiSelection = Set<UUID>()
     
     private let countries: [Country]  = [
@@ -42,6 +45,9 @@ struct ListsComponentView: View {
     @State private var singleSelection : UUID?
     
     var body: some View {
+        
+        PageContainer(content:
+
         
         List(selection: $singleSelection){
              
@@ -99,7 +105,8 @@ struct ListsComponentView: View {
         .navigationTitle("Dogs 🐶 & countries")
         .toolbar { EditButton() }
         // end of list
-        
+        )
+        // end of page container
     }
     
 }
@@ -125,3 +132,20 @@ struct Dog: Identifiable {
     let image: String
     let id = UUID()
 }
+
+// MARK: - HASHABLE
+
+extension ListsComponentView {
+    
+    static func == (lhs: ListsComponentView, rhs: ListsComponentView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

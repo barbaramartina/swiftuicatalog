@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-struct MotionAnimationView: View {
+struct MotionAnimationView: View, Comparable {
     
     // MARK: - Properties
+    
+    let id: String = "MotionAnimationView"
     
     @State private var randomShapeCount = Int.random(in: 12...16)
     @State private var isAnimating: Bool = false
@@ -40,6 +42,9 @@ struct MotionAnimationView: View {
     
 
     var body: some View {
+        
+        PageContainer(content:
+
         GeometryReader { geometry in
             ZStack {
                 
@@ -75,6 +80,8 @@ struct MotionAnimationView: View {
             
         }
         // end of geometry
+                      )
+        // end of page container
     }
 }
 
@@ -83,3 +90,20 @@ struct MotionAnimationView_Previews: PreviewProvider {
         MotionAnimationView()
     }
 }
+
+// MARK: - HASHABLE
+
+extension MotionAnimationView {
+    
+    static func == (lhs: MotionAnimationView, rhs: MotionAnimationView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+

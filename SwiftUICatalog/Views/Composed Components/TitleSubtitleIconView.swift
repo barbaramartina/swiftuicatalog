@@ -17,7 +17,9 @@ import SwiftUI
 ///  The ICON vertical and horizontal alignments can be configured.
 ///  As well as the font, weight and paddings of the view.
 ///
-struct TitleSubtitleIconView: View {
+struct TitleSubtitleIconView: View, Identifiable {
+    
+    let id: String = "TitleSubtitleIconView"
     
     struct Configuration {
         let title: String
@@ -99,6 +101,7 @@ struct TitleSubtitleIconView: View {
 }
 
 struct TitleSubtitleIconView_Previews: PreviewProvider {
+    
     static var previews: some View {
         TitleSubtitleIconView(configuration: TitleSubtitleIconView.Configuration(title: "English Cocker Spaniel"
                                                                                        , titleFont: .title,

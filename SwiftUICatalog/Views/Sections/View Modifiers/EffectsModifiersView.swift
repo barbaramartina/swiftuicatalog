@@ -33,9 +33,14 @@ import SwiftUI
 /// To see all available modifiers select a view in anypreview and inspect the "Effects Modifiers" section
 ///
 
-struct EffectsModifiersView: View {
+struct EffectsModifiersView: View, Comparable {
+    
+    let id: String = "EffectsModifiersView"
+    
     var body: some View {
         
+        PageContainer(content:
+
         List {
 
             // MARK: -
@@ -160,6 +165,8 @@ struct EffectsModifiersView: View {
         }
         // accent color effect
         .accentColor(.green)
+                      )
+        // end of page container
       
     }
 }
@@ -212,3 +219,20 @@ struct BlendExamplesView: View {
 
     }
 }
+
+// MARK: - HASHABLE
+
+extension EffectsModifiersView {
+    
+    static func == (lhs: EffectsModifiersView, rhs: EffectsModifiersView) -> Bool {
+        return lhs.id == rhs.id
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+
+
+}
+
+
