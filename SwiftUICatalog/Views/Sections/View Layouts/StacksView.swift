@@ -154,7 +154,7 @@ struct StacksView: View, Comparable {
                 .padding()
                 // MARK: - Zstack
                 ZStack {
-                    ForEach(0..<colors.count) {
+                    ForEach(0..<colors.count, id: \.self) {
                         Rectangle()
                             .fill(colors[$0])
                             .frame(width: 100, height: 100)
