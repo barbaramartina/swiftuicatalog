@@ -62,14 +62,19 @@ struct ContentView: View {
                                 .padding(.top, 24)
                                 .padding(.bottom, 16)
                             
-                            Button(action: {
-                                UIApplication.shared.open(URL(string: "https://github.com/barbaramartina/swiftuicatalog/")!)
-                            },
-                                   label: {
-                                Image("github")
-                                    .resizable()
-                                    .frame(width: 50, height: 50)
-                                   })
+                            HStack(alignment: .center, spacing: 2) {
+                                Spacer()
+                                Button(action: {
+                                    UIApplication.shared.open(URL(string: "https://github.com/barbaramartina/swiftuicatalog/")!)
+                                },
+                                       label: {
+                                    Image("github")
+                                        .resizable()
+                                        .frame(width: 50, height: 50)
+                                       })
+                                
+                                Spacer()
+                            }
                             
                         }
                         .listRowBackground(Color("LightBraun"))
@@ -251,7 +256,7 @@ struct ContentView: View {
                         // end of Group composed VIEWS
                         
                     }
-                    .background(Color("LightGreen"))
+                    .background(Color("PaleGreen"))
                     .navigationTitle("Components Catalog")
                     // end of LIST
 
@@ -270,6 +275,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             ContentView()
+                .preferredColorScheme(.dark)
         }
         
     }
