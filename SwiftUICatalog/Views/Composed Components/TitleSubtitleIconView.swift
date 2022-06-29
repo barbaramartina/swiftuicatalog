@@ -19,9 +19,10 @@ import SwiftUI
 ///
 struct TitleSubtitleIconView: View, Identifiable {
     
-    let id: String = "TitleSubtitleIconView"
+    let id = UUID()
     
     struct Configuration {
+        let backgroundColor: Color
         let title: String
         let titleFont: Font
         let titleWeight: Font.Weight
@@ -91,6 +92,7 @@ struct TitleSubtitleIconView: View, Identifiable {
                 .padding(.top, 12)
 
         }
+        .background(configuration.backgroundColor)
         .padding(.top, configuration.paddingTop)
         .padding(.bottom, configuration.paddingBottom)
         .padding(.leading, configuration.paddingLeading)
@@ -103,7 +105,7 @@ struct TitleSubtitleIconView: View, Identifiable {
 struct TitleSubtitleIconView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TitleSubtitleIconView(configuration: TitleSubtitleIconView.Configuration(title: "English Cocker Spaniel"
+        TitleSubtitleIconView(configuration: TitleSubtitleIconView.Configuration(backgroundColor: Color.yellow, title: "English Cocker Spaniel"
                                                                                        , titleFont: .title,
                                                                                        titleWeight: .bold,
                                                                                        subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. The English Cocker Spaniel is an active, good-natured, sporting dog[1] standing well up at the withers and compactly built"
