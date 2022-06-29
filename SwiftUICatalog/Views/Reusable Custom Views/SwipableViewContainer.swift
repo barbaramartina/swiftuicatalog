@@ -9,25 +9,20 @@ import SwiftUI
 
 struct SwipableViewContainer: View {
     
-    @State var swippableSubviews: [SwipableViewExample]
+    @State var subviews: [TitleSubtitleIconView]
 
+    /// a gesture to move the sub views around
     @GestureState private var dragState = DragState.inactive
-    @State private var lastViewIndex: Int = 1
+    /// executed when the view is swipped left or right
     @State private var viewRemovalTransition = AnyTransition.trailingBottom
+    /// the space to consider either from left or right, to determine when the view has to be removed from the stack
     private let dragAreaThreshold: CGFloat = 65.0
 
     
-    // MARK: - MOVE THE CARD
-    
-    private func moveViews() {
-        self.swippableSubviews.removeFirst()
-        self.lastViewIndex += 1
-    }
-    
     // MARK: TOP VIEW
     
-    private func isTopView(_ view: SwipableViewExample) -> Bool {
-        guard let index = swippableSubviews.firstIndex(where: { $0.id == view.id }) else {
+    private func isTopView(_ view: TitleSubtitleIconView) -> Bool {
+        guard let index = subviews.firstIndex(where: { $0.id == view.id }) else {
             return false
         }
         return index == 0
@@ -71,16 +66,14 @@ struct SwipableViewContainer: View {
     var body: some View {
         
         ZStack {
-            ForEach(swippableSubviews) { subview in
+            ForEach(subviews) { subview in
                 
                 subview
                     .zIndex(self.isTopView(subview) ? 1 : 0)
-                    .offset(x: self.isTopView(subview) ?  self.dragState.translation.width : 0, y: self.isTopView(subview) ?  self.dragState.translation.height : 0)
-                    .scaleEffect(self.dragState.isDragging && self.isTopView(subview) ? 0.85 : 1.0)
+                    .offset(x: self.isTopView(subview) ?  self.dragState.translation.width : 0,
+                            y: self.isTopView(subview) ?  self.dragState.translation.height : 0)
+                    .scaleEffect(self.dragState.isDragging && self.isTopView(subview) ? 0.8 : 1.0)
                     .rotationEffect(Angle(degrees: self.isTopView(subview) ? Double(self.dragState.translation.width / 12) : 0))
-                //              .withAnimation(Animation.interpolatingSpring(stiffness: 120, damping: 120)) {
-                //              }
-                
                     .gesture(LongPressGesture(minimumDuration: 0.01)
                         .sequenced(before: DragGesture())
                         .updating(self.$dragState, body: { (value, state, transaction) in
@@ -113,7 +106,7 @@ struct SwipableViewContainer: View {
                                     }
                                     
                                     if drag.translation.width < -self.dragAreaThreshold || drag.translation.width > self.dragAreaThreshold {
-                                        self.moveViews()
+                                        self.subviews.removeFirst()
                                     }
                                 })
                     ).transition(self.viewRemovalTransition)
@@ -125,14 +118,62 @@ struct SwipableViewContainer: View {
 
 struct SwipableView_Previews: PreviewProvider {
     static var previews: some View {
-        let subview1 = SwipableViewExample(textContent: "View 1")
-        let subview2 = SwipableViewExample(textContent: "View 2")
-        let subview3 = SwipableViewExample(textContent: "View 3")
-        let subview4 = SwipableViewExample(textContent: "View 4")
-        let subview5 = SwipableViewExample(textContent: "View 5")
-        let subviews = [subview1, subview2, subview3, subview4, subview5]
         
-        SwipableViewContainer(swippableSubviews: subviews)
+        let configurationIcon =  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "English Cocker Spaniel"
+                                                                     , titleFont: .title,
+                                                                     titleWeight: .bold,
+                                                                     subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                     , subtitleFont: .body,
+                                                                     subtitleWeight: .regular,
+                                                               icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                               iconVerticalAlignment: .top, iconHorizontalAlignment: .leading
+                                                                     ,
+                                                                    paddingTop: 16,
+                                                                    paddingLeading: 16,
+                                                                    paddingTrailing: 16,
+                                                                    paddingBottom: 16)
+        let subview1 = TitleSubtitleIconView(configuration: configurationIcon)
+        subview1.background(Color.gray)
+        
+    
+    
+        let configurationIcon2 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.cyan, title: "English Cocker Spaniel"
+                                                                 , titleFont: .title,
+                                                                 titleWeight: .bold,
+                                                                 subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                 , subtitleFont: .body,
+                                                                 subtitleWeight: .regular,
+                                                           icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                           iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
+                                                                 ,
+                                                                paddingTop: 16,
+                                                                paddingLeading: 16,
+                                                                paddingTrailing: 16,
+                                                                paddingBottom: 16)
+    
+        let subview2 = TitleSubtitleIconView(configuration: configurationIcon2)
+        subview2.background(Color.pink)
+
+        
+        let configurationIcon3 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.accentColor, title: "English Cocker Spaniel"
+                                                                     , titleFont: .title,
+                                                                     titleWeight: .bold,
+                                                                     subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                     , subtitleFont: .body,
+                                                                     subtitleWeight: .regular,
+                                                               icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                               iconVerticalAlignment: .top, iconHorizontalAlignment: .center
+                                                                     ,
+                                                                    paddingTop: 16,
+                                                                    paddingLeading: 16,
+                                                                    paddingTrailing: 16,
+                                                                    paddingBottom: 16)
+        let subview3 = TitleSubtitleIconView(configuration: configurationIcon3)
+        subview3.background(Color("PaleGreen"))
+
+        let subviews = [subview1, subview2, subview3]
+        
+        SwipableViewContainer(subviews: subviews)
     }
 }
 
@@ -173,4 +214,5 @@ struct SwipableViewExample: View, Identifiable {
     }
     
 }
+
 
