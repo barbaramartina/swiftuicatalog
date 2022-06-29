@@ -50,7 +50,9 @@ struct CommonlyUsedViews: View, Comparable {
                 Text("The size of the icon and the horizontal and vertical alignment can be configured.")
                     .fontWeight(.light)
                 
-                let configurationIcon1 =  TitleSubtitleIconView.Configuration(title: "English Cocker Spaniel"
+                let configurationIcon1 =  TitleSubtitleIconView.Configuration(
+                    backgroundColor: Color.pink,
+                    title: "English Cocker Spaniel"
                                                                              , titleFont: .title,
                                                                              titleWeight: .bold,
                                                                              subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
@@ -65,7 +67,8 @@ struct CommonlyUsedViews: View, Comparable {
                                                                             paddingBottom: 16)
                 TitleSubtitleIconView(configuration: configurationIcon1)
 
-                let configurationIcon2 =  TitleSubtitleIconView.Configuration(title: "English Cocker Spaniel"
+                let configurationIcon2 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.gray,
+                                                                              title: "English Cocker Spaniel"
                                                                              , titleFont: .title,
                                                                              titleWeight: .bold,
                                                                              subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
@@ -80,7 +83,8 @@ struct CommonlyUsedViews: View, Comparable {
                                                                             paddingBottom: 16)
                 TitleSubtitleIconView(configuration: configurationIcon2)
 
-                let configurationIcon3 =  TitleSubtitleIconView.Configuration(title: "English Cocker Spaniel"
+                let configurationIcon3 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.green,
+                                                                              title: "English Cocker Spaniel"
                                                                              , titleFont: .title,
                                                                              titleWeight: .bold,
                                                                              subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
@@ -99,7 +103,44 @@ struct CommonlyUsedViews: View, Comparable {
             .padding()
             // END OF Card with icons - title - description
 
-
+            // swipable view
+            Group {
+                
+                let configurationIcon1 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.pink,
+                                                                              title: "Husky"
+                                                                             , titleFont: .title,
+                                                                             titleWeight: .bold,
+                                                                             subtitle: "The Siberian Husky is a medium-sized working sled dog breed. The breed belongs to the Spitz genetic family. It is recognizable by its thickly furred double coat, erect triangular ears, and distinctive markings, and is smaller than the similar-looking Alaskan "
+                                                                             , subtitleFont: .body,
+                                                                             subtitleWeight: .regular,
+                                                                       icon: "husky", iconSize: CGSize(width: 60, height: 60),
+                                                                       iconVerticalAlignment: .top, iconHorizontalAlignment: .leading
+                                                                             ,
+                                                                            paddingTop: 16,
+                                                                            paddingLeading: 16,
+                                                                            paddingTrailing: 16,
+                                                                            paddingBottom: 16)
+            
+            
+                let configurationIcon2 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.blue, title: "English Cocker Spaniel"
+                                                                         , titleFont: .title,
+                                                                         titleWeight: .bold,
+                                                                         subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                         , subtitleFont: .body,
+                                                                         subtitleWeight: .regular,
+                                                                   icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                   iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
+                                                                         ,
+                                                                        paddingTop: 16,
+                                                                        paddingLeading: 16,
+                                                                        paddingTrailing: 16,
+                                                                        paddingBottom: 16)
+            
+                
+                SwipableViewContainer(subviews: [TitleSubtitleIconView(configuration: configurationIcon2),
+                                                 TitleSubtitleIconView(configuration: configurationIcon1)])
+            }
+            // end of swipable view
 
         }
         
