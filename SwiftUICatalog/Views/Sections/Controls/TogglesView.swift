@@ -120,6 +120,7 @@ struct CustomToggleStyle: ToggleStyle {
                                     x: configuration.isOn ? 11 : -11,
                                     y: 0
                                 )
+                                .animation(.easeInOut, value: configuration.isOn)
                         )
                         .cornerRadius(20)
                     
