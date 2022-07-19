@@ -41,62 +41,64 @@ struct TogglesView: View, Comparable {
     @State var isButtonToggleOn: Bool = true
 
     var body: some View {
-        
-        PageContainer(content:
+        PageContainer(
+            content:
+                ScrollView {
+                    VStack {
+                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
 
-        VStack() {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
+                        // Contextual information: a short intro to the elements we are showcasing
+                        Group {
+                            Text("Toggles")
+                                .fontWeight(.heavy)
+                            Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
+                                .fontWeight(.light)
+                        }
+                        .padding()
 
-            // Contextual information: a short intro to the elements we are showcasing
-            Group {
-                Text("Toggles")
-                    .fontWeight(.heavy)
-                Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
-                    .fontWeight(.light)
-            }
-            .padding()
+                        Toggle(
+                            isOn: $isBasicToggleOn,
+                            label: {
+                                Text("Default Toggle Style")
+                            }
+                        )
+                        .toggleStyle(.automatic)
 
-            Toggle(
-                isOn: $isBasicToggleOn,
-                label: {
-                    Text("Default Toggle Style")
+                        Toggle(
+                            isOn: $isSwitchToggleOn,
+                            label: {
+                                Text("Switch Toggle Style")
+                            }
+                        )
+                        .tint(Color.purple)
+                        .toggleStyle(.switch)
+
+                        Toggle(
+                            isOn: $isCustomToggleOn,
+                            label: {
+                                Text("Custom Toggle Style")
+                            }
+                        )
+                        .toggleStyle(.custom)
+
+                        Toggle(
+                            isOn: $isButtonToggleOn,
+                            label: {
+                                Text("Button Toggle Style")
+                            }
+                        )
+                        .toggleStyle(.button)
+                        .tint(Color.purple)
+
+                        Spacer()
+
+                        ContributedByView(name: "Freddy Hernandez Jr",
+                                          link: "https://github.com/freddy1h")
+                        .padding(.top, 80)
+                    }
+                    .padding()
                 }
-            )
-            .toggleStyle(.automatic)
-
-            Toggle(
-                isOn: $isSwitchToggleOn,
-                label: {
-                    Text("Switch Toggle Style")
-                }
-            )
-            .tint(Color.purple)
-            .toggleStyle(.switch)
-
-            Toggle(
-                isOn: $isCustomToggleOn,
-                label: {
-                    Text("Custom Toggle Style")
-                }
-            )
-            .toggleStyle(.custom)
-
-            Toggle(
-                isOn: $isButtonToggleOn,
-                label: {
-                    Text("Button Toggle Style")
-                }
-            )
-            .toggleStyle(.button)
-            .tint(Color.purple)
-
-            Spacer()
-
-            ContributedByView(name: "Freddy Hernandez Jr",
-                              link: "https://github.com/freddy1h")
-            .padding(.top, 80)
-        })
-        .padding()
+        )
     }
 }
 
