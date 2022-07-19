@@ -38,16 +38,15 @@ struct TogglesView: View, Comparable {
     @State var isBasicToggleOn: Bool = true
     @State var isSwitchToggleOn: Bool = true
     @State var isCustomToggleOn: Bool = true
+    @State var isButtonToggleOn: Bool = true
 
     var body: some View {
         
         PageContainer(content:
 
         VStack() {
-
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
 
-            
             // Contextual information: a short intro to the elements we are showcasing
             Group {
                 Text("Toggles")
@@ -56,14 +55,14 @@ struct TogglesView: View, Comparable {
                     .fontWeight(.light)
             }
             .padding()
-            
+
             Toggle(
                 isOn: $isBasicToggleOn,
                 label: {
                     Text("Default Toggle Style")
                 }
             )
-            .toggleStyle(DefaultToggleStyle())
+            .toggleStyle(.automatic)
 
             Toggle(
                 isOn: $isSwitchToggleOn,
@@ -71,7 +70,8 @@ struct TogglesView: View, Comparable {
                     Text("Switch Toggle Style")
                 }
             )
-            .toggleStyle(SwitchToggleStyle(tint: Color.purple))
+            .tint(Color.purple)
+            .toggleStyle(.switch)
 
             Toggle(
                 isOn: $isCustomToggleOn,
@@ -79,17 +79,24 @@ struct TogglesView: View, Comparable {
                     Text("Custom Toggle Style")
                 }
             )
-            .toggleStyle(CustomToggleStyle())
+            .toggleStyle(.custom)
+
+            Toggle(
+                isOn: $isButtonToggleOn,
+                label: {
+                    Text("Button Toggle Style")
+                }
+            )
+            .toggleStyle(.button)
+            .tint(Color.purple)
+
             Spacer()
 
             ContributedByView(name: "Freddy Hernandez Jr",
                               link: "https://github.com/freddy1h")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
         })
         .padding()
-                      
-      
     }
 }
 
@@ -123,14 +130,15 @@ struct CustomToggleStyle: ToggleStyle {
                                 .animation(.easeInOut, value: configuration.isOn)
                         )
                         .cornerRadius(20)
-                    
-
                 }
             )
-            .buttonStyle(PlainButtonStyle())
-
+            .buttonStyle(.plain)
         }
     }
+}
+
+extension ToggleStyle where Self == CustomToggleStyle {
+    static var custom: CustomToggleStyle { CustomToggleStyle() }
 }
 
 struct TogglesView_Previews: PreviewProvider {
@@ -142,7 +150,6 @@ struct TogglesView_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension TogglesView {
-    
     static func == (lhs: TogglesView, rhs: TogglesView) -> Bool {
         return lhs.id == rhs.id
     }
@@ -150,8 +157,4 @@ extension TogglesView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
 }
-
-
