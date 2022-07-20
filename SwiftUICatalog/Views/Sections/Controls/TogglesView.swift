@@ -38,58 +38,67 @@ struct TogglesView: View, Comparable {
     @State var isBasicToggleOn: Bool = true
     @State var isSwitchToggleOn: Bool = true
     @State var isCustomToggleOn: Bool = true
+    @State var isButtonToggleOn: Bool = true
 
     var body: some View {
-        
-        PageContainer(content:
+        PageContainer(
+            content:
+                ScrollView {
+                    VStack {
+                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
 
-        VStack() {
+                        // Contextual information: a short intro to the elements we are showcasing
+                        Group {
+                            Text("Toggles")
+                                .fontWeight(.heavy)
+                            Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
+                                .fontWeight(.light)
+                        }
+                        .padding()
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
+                        Toggle(
+                            isOn: $isBasicToggleOn,
+                            label: {
+                                Text("Default Toggle Style")
+                            }
+                        )
+                        .toggleStyle(.automatic)
 
-            
-            // Contextual information: a short intro to the elements we are showcasing
-            Group {
-                Text("Toggles")
-                    .fontWeight(.heavy)
-                Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
-            Toggle(
-                isOn: $isBasicToggleOn,
-                label: {
-                    Text("Default Toggle Style")
+                        Toggle(
+                            isOn: $isSwitchToggleOn,
+                            label: {
+                                Text("Switch Toggle Style")
+                            }
+                        )
+                        .tint(Color.purple)
+                        .toggleStyle(.switch)
+
+                        Toggle(
+                            isOn: $isCustomToggleOn,
+                            label: {
+                                Text("Custom Toggle Style")
+                            }
+                        )
+                        .toggleStyle(.custom)
+
+                        Toggle(
+                            isOn: $isButtonToggleOn,
+                            label: {
+                                Text("Button Toggle Style")
+                            }
+                        )
+                        .toggleStyle(.button)
+                        .tint(Color.purple)
+
+                        Spacer()
+
+                        ContributedByView(name: "Freddy Hernandez Jr",
+                                          link: "https://github.com/freddy1h")
+                        .padding(.top, 80)
+                    }
+                    .padding()
                 }
-            )
-            .toggleStyle(DefaultToggleStyle())
-
-            Toggle(
-                isOn: $isSwitchToggleOn,
-                label: {
-                    Text("Switch Toggle Style")
-                }
-            )
-            .toggleStyle(SwitchToggleStyle(tint: Color.purple))
-
-            Toggle(
-                isOn: $isCustomToggleOn,
-                label: {
-                    Text("Custom Toggle Style")
-                }
-            )
-            .toggleStyle(CustomToggleStyle())
-            Spacer()
-
-            ContributedByView(name: "Freddy Hernandez Jr",
-                              link: "https://github.com/freddy1h")
-                .padding(.top, 80)
-
-        })
-        .padding()
-                      
-      
+        )
     }
 }
 
@@ -120,16 +129,18 @@ struct CustomToggleStyle: ToggleStyle {
                                     x: configuration.isOn ? 11 : -11,
                                     y: 0
                                 )
+                                .animation(.easeInOut, value: configuration.isOn)
                         )
                         .cornerRadius(20)
-                    
-
                 }
             )
-            .buttonStyle(PlainButtonStyle())
-
+            .buttonStyle(.plain)
         }
     }
+}
+
+extension ToggleStyle where Self == CustomToggleStyle {
+    static var custom: CustomToggleStyle { CustomToggleStyle() }
 }
 
 struct TogglesView_Previews: PreviewProvider {
@@ -141,7 +152,6 @@ struct TogglesView_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension TogglesView {
-    
     static func == (lhs: TogglesView, rhs: TogglesView) -> Bool {
         return lhs.id == rhs.id
     }
@@ -149,8 +159,4 @@ extension TogglesView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
 }
-
-
