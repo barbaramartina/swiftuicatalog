@@ -207,8 +207,6 @@ struct ContentView: View {
                         // MARK: - status and tool bars
                         
                         Section(header: Text("Status and tool bars")                                .modifier(ListSectionFontModifier())) {
-                            Link(destination: StatusBarsComponentView(),
-                                 label: "Status Bars")
                             Link(destination: ToolbarsComponentView(),
                                  label: "Tool Bars")
                         }
