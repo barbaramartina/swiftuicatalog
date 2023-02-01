@@ -39,9 +39,68 @@ struct StylesView: View, Comparable {
     
     var body: some View {
         
-        VStack {
+        ScrollView {
             HeaderView( title: "Styling views in SwiftUI")
-            ContributionWantedView()
+
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles")
+
+            // contextual information
+            Group {
+                Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")
+                    .fontWeight(.light)
+            }
+            .padding()
+
+            // styling buttons
+            Group {
+                Text("Styling buttons")
+                    .fontWeight(.heavy)
+                HStack {
+                    Text("Automatic button style: ")
+                        .fontWeight(.light)
+                    Spacer()
+                    Button("Example action") { }
+                        .buttonStyle(.automatic)
+                }
+                HStack {
+                    Text("Bordered button style: ")
+                        .fontWeight(.light)
+                    Spacer()
+                    Button("Example action") { }
+                        .buttonStyle(.bordered)
+                }
+                HStack {
+                    Text("Border less button style: ")
+                        .fontWeight(.light)
+                    Spacer()
+                    Button("Example action") { }
+                        .buttonStyle(.borderless)
+                }
+                HStack {
+                    Text("Border prominent less button style: ")
+                        .fontWeight(.light)
+                    Spacer()
+                    Button("Example action") { }
+                        .buttonStyle(.borderedProminent)
+                }
+                HStack {
+                    Text("Plain button style: ")
+                        .fontWeight(.light)
+                    Spacer()
+                    Button("Example action") { }
+                        .buttonStyle(.plain)
+                }
+                HStack {
+                    Text("My own button style: ")
+                        .fontWeight(.light)
+                    Spacer()
+                    Button("Example action") { }
+                        .buttonStyle(MyOwnButtonStyle())
+                }
+
+            }
+            .padding()
+            // end buttons styles
         }
 
     }
@@ -65,6 +124,30 @@ extension StylesView {
         hasher.combine(id)
     }
 
+
+}
+
+/// My own button style
+ struct MyOwnButtonStyle : PrimitiveButtonStyle {
+
+    /// Creates a view that represents the body of a button.
+    ///
+    /// The system calls this method for each ``Button`` instance in a view
+    /// hierarchy where this style is the current button style.
+    ///
+    /// - Parameter configuration : The properties of the button.
+     public func makeBody(configuration: BorderedButtonStyle.Configuration) -> some View {
+         return ZStack {
+             Circle()
+                 .foregroundColor(Color.pink)
+             Button {
+                 configuration.trigger()
+             } label: {
+                 configuration.label
+             }
+
+         }
+     }
 
 }
 
