@@ -10,6 +10,7 @@
 		184E8FE726BEAA3F00296C8D /* ComposingGestureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */; };
 		761CB9DB28392D13007A552F /* ListSectionFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761CB9DA28392D13007A552F /* ListSectionFontModifier.swift */; };
 		761CB9DD28396FEA007A552F /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761CB9DC28396FEA007A552F /* PageContainer.swift */; };
+		762377332913C0EF00119DEF /* NavigatableModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762377322913C0EF00119DEF /* NavigatableModifier.swift */; };
 		7624F84F269C337D00474E0B /* SwiftUICatalogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */; };
 		7624F851269C337D00474E0B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F850269C337D00474E0B /* ContentView.swift */; };
 		7624F853269C338000474E0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7624F852269C338000474E0B /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposingGestureView.swift; sourceTree = "<group>"; };
 		761CB9DA28392D13007A552F /* ListSectionFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListSectionFontModifier.swift; sourceTree = "<group>"; };
 		761CB9DC28396FEA007A552F /* PageContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainer.swift; sourceTree = "<group>"; };
+		762377322913C0EF00119DEF /* NavigatableModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatableModifier.swift; sourceTree = "<group>"; };
 		7624F84B269C337D00474E0B /* SwiftUICatalog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUICatalog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7624F84E269C337D00474E0B /* SwiftUICatalogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalogApp.swift; sourceTree = "<group>"; };
 		7624F850269C337D00474E0B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 				7624F8BC26A45FB200474E0B /* TextModifiersView.swift */,
 				7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */,
 				7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */,
+				762377322913C0EF00119DEF /* NavigatableModifier.swift */,
 			);
 			path = "View Modifiers";
 			sourceTree = "<group>";
@@ -354,7 +357,6 @@
 				7624F8B126A45CDF00474E0B /* GraphicContextsView.swift */,
 				7624F8B326A45D0600474E0B /* ShapesView.swift */,
 				7624F8B526A45D9100474E0B /* AnimationsView.swift */,
-				7624F8B726A45DDE00474E0B /* GeometriesView.swift */,
 				76EF639526B69CC7002980A7 /* MotionsAnimation.swift */,
 			);
 			path = "Drawing and Animations";
@@ -363,6 +365,7 @@
 		7624F8B926A45E7100474E0B /* Gestures */ = {
 			isa = PBXGroup;
 			children = (
+				7624F8B726A45DDE00474E0B /* GeometriesView.swift */,
 				7624F8BA26A45E8100474E0B /* GesturesView.swift */,
 				184E8FE626BEAA3F00296C8D /* ComposingGestureView.swift */,
 			);
@@ -552,6 +555,7 @@
 				7624F873269C398400474E0B /* NavigationView.swift in Sources */,
 				7624F89326A43FB200474E0B /* DatePickersView.swift in Sources */,
 				76A45B0026B6ABE90075190A /* ButtonRoundedModifier.swift in Sources */,
+				762377332913C0EF00119DEF /* NavigatableModifier.swift in Sources */,
 				76A45AFC26B6A6FF0075190A /* ButtonFontModifier.swift in Sources */,
 				7624F8BF26A45FDD00474E0B /* EffectsModifiersView.swift in Sources */,
 				7624F867269C38FA00474E0B /* MenuesView.swift in Sources */,
@@ -627,6 +631,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -643,7 +648,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -688,6 +693,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -698,7 +704,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -713,10 +719,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICatalog/Preview Content\"";
-				DEVELOPMENT_TEAM = 3R3WP239S1;
+				DEVELOPMENT_TEAM = LR2JPRP2ER;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUICatalog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -724,9 +732,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = barbara.rodeker.SwiftUICatalog;
+				MARKETING_VERSION = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = barbara.rodeker.swiftuicatalog3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -737,10 +746,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftUICatalog/Preview Content\"";
-				DEVELOPMENT_TEAM = 3R3WP239S1;
+				DEVELOPMENT_TEAM = LR2JPRP2ER;
+				ENABLE_BITCODE = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SwiftUICatalog/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -748,9 +759,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
-				PRODUCT_BUNDLE_IDENTIFIER = barbara.rodeker.SwiftUICatalog;
+				MARKETING_VERSION = 8.0;
+				PRODUCT_BUNDLE_IDENTIFIER = barbara.rodeker.swiftuicatalog3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
