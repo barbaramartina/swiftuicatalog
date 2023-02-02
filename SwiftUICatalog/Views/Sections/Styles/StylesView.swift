@@ -127,28 +127,4 @@ extension StylesView {
 
 }
 
-/// My own button style
- struct MyOwnButtonStyle : PrimitiveButtonStyle {
-
-    /// Creates a view that represents the body of a button.
-    ///
-    /// The system calls this method for each ``Button`` instance in a view
-    /// hierarchy where this style is the current button style.
-    ///
-    /// - Parameter configuration : The properties of the button.
-     public func makeBody(configuration: BorderedButtonStyle.Configuration) -> some View {
-         return ZStack {
-             Circle()
-                 .foregroundColor(Color.pink)
-             Button {
-                 configuration.trigger()
-             } label: {
-                 configuration.label
-             }
-
-         }
-     }
-
-}
-
 
