@@ -4,7 +4,7 @@
 //
 // MIT License
 //
-// Copyright (c) 2021 { YOUR NAME HERE 🏆 }
+// Copyright (c) 2021 Barbara Martina
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,10 @@ import SwiftUI
 struct StylesView: View, Comparable {
     
     let id: String = "StylesView"
-    
+
+    @State private var selectedPickerString: String = ""
+    @State private var toggleValue: Bool = false
+
     var body: some View {
         
         ScrollView {
@@ -51,7 +54,42 @@ struct StylesView: View, Comparable {
             }
             .padding()
 
-            // styling buttons
+            // styling Toggles
+            // https://developer.apple.com/documentation/swiftui/togglestyle
+            Group {
+                Divider()
+                Text("Styling Toggles")
+                    .fontWeight(.heavy)
+                HStack {
+                    Text("Automatic style:")
+                    Spacer()
+                    Toggle(isOn: $toggleValue) {
+                        Text("Toggle")
+                    }
+                    .toggleStyle(.automatic)
+                }
+                HStack {
+                    Text("Button style:")
+                    Spacer()
+                    Toggle(isOn: $toggleValue) {
+                        Text("Toggle")
+                    }
+                    .toggleStyle(.button)
+                }
+                HStack {
+                    Text("Switch style:")
+                    Spacer()
+                    Toggle(isOn: $toggleValue) {
+                        Text("Toggle")
+                    }
+                    .toggleStyle(.switch)
+                }
+
+            }
+            .padding()
+            // end styling toggles
+
+            // Styling buttons with all the possible already implemented styles in Swift + 1 custom style
             Group {
                 Text("Styling buttons")
                     .fontWeight(.heavy)
@@ -101,6 +139,82 @@ struct StylesView: View, Comparable {
             }
             .padding()
             // end buttons styles
+
+
+            // styling Pickers
+            // https://developer.apple.com/documentation/swiftui/pickerstyle
+            Group {
+                Divider()
+                Text("Styling Pickers")
+                    .fontWeight(.heavy)
+                HStack {
+                    Text("Automatic style:")
+                    Spacer()
+                    Picker("Option", selection: $selectedPickerString) {
+                        Text("Option 1")
+                        Text("Option 2")
+                        Text("Option 3")
+                    }
+                    .pickerStyle(.automatic)
+                }
+                HStack {
+                    Text("Inline style:")
+                    Spacer()
+                    Picker("Option", selection: $selectedPickerString) {
+                        Text("Option 1")
+                        Text("Option 2")
+                        Text("Option 3")
+                    }
+                    .pickerStyle(.inline)
+                }
+                HStack {
+                    Text("Menu style:")
+                    Spacer()
+                    Picker("Option", selection: $selectedPickerString) {
+                        Text("Option 1")
+                        Text("Option 2")
+                        Text("Option 3")
+                    }
+                    .pickerStyle(.menu)
+                }
+                HStack {
+                    Text("Segmented style:")
+                    Spacer()
+                    Picker("Option", selection: $selectedPickerString) {
+                        Text("Option 1")
+                        Text("Option 2")
+                        Text("Option 3")
+                    }
+                    .pickerStyle(.segmented)
+                }
+                HStack {
+                    Text("Menu style:")
+                    Spacer()
+                    Picker("Option", selection: $selectedPickerString) {
+                        Text("Option 1")
+                        Text("Option 2")
+                        Text("Option 3")
+                    }
+                    .pickerStyle(.wheel)
+                }
+
+                if #available(iOS 16.0, *) {
+                    HStack {
+                        Text("Navigation Link style:")
+                        Spacer()
+                        Picker("Option", selection: $selectedPickerString) {
+                            Text("Option 1")
+                            Text("Option 2")
+                            Text("Option 3")
+                        }
+                        .pickerStyle(.navigationLink)
+                    }
+                } else {
+                    // Fallback on earlier versions
+                }
+            }
+            .padding()
+            // end of styling pickers
         }
 
     }
