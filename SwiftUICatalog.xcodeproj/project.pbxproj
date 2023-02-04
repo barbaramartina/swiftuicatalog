@@ -56,6 +56,7 @@
 		7624F8BF26A45FDD00474E0B /* EffectsModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */; };
 		7624F8C126A4601B00474E0B /* LayoutModifiersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */; };
 		76380C5C298BA96300C1C42F /* MyOwnButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76380C5B298BA96300C1C42F /* MyOwnButtonStyle.swift */; };
+		764D4902298E853300323147 /* MyOwnMenuStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 764D4901298E853300323147 /* MyOwnMenuStyle.swift */; };
 		767808D92838F42500660931 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 767808D82838F42500660931 /* WebView.swift */; };
 		7682268C2754FB10000B44AA /* SwiftUICatalogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */; };
 		768226942754FB1C000B44AA /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768226932754FB1C000B44AA /* SnapshotHelper.swift */; };
@@ -139,6 +140,7 @@
 		7624F8BE26A45FDD00474E0B /* EffectsModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectsModifiersView.swift; sourceTree = "<group>"; };
 		7624F8C026A4601B00474E0B /* LayoutModifiersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutModifiersView.swift; sourceTree = "<group>"; };
 		76380C5B298BA96300C1C42F /* MyOwnButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnButtonStyle.swift; sourceTree = "<group>"; };
+		764D4901298E853300323147 /* MyOwnMenuStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyOwnMenuStyle.swift; sourceTree = "<group>"; };
 		767808D82838F42500660931 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		768226892754FB10000B44AA /* SwiftUICatalogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUICatalogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7682268B2754FB10000B44AA /* SwiftUICatalogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUICatalogUITests.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				7624F876269C39D100474E0B /* StylesView.swift */,
 				76380C5B298BA96300C1C42F /* MyOwnButtonStyle.swift */,
+				764D4901298E853300323147 /* MyOwnMenuStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				769AB09B27B0365D005238A0 /* CommonlyUsedViews.swift in Sources */,
 				7624F863269C388900474E0B /* SheetsView.swift in Sources */,
 				7624F8B026A45CBB00474E0B /* CanvasView.swift in Sources */,
+				764D4902298E853300323147 /* MyOwnMenuStyle.swift in Sources */,
 				768F61D5274054D2005E070E /* ContributedByView.swift in Sources */,
 				769AB0A127B036EA005238A0 /* TitleSubtitleIconView.swift in Sources */,
 				7624F89526A4402E00474E0B /* ColorPickersView.swift in Sources */,
