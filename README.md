@@ -4,9 +4,11 @@ An open source catalog, under MIT License, containing components, controls, effe
 
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
-<img width="364" alt="Screen Shot 2022-04-10 at 6 39 21 PM" src="https://user-images.githubusercontent.com/815372/162630103-a5dcf4a0-ff53-4111-891c-a8f579a44fa2.png">
-<img width="364" alt="Screen Shot 2022-04-10 at 6 39 48 PM" src="https://user-images.githubusercontent.com/815372/162630112-65a7961e-87af-415c-b88b-55415caece0f.png">
-<img width="364" alt="Screen Shot 2022-04-10 at 6 40 04 PM" src="https://user-images.githubusercontent.com/815372/162630120-8289df24-2838-4a54-b1c7-942cd4a9818b.png">
+<img width="565" alt="Screenshot 2023-02-04 at 2 25 22 PM" src="https://user-images.githubusercontent.com/815372/216770302-6002d635-ff7f-404d-99c3-413a55fc13ef.png">
+
+<img width="565" alt="Screenshot 2023-02-04 at 2 26 07 PM" src="https://user-images.githubusercontent.com/815372/216770308-ce08309c-94cb-4b26-acf1-c6e5c42367be.png">
+
+<img width="565" alt="Screenshot 2023-02-04 at 2 27 15 PM" src="https://user-images.githubusercontent.com/815372/216770316-2ea7e37d-4d07-443f-b9cf-b80896e3f470.png">
 
 # Goal
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
@@ -40,11 +42,3 @@ This catalog will allow developers who already know the theoretical aspects of [
 
 If you have any other suggestion or wish regarding this catalog please open an ISSUE and we can discuss it there.
 
-_________________
-
-We want to make the project available not only for developers, but also for non-technical persons in your teams. That's why we plan to publish the SwiftUI Catalog in the App Store. Publishing in the App Store requires being a member of the Apple Developer Program, which costs 99 USD / year, costs that we plan to afford by ourselves at the moment, additionally to the time and energy we dedicate to building the catalog. 
-
-We'd very grateful if you decide to support us to afford the membership.
-We also decided that a 1% of your contribution will go fund research in new carbon extraction technologies, through Stripe (our payment processor). 
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/swiftuicatalog)
