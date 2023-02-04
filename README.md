@@ -42,11 +42,3 @@ This catalog will allow developers who already know the theoretical aspects of [
 
 If you have any other suggestion or wish regarding this catalog please open an ISSUE and we can discuss it there.
 
-_________________
-
-We want to make the project available not only for developers, but also for non-technical persons in your teams. That's why we plan to publish the SwiftUI Catalog in the App Store. Publishing in the App Store requires being a member of the Apple Developer Program, which costs 99 USD / year, costs that we plan to afford by ourselves at the moment, additionally to the time and energy we dedicate to building the catalog. 
-
-We'd very grateful if you decide to support us to afford the membership.
-We also decided that a 1% of your contribution will go fund research in new carbon extraction technologies, through Stripe (our payment processor). 
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/swiftuicatalog)
