@@ -303,10 +303,36 @@ struct StylesView: View, Comparable {
                 VStack {
                     Text("Accessory Circular style:")
                     Spacer()
+                    Gauge(value: 0.75) {
+                            Text("Level")
+                        } currentValueLabel: {
+                            Text("0.75")
+                        } minimumValueLabel: {
+                            Text("0")
+                        } maximumValueLabel: {
+                            Text("1")
+                        }
+                        .gaugeStyle(.accessoryCircular)
+
                     // level of clouds today :D
                     Gauge(value: 0.6) {
                         Image(systemName: "cloud")
                     }
+                    .gaugeStyle(.accessoryCircular)
+
+                    Gauge(value: 45, in: 0...100) {
+                        Label("Sun", systemImage: "sunrise.circle")
+                    } currentValueLabel: {
+                        Text(45.formatted())
+                    } minimumValueLabel: {
+                        Image(systemName: "sun.min")
+                            .foregroundColor(.gray)
+                    } maximumValueLabel: {
+                        Image(systemName: "sun.max")
+                            .foregroundColor(.orange)
+                    }
+                    .tint(.yellow)
+                    .labelStyle(.iconOnly)
                     .gaugeStyle(.accessoryCircular)
                 }
                 VStack {
