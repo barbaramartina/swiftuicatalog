@@ -35,6 +35,8 @@ protocol Comparable: Hashable & Equatable & Identifiable {}
 
 
 struct ContentView: View {
+
+    private let sectionColor = "LightBraun"
     
     private let gradient = LinearGradient(colors: [Color("PaleGreen"),Color("LightBraun")],
                                           startPoint: .top,
@@ -77,7 +79,7 @@ struct ContentView: View {
                             }
                             
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of section
                         
                         Group {
@@ -113,7 +115,7 @@ struct ContentView: View {
                                     }
 
                                 }
-                                .listRowBackground(Color("LightBraun"))
+                                .listRowBackground(Color(sectionColor))
 
                             
                             // MARK: - LAYOUTS
@@ -131,7 +133,7 @@ struct ContentView: View {
                                 Link(destination: ScrollViewsView(),
                                      label: "Scrollviews")
                             }
-                                .listRowBackground(Color("LightBraun"))
+                                .listRowBackground(Color(sectionColor))
                             // end of section View Layouts
                             
                             // MARK: - navigation
@@ -146,7 +148,7 @@ struct ContentView: View {
                                 Link(destination: TabsView(),
                                      label: "Tabs")
                             }
-                            .listRowBackground(Color("LightBraun"))
+                            .listRowBackground(Color(sectionColor))
                             // end of Group Navigation View
                             
                             // MARK: - DRAWING AND ANIMATIONS
@@ -163,18 +165,26 @@ struct ContentView: View {
                                 Link(destination: GeometriesView(),
                                      label: "Geometries")
                             }
-                            .listRowBackground(Color("LightBraun"))
+                            .listRowBackground(Color(sectionColor))
                             // end of drawing
 
+                            // MARK: - CHARTS
+
+                            Section(header: Text("Charts")                                .modifier(ListSectionFontModifier())) {
+                                Link(destination: ChartsViews(),
+                                     label: "Swift Charts")
+                            }
+                            .listRowBackground(Color(sectionColor))
+
                             // MARK: - GESTURES
-                            
+
                             Section(header: Text("Gestures")                                .modifier(ListSectionFontModifier())) {
                                 Link(destination: GesturesView(),
                                      label: "Gestures")
                                 Link(destination: ComposingGesturesView(),
                                      label: "Composing Gestures")
                             }
-                            .listRowBackground(Color("LightBraun"))
+                            .listRowBackground(Color(sectionColor))
 
                         }
                         
@@ -191,7 +201,7 @@ struct ContentView: View {
                                  label: "Layout modifiers")
                             
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of Group view modifiers
                         
                         // MARK: - ACCESSIBILITY
@@ -201,7 +211,7 @@ struct ContentView: View {
                             Link(destination: AccesibilityView(),
                                  label: "Accesibility")
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of group accesibility
                         
                         // MARK: - status and tool bars
@@ -210,7 +220,7 @@ struct ContentView: View {
                             Link(destination: ToolbarsComponentView(),
                                  label: "Tool Bars")
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of group Bars
                         
                         // MARK: - STYLES ON VIEWS
@@ -220,7 +230,7 @@ struct ContentView: View {
                             Link(destination: StylesView(),
                                  label: "Styles")
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of Group Styles
                         
                         // MARK: - ADDITIONAL VIEWS
@@ -238,7 +248,7 @@ struct ContentView: View {
                             Link(destination: SpacersDividersView(),
                                  label: "Spacer")
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of Group ADDITIONAL VIEWS
 
                         // MARK: - Composed components
@@ -250,7 +260,7 @@ struct ContentView: View {
                             Link(destination: CollectionsViews(),
                                  label: "Collections of components")
                         }
-                        .listRowBackground(Color("LightBraun"))
+                        .listRowBackground(Color(sectionColor))
                         // end of Group composed VIEWS
                         
                     }
