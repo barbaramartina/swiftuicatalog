@@ -6,9 +6,11 @@ We'd like to promote this as a collaborative initiative developed over time, you
 
 <img width="565" alt="Screenshot 2023-02-04 at 2 25 22 PM" src="https://user-images.githubusercontent.com/815372/216770302-6002d635-ff7f-404d-99c3-413a55fc13ef.png">
 
+
+<img width="565" alt="Screenshot 2023-04-02 at 4 40 55 PM" src="https://user-images.githubusercontent.com/815372/229360073-ce5481a8-4b0e-4eb9-a200-490ec5861bf1.png">
+
 <img width="565" alt="Screenshot 2023-02-04 at 2 26 07 PM" src="https://user-images.githubusercontent.com/815372/216770308-ce08309c-94cb-4b26-acf1-c6e5c42367be.png">
 
-<img width="565" alt="Screenshot 2023-02-04 at 2 27 15 PM" src="https://user-images.githubusercontent.com/815372/216770316-2ea7e37d-4d07-443f-b9cf-b80896e3f470.png">
 
 # Goal
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
