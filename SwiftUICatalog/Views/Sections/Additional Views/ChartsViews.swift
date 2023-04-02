@@ -173,7 +173,9 @@ struct ChartsViews: View {
                         .foregroundStyle(by: .value("Name", $0.personName))
                     }
                 }
+                // This is one way to define a custom range for an axis
                 .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 9, upper: 14)))
+                // and this is how to set the labels for the custom defined axis
                 .chartXAxis {
                     AxisMarks(values: xValuesHours)
                 }
