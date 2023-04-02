@@ -33,19 +33,85 @@ import Charts
 
 struct ChartsViews: View {
 
-    private struct Fruits: Identifiable {
+    /// value used to draw a line chart example. It represents the initial time of a heart rate check.
+    private let initialHour = 9
+    /// value used to draw a line chart example. It represents the final time of a heart rate check.
+    private let finalHour = 14
+    /// x AXIS custom values, used to tailor the way in which the X axis of a line chart shows up
+    private var xValuesHours: [Int] {
+        stride(from: initialHour, to: finalHour, by: 1).map { $0 }
+    }
+
+    // MARK: - Bar chart example data
+
+    /// For the bar chart, we will use clothes as examples, there are clothes of different colors. The colors will help to pile up bars for each type of item.
+    private struct ClotheItem: Identifiable {
+        var id = UUID()
         var type: String
         var color: String
         var count: Double
-        var id = UUID()
-        var unitCost: Double
     }
 
-    private var fruits: [Fruits] = [
-        .init(type: "Grapes", color: "Pink", count: 4, unitCost: 10.67),
-        .init(type: "Bananas", color: "Green", count: 5, unitCost: 2.87),
-        .init(type: "Oranges", color: "Yellow", count: 49, unitCost: 8.67)
+    private let clothes: [ClotheItem] = [
+        .init(type: "T-Shirt", color: "Pink", count: 4),
+        .init(type: "T-Shirt", color: "Green", count: 5),
+        .init(type: "Trouser", color: "Yellow", count: 5),
+        .init(type: "Trouser", color: "Black", count: 49),
+        .init(type: "Skirt", color: "Yellow", count: 4),
+        .init(type: "Skirt", color: "Green", count: 9)
     ]
+
+    // MARK: - Point Chart example data
+
+    /// For the points chart we will use appliances which are stored in different rooms and we will plot the amount of appliances per storage unit/room
+    private struct Appliance: Identifiable {
+        var id = UUID()
+        var type: String
+        var code: Int
+        var count: Double
+        var storageUnit: String
+    }
+
+    private let appliances: [Appliance] = [
+        Appliance(type: "Mixer", code: 1, count: 2, storageUnit: "Room1"),
+        Appliance(type: "Mixer", code: 1, count: 4, storageUnit: "Room2"),
+        Appliance(type: "Mixer", code: 1, count: 12, storageUnit: "Room3"),
+        Appliance(type: "Microwave", code: 2, count: 20, storageUnit: "Room1"),
+        Appliance(type: "Microwave", code: 2, count: 7, storageUnit: "Room2"),
+        Appliance(type: "Microwave", code: 2, count: 1, storageUnit: "Room3"),
+        Appliance(type: "Washing Machine", code: 3, count: 7, storageUnit: "Room1"),
+        Appliance(type: "Washing Machine", code: 3, count: 2, storageUnit: "Room2"),
+        Appliance(type: "Washing Machine", code: 3, count: 10, storageUnit: "Room3")
+    ]
+
+    // MARK: - Line Chart example data
+
+    /// for the line chart example we will pretend to be in a clinical study where 3 persons' hearts rate are measures from 10:00h to 14:00h
+    private struct HeartRate: Identifiable {
+        var id = UUID()
+        let hour: Int
+        let heartRate: Double
+        let personName: String
+    }
+
+    private let rates: [HeartRate] = [
+        HeartRate(hour: 10, heartRate: 90.0, personName: "Mary"),
+        HeartRate(hour: 11, heartRate: 87.0, personName: "Mary"),
+        HeartRate(hour: 12, heartRate: 78.0, personName: "Mary"),
+        HeartRate(hour: 13, heartRate: 93.0, personName: "Mary"),
+        HeartRate(hour: 10, heartRate: 76.0, personName: "Laura"),
+        HeartRate(hour: 11, heartRate: 78.0, personName: "Laura"),
+        HeartRate(hour: 12, heartRate: 78.0, personName: "Laura"),
+        HeartRate(hour: 13, heartRate: 70.0, personName: "Laura"),
+        HeartRate(hour: 10, heartRate: 100.0, personName: "Mark"),
+        HeartRate(hour: 11, heartRate: 110.0, personName: "Mark"),
+        HeartRate(hour: 12, heartRate: 105.0, personName: "Mark"),
+        HeartRate(hour: 13, heartRate: 95.0, personName: "Mark")
+    ]
+
+
+    // MARK: - Main view
+
 
     var body: some View {
         ScrollView {
@@ -54,40 +120,67 @@ struct ChartsViews: View {
 
             if #available(iOS 16.0, *) {
 
+
                 // BAR CHART
+                Text("Bar Chart example")
+                    .fontWeight(.heavy)
                 Chart {
-                    BarMark(
-                        x: .value("Fruit", fruits[0].type),
-                        y: .value("Total Count", fruits[0].count)
-                    )
-                    .foregroundStyle(by: .value("Color", fruits[0].color))
-                    BarMark(
-                        x: .value("Fruit", fruits[1].type),
-                        y: .value("Total Count", fruits[1].count)
-                    )
-                    .foregroundStyle(by: .value("Color", fruits[1].color))
-                    BarMark(
-                        x: .value("Fruit", fruits[2].type),
-                        y: .value("Total Count", fruits[2].count)
-                    )
-                    .foregroundStyle(by: .value("Color", fruits[2].color))
+                    ForEach(clothes) { item in
+                        BarMark(
+                            x: .value("Item", item.type),
+                            y: .value("Total Count", item.count)
+                        )
+                        .foregroundStyle(by: .value("Color", item.color))
+                    }
                 }
                 .chartForegroundStyleScale([
                     "Green": .green,
-                    "Purple": .purple,
+                    "Black": .black,
                     "Pink": .pink,
                     "Yellow": .yellow
                 ])
                 .padding()
 
-                Chart(fruits) { fruit in
-                    AreaMark(
-                        x: .value("Count", fruit.type),
-                        y: .value("Price", fruit.unitCost)
-                    )
+                // POINT CHART
+                Text("Point Chart examples")
+                    .fontWeight(.heavy)
+                Chart {
+                    ForEach(appliances) {
+                        PointMark(x: .value("Appliance Type", $0.type),
+                                  y: .value("count", $0.count))
+                        .foregroundStyle(by: .value("Storage Unit", $0.storageUnit))
+                    }
                 }
                 .padding()
+                Chart {
+                    ForEach(appliances) {
+                        PointMark(x: .value("Appliance Type", $0.type),
+                                  y: .value("count", $0.count))
+                        .symbol(by: .value("Storage Unit", $0.storageUnit))
+                    }
+                }
+                .padding()
+
+                // LINE CHART
+                Text("Line Chart example")
+                    .fontWeight(.heavy)
+                Chart {
+                    ForEach(rates) {
+                        LineMark(
+                            x: .value("Hour", $0.hour),
+                            y: .value("Value", $0.heartRate)
+                        )
+                        .foregroundStyle(by: .value("Name", $0.personName))
+                    }
+                }
+                .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 9, upper: 14)))
+                .chartXAxis {
+                    AxisMarks(values: xValuesHours)
+                }
+                .padding()
+
             }
+
 
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
