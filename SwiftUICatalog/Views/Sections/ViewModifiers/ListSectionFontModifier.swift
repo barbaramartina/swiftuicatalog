@@ -14,7 +14,8 @@ struct ListSectionFontModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(font)
-            .foregroundColor(.accentColor)
+            .foregroundColor(.white)
+            .tint(.white)
             .padding(.top, 16)
             .padding(.bottom, 16)
 

@@ -36,11 +36,12 @@ protocol Comparable: Hashable & Equatable & Identifiable {}
 
 struct ContentView: View {
 
-    private let sectionColor = "LightBraun"
-    
-    private let gradient = LinearGradient(colors: [Color("PaleGreen"),Color("LightBraun")],
-                                          startPoint: .top,
-                                          endPoint: .bottom)
+    private let sectionColor = "Dark"
+
+    private let gradient = EllipticalGradient(colors: [ .blue, .pink, .green, .gray],
+                                              center: .topLeading,
+                                              startRadiusFraction: 0.3,
+endRadiusFraction: 3)
 
     init(){
         UITableView.appearance().backgroundColor = .clear
@@ -63,7 +64,8 @@ struct ContentView: View {
                                 .fontWeight(.light)
                                 .padding(.top, 24)
                                 .padding(.bottom, 16)
-                            
+                                .foregroundColor(.white)
+
                             HStack(alignment: .center, spacing: 2) {
                                 Spacer()
                                 Button(action: {
@@ -116,6 +118,17 @@ struct ContentView: View {
 
                                 }
                                 .listRowBackground(Color(sectionColor))
+
+                            Group {
+                                Section(header: Text("Store Kit Views")
+                                    .modifier(ListSectionFontModifier())) {
+                                        Group {
+                                            Link(destination: ExampleProductView(productId: "product.consumable.example.1", productImageName: "corgie-love"),
+                                                 label: "Consumable Product View")
+                                        }
+                                    }
+                            }
+                            .listRowBackground(Color(sectionColor))
 
                             
                             // MARK: - LAYOUTS
@@ -264,8 +277,9 @@ struct ContentView: View {
                         // end of Group composed VIEWS
                         
                     }
-                    .background(Color("PaleGreen"))
+                    .scrollContentBackground(.hidden)
                     .navigationTitle("Components Catalog")
+                    .foregroundColor(.white)
                     // end of LIST
 
                 }
