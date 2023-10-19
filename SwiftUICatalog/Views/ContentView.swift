@@ -276,6 +276,18 @@ endRadiusFraction: 3)
                         .listRowBackground(Color(sectionColor))
                         // end of Group composed VIEWS
                         
+                        // MARK: - Framework Integration
+                        
+                        Section(header: Text("Framework Integration")
+                            .modifier(ListSectionFontModifier())) {
+                                Link(destination: InterfacingWithUIKitView(pages: ModelData()
+                                    .features.map { FeatureCardView(landmark: $0) })
+                                    .aspectRatio(3 / 2, contentMode: .fit),
+                                 label: "Interfacing with UIKit")
+                        }
+                        .listRowBackground(Color(sectionColor))
+                        // end of Group Framework Integration VIEWS
+                        
                     }
                     .scrollContentBackground(.hidden)
                     .navigationTitle("Components Catalog")
