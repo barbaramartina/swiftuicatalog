@@ -1,0 +1,178 @@
+{
+  "identifier" : "D1DE4F48",
+  "nonRenewingSubscriptions" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "4A2577D8",
+      "localizations" : [
+        {
+          "description" : "To make that guy spend energy",
+          "displayName" : "Colored balls",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "product.nonrenewable.subscription.example.1",
+      "referenceName" : "Toys for Labradors",
+      "type" : "NonRenewingSubscription"
+    }
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "616FEA8B",
+      "localizations" : [
+        {
+          "description" : "Get some tasty bites for your corgie",
+          "displayName" : "Corgie Food",
+          "locale" : "en_US"
+        },
+        {
+          "description" : "الكلمات الأكثر بحثاً في معجم عربي عربي",
+          "displayName" : "عارف عارف عارف عارف ",
+          "locale" : "ar"
+        }
+      ],
+      "productID" : "product.consumable.example.1",
+      "referenceName" : "Corgie Food",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "34.99",
+      "familyShareable" : true,
+      "internalID" : "6D889D78",
+      "localizations" : [
+        {
+          "description" : "Artificial Snow 180L Keep your Husky happy",
+          "displayName" : "Husky Snow Pack",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "product.non.consumable.example.1",
+      "referenceName" : "Husky Snow Pack",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "VNM",
+    "_storeKitErrors" : [
+      {
+        "current" : {
+          "index" : 2,
+          "type" : "generic"
+        },
+        "enabled" : false,
+        "name" : "Load Products"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Purchase"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Verification"
+      },
+      {
+        "current" : {
+          "index" : 2,
+          "type" : "generic"
+        },
+        "enabled" : false,
+        "name" : "App Store Sync"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Subscription Status"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "App Transaction"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Manage Subscriptions Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Refund Request Sheet"
+      },
+      {
+        "current" : null,
+        "enabled" : false,
+        "name" : "Offer Code Redeem Sheet"
+      }
+    ]
+  },
+  "subscriptionGroups" : [
+    {
+      "id" : "71DCD07D",
+      "localizations" : [
+
+      ],
+      "name" : "Renewable Subscriptions Group 1",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+            {
+              "internalID" : "FA4B69A2",
+              "offerID" : "promotional.offer.1",
+              "paymentMode" : "free",
+              "referenceName" : "Promotional Offer 1",
+              "subscriptionPeriod" : "P3D"
+            }
+          ],
+          "codeOffers" : [
+            {
+              "displayPrice" : "0.99",
+              "eligibility" : [
+                "existing",
+                "expired",
+                "new"
+              ],
+              "internalID" : "381FBBE3",
+              "isStackable" : true,
+              "paymentMode" : "free",
+              "referenceName" : "Offer Example 1",
+              "subscriptionPeriod" : "P3D"
+            }
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "BF734D24",
+          "introductoryOffer" : null,
+          "localizations" : [
+            {
+              "description" : "Professional hair cuts for your dog",
+              "displayName" : "Pet hair cuts",
+              "locale" : "en_US"
+            },
+            {
+              "description" : "الكلمات الأكثر بحثاً في معجم عربي عربيالكلمات ",
+              "displayName" : "الكلمات الأكثر بحثاً في معجم عر",
+              "locale" : "ar"
+            }
+          ],
+          "productID" : "product.renewable.subscription.1",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Schnautzer hairdresser session",
+          "subscriptionGroupID" : "71DCD07D",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}
