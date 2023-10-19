@@ -22,7 +22,7 @@ struct Link<Destination> : View, Hashable, Identifiable where Destination : View
             Text(label)
                 .font(.title2)
                 .fontWeight(.light)
-                .foregroundColor(.accentColor)
+                .foregroundColor(.white)
         }
         .padding(.bottom, 5)
     }
