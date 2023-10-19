@@ -4,12 +4,11 @@ An open source catalog, under MIT License, containing components, controls, effe
 
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
-<img width="565" alt="Screenshot 2023-02-04 at 2 25 22 PM" src="https://user-images.githubusercontent.com/815372/216770302-6002d635-ff7f-404d-99c3-413a55fc13ef.png">
-
-
-<img width="565" alt="Screenshot 2023-04-02 at 4 40 55 PM" src="https://user-images.githubusercontent.com/815372/229360073-ce5481a8-4b0e-4eb9-a200-490ec5861bf1.png">
-
-<img width="565" alt="Screenshot 2023-02-04 at 2 26 07 PM" src="https://user-images.githubusercontent.com/815372/216770308-ce08309c-94cb-4b26-acf1-c6e5c42367be.png">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/388888f4-77b1-439c-b2e3-fa9b248ce68b" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/5a2aa818-026b-4daa-bb28-a04505f327d4" alt="alt text" height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/7bac313f-03f2-414d-950b-4e44c688ec3a" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/916fc2ba-aac6-4a73-9ca9-70a41abcf0bc" alt="alt text" height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/89dc8726-42da-48d8-81de-93721e07e448" alt="alt text"  height="700">
 
 
 # Goal
