@@ -150,7 +150,7 @@ struct ButtonsComponentsView: View, Comparable {
                         .padding()
                     
                         Group {
-                            Text("Button with plan background")
+                            Text("Button with plain background")
                                 .fontWeight(.heavy)
                             Button(action: {}, label: {
                                 Text("Click")
