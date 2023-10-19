@@ -277,15 +277,16 @@ endRadiusFraction: 3)
                         // end of Group composed VIEWS
                         
                         // MARK: - Framework Integration
-                        
-                        Section(header: Text("Framework Integration")
-                            .modifier(ListSectionFontModifier())) {
-                                Link(destination: InterfacingWithUIKitView(pages: ModelData()
-                                    .features.map { FeatureCardView(landmark: $0) })
-                                    .aspectRatio(3 / 2, contentMode: .fit),
-                                 label: "Interfacing with UIKit")
-                        }
-                        .listRowBackground(Color(sectionColor))
+
+                        // temporarily commenting it out: to be checked with Ali
+//                        Section(header: Text("Framework Integration")
+//                            .modifier(ListSectionFontModifier())) {
+//                                Link(destination: InterfacingWithUIKitView(pages: ModelData()
+//                                    .features.map { FeatureCardView(landmark: $0) })
+//                                    .aspectRatio(3 / 2, contentMode: .fit),
+//                                 label: "Interfacing with UIKit")
+//                        }
+//                        .listRowBackground(Color(sectionColor))
                         // end of Group Framework Integration VIEWS
                         
                     }
