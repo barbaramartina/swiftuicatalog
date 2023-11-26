@@ -35,102 +35,109 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/image
 ///
 struct ImagesComponentView: View, Comparable {
-    
+
     let id: String = "ImagesComponentView"
 
     var body: some View {
-        
-        PageContainer(content:
-             
-        ScrollView {
-            
+
+        PageContainer(content: ScrollView {
+
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image")
 
-            // MARK: - SF Symbols
-            
-            // Contextual information: a short intro to the elements we are showcasing
-            Group {
-                Text("Images with SF Symbols")
-                    .fontWeight(.heavy)
-                Text("With over 3,100 symbols, SF Symbols is a library designed by Apple. You can find more about SF Symbols in https://developer.apple.com/sf-symbols")
-                    .fontWeight(.light)
-                HStack(alignment: .center, spacing: 20) {
-                    Image(systemName: "house.circle")
-                    Image(systemName: "square.circle")
-                    Image(systemName: "dpad")
-                }
-            }
-            .padding()
-            
-            Group {
-                Text("Images from Bundle")
-                    .fontWeight(.heavy)
-                Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
-                    .fontWeight(.light)
-               // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
-                Text("Corgie scaled to fit")
-                    .fontWeight(.semibold)
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
+            sfSymbols
+            imsgesFromBundle
+            fixedFrameImages
 
-                Text("Corgie scaled to fill")
-                        .fontWeight(.semibold)
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 200, height: 200)
-
-                Text("Corgie aspect ratio")
-                        .fontWeight(.semibold)
-                Image("corgie-love")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
-
-                Text("Corgie and circled overlay")
-                    .fontWeight(.semibold)
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFit()
-                    .overlay(
-                        Color.gray
-                            .opacity(0.5)
-                    )
-                    .clipShape(Circle())
-                    .frame(width: 200, height: 200)
-
-            }
-            .padding()
-            
-            Group {
-                Text("Corgie fitting in a fixed frame")
-                    .fontWeight(.semibold)
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 300, height: 400, alignment: .topLeading)
-                    .border(Color.blue)
-                    .clipped()
-                
-                Text("Tiled corgie")
-                    .fontWeight(.semibold)
-                Image("corgie-love")
-                    .resizable(resizingMode: .tile)
-                    .frame(width: 370, height: 900, alignment: .topLeading)
-                    .border(Color.blue)
-            }
-            .padding()
-            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
+            .padding(.top, 80)
 
 
         })
-      
+
     }
+
+    // Contextual information: a short intro to the elements we are showcasing
+    private var sfSymbols: some View {
+        Group {
+            Text("Images with SF Symbols")
+                .fontWeight(.heavy)
+            Text("With over 3,100 symbols, SF Symbols is a library designed by Apple. You can find more about SF Symbols in https://developer.apple.com/sf-symbols")
+                .fontWeight(.light)
+            HStack(alignment: .center, spacing: 20) {
+                Image(systemName: "house.circle")
+                Image(systemName: "square.circle")
+                Image(systemName: "dpad")
+            }
+        }
+        .padding()
+    }
+
+    private var imsgesFromBundle: some View {
+        Group {
+            Text("Images from Bundle")
+                .fontWeight(.heavy)
+            Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
+                .fontWeight(.light)
+            // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
+            Text("Corgie scaled to fit")
+                .fontWeight(.semibold)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+
+            Text("Corgie scaled to fill")
+                .fontWeight(.semibold)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 200, height: 200)
+
+            Text("Corgie aspect ratio")
+                .fontWeight(.semibold)
+            Image("corgie-love")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200, height: 200)
+
+            Text("Corgie and circled overlay")
+                .fontWeight(.semibold)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFit()
+                .overlay(
+                    Color.gray
+                        .opacity(0.5)
+                )
+                .clipShape(Circle())
+                .frame(width: 200, height: 200)
+
+        }
+        .padding()
+    }
+
+    private var fixedFrameImages: some View {
+        Group {
+            Text("Corgie fitting in a fixed frame")
+                .fontWeight(.semibold)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 300, height: 400, alignment: .topLeading)
+                .border(Color.blue)
+                .clipped()
+
+            Text("Tiled corgie")
+                .fontWeight(.semibold)
+            Image("corgie-love")
+                .resizable(resizingMode: .tile)
+                .frame(width: 370, height: 900, alignment: .topLeading)
+                .border(Color.blue)
+        }
+        .padding()
+    }
+
 }
 
 struct ImagesComponentView_Previews: PreviewProvider {
@@ -143,17 +150,16 @@ struct ImagesComponentView_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension ImagesComponentView {
-    
+
     static func == (lhs: ImagesComponentView, rhs: ImagesComponentView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 
 
 }
-
 
 

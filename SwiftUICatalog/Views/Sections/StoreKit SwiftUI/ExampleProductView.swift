@@ -24,16 +24,20 @@ struct ExampleProductView: View {
                         ScrollView {
             DocumentationLinkView(link: "https://developer.apple.com/videos/play/wwdc2023/10013/")
             customizedLoadingView
-            Divider()
+                .modifier(Divided())
             customStyleViewReDrawing
-            Divider()
+                .modifier(Divided())
             customStyleView
-            Divider()
+                .modifier(Divided())
             compactProductView
-            Divider()
+                .modifier(Divided())
             largeProductView
-            Divider()
+                .modifier(Divided())
             regularProductView
+                .modifier(Divided())
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+            .padding(.top, 80)
 
         } // end of scroll view
         )

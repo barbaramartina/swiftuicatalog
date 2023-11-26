@@ -26,14 +26,11 @@ struct ContributedByView: View, Identifiable {
         },
                label: {
             
+            Spacer()
             Text("Created by \(name)")
-                .fontWeight(.ultraLight)
-                .italic()
+                .fontWeight(.regular)
                 .padding(9)
-                .modifier(ButtonRoundedModifier(radius: 6,
-                                                lineWidth: 1.0,
-                                                
-                                                color: Color("secondary")))
+                .padding(.trailing, 16)
         })
         
 

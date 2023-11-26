@@ -35,15 +35,15 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/button
 ///
 struct ButtonsComponentsView: View, Comparable {
-    
+
     // MARK: - Properties
-    
+
     let id: String = "ButtonsComponentsView"
-    
+
     @State private var fruits = [ "Apple", "Banana", "Papaya", "Mango"]
-    
+
     @State private var pastedText: String = ""
-    
+
     /// configuration of the first button: background color
     @State private var color: Color = Color.clear
     /// configuration of the first button: border color
@@ -53,179 +53,204 @@ struct ButtonsComponentsView: View, Comparable {
     /// configuration of the first button: custom font
     @State private var font: UIFont = UIFont.preferredFont(forTextStyle: .body)
 
-    
+
     // MARK: - Body
-    
-    
+
     var body: some View {
-        
-           PageContainer(content:
-                
-                ScrollView {
-                    
-                VStack {
-                    
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
 
-                    
-                    // MARK: - basics of buttons
-                    Group {
-                        
-                        // Contextual information: a short intro to the elements we are showcasing
-                        Group {
-                            Text("Rounded Button")
-                                .fontWeight(.heavy)
-                            Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier")
-                                .fontWeight(.light)
+        PageContainer(content: ScrollView {
 
-                            Button(action: {},
-                                   label: {
-                                    Text("Click")
-                                        .modifier(ButtonFontModifier(font: Font(font)))
-                                        .modifier(ButtonRoundedModifier(radius: 10,
-                                                                        lineWidth: CGFloat(borderWidth),
-                                                                        color: colorBorder))
-                                   })
-                                .background(color)
-                            
-                            ColorPicker("Background color:",
-                                        selection: $color,
-                                        supportsOpacity: false)
+            VStack {
 
-                            ColorPicker("Border color:",
-                                        selection: $colorBorder,
-                                        supportsOpacity: false)
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
 
-                            HStack {
-                                Text("Border width:")
-                                    .fontWeight(.light)
 
-                                Slider(
-                                    value: $borderWidth,
-                                    in: 0...10,
-                                    step: 1,
-                                    onEditingChanged: {_ in }
-                                )
+                // MARK: - basics of buttons
+                Group {
+                    roundedButtons
+                    customShapeButtons
+                    strokedBorderButtons
+                    plainBackgroundButtons
+                    imagesInButtons
+                    buttonsWithIcons
+                    buttonWithLabels
+                    styledButtons
 
-                            }
-                        }
+                }
+
+                ContributedByView(name: "Barbara Martina",
+                                  link: "https://github.com/barbaramartina")
+                .padding(.top, 80)
+            }
+        })
+
+    }
+
+
+
+    private var imagesInButtons: some View {
+        Group {
+            Text("Button with image")
+                .fontWeight(.heavy)
+            Button(action: {}, label: {
+                Image(systemName: "person")
+                    .padding()
+            })
+            .border(Color.accentColor, width: 5)
+        }
+        .padding()
+    }
+
+    private var buttonsWithIcons: some View {
+        Group {
+            Text("Button with icon & label")
+                .fontWeight(.heavy)
+            Button(action: {}, label: {
+                Label {
+                    Text("Add person")
+                        .modifier(ButtonFontModifier())
+                } icon: {
+                    Image(systemName: "person")
                         .padding()
-
-                        Group {
-                            Text("Specific Rounded borders with custom shape")
-                                .fontWeight(.heavy)
-                            Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
-                                .fontWeight(.light)
-
-                            Button(action: {},
-                                   label: {
-                                    Text("Click")
-                                        .modifier(ButtonFontModifier())
-                                        .overlay(
-                                            RoundedCorners(tl: 10,
-                                                           tr: 0,
-                                                           bl: 0,
-                                                           br: 10)
-                                                .stroke(Color.accentColor, lineWidth: 5)
-                                        )
-                                   })
-                        }
-                        .padding()
-
-                        Group {
-                            Text("Stroked borders")
-                                .fontWeight(.heavy)
-                            Text("Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle")
-                                .fontWeight(.light)
-                            Button(action: {}) {
-                                Text("Click")
-                                    .modifier(ButtonFontModifier())
-                                    .overlay(
-                                        Capsule(style: .continuous)
-                                            .stroke(Color.accentColor,
-                                                    style: StrokeStyle(lineWidth: 5, dash: [10]))
-                                    )
-                            }
-                        }
-                        .padding()
-                    
-                        Group {
-                            Text("Button with plain background")
-                                .fontWeight(.heavy)
-                            Button(action: {}, label: {
-                                Text("Click")
-                                    .padding()
-                                    .modifier(ButtonFontModifier())
-                            })
-                            .background(Color.accentColor)
-                        }
-                        .padding()
-
-                        Group {
-                            Text("Button with image")
-                                .fontWeight(.heavy)
-                            Button(action: {}, label: {
-                                Image(systemName: "person")
-                                    .padding()
-                            })
-                            .border(Color.accentColor, width: 5)
-                        }
-                        .padding()
-
-                        Group {
-                            Text("Button with icon & label")
-                                .fontWeight(.heavy)
-                            Button(action: {}, label: {
-                                Label {
-                                    Text("Add person")
-                                        .modifier(ButtonFontModifier())
-                                } icon: {
-                                    Image(systemName: "person")
-                                        .padding()
-                                }
-                            })
-                            .modifier(ButtonBorderModifier())
-                        }
-                        .padding()
-
-                        Group {
-                            Text("Button with label")
-                                .fontWeight(.heavy)
-                            Button(action: {}, label: {
-                                Text("Add ")
-                                    .modifier(ButtonFontModifier())
-                            })
-                            .modifier(ButtonBorderModifier())
-                        }
-                        .padding()
-
-                        // MARK: - styling
-                        Group {
-                            Text("BorderlessButtonStyle")
-                                .fontWeight(.heavy)
-                            Button("Style me: borderless", action: {})
-                                .buttonStyle(BorderlessButtonStyle())
-                            
-                            
-                            Text("PlainButtonStyle")
-                                .fontWeight(.heavy)
-                            Button("Style me: plain", action: {})
-                                .buttonStyle(PlainButtonStyle())
-                        }
-                        .padding()
-                        // end of group
-
-                    }
-                    // end of main group
-              
-                    ContributedByView(name: "Barbara Martina",
-                                      link: "https://github.com/barbaramartina")
-                        .padding(.top, 80)
                 }
             })
-        // end of scrollview list
+            .modifier(ButtonBorderModifier())
+        }
+        .padding()
+    }
 
-        
+    private var buttonWithLabels: some View {
+        return Group {
+            Text("Button with label")
+                .fontWeight(.heavy)
+            Button(action: {}, label: {
+                Text("Add ")
+                    .modifier(ButtonFontModifier())
+            })
+            .modifier(ButtonBorderModifier())
+        }
+        .padding()
+    }
+
+    private var styledButtons: some View {
+        Group {
+            Text("BorderlessButtonStyle")
+                .fontWeight(.heavy)
+            Button("Style me: borderless", action: {})
+                .buttonStyle(BorderlessButtonStyle())
+
+
+            Text("PlainButtonStyle")
+                .fontWeight(.heavy)
+            Button("Style me: plain", action: {})
+                .buttonStyle(PlainButtonStyle())
+        }
+        .padding()
+    }
+
+
+    // MARK: - views
+
+    private var roundedButtons: some View {
+        // Contextual information: a short intro to the elements we are showcasing
+        Group {
+            Text("Rounded Button")
+                .fontWeight(.heavy)
+            Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier")
+                .fontWeight(.light)
+
+            Button(action: {},
+                   label: {
+                Text("Click")
+                    .modifier(ButtonFontModifier(font: Font(font)))
+                    .modifier(ButtonRoundedModifier(radius: 10,
+                                                    lineWidth: CGFloat(borderWidth),
+                                                    color: colorBorder))
+            })
+            .background(color)
+
+            ColorPicker("Background color:",
+                        selection: $color,
+                        supportsOpacity: false)
+
+            ColorPicker("Border color:",
+                        selection: $colorBorder,
+                        supportsOpacity: false)
+
+            HStack {
+                Text("Border width:")
+                    .fontWeight(.light)
+
+                Slider(
+                    value: $borderWidth,
+                    in: 0...10,
+                    step: 1,
+                    onEditingChanged: {_ in }
+                )
+
+            }
+        }
+        .padding()
+
+    }
+
+    private var customShapeButtons: some View {
+        Group {
+            Text("Specific Rounded borders with custom shape")
+                .fontWeight(.heavy)
+            Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
+                .fontWeight(.light)
+
+            Button(action: {},
+                   label: {
+                Text("Click")
+                    .modifier(ButtonFontModifier())
+                    .overlay(
+                        RoundedCorners(tl: 10,
+                                       tr: 0,
+                                       bl: 0,
+                                       br: 10)
+                        .stroke(Color.accentColor, lineWidth: 5)
+                    )
+            })
+        }
+        .padding()
+
+    }
+
+    private var strokedBorderButtons: some View {
+        Group {
+            Text("Stroked borders")
+                .fontWeight(.heavy)
+            Text("Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle")
+                .fontWeight(.light)
+            Button(action: {}) {
+                Text("Click")
+                    .modifier(ButtonFontModifier())
+                    .overlay(
+                        Capsule(style: .continuous)
+                            .stroke(Color.accentColor,
+                                    style: StrokeStyle(lineWidth: 5, dash: [10]))
+                    )
+            }
+        }
+        .padding()
+
+    }
+
+    private var plainBackgroundButtons: some View {
+        Group {
+            Text("Button with plain background")
+                .fontWeight(.heavy)
+            Button(action: {}, label: {
+                Text("Click")
+                    .padding()
+                    .modifier(ButtonFontModifier())
+            })
+            .background(Color.accentColor)
+        }
+        .padding()
+
     }
 }
 
@@ -278,21 +303,24 @@ struct RoundedCorners: Shape {
 
         return path
     }
+
+
 }
 
 // MARK: - HASHABLE
 
 extension ButtonsComponentsView {
-    
+
     static func == (lhs: ButtonsComponentsView, rhs: ButtonsComponentsView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 
 
 }
+
 
 
