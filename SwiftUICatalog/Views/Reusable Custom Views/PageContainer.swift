@@ -13,7 +13,7 @@ struct PageContainer<Content>: View where Content: View {
     
     var body: some View {
         ZStack {
-            Color("LightBraun")
+            Color("PageContainerColor")
                 .ignoresSafeArea()
             
             content
