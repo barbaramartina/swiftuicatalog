@@ -74,7 +74,7 @@ struct ProgressViews: View, Comparable {
             Text("Are used to indicate steps in a tasks or to show the user feedback while waiting. The first example is a linear progress view with text")
                 .fontWeight(.light)
                 .padding(.bottom)
-                .modifier(TextAlignmentModifier(alignment: .leading))
+                .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView("Downloading…",
                          value: progress,
@@ -83,14 +83,14 @@ struct ProgressViews: View, Comparable {
             Text("Simple progress views, with an spinner can be configured when no value are passed as parameter")
                 .fontWeight(.light)
                 .padding(.vertical)
-                .modifier(TextAlignmentModifier(alignment: .leading))
+                .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView()
 
             Text("A spinner can also be shown with a text associated")
                 .fontWeight(.light)
                 .padding(.vertical)
-                .modifier(TextAlignmentModifier(alignment: .leading))
+                .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView("Downloading")
 
@@ -105,7 +105,7 @@ struct ProgressViews: View, Comparable {
             Text("Also any view can be included inside the progress view, such as in this case, a button")
                 .fontWeight(.light)
                 .padding(.vertical)
-                .modifier(TextAlignmentModifier(alignment: .leading))
+                .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView {
                 Button(action: {
@@ -128,7 +128,7 @@ struct ProgressViews: View, Comparable {
             Text("The color of the spinner can be chosen with a tint color")
                 .fontWeight(.light)
                 .padding(.vertical)
-                .modifier(TextAlignmentModifier(alignment: .leading))
+                .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView("Please wait...", value: progress,
 
