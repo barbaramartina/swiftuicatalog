@@ -34,92 +34,109 @@ import SwiftUI
 ///
 
 struct ProgressViews: View, Comparable {
-    
+
     let id: String = "ProgressViews"
-    
+
     @State private var progress = 0.0
     private let timer = Timer.publish(every: 0.5,
-                              on: .main,
-                              in: .common).autoconnect()
-    
-    
-    var body: some View {
-        
-        PageContainer(content:
+                                      on: .main,
+                                      in: .common).autoconnect()
 
-        ScrollView {
-            
+
+    var body: some View {
+
+        PageContainer(content: ScrollView {
+
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview")
 
-            // Contextual information: a short intro to the elements we are showcasing
-            Group {
-                
-                Group {
-               
-                    Text("Are used to indicate steps in a tasks or to show the user feedback while waiting. The first example is a linear progress view with text")
-                        .fontWeight(.light)
-                    
-                    ProgressView("Downloading…", value: progress,
-                                 
-                                 total: 100)
-                    
-                    Text("Simple progress views, with an spinner can be configured when no value are passed as parameter")
-                        .fontWeight(.light)
-                    
-                    ProgressView()
-                    
-                    Text("A spinner can also be shown with a text associated")
-                        .fontWeight(.light)
-                    
-                    ProgressView("Downloading")
-                       
-                    ProgressView("Please wait...")
-                        .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
-                }
-                
-                Text("The color of the spinner can be chosen with a tint color")
-                    .fontWeight(.light)
-                
-                ProgressView("Please wait...", value: progress,
-                             
-                             total: 100)
-                    .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
-                    .foregroundColor(Color("secondary"))
-                
-                Text("Also any view can be included inside the progress view, such as in this case, a button")
-                    .fontWeight(.light)
-                
-                ProgressView {
-                    Button(action: {
-                        // to do: your cancellation logic
-                    }) {
-                        Text("Cancel download")
-                            .fontWeight(.heavy)
-                            .foregroundColor(.accentColor)
-                    }
-                    .padding()
-                    .background(Color("secondary"))
-                    .cornerRadius(5)
-                }
-                
-                
-                
-            }
-            .padding()
-            
+            plainProgressViews
+            tintedProgressView
+            subviewsInProgressView
+
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
+            .padding(.top, 80)
 
         }
-        // end scroll view
-        .onReceive(timer) { _ in
-            if progress < 100 {
-                progress += 2
+            .padding()
+                      // end scroll view
+            .onReceive(timer) { _ in
+                if progress < 100 {
+                    progress += 2
+                }
             }
-        })
-        // end of page container
-        
+        )
+
+    }
+
+    private var plainProgressViews: some View {
+        Group {
+            Text("Are used to indicate steps in a tasks or to show the user feedback while waiting. The first example is a linear progress view with text")
+                .fontWeight(.light)
+                .padding(.bottom)
+                .modifier(TextAlignmentModifier(alignment: .leading))
+
+            ProgressView("Downloading…",
+                         value: progress,
+                         total: 100)
+
+            Text("Simple progress views, with an spinner can be configured when no value are passed as parameter")
+                .fontWeight(.light)
+                .padding(.vertical)
+                .modifier(TextAlignmentModifier(alignment: .leading))
+
+            ProgressView()
+
+            Text("A spinner can also be shown with a text associated")
+                .fontWeight(.light)
+                .padding(.vertical)
+                .modifier(TextAlignmentModifier(alignment: .leading))
+
+            ProgressView("Downloading")
+
+            ProgressView("Please wait...")
+                .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+
+        }
+    }
+
+    private var subviewsInProgressView: some View {
+        Group {
+            Text("Also any view can be included inside the progress view, such as in this case, a button")
+                .fontWeight(.light)
+                .padding(.vertical)
+                .modifier(TextAlignmentModifier(alignment: .leading))
+
+            ProgressView {
+                Button(action: {
+                    // to do: your cancellation logic
+                }) {
+                    Text("Cancel download")
+                        .fontWeight(.heavy)
+                        .foregroundColor(.accentColor)
+                }
+                .padding()
+                .background(Color("secondary"))
+                .cornerRadius(5)
+            }
+
+        }
+    }
+
+    private var tintedProgressView: some View {
+        Group {
+            Text("The color of the spinner can be chosen with a tint color")
+                .fontWeight(.light)
+                .padding(.vertical)
+                .modifier(TextAlignmentModifier(alignment: .leading))
+
+            ProgressView("Please wait...", value: progress,
+
+                         total: 100)
+            .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
+            .foregroundColor(Color("secondary"))
+
+        }
     }
 }
 
@@ -132,16 +149,17 @@ struct ProgressViews_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension ProgressViews {
-    
+
     static func == (lhs: ProgressViews, rhs: ProgressViews) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
 
 
 }
+
 
 
