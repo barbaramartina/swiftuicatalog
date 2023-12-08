@@ -369,8 +369,6 @@ struct StylesView: View, Comparable {
         
         ScrollView {
 
-            HeaderView( title: "Styling views in SwiftUI")
-
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles")
 
             // contextual information

@@ -56,16 +56,7 @@ struct GeometriesView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/geometryreader")
             
-            // contextual information
-            Group {
-                Text("Reading geometries")
-                    .fontWeight(.heavy)
-                
-                Text("Geometry readers can be use to provide a layout definition by assigned percentages of the available width to each view")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
+            intro
             GeometryReader { geometry in
                 HStack(spacing: 0) {
                     Spacer()
@@ -87,19 +78,7 @@ struct GeometriesView: View, Comparable {
             }
             .frame(height: 50)
             
-            Group {
-                Text("A geometry reader reads the size of the view he's executed in and return a geometry proxy to access width and height of the view")
-                    .fontWeight(.light)
-                    .padding()
-                
-                Text("Effects on geometries")
-                    .fontWeight(.heavy)
-                
-                Text("Geometry effects on views can be used to produce transformations to the frames and in that way create new animations")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
+            intro2
             Text("Animated")
                 .modifier(PingPongEffect(offset: self.offset,
                                          direction: self.textDirection))
@@ -111,10 +90,36 @@ struct GeometriesView: View, Comparable {
                 }
             
             
-        }
-                      )
-        // end of page container
+        })
     }
+
+    private var intro: some View {
+        Group {
+            Text("Reading geometries")
+                .fontWeight(.heavy)
+
+            Text("Geometry readers can be use to provide a layout definition by assigned percentages of the available width to each view")
+                .fontWeight(.light)
+        }
+        .padding()
+    }
+
+    private var intro2: some View {
+        Group {
+            Text("A geometry reader reads the size of the view he's executed in and return a geometry proxy to access width and height of the view")
+                .fontWeight(.light)
+                .padding()
+
+            Text("Effects on geometries")
+                .fontWeight(.heavy)
+
+            Text("Geometry effects on views can be used to produce transformations to the frames and in that way create new animations")
+                .fontWeight(.light)
+        }
+        .padding()
+    }
+
+
 }
 
 struct GeomtriesView_Previews: PreviewProvider {

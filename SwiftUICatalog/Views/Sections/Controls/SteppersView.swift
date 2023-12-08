@@ -70,34 +70,9 @@ struct SteppersView: View, Comparable {
 
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper")
 
-            Group {
-                Text("Stepper View")
-                    .fontWeight(.heavy)
-                Text("Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. ")
-                    .fontWeight(.light)
-                Stepper("Position: \(firstStepperValue) \nColor: \(colors[firstStepperValue].description)"
-                        , onIncrement: {
-                            incrementStep()
-                        }, onDecrement: {
-                            decrementStep()
-                        })
-            }
-            .padding()
-            Group {
-                Text("Stepper View + custom step")
-                    .fontWeight(.heavy)
-                Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
-                    .fontWeight(.light)
-                Stepper(value: $SecondStepperValue,
-                        in: range,
-                        step: step) {
-                    Text("Current: \(SecondStepperValue) in \(range.description) " +
-                            "stepping by \(step)")
-                }
-                .padding(10)
-            }
-            .padding()
-            
+            plainStepper
+            customStepper
+
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
@@ -105,6 +80,41 @@ struct SteppersView: View, Comparable {
         })
         // end of page container
         
+    }
+
+    private var customStepper: some View {
+        Group {
+            Text("Stepper View + custom step")
+                .fontWeight(.heavy)
+            Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
+                .fontWeight(.light)
+            Stepper(value: $SecondStepperValue,
+                    in: range,
+                    step: step) {
+                Text("Current: \(SecondStepperValue) in \(range.description) " +
+                     "stepping by \(step)")
+            }
+                    .padding(10)
+        }
+        .padding()
+
+    }
+
+    private var plainStepper: some View {
+        Group {
+            Text("Stepper View")
+                .fontWeight(.heavy)
+            Text("Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. ")
+                .fontWeight(.light)
+            Stepper("Position: \(firstStepperValue) \nColor: \(colors[firstStepperValue].description)"
+                    , onIncrement: {
+                incrementStep()
+            }, onDecrement: {
+                decrementStep()
+            })
+        }
+        .padding()
+
     }
 }
 

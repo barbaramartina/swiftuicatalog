@@ -47,71 +47,22 @@ struct MenusComponentView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu")
 
-            Group {
-                
-                // Contextual information: a short intro to the elements we are showcasing
-                Group {
-                    Text( "Menus")
-                        .fontWeight(.heavy)
-                    Text("A control for presenting a menu of actions.")
-                        .fontWeight(.light)
-                }
-                
-                HStack {
-                    Text("Menu + Sub-Menu").fontWeight(.light)
-                    Spacer()
-                    Menu("Menu") {
-                        Button("Duplicate", action: duplicate)
-                        Button("Rename", action: rename)
-                        Button("Delete…", action: delete)
-                        Menu("+ Copy") {
-                            Button("Copy", action: copy)
-                            Button("Copy Formatted", action: copyFormatted)
-                            Button("Copy Library Path", action: copyPath)
-                        }
-                    }
-                }
-                
-            }
-            .padding()
-            
+            example1
+                .padding()
+
             Spacer()
-            Group {
-                HStack{
-                    Text("Menu + image").fontWeight(.light)
-                    Spacer()
-                    Menu {
-                        Button("Open in Preview", action: action)
-                        Button("Save as PDF", action: action)
-                    } label: {
-                        Label("PDF", systemImage: "doc.fill")
-                    }
-                }
-            }
-            .padding()
-            
+
+            example2
+                .padding()
+
             Spacer()
-            /*
-             Styling Menus
-             Use the menuStyle(_:) modifier to change the style of all menus in a view.
-             */
-            Group {
-                HStack {
-                    Text("Styling Menus + action").fontWeight(.light)
-                    Spacer()
-                    Menu("Editing") {
-                        Button("Set In Point", action: setInPoint)
-                        Button("Set Out Point", action: setOutPoint)
-                    }
-                    .menuStyle(redBorderMenuStyle)
-                }
-                
-            }
-            .padding()
-            
+
+            example3
+                .padding()
+
             Spacer()
-            Text("** in case you are running the code on iOS 15 or above, please uncomment the codes and take a look at Primary Action Menus")
-                .fontWeight(.medium)
+
+            example4
                 .padding()
             
             ContributedByView(name: "Ali Ghayeni H",
@@ -119,35 +70,7 @@ struct MenusComponentView: View, Comparable {
                 .padding(.top, 80)
 
             
-            /* available only on iOS version 15 or above */
-            /*
-                 Group {
-                    VStack{
-                        HeaderView(title: "Primary Action")
-                        Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a secondary gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
-                        HStack {
-                            Text("Menu + primary action").fontWeight(.light)
-                            Spacer()
-                            Menu {
-                                Button(action: addCurrentTabToReadingList) {
-                                    Label("Add to Reading List", systemImage: "eyeglasses")
-                                }
-                                Button(action: bookmarkAll) {
-                                    Label("Add Bookmarks for All Tabs", systemImage: "book")
-                                }
-                                Button(action: show) {
-                                    Label("Show All Bookmarks", systemImage: "books.vertical")
-                                }
-                            } label: {
-                                Label("Add Bookmark", systemImage: "book")
-                            } primaryAction: {
-                                primaryAction()
-                            }
-                        }
-                    }
-                }
-                .padding()
-            */
+
             
         })
     }
@@ -175,6 +98,101 @@ struct MenusComponentView: View, Comparable {
         #if DEBUG
         print("The primary action function called")
         #endif
+    }
+
+    private var example1: some View {
+        Group {
+
+            // Contextual information: a short intro to the elements we are showcasing
+            Group {
+                Text( "Menus")
+                    .fontWeight(.heavy)
+                Text("A control for presenting a menu of actions.")
+                    .fontWeight(.light)
+            }
+
+            HStack {
+                Text("Menu + Sub-Menu").fontWeight(.light)
+                Spacer()
+                Menu("Menu") {
+                    Button("Duplicate", action: duplicate)
+                    Button("Rename", action: rename)
+                    Button("Delete…", action: delete)
+                    Menu("+ Copy") {
+                        Button("Copy", action: copy)
+                        Button("Copy Formatted", action: copyFormatted)
+                        Button("Copy Library Path", action: copyPath)
+                    }
+                }
+            }
+
+        }
+
+    }
+
+    private var example2: some View {
+        Group {
+            HStack{
+                Text("Menu + image").fontWeight(.light)
+                Spacer()
+                Menu {
+                    Button("Open in Preview", action: action)
+                    Button("Save as PDF", action: action)
+                } label: {
+                    Label("PDF", systemImage: "doc.fill")
+                }
+            }
+        }
+
+    }
+
+    private var example3: some View {
+        /*
+         Styling Menus
+         Use the menuStyle(_:) modifier to change the style of all menus in a view.
+         */
+        Group {
+            HStack {
+                Text("Styling Menus + action").fontWeight(.light)
+                Spacer()
+                Menu("Editing") {
+                    Button("Set In Point", action: setInPoint)
+                    Button("Set Out Point", action: setOutPoint)
+                }
+                .menuStyle(redBorderMenuStyle)
+            }
+
+        }
+
+    }
+
+    private var example4: some View {
+        Group {
+            VStack{
+                HeaderView(title: "Primary Action")
+                Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a secondary gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
+                HStack {
+                    Text("Menu + primary action").fontWeight(.light)
+                    Spacer()
+                    Menu {
+                        Button(action: addCurrentTabToReadingList) {
+                            Label("Add to Reading List", systemImage: "eyeglasses")
+                        }
+                        Button(action: bookmarkAll) {
+                            Label("Add Bookmarks for All Tabs", systemImage: "book")
+                        }
+                        Button(action: show) {
+                            Label("Show All Bookmarks", systemImage: "books.vertical")
+                        }
+                    } label: {
+                        Label("Add Bookmark", systemImage: "book")
+                    } primaryAction: {
+                        primaryAction()
+                    }
+                }
+            }
+        }
+
     }
 }
 

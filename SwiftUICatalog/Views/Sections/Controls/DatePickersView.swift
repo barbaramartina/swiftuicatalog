@@ -63,108 +63,13 @@ struct DatePickersView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker")
 
-            // MARK: - date picker no range limit
-            Group {
-                
-                Group {
-                    Text( "No range limit")
-                        .fontWeight(.heavy)
-                    Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
-                        .fontWeight(.light)
-                }
-                .padding()
-                
-                DatePicker(
-                    "Start Date 1",
-                    selection: $date1,
-                    displayedComponents: [.date]
-                )
-                .padding()
-                .onChange(of: "Value", perform: { value in
-                    print("value selected \(value)")
-                })
-            }
-            
-            // MARK: - date picker with range limit
-            
-            Group {
-                Group {
-                    Text("Range limit")
-                        .fontWeight(.heavy)
-                    Text("Ranges can be configured using the in: parameter")
-                        .fontWeight(.light)
-                }
-                .padding()
-                
-                DatePicker(
-                    "Start Date 2",
-                     selection: $date2,
-                     in: dateRange,
-                     displayedComponents: [.date, .hourAndMinute]
-                )
-                .padding()
-            }
-            
-            // MARK: - date pickers wheels
-            
-            Group {
-                Group {
-                    Text( "Style wheels")
-                        .fontWeight(.heavy)
-                    Text("The date picker can adopt different style, here we show the WHEELS style")
-                        .fontWeight(.light)
-                }
-                .padding()
-                
-                DatePicker(
-                    "Start Date 3",
-                    selection: $date3,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(WheelDatePickerStyle())
-                .padding()
-            }
-            
-            // MARK: - date pickers compact
-            Group {
-                Group {
-                    Text("Style compact")
-                        .fontWeight(.heavy)
-                    Text("Compact styles make the date picker appear in one line, from which it is expanded")
-                        .fontWeight(.light)
-                }
-                .padding()
-                
-                DatePicker(
-                    "Start Date 4",
-                    selection: $date4,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(CompactDatePickerStyle())
-                .padding()
-            }
-            
-            // MARK: - date pickers graphical
-            
-            Group {
-                
-                Group {
-                    Text("Style graphical")
-                        .fontWeight(.heavy)
-                    Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
-                        .fontWeight(.light)
-                }
-                .padding()
-                
-                DatePicker(
-                    "Start Date 4",
-                    selection: $date4,
-                    displayedComponents: [.date]
-                )
-                .datePickerStyle(GraphicalDatePickerStyle())
-                .padding()
-            }
-            
+            plainDatePicker
+            rangeLimitDatePicker
+            wheelsDatePicker
+            compactDatePicker
+            graphicalDatePicker
+
+
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
@@ -173,6 +78,124 @@ struct DatePickersView: View, Comparable {
         })
         .padding(.leading, 16)
         .padding(.trailing, 16)
+
+    }
+
+    // MARK: - date pickers graphical
+
+    private var graphicalDatePicker: some View {
+        Group {
+
+            Group {
+                Text("Style graphical")
+                    .fontWeight(.heavy)
+                Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
+                    .fontWeight(.light)
+            }
+            .padding()
+
+            DatePicker(
+                "Start Date 4",
+                selection: $date4,
+                displayedComponents: [.date]
+            )
+            .datePickerStyle(GraphicalDatePickerStyle())
+            .padding()
+        }
+
+    }
+
+    // MARK: - date pickers compact
+
+    private var compactDatePicker: some View {
+        Group {
+            Group {
+                Text("Style compact")
+                    .fontWeight(.heavy)
+                Text("Compact styles make the date picker appear in one line, from which it is expanded")
+                    .fontWeight(.light)
+            }
+            .padding()
+
+            DatePicker(
+                "Start Date 4",
+                selection: $date4,
+                displayedComponents: [.date]
+            )
+            .datePickerStyle(CompactDatePickerStyle())
+            .padding()
+        }
+
+    }
+
+    // MARK: - date pickers wheels
+
+    private var wheelsDatePicker: some View {
+        Group {
+            Group {
+                Text( "Style wheels")
+                    .fontWeight(.heavy)
+                Text("The date picker can adopt different style, here we show the WHEELS style")
+                    .fontWeight(.light)
+            }
+            .padding()
+
+            DatePicker(
+                "Start Date 3",
+                selection: $date3,
+                displayedComponents: [.date]
+            )
+            .datePickerStyle(WheelDatePickerStyle())
+            .padding()
+        }
+
+    }
+
+    // MARK: - date picker with range limit
+
+    private var rangeLimitDatePicker: some View {
+        Group {
+            Group {
+                Text("Range limit")
+                    .fontWeight(.heavy)
+                Text("Ranges can be configured using the in: parameter")
+                    .fontWeight(.light)
+            }
+            .padding()
+
+            DatePicker(
+                "Start Date 2",
+                selection: $date2,
+                in: dateRange,
+                displayedComponents: [.date, .hourAndMinute]
+            )
+            .padding()
+        }
+
+    }
+
+    // MARK: - date picker no range limit
+    private var plainDatePicker: some View {
+        Group {
+
+            Group {
+                Text( "No range limit")
+                    .fontWeight(.heavy)
+                Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
+                    .fontWeight(.light)
+            }
+            .padding()
+
+            DatePicker(
+                "Start Date 1",
+                selection: $date1,
+                displayedComponents: [.date]
+            )
+            .padding()
+            .onChange(of: "Value", perform: { value in
+                print("value selected \(value)")
+            })
+        }
 
     }
 }

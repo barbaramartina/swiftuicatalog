@@ -54,23 +54,9 @@ struct ScrollViewsView: View, Comparable {
                 
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview")
 
-                // Contextual information: a short intro to the elements we are showcasing
-                Group {
-                    Text("Scrollviews in SwiftUI")
-                        .fontWeight(.heavy)
-                    Text("Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views")
-                        .fontWeight(.light)
-                }
-                .padding()
+                introductionTexts
 
-                
-                Button("Scroll to Bottom") {
-                    withAnimation {
-                        proxy.scrollTo(bottomButtonId)
-                    }
-                }
-                .padding()
-                .id(topButtonId)
+                scrollToBottomButton(proxy: proxy)
 
                 VStack(spacing: 0) {
                     ForEach(0..<100) { i in
@@ -79,13 +65,9 @@ struct ScrollViewsView: View, Comparable {
                     }
                 }
 
-                Button("Back to Top") {
-                    withAnimation {
-                        proxy.scrollTo(topButtonId)
-                    }
-                }
-                .padding()
-                .id(bottomButtonId)
+                scrollToTopButton(proxy: proxy)
+
+
             }
             
             ContributedByView(name: "Barbara Martina",
@@ -95,6 +77,38 @@ struct ScrollViewsView: View, Comparable {
         })
         // end of page container
         
+    }
+
+    private var introductionTexts: some View {
+        Group {
+            Text("Scrollviews in SwiftUI")
+                .fontWeight(.heavy)
+                .padding()
+            Text("Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views")
+                .fontWeight(.light)
+                .padding()
+
+        }
+    }
+
+    private func scrollToTopButton(proxy: ScrollViewProxy) -> some View {
+        Button("Back to Top") {
+            withAnimation {
+                proxy.scrollTo(topButtonId)
+            }
+        }
+        .padding()
+        .id(bottomButtonId)
+    }
+    private func scrollToBottomButton(proxy: ScrollViewProxy) -> some View {
+        Button("Scroll to Bottom") {
+            withAnimation {
+                proxy.scrollTo(bottomButtonId)
+            }
+        }
+        .padding()
+        .id(topButtonId)
+
     }
 }
 

@@ -47,71 +47,82 @@ struct ContainersView: View, Comparable {
         PageContainer(content:
 
         ScrollView {
-            VStack {
-                
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup")
 
-                // Contextual information: a short intro to the elements we are showcasing
-                Group {
-                    Text("View containers")
-                        .fontWeight(.heavy)
-                    Text("Some controls in SwiftUI allows grouping of other views, for example the Form component allows to group other views together and platform specific styling is then applied to all the contained views")
-                        .fontWeight(.light)
-                    
-                }.padding()
-                
-                Form {
-                    Section(header: Text("Section 1")) {
-                        Toggle(
-                            isOn: $toggleOn,
-                            label: {
-                                Text("Option 1")
-                            }
-                            
-                        )
-                        Toggle(
-                            isOn: $toggleOn,
-                            label: {
-                                Text("Option 2")
-                            }
-                        )
-                    }
-                    Section(header: Text("Section 2")) {
-                        Button("Action 1") {}
-                    }
-                }
-                .frame(height: 250)
-                
-                
-                Text("Similarly, GroupBox is used for distinguishing a set of views in the screen (in an alert type box)")
-                    .fontWeight(.light)
-                
-                GroupBox(label:
-                            Label("Terms and conditions", systemImage: "building.columns").padding(),
-                         content: {
-                            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tempor erat, non semper lorem. Suspendisse ac dui posuere, egestas elit ac, viverra mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam bibendum mattis libero, ac porta magna blandit et. Vivamus vel elementum sapien. Proin ut orci vitae eros lobortis facilisis nec id leo. Ut vestibulum mauris nulla, eget efficitur risus facilisis euismod. Fusce arcu libero, mollis non volutpat vitae, interdum vitae odio. Suspendisse in quam egestas, rutrum massa vitae, consectetur enim.")
-                            HStack {
-                                Spacer()
-                                Button(action: {},
-                                       label: {
-                                        Text("Accept")
-                                       })
-                                    .foregroundColor(.accentColor)
-                            }
-                         }
-                )
-                .padding()
-                
-            }
-            .padding()
-            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup")
+
+            containersIntro
+            formExample
+            groupBoxExample
+
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
 
-        })
+        }
+            .padding()
+        )
         // end of page container
         
+    }
+
+    private var groupBoxExample: some View {
+        Group {
+            Text("Similarly, GroupBox is used for distinguishing a set of views in the screen (in an alert type box)")
+                .fontWeight(.light)
+
+            GroupBox(label:
+                        Label("Terms and conditions", systemImage: "building.columns").padding(),
+                     content: {
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vitae tempor erat, non semper lorem. Suspendisse ac dui posuere, egestas elit ac, viverra mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam bibendum mattis libero, ac porta magna blandit et. Vivamus vel elementum sapien. Proin ut orci vitae eros lobortis facilisis nec id leo. Ut vestibulum mauris nulla, eget efficitur risus facilisis euismod. Fusce arcu libero, mollis non volutpat vitae, interdum vitae odio. Suspendisse in quam egestas, rutrum massa vitae, consectetur enim.")
+                HStack {
+                    Spacer()
+                    Button(action: {},
+                           label: {
+                        Text("Accept")
+                    })
+                    .foregroundColor(.accentColor)
+                }
+            }
+            )
+            .padding()
+
+        }
+    }
+
+    private var containersIntro: some View {
+        Group {
+            Text("View containers")
+                .fontWeight(.heavy)
+            Text("Some controls in SwiftUI allows grouping of other views, for example the Form component allows to group other views together and platform specific styling is then applied to all the contained views")
+                .fontWeight(.light)
+
+        }.padding()
+
+    }
+
+    private var formExample: some View {
+        Form {
+            Section(header: Text("Section 1")) {
+                Toggle(
+                    isOn: $toggleOn,
+                    label: {
+                        Text("Option 1")
+                    }
+
+                )
+                Toggle(
+                    isOn: $toggleOn,
+                    label: {
+                        Text("Option 2")
+                    }
+                )
+            }
+            Section(header: Text("Section 2")) {
+                Button("Action 1") {}
+            }
+        }
+        .frame(height: 250)
+
     }
 }
 

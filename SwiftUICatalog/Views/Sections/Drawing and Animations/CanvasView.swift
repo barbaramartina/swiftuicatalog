@@ -60,56 +60,16 @@ struct CanvasView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
+        PageContainer(content: ScrollView {
 
-        ScrollView {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
 
             Group {
-                Text("Canvas views")
-                    .fontWeight(.heavy)
-                Text("A canvas can be used to render 2D drawings You can use a graphic context and draw on it.")
-                    .fontWeight(.light)
-                
-                Canvas { context, size in
-                    context.stroke(
-                        Path(ellipseIn: CGRect(origin: .zero, size: size)),
-                        with: .color(.purple),
-                        lineWidth: 4)
-                    
-                    let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
-                    context.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
-                    context.fill(
-                        Path(ellipseIn: CGRect(origin: .zero, size: size)),
-                        with: .color(.yellow))
-                }
-                .frame(width: 300, height: 200)
-                .border(Color.blue)
-                // end of canvas 1
-                
-                Text("Or you can use a canvas and fill it with renderable SwiftUI views.")
-                    .fontWeight(.light)
-                
-                Canvas { context, size in
-                    if let circle = context.resolveSymbol(id: ViewId.circle) {
-                        for rect in spaces {
-                            context.draw(circle, in: rect)
-                        }
-                    }
-                    if let square = context.resolveSymbol(id: ViewId.square) {
-                        for rect in spaces {
-                            context.draw(square, in: rect)
-                        }
-                    }
-                } symbols: {
-                    circle.tag(ViewId.circle)
-                    square.tag(ViewId.square)
-                }
-                .frame(width: 300, height: 200)
-                .border(Color.blue)
-                // end of canvas 2
-                
-                
+                intro1
+                canvas1
+
+                intro2
+                canvas2
             }
             .padding()
             
@@ -118,9 +78,63 @@ struct CanvasView: View, Comparable {
                 .padding(.top, 80)
 
             
+        })
+
+    }
+
+    private var intro1: some View {
+        Group {
+            Text("Canvas views")
+                .fontWeight(.heavy)
+            Text("A canvas can be used to render 2D drawings You can use a graphic context and draw on it.")
+                .fontWeight(.light)
         }
-                      )
-        // end of page container
+
+    }
+
+    private var canvas1: some View {
+        Canvas { context, size in
+            context.stroke(
+                Path(ellipseIn: CGRect(origin: .zero, size: size)),
+                with: .color(.purple),
+                lineWidth: 4)
+
+            let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
+            context.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
+            context.fill(
+                Path(ellipseIn: CGRect(origin: .zero, size: size)),
+                with: .color(.yellow))
+        }
+        .frame(width: 300, height: 200)
+        .border(Color.blue)
+
+    }
+
+    private var intro2: some View {
+        Text("Or you can use a canvas and fill it with renderable SwiftUI views.")
+            .fontWeight(.light)
+
+    }
+
+    private var canvas2: some View {
+        Canvas { context, size in
+            if let circle = context.resolveSymbol(id: ViewId.circle) {
+                for rect in spaces {
+                    context.draw(circle, in: rect)
+                }
+            }
+            if let square = context.resolveSymbol(id: ViewId.square) {
+                for rect in spaces {
+                    context.draw(square, in: rect)
+                }
+            }
+        } symbols: {
+            circle.tag(ViewId.circle)
+            square.tag(ViewId.square)
+        }
+        .frame(width: 300, height: 200)
+        .border(Color.blue)
+
     }
 }
 

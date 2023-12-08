@@ -50,106 +50,123 @@ struct GraphicContextsView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
+        PageContainer(content: ScrollView {
 
-        ScrollView {
-            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/graphicscontext")
             
             Group {
-                Text("Graphic Contexts")
-                    .fontWeight(.heavy)
-                
-                Text("A view providing a space for 2D drawing, images, texts or even other views. You can create copies of the initial context, this will add an extra drawing (transparent) layer in a tree")
-                    .fontWeight(.light)
-                
-                HStack {
-                    Spacer()
-                    Canvas { context, size in
-                        
-                        // drawing directives sorting matters. Try out changing this .fill to the end to see how it renders.
-                        context.fill(
-                            path,
-                            with: .color(.blue))
-                        
-                        context.fill(path,
-                                     with: .linearGradient(Gradient(colors:gradientColors),
-                                                           startPoint: .zero,
-                                                           endPoint: CGPoint(x: size.width, y: size.height)))
-                        
-                        // draw in a second context / layer
-                        var copyOfContext = context
-                        let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
-                        copyOfContext.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
-                        copyOfContext.fill(
-                            Path(ellipseIn: CGRect(origin: .zero, size: size)),
-                            with: .color(.yellow))
-                        
-                        
-                        
-                    }
-                    .frame(width: width)
-                    Spacer()
-                    
-                }
-                .frame(height: height)
-                // end canvas 1: context and copy of context
-                
-                // MARK: - gradients
-         
-                Text("Linear gradient")
-                    .fontWeight(.heavy)
-                
-                GradientContainer(name: "Linear",
-                                  height: height,
-                                  width: width,
-                                  gradient: .linearGradient(Gradient(colors: gradientColors),
-                                                        
-                                                        startPoint: .zero,
-                                                        
-                                                        endPoint: CGPoint(x: width, y: height)),
-                                  path: path)
-                // end linear gradient
-                
-                
+                intro
+                // Canvas 1: context and copy of context
+                example1
+                // Linear gradient
+                example2
                 // radial gradient
-                Text("Radial gradient")
-                    .fontWeight(.heavy)
-                
-                GradientContainer(name: "Radial",
-                                  height: height,
-                                  width: width,
-                                  gradient: .radialGradient(Gradient(colors: gradientColors),
-                                                        center: CGPoint(x: 60, y: 60),
-                                                        startRadius: 2,
-                                                        endRadius: 150),
-                                  path: path)
-                // end radial gradient
-                
+                example3
                 // conic gradient
-                GradientContainer(name: "Conic",
-                                  height: height,
-                                  width: width,
-                                  gradient: .conicGradient(Gradient(colors: gradientColors),
-                                                       center: CGPoint(x: 70, y: 70),
-                                                       angle: Angle(degrees: 45),
-                                                       options: .linearColor),
-                                  path: path)
-                // end conic gradient
-                
+                example4
             }
             .padding()
-            // end group
-            
+
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
-
             
         })
-        // end of page container
-        
+
     }
+
+    private var example1: some View {
+        HStack {
+            Spacer()
+            Canvas { context, size in
+
+                // drawing directives sorting matters. Try out changing this .fill to the end to see how it renders.
+                context.fill(
+                    path,
+                    with: .color(.blue))
+
+                context.fill(path,
+                             with: .linearGradient(Gradient(colors:gradientColors),
+                                                   startPoint: .zero,
+                                                   endPoint: CGPoint(x: size.width, y: size.height)))
+
+                // draw in a second context / layer
+                var copyOfContext = context
+                let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
+                copyOfContext.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
+                copyOfContext.fill(
+                    Path(ellipseIn: CGRect(origin: .zero, size: size)),
+                    with: .color(.yellow))
+
+
+
+            }
+            .frame(width: width)
+            Spacer()
+
+        }
+        .frame(height: height)
+
+    }
+
+    private var example2: some View {
+        Group {
+            Text("Linear gradient")
+                .fontWeight(.heavy)
+
+            GradientContainer(name: "Linear",
+                              height: height,
+                              width: width,
+                              gradient: .linearGradient(Gradient(colors: gradientColors),
+
+                                                        startPoint: .zero,
+
+                                                        endPoint: CGPoint(x: width, y: height)),
+                              path: path)
+
+        }
+    }
+
+    private var example3: some View {
+        Group {
+            Text("Radial gradient")
+                .fontWeight(.heavy)
+
+            GradientContainer(name: "Radial",
+                              height: height,
+                              width: width,
+                              gradient: .radialGradient(Gradient(colors: gradientColors),
+                                                        center: CGPoint(x: 60, y: 60),
+                                                        startRadius: 2,
+                                                        endRadius: 150),
+                              path: path)
+
+        }
+    }
+
+    private var example4: some View {
+        GradientContainer(name: "Conic",
+                          height: height,
+                          width: width,
+                          gradient: .conicGradient(Gradient(colors: gradientColors),
+                                                   center: CGPoint(x: 70, y: 70),
+                                                   angle: Angle(degrees: 45),
+                                                   options: .linearColor),
+                          path: path)
+
+    }
+
+
+    private var intro: some View {
+        Group {
+            Text("Graphic Contexts")
+                .fontWeight(.heavy)
+
+            Text("A view providing a space for 2D drawing, images, texts or even other views. You can create copies of the initial context, this will add an extra drawing (transparent) layer in a tree")
+                .fontWeight(.light)
+        }
+    }
+
 }
 
 struct GraphicContextsView_Previews: PreviewProvider {

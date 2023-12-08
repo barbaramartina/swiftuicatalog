@@ -56,39 +56,11 @@ struct TogglesView: View, Comparable {
                         }
                         .padding()
 
-                        Toggle(
-                            isOn: $isBasicToggleOn,
-                            label: {
-                                Text("Default Toggle Style")
-                            }
-                        )
-                        .toggleStyle(.automatic)
-
-                        Toggle(
-                            isOn: $isSwitchToggleOn,
-                            label: {
-                                Text("Switch Toggle Style")
-                            }
-                        )
-                        .tint(Color.purple)
-                        .toggleStyle(.switch)
-
-                        Toggle(
-                            isOn: $isCustomToggleOn,
-                            label: {
-                                Text("Custom Toggle Style")
-                            }
-                        )
-                        .toggleStyle(.custom)
-
-                        Toggle(
-                            isOn: $isButtonToggleOn,
-                            label: {
-                                Text("Button Toggle Style")
-                            }
-                        )
-                        .toggleStyle(.button)
-                        .tint(Color.purple)
+                       
+                        defaultToggle
+                        switchToggle
+                        customToggle
+                        toggleWithStyle
 
                         Spacer()
 
@@ -99,6 +71,52 @@ struct TogglesView: View, Comparable {
                     .padding()
                 }
         )
+    }
+
+    private var defaultToggle: some View {
+        Toggle(
+            isOn: $isBasicToggleOn,
+            label: {
+                Text("Default Toggle Style")
+            }
+        )
+        .toggleStyle(.automatic)
+    }
+
+    private var switchToggle: some View {
+        Toggle(
+            isOn: $isSwitchToggleOn,
+            label: {
+                Text("Switch Toggle Style")
+            }
+        )
+        .tint(Color.purple)
+        .toggleStyle(.switch)
+
+    }
+
+    private var customToggle: some View {
+
+        Toggle(
+            isOn: $isCustomToggleOn,
+            label: {
+                Text("Custom Toggle Style")
+            }
+        )
+        .toggleStyle(.custom)
+
+    }
+
+    private var toggleWithStyle: some View {
+        Toggle(
+            isOn: $isButtonToggleOn,
+            label: {
+                Text("Button Toggle Style")
+            }
+        )
+        .toggleStyle(.button)
+        .tint(Color.purple)
+
     }
 }
 

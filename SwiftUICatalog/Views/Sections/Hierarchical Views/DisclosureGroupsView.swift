@@ -49,54 +49,45 @@ struct DisclosureGroupsView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
+        PageContainer(content: ScrollView {
 
-        ScrollView {
-            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup")
 
-            Group {
-                Text("A view that shows or hides another content view, based on the state of a disclosure control.")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
-            Group {
-                Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
-            // MARK: - Disclosure groups in SwiftUI
-            DisclosureGroup("Items", isExpanded: $topExpanded) {
-                Toggle("Toggle 1", isOn: $toggleStates.oneIsOn)
-                    .padding()
-                Toggle("Toggle 2", isOn: $toggleStates.twoIsOn)
-                    .padding()
-                DisclosureGroup(" Sub-items") {
-                    Text("  Sub-item 1")
-                }
-            }
-            
-            HStack{
-                Spacer()
-                Button(action: {
-                    openURL(URL(string: "https://developer.apple.com/documentation/swiftui/disclosuregroup")!)
-                }, label: {
-                    Text("the Disclosure groups Doc!")
-                })
-            }
-            .padding(.trailing, 10)
-            
-            
+            introduction
+            disclosureGroupsExample
+
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
+            .padding(.top, 80)
         }
-        .padding()
-                      )
-        // end of page container
-        
+            .padding()
+        )
+
+    }
+
+    private var introduction: some View {
+        Group {
+            Text("A view that shows or hides another content view, based on the state of a disclosure control.")
+                .fontWeight(.light)
+                .padding()
+
+            Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
+                .fontWeight(.light)
+                .padding()
+
+        }
+    }
+
+    private var disclosureGroupsExample: some View {
+        DisclosureGroup("Items", isExpanded: $topExpanded) {
+            Toggle("Toggle 1", isOn: $toggleStates.oneIsOn)
+                .padding()
+            Toggle("Toggle 2", isOn: $toggleStates.twoIsOn)
+                .padding()
+            DisclosureGroup(" Sub-items") {
+                Text("  Sub-item 1")
+            }
+        }
 
     }
 }

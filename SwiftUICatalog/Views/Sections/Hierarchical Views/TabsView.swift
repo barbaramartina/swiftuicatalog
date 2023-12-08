@@ -48,57 +48,52 @@ struct TabsView: View, Comparable {
             
             DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
 
-            Group {
-                Text("A view that switches between multiple child views using interactive user interface elements.")
-                    .fontWeight(.light)
-                Text("To create a user interface with tabs, place views in a TabView and apply the tabItem(_:) modifier to the contents of each tab. On iOS, you can also use one of the badge modifiers, like badge(_:), to assign a badge to each of the tabs.")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
+            intro
             Spacer(minLength: 70)
-            
-            // MARK: - TabView
-            Group {
-                TabView {
-                    Text("The First Tab")
-                        .tabItem {
-                            Image(systemName: "1.square.fill")
-                            Text("First")
-                        }
-                    Text("Another Tab")
-                        .tabItem {
-                            Image(systemName: "2.square.fill")
-                            Text("Second")
-                        }
-                    Text("The Last Tab")
-                        .tabItem {
-                            Image(systemName: "3.square.fill")
-                            Text("Third")
-                        }
-                }
-                .font(.headline)
-            }
-            
+            example1
             Spacer(minLength: 30)
-            
-            HStack{
-                Spacer()
-                Button(action: {
-                    openURL(URL(string: "https://developer.apple.com/documentation/swiftui/tabview")!)
-                }, label: {
-                    Text("the TabView Doc!")
-                })
-            }
-            .padding(.trailing, 10)
-            
+
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
             
         })
-        // end of page container
+    }
+
+    private var intro: some View {
+        Group {
+            Text("A view that switches between multiple child views using interactive user interface elements.")
+                .fontWeight(.light)
+            Text("To create a user interface with tabs, place views in a TabView and apply the tabItem(_:) modifier to the contents of each tab. On iOS, you can also use one of the badge modifiers, like badge(_:), to assign a badge to each of the tabs.")
+                .fontWeight(.light)
+        }
+        .padding()
+
+    }
+
+    private var example1: some View {
+        Group {
+            TabView {
+                Text("The First Tab")
+                    .tabItem {
+                        Image(systemName: "1.square.fill")
+                        Text("First")
+                    }
+                Text("Another Tab")
+                    .tabItem {
+                        Image(systemName: "2.square.fill")
+                        Text("Second")
+                    }
+                Text("The Last Tab")
+                    .tabItem {
+                        Image(systemName: "3.square.fill")
+                        Text("Third")
+                    }
+            }
+            .font(.headline)
+        }
+
     }
 }
 

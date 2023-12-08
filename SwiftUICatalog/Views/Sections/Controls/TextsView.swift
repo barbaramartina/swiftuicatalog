@@ -40,7 +40,7 @@ struct TextsComponentsView: View, Comparable {
     
     @State private var textFieldValue: String = ""
     @State private var secureFieldValue: String = ""
-    
+
     var body: some View {
         
         PageContainer(content:
@@ -50,220 +50,14 @@ struct TextsComponentsView: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
 
             
-            // MARK: - FONTS
-            Group {
-                
-                // Contextual information: a short intro to the elements we are showcasing
-                Group {
-                    Text("Available fonts")
-                        .fontWeight(.heavy)
-                    Text("To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined")
-                        .fontWeight(.light)
-                }
-                .padding()
+            fontTypes
+            fontWeights
+            fontModifiers
+            textTruncation
+            textTranslations
+            textDates
+            textControls
 
-                Spacer()
-                Group {
-                    Group {
-                        Text("Headline")
-                            .font(.headline)
-                        Text("Sub headline")
-                            .font(.subheadline)
-                        Text("Large title")
-                            .font(.largeTitle)
-                        Text("Title")
-                            .font(.title)
-                        Text("Title 2")
-                            .font(.title2)
-                    }
-                    Group {
-                        Text("Title 3")
-                            .font(.title3)
-                        Text("Body")
-                            .font(.body)
-                        Text("Callout")
-                            .font(.callout)
-                        Text("Caption")
-                            .font(.caption)
-                        Text("Caption 2")
-                            .font(.caption2)
-                        Text("Footnote")
-                            .font(.footnote)
-                    }
-
-                }
-                .padding(5)
-                Spacer()
-                Spacer()
-
-            }
-            
-            // MARK: - FONT WEIGHTS
-            Group {
-                
-                Group {
-                    Text("Available font weights")
-                        .fontWeight(.heavy)
-                    Text("Fonts can also be assigned a weight, which will change the appereance of the font")
-                        .fontWeight(.light)
-                }
-                .padding()
-
-                Group {
-                    Text("Weight Black")
-                        .fontWeight(.black)
-                    Text("Weight Heavy")
-                        .fontWeight(.heavy)
-                    Text("Weight Bold")
-                        .fontWeight(.bold)
-                    Text("Weight Semibold")
-                        .fontWeight(.semibold)
-                    Text("Weight Medium")
-                        .fontWeight(.medium)
-                    Text("Weight Regular")
-                        .fontWeight(.regular)
-                    Text("Weight Light")
-                        .fontWeight(.light)
-                    Text("Weight Ultra light")
-                        .fontWeight(.ultraLight)
-                    Text("Weight Thin")
-                        .fontWeight(.thin)
-
-                }
-                .padding(5)
-                Spacer()
-
-            }
-            
-            // MARK: - FONTS ITALIC, BOLD
-            Group {
-                Text( "Text, italic, bold")
-                    .fontWeight(.heavy)
-                    .padding()
-
-                Group {
-                    Text("Italic")
-                        .italic()
-                    Text("Bold")
-                        .bold()
-                    Text("Underline")
-                        .underline()
-                    Text("Strike through")
-                        .strikethrough()
-                    Text("Kerning")
-                        .kerning(2.0)
-                    Text("Tracking")
-                        .tracking(3.0)
-                    Text("With shadow")
-                        .shadow(color: .blue,
-                                radius: 12,
-                                x: 1.0,
-                                y: 3.0)
-
-                }
-              
-            }
-            // MARK: - TRUNCATION AND MULTILINE
-            Group {
-                Text( "Text, truncations and multiline")
-                    .fontWeight(.heavy)
-                    .padding()
-
-                Text("Very long text truncated")
-                    .frame(width: 150)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
-                    .allowsTightening(false)
-                    .truncationMode(.middle)
-                Text("Multiline text arranged in how many lines as it is needed")
-                    .multilineTextAlignment(.center)
-            }
-            
-          
-            // MARK: - TRANSLATIONS
-            Group {
-                Text( "Text and translations")
-                    .fontWeight(.heavy)
-                    .padding()
-
-                Group {
-                    // automatically looks in the bundle localised strings file
-                    Text("translated")
-                    // skip trying to localise the string
-                    Text(verbatim: "nottranslated")
-                }
-              
-            }
-            
-            // MARK: - TEXT AND DATES
-            Group {
-                Group {
-                    Group {
-                        Text("Text and dates")
-                            .fontWeight(.heavy)
-                        Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
-                            .fontWeight(.light)
-                    }
-                    .padding()
-                    
-                    HStack {
-                        Text("Text with date:")
-                        Spacer()
-                        Text(Date(), style: Text.DateStyle.date)
-                    }
-                    HStack {
-                        Text("Text with date offset:")
-                        Spacer()
-                        Text(Date(), style: Text.DateStyle.offset)
-                    }
-                    HStack {
-                        Text("Text with date relative:")
-                        Spacer()
-                        Text(Date(), style: Text.DateStyle.relative)
-                    }
-                    HStack {
-                        Text("Text with style time:")
-                        Spacer()
-                        Text(Date(), style: Text.DateStyle.time)
-                    }
-                    HStack {
-                        Text("Text with date timer:")
-                        Spacer()
-                        Text(Date(), style: Text.DateStyle.timer)
-                    }
-                }
-                .padding(5)
-                Spacer()
-            }
-            // MARK: - text controls
-            Group {
-                Group {
-                    
-                    Group {
-                        Text("Text controls")
-                            .fontWeight(.heavy)
-                        Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
-                            .fontWeight(.light)
-                    }
-                    .padding()
-
-                    HStack {
-                        Text("Text field:")
-                        Spacer()
-                        TextField("text-field-localised-key", text: $textFieldValue)
-                    }
-                    .padding(10)
-                    HStack {
-                        Text("Secure Text field")
-                        Spacer()
-                        SecureField("Secure field",
-                                    text: $secureFieldValue)
-                    }
-                    .padding(10)
-                }
-                .padding(5)
-                Spacer()
-            }
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
@@ -271,6 +65,213 @@ struct TextsComponentsView: View, Comparable {
 
         })
     }
+
+    private var textControls: some View {
+        Group {
+            Group {
+
+                Group {
+                    Text("Text controls")
+                        .fontWeight(.heavy)
+                    Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
+                        .fontWeight(.light)
+                }
+                .padding()
+
+                HStack {
+                    Text("Text field:")
+                    Spacer()
+                    TextField("text-field-localised-key", text: $textFieldValue)
+                }
+                .padding(10)
+                HStack {
+                    Text("Secure Text field")
+                    Spacer()
+                    SecureField("Secure field",
+                                text: $secureFieldValue)
+                }
+                .padding(10)
+            }
+            .padding(5)
+            Spacer()
+        }
+
+    }
+
+    /// Font types
+    private var fontTypes: some View {
+        Group {
+
+            // Contextual information: a short intro to the elements we are showcasing
+            Text("Available fonts")
+                .fontWeight(.heavy)
+                .padding()
+            Text("To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined")
+                .fontWeight(.light)
+                .padding()
+            Text("Headline")
+                .font(.headline)
+            Text("Sub headline")
+                .font(.subheadline)
+            Text("Large title")
+                .font(.largeTitle)
+            Text("Title")
+                .font(.title)
+            Text("Title 2")
+                .font(.title2)
+            Text("Title 3")
+                .font(.title3)
+            Text("Body")
+                .font(.body)
+            Text("Callout")
+                .font(.callout)
+            Text("Caption")
+                .font(.caption)
+            Text("Caption 2")
+                .font(.caption2)
+            Text("Footnote")
+                .font(.footnote)
+        }
+    }
+
+    private var fontWeights: some View {
+        Group {
+            Text("Available font weights")
+                .fontWeight(.heavy)
+                .padding()
+            Text("Fonts can also be assigned a weight, which will change the appereance of the font")
+                .fontWeight(.light)
+                .padding()
+            Text("Weight Black")
+                .fontWeight(.black)
+            Text("Weight Heavy")
+                .fontWeight(.heavy)
+            Text("Weight Bold")
+                .fontWeight(.bold)
+            Text("Weight Semibold")
+                .fontWeight(.semibold)
+            Text("Weight Medium")
+                .fontWeight(.medium)
+            Text("Weight Regular")
+                .fontWeight(.regular)
+            Text("Weight Light")
+                .fontWeight(.light)
+            Text("Weight Ultra light")
+                .fontWeight(.ultraLight)
+            Text("Weight Thin")
+                .fontWeight(.thin)
+        }
+    }
+
+    private var fontModifiers: some View {
+        Group {
+            Text( "Text, italic, bold")
+                .fontWeight(.heavy)
+                .padding()
+
+            Group {
+                Text("Italic")
+                    .italic()
+                Text("Bold")
+                    .bold()
+                Text("Underline")
+                    .underline()
+                Text("Strike through")
+                    .strikethrough()
+                Text("Kerning")
+                    .kerning(2.0)
+                Text("Tracking")
+                    .tracking(3.0)
+                Text("With shadow")
+                    .shadow(color: .blue,
+                            radius: 12,
+                            x: 1.0,
+                            y: 3.0)
+
+            }
+
+        }
+
+    }
+
+    private var textTruncation: some View {
+        Group {
+            Text( "Text, truncations and multiline")
+                .fontWeight(.heavy)
+                .padding()
+
+            Text("Very long text truncated")
+                .frame(width: 150)
+                .lineLimit(1)
+                .minimumScaleFactor(0.8)
+                .allowsTightening(false)
+                .truncationMode(.middle)
+            Text("Multiline text arranged in how many lines as it is needed")
+                .multilineTextAlignment(.center)
+        }
+
+    }
+
+    private var textTranslations: some View {
+        Group {
+            Text( "Text and translations")
+                .fontWeight(.heavy)
+                .padding()
+
+            Group {
+                // automatically looks in the bundle localised strings file
+                Text("translated")
+                // skip trying to localise the string
+                Text(verbatim: "nottranslated")
+            }
+
+        }
+
+    }
+
+    private var textDates: some View {
+        Group {
+            Group {
+                Group {
+                    Text("Text and dates")
+                        .fontWeight(.heavy)
+                    Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
+                        .fontWeight(.light)
+                }
+                .padding()
+
+                HStack {
+                    Text("Text with date:")
+                    Spacer()
+                    Text(Date(), style: Text.DateStyle.date)
+                }
+                HStack {
+                    Text("Text with date offset:")
+                    Spacer()
+                    Text(Date(), style: Text.DateStyle.offset)
+                }
+                HStack {
+                    Text("Text with date relative:")
+                    Spacer()
+                    Text(Date(), style: Text.DateStyle.relative)
+                }
+                HStack {
+                    Text("Text with style time:")
+                    Spacer()
+                    Text(Date(), style: Text.DateStyle.time)
+                }
+                HStack {
+                    Text("Text with date timer:")
+                    Spacer()
+                    Text(Date(), style: Text.DateStyle.timer)
+                }
+            }
+            .padding(5)
+            Spacer()
+        }
+
+    }
+
 }
 
 struct TextsComponentsView_Previews: PreviewProvider {

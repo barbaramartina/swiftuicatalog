@@ -74,38 +74,25 @@ struct OutlinesGroupsView: View, Comparable {
         PageContainer(content:
 
         ScrollView {
-            Group {
-                
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
 
-                Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
+                .padding()
+
+            Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
+                .fontWeight(.light)
+                .padding()
+
+            Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. This allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.")
+                .fontWeight(.light)
+                .padding()
+
             Group {
-                Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. This allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
-            Group {
-                // MARK: - Outline Group in SwiftUI
                 OutlineGroup(data, children: \.children) { item in
                     Text("\(item.description)")}
             }
             .padding()
             
-            HStack{
-                Spacer()
-                Button(action: {
-                    openURL(URL(string: "https://developer.apple.com/documentation/swiftui/outlinegroup")!)
-                }, label: {
-                    Text("the OutlineGroup Doc!")
-                })
-            }
-            .padding(.trailing, 10)
-            
+
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)

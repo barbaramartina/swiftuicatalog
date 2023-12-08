@@ -80,27 +80,12 @@ struct GesturesView: View, Comparable {
         
         ScrollView {
             VStack {
-                Group {
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures")
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures")
 
-                    Text("Gesture modifiers handle all of the logic needed to process user-input events such as touches, and recognize when those events match a known gesture pattern, such as a long press or rotation. When recognizing a pattern, SwiftUI runs a callback you use to update the state of a view or perform an action.")
-                        .padding()
-                    Spacer()
-                    Label(
-                        title: { Text(customText) },
-                        icon: {  }
-                    )
-                    .padding()
-                    Spacer()
-                    Label(
-                        title: { Text("** Try Tap on objects on the left side. Try Long press on objects on the right side.")
-                            .font(.system(size: 14, weight: .light))
-                        },
-                        icon: {  }
-                    )
-                    .padding()
-                }
+                intro
+                
                 Spacer(minLength: 30)
+
                 // MARK: - Circle shape + Gestures
                 Group {
                     Label(
@@ -124,75 +109,9 @@ struct GesturesView: View, Comparable {
                     }
                 }
                 Spacer(minLength: 30)
-                // MARK: - Labels + Gestures
-                Group {
-                    Label(
-                        title: { Text("Labels + Gesture") },
-                        icon: {  }
-                    )
-                    HStack{
-                        Spacer()
-                        Label("", systemImage: "bolt.fill")
-                            .gesture(tap)
-                        Spacer()
-                        Label("Lightning",
-                              systemImage: "bolt.fill")
-                            .gesture(lognPress)
-                        Spacer()
-                    }
-                }
-                .padding()
-                Spacer(minLength: 30)
-                // MARK: - Texts + Gestures
-                Group {
-                    Label(
-                        title: { Text("Texts + Gesture") },
-                        icon: {  }
-                    )
-                    HStack{
-                        Spacer()
-                        Text("Text + Strike through")
-                            .strikethrough()
-                            .gesture(tap)
-                        Spacer()
-                        Text("Text + Underline")
-                            .underline()
-                            .gesture(lognPress)
-                        Spacer()
-                    }
-                }
-                .padding()
-                Spacer(minLength: 30)
-                // MARK: - Images + Gestures
-                Group {
-                    Label(
-                        title: { Text("Images + Gesture") },
-                        icon: {  }
-                    )
-                    HStack{
-                        Spacer()
-                        Image("corgie-love")
-                            .resizable()
-                            .scaledToFit()
-                            .overlay(
-                                Color.gray
-                                    .opacity(0.5)
-                            )
-                            .clipShape(Circle())
-                            .gesture(tap)
-                        Spacer()
-                        Image("corgie-love")
-                            .resizable()
-                            .scaledToFit()
-                            .border(Color.blue)
-                            .clipped()
-                            .gesture(lognPress)
-                        Spacer()
-                    }
-                }
-                .padding()
+
             }
-            
+
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
@@ -200,6 +119,28 @@ struct GesturesView: View, Comparable {
         }
                       
     }
+
+    private var intro: some View {
+        Group {
+            Text("Gesture modifiers handle all of the logic needed to process user-input events such as touches, and recognize when those events match a known gesture pattern, such as a long press or rotation. When recognizing a pattern, SwiftUI runs a callback you use to update the state of a view or perform an action.")
+                .padding()
+            Spacer()
+            Label(
+                title: { Text(customText) },
+                icon: {  }
+            )
+            .padding()
+            Spacer()
+            Label(
+                title: { Text("** Try Tap on objects on the left side. Try Long press on objects on the right side.")
+                        .font(.system(size: 14, weight: .light))
+                },
+                icon: {  }
+            )
+            .padding()
+        }
+    }
+
 }
 
 struct GesturesView_Previews: PreviewProvider {

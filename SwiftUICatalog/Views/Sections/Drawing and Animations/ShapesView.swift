@@ -54,90 +54,98 @@ struct ShapesView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
-
-        ScrollView {
+        PageContainer(content: ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape")
 
-            // contextual information
-            Group {
-                Text("Rectangles, circles, ellipse and capsules")
-                    .fontWeight(.heavy)
-                
-                Text("SwiftUI brings some pre-defined shapes like rectabgles and circles. But there is also the chance to define your own shapes by creating a path")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
-            
-            Group {
-                // MARK: - rectangle
-                Rectangle()
-                    .fill(Color("secondary"))
-                    .frame(width: 100, height: 100)
-                // MARK: - Circle
-                Circle()
-                    .fill(Color("secondary"))
-                    .frame(width: 100, height: 100)
-                // MARK: - Ellipse
-                    Ellipse()
-                        .fill(Color("secondary"))
-                        .frame(width: 100, height: 200)
-                // MARK: - capsule
-                    Capsule()
-                        .fill(Color("secondary"))
-                        .frame(width: 100, height: 150)
+            intro
 
-                // MARK: - rounded rectangle
-                   RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                     .fill(Color("secondary"))
-                     .frame(width: 100, height: 100)
-                
-            }
-            .padding()
-           
-        
-            
-            // MARK: - custom
-            
-            Group {
-                
-                Text("Custom shape")
-                    .fontWeight(.heavy)
-                CustomShape()
-                    .fill(Color("secondary"))
-                    .frame(width: 100, height: 100)
-            }
-            .padding()
-
-            // MARK: - insetable shape
-            
-            Group {
-                Text("Insettable shape")
-                    .fontWeight(.heavy)
-                Rectangle()
-                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                     lineCap: CGLineCap.round,
-                                                     lineJoin: CGLineJoin.miter,
-                                                     miterLimit: 2,
-                                                     dash: [1, 2],
-                                                     dashPhase: 4))
-                    .frame(width: 100, height: 100)
-            }
-            .padding()
+            standardExamples
+            customExamples
+            shapeExample
 
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
 
         }
-        // end of scroll view
-        .padding()
-                      )
-        // end of page container
-        
+        .padding())
+
     }
+
+    private var intro: some View {
+        Group {
+            Text("Rectangles, circles, ellipse and capsules")
+                .fontWeight(.heavy)
+
+            Text("SwiftUI brings some pre-defined shapes like rectabgles and circles. But there is also the chance to define your own shapes by creating a path")
+                .fontWeight(.light)
+        }
+        .padding()
+
+    }
+
+    private var standardExamples: some View {
+        Group {
+            // MARK: - rectangle
+            Rectangle()
+                .fill(Color("secondary"))
+                .frame(width: 100, height: 100)
+            // MARK: - Circle
+            Circle()
+                .fill(Color("secondary"))
+                .frame(width: 100, height: 100)
+            // MARK: - Ellipse
+            Ellipse()
+                .fill(Color("secondary"))
+                .frame(width: 100, height: 200)
+            // MARK: - capsule
+            Capsule()
+                .fill(Color("secondary"))
+                .frame(width: 100, height: 150)
+
+            // MARK: - rounded rectangle
+            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                .fill(Color("secondary"))
+                .frame(width: 100, height: 100)
+
+        }
+        .padding()
+
+    }
+
+    private var customExamples: some View {
+        Group {
+
+            Text("Custom shape")
+                .fontWeight(.heavy)
+            CustomShape()
+                .fill(Color("secondary"))
+                .frame(width: 100, height: 100)
+        }
+        .padding()
+
+
+    }
+
+    private var shapeExample: some View {
+        Group {
+            Text("Insettable shape")
+                .fontWeight(.heavy)
+            Rectangle()
+                .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                 lineCap: CGLineCap.round,
+                                                 lineJoin: CGLineJoin.miter,
+                                                 miterLimit: 2,
+                                                 dash: [1, 2],
+                                                 dashPhase: 4))
+                .frame(width: 100, height: 100)
+        }
+        .padding()
+
+    }
+
+
 }
 
 struct ShapesView_Previews: PreviewProvider {
