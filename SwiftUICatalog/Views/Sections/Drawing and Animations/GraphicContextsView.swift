@@ -39,11 +39,11 @@ struct GraphicContextsView: View, Comparable {
     let id: String = "GraphicContextsView"
     
    /// width of the path we want to work with
-    private let width: CGFloat = 200
+    private let width: CGFloat = 250
     /// height of the path we want to work with
-    private let height: CGFloat = 200
+    private let height: CGFloat = 250
     /// path to use for rendering different drawings
-    private let path = Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 150, height: 150)))
+    private let path = Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 250, height: 250)))
     /// colors for the gradients to showcase
     private let gradientColors: [Color] = [.yellow.opacity(0.5),
                                   .blue.opacity(0.4)]
@@ -114,8 +114,7 @@ struct GraphicContextsView: View, Comparable {
             Text("Linear gradient")
                 .fontWeight(.heavy)
 
-            GradientContainer(name: "Linear",
-                              height: height,
+            GradientContainer(height: height,
                               width: width,
                               gradient: .linearGradient(Gradient(colors: gradientColors),
 
@@ -132,8 +131,7 @@ struct GraphicContextsView: View, Comparable {
             Text("Radial gradient")
                 .fontWeight(.heavy)
 
-            GradientContainer(name: "Radial",
-                              height: height,
+            GradientContainer(height: height,
                               width: width,
                               gradient: .radialGradient(Gradient(colors: gradientColors),
                                                         center: CGPoint(x: 60, y: 60),
@@ -145,14 +143,18 @@ struct GraphicContextsView: View, Comparable {
     }
 
     private var example4: some View {
-        GradientContainer(name: "Conic",
-                          height: height,
-                          width: width,
-                          gradient: .conicGradient(Gradient(colors: gradientColors),
-                                                   center: CGPoint(x: 70, y: 70),
-                                                   angle: Angle(degrees: 45),
-                                                   options: .linearColor),
-                          path: path)
+        Group {
+            Text("Conic gradient")
+                .fontWeight(.heavy)
+            GradientContainer(height: height,
+                              width: width,
+                              gradient: .conicGradient(Gradient(colors: gradientColors),
+                                                       center: CGPoint(x: 70, y: 70),
+                                                       angle: Angle(degrees: 45),
+                                                       options: .linearColor),
+                              path: path)
+
+        }
 
     }
 
@@ -178,34 +180,24 @@ struct GraphicContextsView_Previews: PreviewProvider {
 /// Auxiliar view to stack a gradient in a horizontal stack view
 private struct GradientContainer: View {
     
-    let name: String
     let height: CGFloat
     let width: CGFloat
     let gradient: GraphicsContext.Shading
     let path: Path
     
     var body: some View {
-        
-        VStack {
-            Text(name)
-                .fontWeight(.heavy)
-            
-            HStack {
-                Spacer()
-                Canvas {  context, size in
-                    
-                    context.fill(path,
-                                 with: gradient)
-                    
-                    
-                }
-                .frame(width: width)
-                Spacer()
+        HStack {
+            Canvas {  context, size in
+
+                context.fill(path,
+                             with: gradient)
+
 
             }
-            .frame(height: height)
-        }
+            .frame(width: width)
 
+        }
+        .frame(height: height)
     }
 
 }
