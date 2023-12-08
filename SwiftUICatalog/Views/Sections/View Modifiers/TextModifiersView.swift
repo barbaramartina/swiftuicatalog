@@ -75,7 +75,7 @@ struct TextModifiersView: View, Comparable {
                     Text("Font Weight Ultralight")
                         .fontWeight(.ultraLight)
                     Text("Font Weight Black")
-                        .fontWeight(.black)
+                        .fontWeight(.heavy)
                 }
                 // end of Font weights
 

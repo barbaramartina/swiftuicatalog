@@ -17,7 +17,7 @@ struct HeaderView: View, Identifiable {
     var body: some View {
         Text(title.uppercased())
             .font(.title)
-            .fontWeight(.black)
+            .fontWeight(.heavy)
             .foregroundColor(.accentColor)
             .multilineTextAlignment(.center)
             .padding(.top, 24)

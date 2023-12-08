@@ -74,7 +74,7 @@ struct ListsComponentView: View, Comparable {
                             VStack(alignment: .center) {
                                 Text(d.name)
                                     .font(.subheadline)
-                                    .fontWeight(.black)
+                                    .fontWeight(.heavy)
                                     .foregroundColor(.accentColor)
                                 Image(d.image)
                                     .resizable()

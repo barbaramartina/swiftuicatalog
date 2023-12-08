@@ -143,7 +143,7 @@ struct TextsComponentsView: View, Comparable {
                 .fontWeight(.light)
                 .padding()
             Text("Weight Black")
-                .fontWeight(.black)
+                .fontWeight(.heavy)
             Text("Weight Heavy")
                 .fontWeight(.heavy)
             Text("Weight Bold")

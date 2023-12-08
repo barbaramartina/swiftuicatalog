@@ -70,7 +70,7 @@ struct GridsView: View, Comparable {
         Group {
             Group {
                 Text("Lazy Vertical Grid")
-                    .fontWeight(.light)
+                    .fontWeight(.heavy)
                 Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
                     .fontWeight(.light)
             }
@@ -98,7 +98,7 @@ struct GridsView: View, Comparable {
         Group {
             Group {
                 Text("Lazy Horizontal Grid")
-                    .fontWeight(.light)
+                    .fontWeight(.heavy)
                 Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
                     .fontWeight(.light)
             }
@@ -135,17 +135,19 @@ struct GridsView: View, Comparable {
     private var gridsIntroduction: some View {
         Group {
             Text("Grid Item")
-                .fontWeight(.light)
+                .fontWeight(.heavy)
                 .padding()
             Text("A description of a single grid item, such as a row or a column.")
                 .fontWeight(.light)
                 .padding()
+                .modifier(ViewAlignmentModifier(alignment: .leading))
             Text("You use GridItem instances to configure the layout of items in LazyHGrid and LazyVGrid views. Each grid item specifies layout properties like spacing and alignment, which the grid view uses to size and position all items in a given column or row.")
                 .fontWeight(.light)
                 .padding()
             Text("The grid is “lazy,” in that the grid view does not create items until they are needed.")
                 .fontWeight(.light)
                 .padding()
+                .modifier(ViewAlignmentModifier(alignment: .leading))
 
         }
     }

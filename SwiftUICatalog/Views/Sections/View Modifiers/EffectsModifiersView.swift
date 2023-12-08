@@ -70,7 +70,7 @@ struct EffectsModifiersView: View, Comparable {
                     .scaledToFill()
                     .mask(Text("Awesome Robbie. Corgie is a very special breed is not so easy to find around the world")
                             .font(.largeTitle)
-                            .fontWeight(.black)
+                            .fontWeight(.heavy)
                             .multilineTextAlignment(.center)
                             .frame(width:320, height: 220))
                 
