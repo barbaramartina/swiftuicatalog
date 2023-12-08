@@ -4,6 +4,8 @@ An open source catalog, under MIT License, containing components, controls, effe
 
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
+Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
+
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/388888f4-77b1-439c-b2e3-fa9b248ce68b" alt="alt text"  height="700">
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/5a2aa818-026b-4daa-bb28-a04505f327d4" alt="alt text" height="700">
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/7bac313f-03f2-414d-950b-4e44c688ec3a" alt="alt text"  height="700">
