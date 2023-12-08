@@ -26,15 +26,6 @@ struct DocumentationLinkView: View, Identifiable {
                label: {
             
             VStack {
-                HStack {
-                    Spacer()
-                    Image(systemName: "square.and.arrow.up")
-                        .resizable()
-                        .frame(width: 24, height: 30)
-                        .padding(.trailing, 16)
-                }
-                Divider()
-                
                 WebView(url: URL(string:link)!)
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
