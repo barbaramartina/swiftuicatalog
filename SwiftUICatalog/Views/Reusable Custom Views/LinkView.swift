@@ -16,13 +16,14 @@ struct Link<Destination> : View, Hashable, Identifiable where Destination : View
     
     var destination: Destination
     var label: String
+    var textColor: Color = .white
 
     var body: some View {
         NavigationLink(destination: destination) {
             Text(label)
                 .font(.title2)
                 .fontWeight(.light)
-                .foregroundColor(.black)
+                .foregroundColor(textColor)
         }
         .padding(.bottom, 5)
     }
