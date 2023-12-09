@@ -6,11 +6,13 @@ We'd like to promote this as a collaborative initiative developed over time, you
 
 Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
 
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/388888f4-77b1-439c-b2e3-fa9b248ce68b" alt="alt text"  height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/5a2aa818-026b-4daa-bb28-a04505f327d4" alt="alt text" height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/7bac313f-03f2-414d-950b-4e44c688ec3a" alt="alt text"  height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/916fc2ba-aac6-4a73-9ca9-70a41abcf0bc" alt="alt text" height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/89dc8726-42da-48d8-81de-93721e07e448" alt="alt text"  height="700">
+
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e0bca7ff-87bb-40e5-a47c-feb2726f8c46" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/29d2995f-46da-4f73-9145-e4bf2f0c7fde" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c0fe8053-ed70-42ac-90aa-66b63bcf28cf" alt="alt text" height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/b8dd644a-7ec5-4a2a-8ca5-c10b7c3b8537" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/55678d48-98f0-421d-889e-40ff69cdecf7" alt="alt text" height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c0f65608-ec2d-4755-b80a-0204c3dde785" alt="alt text" height="700">
 
 
 # Goal
