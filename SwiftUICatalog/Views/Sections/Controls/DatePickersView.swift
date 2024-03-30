@@ -192,8 +192,9 @@ struct DatePickersView: View, Comparable {
                 displayedComponents: [.date]
             )
             .padding()
-            .onChange(of: "Value", perform: { value in
-                print("value selected \(value)")
+            .onChange(of: date1, { oldValue, newValue in
+                print("previous value \(oldValue)")
+                print("new value \(newValue)")
             })
         }
 
