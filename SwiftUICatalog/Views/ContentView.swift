@@ -237,8 +237,6 @@ endRadiusFraction: 3)
 
     private var viewModifiers: some View {
         Section(header: Text("View modifiers")                                .modifier(ListSectionFontModifier())) {
-            Link(destination: CustomModifiersView(),
-                 label: "Custom view modifiers")
             Link(destination: TextModifiersView(),
                  label: "Text modifiers")
             Link(destination: EffectsModifiersView(),
