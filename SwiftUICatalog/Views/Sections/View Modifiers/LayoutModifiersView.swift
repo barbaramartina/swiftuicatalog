@@ -43,8 +43,8 @@ struct LayoutModifiersView: View, Comparable {
 
     /// some offset to exemplify individual item's alignment
     let offsets: [CGFloat] = [-15, -50, 15, 50]
-    /// current selected offset
-    @State var offset: CGFloat = -15
+    /// current selected offset index
+    private var offsetIndex: Int = 0
 
     /// current aspect ratio
     @State var aspectRatio: CGFloat = 0.8
@@ -62,48 +62,50 @@ struct LayoutModifiersView: View, Comparable {
 
     private var anchorPreferences: some View {
         Group {
-            VStack {
-                Text("A view can be modified in its aspect ratio an content mode")
+            VStack(alignment: .leading) {
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/alignmentguide(_:computevalue:)-6y3u2", name: "ASPECT RATIO")
+                    .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+                Text("A view can be modified in its aspect ratio and content mode")
                     .fontWeight(.light)
-                    .padding()
                 Image(systemName: "paperplane")
                     .resizable()
                     .aspectRatio(aspectRatio, contentMode: mode.contentMode)
                     .frame(width: 100, height: 100)
-                AspectRatioModePicker(aspectRatio: $aspectRatio,
+                    .modifier(ViewAlignmentModifier(alignment: .center))
+                    .padding()
+                AspectRatioModePicker(selection: $aspectRatio,
                                       mode: $mode)
                 .pickerStyle(.palette)
-                .padding()
             }
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         }
     }
 
 
     private var alignmentExamples: some View {
-        Group {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/alignmentguide(_:computevalue:)-6y3u2")
+        VStack {
 
             VStack {
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/alignmentguide(_:computevalue:)-6y3u2", name: "LAYOUT MODIFIER")
+                    .padding()
+
                 Text("Views can be vertically aligned in respect to each other using precise offsets for each view, or using the view dimensions to calculate offsets")
                     .fontWeight(.light)
                     .padding()
-                HStack {
-                    Text("Alignment guide")
-                    Image(systemName: "lasso")
-                        .alignmentGuide(VerticalAlignment.center) { _ in
-                            offset
+                VStack {
+                    ForEach(0..<offsets.count, id: \.self) { index in
+                        HStack{
+                            Text("Offset \(offsets[index])")
+                            Image(systemName: "lasso")
+                                .alignmentGuide(VerticalAlignment.center, computeValue: { dimension in
+                                    offsets[index]
+                                })
                         }
-                }
-                Picker("test offsets", selection: $offset) {
-                    ForEach(offsets, id: \.self) {
-                        Text($0.description)
-                            .tag($0)
+                        Divider()
+                            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue * 2)
                     }
                 }
-                .pickerStyle(.palette)
-                .padding()
             }
-            Divider()
             VStack {
                 Text("Horizontal stack views can have different alignments in each of their views, which could make the overall layout look nicer or achieve a particular design requirement")
                     .fontWeight(.light)
@@ -116,17 +118,10 @@ struct LayoutModifiersView: View, Comparable {
                         .font(.title)
                 }
                 .padding()
-                .border(.secondary, width: 1)
-                Picker(selection: $verticalAlignment, label: Text("alignment")) {
-                    ForEach(verticalAlignments, id: \.self) {
-                        Text($0.description)
-                    }
-                }
+                .border(Color("YellowMedium"), width: 1)
+                VerticalAlignmentPicker(selection: $verticalAlignment)
                 .pickerStyle(.wheel)
-                .padding()
-
             }
-
         }
     }
 }
