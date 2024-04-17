@@ -56,7 +56,7 @@ struct ShapesView: View, Comparable {
         
         PageContainer(content: ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape", name: "SHAPES")
 
             intro
 

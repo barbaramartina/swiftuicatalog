@@ -54,7 +54,7 @@ struct SlidersView: View, Comparable {
 
                         ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider", name: "SLIDER")
 
             Group {
                 Text( "Slider with continued values")

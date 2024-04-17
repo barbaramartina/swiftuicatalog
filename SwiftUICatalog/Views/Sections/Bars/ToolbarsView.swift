@@ -47,7 +47,7 @@ struct ToolbarsComponentView: View, Comparable {
 
                         ScrollView {
 
-           DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/toolbar(id:content:)")
+           DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/toolbar(id:content:)", name: "TOOLD BARS")
                .toolbar {
 //                   The placement can have different meanings:
 //                   - automatic:

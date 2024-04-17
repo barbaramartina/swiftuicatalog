@@ -52,7 +52,7 @@ struct ScrollViewsView: View, Comparable {
             
             ScrollView {
                 
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview")
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview", name: "SCROLL VIEWS")
 
                 introductionTexts
 

@@ -75,7 +75,7 @@ struct OutlinesGroupsView: View, Comparable {
 
         ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup", name: "OUTLINE GROUP")
                 .padding()
 
             Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")

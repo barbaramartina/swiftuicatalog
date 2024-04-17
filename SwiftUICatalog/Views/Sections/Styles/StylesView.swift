@@ -369,7 +369,7 @@ struct StylesView: View, Comparable {
         
         ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles", name: "STYLE VIEW")
 
             // contextual information
             Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")

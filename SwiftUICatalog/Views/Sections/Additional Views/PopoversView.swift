@@ -40,7 +40,7 @@ struct PopoversComponentView: View, Comparable {
         PageContainer(content:
 
         ScrollView {
-            DocumentationLinkView(link: documentationURLString)
+            DocumentationLinkView(link: documentationURLString, name: "POPOVERS")
             
             WebView(url: URL(string: documentationURLString)!)
                 .frame(height: 400)

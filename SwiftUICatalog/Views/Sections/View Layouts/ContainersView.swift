@@ -48,7 +48,7 @@ struct ContainersView: View, Comparable {
 
         ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup", name: "CONTAINERS")
 
             containersIntro
             formExample

@@ -45,7 +45,7 @@ struct TextModifiersView: View, Comparable {
         PageContainer(content:
 
         ScrollView {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: "TEXT MODIFIERS")
             
             // contextual information
             Group {

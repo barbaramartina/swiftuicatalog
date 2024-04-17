@@ -116,7 +116,7 @@ struct ChartsViews: View {
     var body: some View {
         ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/charts/creating-a-chart-using-swift-charts")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/charts/creating-a-chart-using-swift-charts", name: "CHARTS")
 
             if #available(iOS 16.0, *) {
 

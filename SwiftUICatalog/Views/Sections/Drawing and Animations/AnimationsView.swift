@@ -56,7 +56,7 @@ struct AnimationsView: View, Comparable {
     var body: some View {
 
         Group {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/animation")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/animation", name: "ANIMATIONS")
 
             NavigationView {
 

@@ -101,7 +101,7 @@ struct ComposingGesturesView: View, Comparable {
                 self.viewState.height += drag.translation.height
             }
         ScrollView {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures", name: "GESTURES")
 
             Text("Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI.")
                 .fontWeight(.light)

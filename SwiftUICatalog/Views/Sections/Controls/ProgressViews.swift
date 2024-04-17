@@ -47,7 +47,7 @@ struct ProgressViews: View, Comparable {
 
         PageContainer(content: ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview", name: "PROGRESS VIEW")
 
             plainProgressViews
             tintedProgressView

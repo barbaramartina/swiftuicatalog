@@ -22,7 +22,7 @@ struct ExampleProductView: View {
     var body: some View {
         PageContainer(content:
                         ScrollView {
-            DocumentationLinkView(link: "https://developer.apple.com/videos/play/wwdc2023/10013/")
+            DocumentationLinkView(link: "https://developer.apple.com/videos/play/wwdc2023/10013/", name: "PRODUCT VIEW")
             customizedLoadingView
                 .modifier(Divided())
             customStyleViewReDrawing

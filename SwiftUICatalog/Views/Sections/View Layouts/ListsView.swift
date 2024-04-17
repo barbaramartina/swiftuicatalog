@@ -51,7 +51,7 @@ struct ListsComponentView: View, Comparable {
         
         List(selection: $singleSelection){
              
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list", name: "LISTS")
 
             // contextual information
             Group {

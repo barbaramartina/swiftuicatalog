@@ -45,7 +45,7 @@ struct MenusComponentView: View, Comparable {
 
         ScrollView{
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu", name: "MENUES")
 
             example1
                 .padding()

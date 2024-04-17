@@ -80,7 +80,7 @@ struct GesturesView: View, Comparable {
         
         ScrollView {
             VStack {
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures")
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures", name: "GESTURE INTERACTIONS")
 
                 intro
                 

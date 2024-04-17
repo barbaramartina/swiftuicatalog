@@ -46,7 +46,7 @@ struct TabsView: View, Comparable {
 
         ScrollView {
             
-            DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
+            DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview", name: "TAB VIEW")
 
             intro
             Spacer(minLength: 70)

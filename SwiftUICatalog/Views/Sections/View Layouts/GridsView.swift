@@ -51,7 +51,7 @@ struct GridsView: View, Comparable {
         
         PageContainer(content: ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid", name: "GRID VIEWS")
 
             gridsIntroduction
             lazyHGrid

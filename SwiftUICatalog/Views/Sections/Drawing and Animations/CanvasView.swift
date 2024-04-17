@@ -62,7 +62,7 @@ struct CanvasView: View, Comparable {
         
         PageContainer(content: ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas", name: "CANVAS")
 
             Group {
                 intro1

@@ -51,7 +51,7 @@ struct DisclosureGroupsView: View, Comparable {
         
         PageContainer(content: ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup", name: "DISCLOSURE GROUP")
 
             introduction
             disclosureGroupsExample

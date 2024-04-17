@@ -52,7 +52,7 @@ struct GraphicContextsView: View, Comparable {
         
         PageContainer(content: ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/graphicscontext")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/graphicscontext", name: "GRAPHIC CONTEXTS")
             
             Group {
                 intro
