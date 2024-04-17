@@ -42,24 +42,30 @@ struct ImagesComponentView: View, Comparable {
 
         PageContainer(content: ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image", name: "IMAGE VIEW")
 
             sfSymbols
+            Divider()
             imsgesFromBundle
+            Divider()
             fixedFrameImages
+            Divider()
 
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
             .padding(.top, 80)
-
+            Spacer()
 
         })
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
+        // end of page container
 
     }
 
     // Contextual information: a short intro to the elements we are showcasing
     private var sfSymbols: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Images with SF Symbols")
                 .fontWeight(.heavy)
             Text("With over 3,100 symbols, SF Symbols is a library designed by Apple. You can find more about SF Symbols in https://developer.apple.com/sf-symbols")
@@ -70,11 +76,10 @@ struct ImagesComponentView: View, Comparable {
                 Image(systemName: "dpad")
             }
         }
-        .padding()
     }
 
     private var imsgesFromBundle: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Images from Bundle")
                 .fontWeight(.heavy)
             Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
@@ -87,6 +92,7 @@ struct ImagesComponentView: View, Comparable {
                 .scaledToFit()
                 .frame(width: 200, height: 200)
 
+            Divider()
             Text("Corgie scaled to fill")
                 .fontWeight(.semibold)
             Image("corgie-love")
@@ -94,6 +100,7 @@ struct ImagesComponentView: View, Comparable {
                 .scaledToFill()
                 .frame(width: 200, height: 200)
 
+            Divider()
             Text("Corgie aspect ratio")
                 .fontWeight(.semibold)
             Image("corgie-love")
@@ -101,6 +108,7 @@ struct ImagesComponentView: View, Comparable {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 200)
 
+            Divider()
             Text("Corgie and circled overlay")
                 .fontWeight(.semibold)
             Image("corgie-love")
@@ -114,11 +122,10 @@ struct ImagesComponentView: View, Comparable {
                 .frame(width: 200, height: 200)
 
         }
-        .padding()
     }
 
     private var fixedFrameImages: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Corgie fitting in a fixed frame")
                 .fontWeight(.semibold)
             Image("corgie-love")
@@ -135,7 +142,6 @@ struct ImagesComponentView: View, Comparable {
                 .frame(width: 370, height: 900, alignment: .topLeading)
                 .border(Color.blue)
         }
-        .padding()
     }
 
 }

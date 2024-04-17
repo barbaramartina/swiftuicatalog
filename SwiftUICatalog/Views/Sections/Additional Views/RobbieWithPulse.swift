@@ -17,7 +17,7 @@ struct RobbieWithPulseView: View, Comparable {
         ZStack {
             Circle()
                 .frame(width: 220, height: 220)
-                .foregroundColor(Color("secondary"))
+                .foregroundColor(Color("YellowMedium"))
                 .scaleEffect(pulsing ? 1.2 : 1.0)
                 .opacity(pulsing ? 0.1 : 1.0)
                 .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true).speed(0.5), value: pulsing)

@@ -82,14 +82,14 @@ struct ProgressViews: View, Comparable {
 
             Text("Simple progress views, with an spinner can be configured when no value are passed as parameter")
                 .fontWeight(.light)
-                .padding(.vertical)
+                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView()
 
             Text("A spinner can also be shown with a text associated")
                 .fontWeight(.light)
-                .padding(.vertical)
+                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView("Downloading")
@@ -104,7 +104,7 @@ struct ProgressViews: View, Comparable {
         Group {
             Text("Also any view can be included inside the progress view, such as in this case, a button")
                 .fontWeight(.light)
-                .padding(.vertical)
+                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView {
@@ -116,7 +116,7 @@ struct ProgressViews: View, Comparable {
                         .foregroundColor(.accentColor)
                 }
                 .padding()
-                .background(Color("secondary"))
+                .background(Color("YellowMedium"))
                 .cornerRadius(5)
             }
 
@@ -127,14 +127,14 @@ struct ProgressViews: View, Comparable {
         Group {
             Text("The color of the spinner can be chosen with a tint color")
                 .fontWeight(.light)
-                .padding(.vertical)
+                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
 
             ProgressView("Please wait...", value: progress,
 
                          total: 100)
             .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
-            .foregroundColor(Color("secondary"))
+            .foregroundColor(Color("YellowMedium"))
 
         }
     }

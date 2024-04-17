@@ -68,22 +68,25 @@ struct SteppersView: View, Comparable {
 
         ScrollView {
 
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper")
-
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper", name: "STEPPER")
             plainStepper
+            Divider()
             customStepper
+            Divider()
 
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
                 .padding(.top, 80)
 
         })
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         // end of page container
         
     }
 
     private var customStepper: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Stepper View + custom step")
                 .fontWeight(.heavy)
             Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
@@ -96,12 +99,11 @@ struct SteppersView: View, Comparable {
             }
                     .padding(10)
         }
-        .padding()
 
     }
 
     private var plainStepper: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Stepper View")
                 .fontWeight(.heavy)
             Text("Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. ")
@@ -113,7 +115,6 @@ struct SteppersView: View, Comparable {
                 decrementStep()
             })
         }
-        .padding()
 
     }
 }

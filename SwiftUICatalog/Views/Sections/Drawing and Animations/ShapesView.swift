@@ -89,24 +89,24 @@ struct ShapesView: View, Comparable {
         Group {
             // MARK: - rectangle
             Rectangle()
-                .fill(Color("secondary"))
+                .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 100)
             // MARK: - Circle
             Circle()
-                .fill(Color("secondary"))
+                .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 100)
             // MARK: - Ellipse
             Ellipse()
-                .fill(Color("secondary"))
+                .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 200)
             // MARK: - capsule
             Capsule()
-                .fill(Color("secondary"))
+                .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 150)
 
             // MARK: - rounded rectangle
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                .fill(Color("secondary"))
+                .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 100)
 
         }
@@ -120,7 +120,7 @@ struct ShapesView: View, Comparable {
             Text("Custom shape")
                 .fontWeight(.heavy)
             CustomShape()
-                .fill(Color("secondary"))
+                .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 100)
         }
         .padding()

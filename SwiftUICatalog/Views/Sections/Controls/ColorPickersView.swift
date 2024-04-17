@@ -45,13 +45,14 @@ struct ColorPickersView: View, Comparable {
         
         PageContainer(content:
 
-        ScrollView{
+        ScrollView {
             Group {
-                VStack {
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker")
+                VStack(alignment: .leading) {
+                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker", name: "COLOR PICKER")
 
                     Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
-                        .padding()
+
+                    Divider()
                     ColorPicker("Alignment Guides",
                                 selection: $bgColor1)
                     HStack{
@@ -60,6 +61,7 @@ struct ColorPickersView: View, Comparable {
                         Spacer()
                     }
                     Spacer(minLength: 40)
+                    Divider()
                     ColorPicker("Alignment Guides",
                                 selection: $bgColor2,
                                 supportsOpacity: false)
@@ -74,8 +76,9 @@ struct ColorPickersView: View, Comparable {
                     .padding(.top, 80)
 
             }
-            .padding()
         })
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
 }
 

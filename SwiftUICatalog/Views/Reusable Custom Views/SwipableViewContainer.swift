@@ -112,7 +112,7 @@ struct SwipableViewContainer: View {
                     ).transition(self.viewRemovalTransition)
             }
         }
-        .padding(.horizontal)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
 }
 

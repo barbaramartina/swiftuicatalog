@@ -54,7 +54,7 @@ struct GeometriesView: View, Comparable {
 
         ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/geometryreader")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/geometryreader", name: "GEOMETRY")
             
             intro
             GeometryReader { geometry in
@@ -62,7 +62,7 @@ struct GeometriesView: View, Comparable {
                     Spacer()
                     Text("First item")
                         .font(.largeTitle)
-                        .foregroundColor(.secondary)
+                        .foregroundColor(Color("YellowMedium"))
                         .frame(width: geometry.size.width * 0.30)
                         .background(.primary)
                         .minimumScaleFactor(0.5)
@@ -71,7 +71,7 @@ struct GeometriesView: View, Comparable {
                         .font(.largeTitle)
                         .foregroundColor(.primary)
                         .frame(width: geometry.size.width * 0.60)
-                        .background(.secondary)
+                        .background(Color("YellowMedium"))
                         .minimumScaleFactor(0.5)
                     Spacer()
                 }

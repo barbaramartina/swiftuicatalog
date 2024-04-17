@@ -180,7 +180,7 @@ struct EffectsModifiersView_Previews: PreviewProvider {
 struct BlendExamplesView: View {
     var body: some View {
         VStack {
-            Color("secondary").frame(width: 50, height: 50, alignment: .center)
+            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
@@ -189,7 +189,7 @@ struct BlendExamplesView: View {
         }
         .padding(20)
         VStack {
-            Color("secondary").frame(width: 50, height: 50, alignment: .center)
+            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
@@ -198,7 +198,7 @@ struct BlendExamplesView: View {
         }
         .padding(20)
         VStack {
-            Color("secondary").frame(width: 50, height: 50, alignment: .center)
+            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
@@ -208,7 +208,7 @@ struct BlendExamplesView: View {
         .padding(20)
 
         VStack {
-            Color("secondary").frame(width: 50, height: 50, alignment: .center)
+            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)

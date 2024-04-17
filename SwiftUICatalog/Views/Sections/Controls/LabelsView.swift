@@ -53,11 +53,14 @@ struct LabelsView: View, Comparable {
         PageContainer(content:
         ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label", name: "LABELS")
 
             labelTypes
+            Divider()
             labelsGroups
+            Divider()
             labelsCustomViews
+            Divider()
             truncationAndMultilineLabels
 
             ContributedByView(name: "Ali Ghayeni H",
@@ -65,12 +68,14 @@ struct LabelsView: View, Comparable {
                 .padding(.top, 80)
 
         })
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
 
     // MARK: - LABEL TYPE
 
     private var labelTypes: some View {
-        Group {
+        VStack(alignment: .leading) {
 
             // Contextual information: a short intro to the elements we are showcasing
             Group {
@@ -79,7 +84,6 @@ struct LabelsView: View, Comparable {
                 Text("You can create a label in SwiftUI by adding an icon to it, using only a text or conbining text and icons in one label")
                     .fontWeight(.light)
             }
-            .padding()
 
             VStack {
                 Spacer()
@@ -148,7 +152,6 @@ struct LabelsView: View, Comparable {
                     .font(.title)
                 }
             }
-            .padding()
         }
 
     }
@@ -156,8 +159,8 @@ struct LabelsView: View, Comparable {
     // MARK: - LABEL GROUPS
 
     private var labelsGroups: some View {
-        Group {
-            VStack{
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading) {
                 Group {
                     Text( "Label groups")
                         .fontWeight(.heavy)
@@ -165,33 +168,35 @@ struct LabelsView: View, Comparable {
                         .fontWeight(.light)
 
                 }
-                .padding()
+                Group {
+                    VStack {
+                        Label("Rain", systemImage: "cloud.rain")
+                        Label("Snow", systemImage: "snow")
+                        Label("Sun", systemImage: "sun.max")
+                    }
+                    .foregroundColor(.accentColor)
+                    Divider()
 
-                VStack {
-                    Label("Rain", systemImage: "cloud.rain")
-                    Label("Snow", systemImage: "snow")
-                    Label("Sun", systemImage: "sun.max")
+                    /// To apply a common label style to a group of labels, apply the style
+                    /// to the view hierarchy that contains the labels:
+                    VStack {
+                        Label("Rain", systemImage: "cloud.rain")
+                        Label("Snow", systemImage: "snow")
+                        Label("Sun", systemImage: "sun.max")
+                    }
+                    Divider()
+                    .labelStyle(titleOnly)
+
+                    VStack {
+                        Label("", systemImage: "cloud.rain")
+                        Label("", systemImage: "snow")
+                        Label("", systemImage: "sun.max")
+                    }
+                    .foregroundColor(.accentColor)
+
                 }
-                .foregroundColor(.accentColor)
-                .padding()
+                .modifier(ViewAlignmentModifier(alignment: .center))
 
-                /// To apply a common label style to a group of labels, apply the style
-                /// to the view hierarchy that contains the labels:
-                VStack {
-                    Label("Rain", systemImage: "cloud.rain")
-                    Label("Snow", systemImage: "snow")
-                    Label("Sun", systemImage: "sun.max")
-                }
-                .labelStyle(titleOnly)
-                .padding()
-
-
-                VStack {
-                    Label("", systemImage: "cloud.rain")
-                    Label("", systemImage: "snow")
-                    Label("", systemImage: "sun.max")
-                }
-                .foregroundColor(.accentColor)
             }
         }
 
@@ -200,15 +205,14 @@ struct LabelsView: View, Comparable {
     // MARK: - TRUNCATION AND MULTILINE
 
     private var truncationAndMultilineLabels: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Text("truncations and multiline")
                     .fontWeight(.heavy)
                 Text("Similar configuration as there were in UIKit can be applied in SwiftUI to manage truncation and multiline text in a label")
                     .fontWeight(.light)
             }
-            .padding()
-
+            
             Label(
                 title: { Text("Very long text truncated")
                         .multilineTextAlignment(.center)
@@ -237,15 +241,14 @@ struct LabelsView: View, Comparable {
     // MARK: - LABEL WITH CUSTOM VIEWS
 
     private var labelsCustomViews: some View {
-        Group{
-            VStack {
+        VStack(alignment: .leading) {
+            VStack(alignment: .leading)  {
                 Group {
                     Text( "Label With Custom Views")
                         .fontWeight(.heavy)
                     Text("It's also possible to make labels using views to compose the label's icon")
                         .fontWeight(.light)
                 }
-                .padding()
 
                 /// It's also possible to make labels using views to compose the label's icon
                 /// programmatically, rather than using a pre-made image. In this example, the
@@ -257,14 +260,13 @@ struct LabelsView: View, Comparable {
                         .foregroundColor(.primary)
                     Text("Lightning SubHeadline")
                         .font(.subheadline)
-                        .foregroundColor(Color("secondary"))
+                        .foregroundColor(Color("YellowMedium"))
                 } icon: {
                     Circle()
                         .fill(Color.accentColor)
                         .frame(width: 44, height: 44, alignment: .center)
                         .overlay(Text("A+").foregroundColor(.white))
                 }
-                .padding()
             }
 
         }

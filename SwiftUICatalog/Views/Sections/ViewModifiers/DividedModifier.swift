@@ -14,7 +14,7 @@ struct Divided: ViewModifier {
         VStack {
             content
             Divider()
-                .padding(.vertical)
+                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
         }
     }
 }

@@ -44,13 +44,13 @@ struct StacksView: View, Comparable {
     let id: String = "StacksView"
 
     let colors: [Color] =
-    [ Color("secondary"), .green, .blue, .purple]
+    [ Color("YellowMedium"), .green, .blue, .purple]
 
     var body: some View {
         PageContainer(content: ScrollView () {
 
             VStack {
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/hstack")
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/hstack", name: "STACK VIEWS")
 
                 Text("Stacks – equivalent to UIStackView in UIKit – come in three forms: horizontal (HStack), vertical (VStack) and depth-based (ZStack), with the latter being used when you want to place child views so they overlap.")
                     .fontWeight(.light)

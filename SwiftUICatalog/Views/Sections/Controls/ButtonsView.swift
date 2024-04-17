@@ -53,6 +53,22 @@ struct ButtonsComponentsView: View, Comparable {
     /// configuration of the first button: custom font
     @State private var font: UIFont = UIFont.preferredFont(forTextStyle: .body)
 
+    // MARK: - Interactive button configuration
+    /// radius configuration
+    @State private var radius2: CGFloat = 10.0
+    /// frame width
+    @State private var buttonWidth: CGFloat = 100
+    /// frame height
+    @State private var buttonHeight: CGFloat = 44
+    /// configuration of the : background color
+    @State private var color2: Color = Color.clear
+    /// configuration of the first button: border color
+    @State private var colorBorder2: Color = Color.accentColor
+    /// configuration of the first button: border width
+    @State private var borderWidth2: Double = 1
+    /// the style for the button's title
+    @State private var textStyle2: UIFont.TextStyle = .body
+  
 
     // MARK: - Body
 
@@ -60,28 +76,41 @@ struct ButtonsComponentsView: View, Comparable {
 
         PageContainer(content: ScrollView {
 
-            VStack {
+            VStack(alignment: .leading) {
 
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button")
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button", name: "BUTTON")
 
 
                 // MARK: - basics of buttons
                 Group {
+                    customizableButton
+                    Divider()
                     roundedButtons
+                    Divider()
                     customShapeButtons
+                    Divider()
+                    labelStyledButton
+                    Divider()
                     strokedBorderButtons
+                    Divider()
                     plainBackgroundButtons
+                    Divider()
                     imagesInButtons
+                    Divider()
                     buttonsWithIcons
+                    Divider()
                     buttonWithLabels
+                    Divider()
                     styledButtons
-
+                    Divider()
                 }
 
                 ContributedByView(name: "Barbara Martina",
                                   link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
             }
+            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         })
 
     }
@@ -89,7 +118,7 @@ struct ButtonsComponentsView: View, Comparable {
 
 
     private var imagesInButtons: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Button with image")
                 .fontWeight(.heavy)
             Button(action: {}, label: {
@@ -98,11 +127,10 @@ struct ButtonsComponentsView: View, Comparable {
             })
             .border(Color.accentColor, width: 5)
         }
-        .padding()
     }
 
     private var buttonsWithIcons: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Button with icon & label")
                 .fontWeight(.heavy)
             Button(action: {}, label: {
@@ -116,11 +144,10 @@ struct ButtonsComponentsView: View, Comparable {
             })
             .modifier(ButtonBorderModifier())
         }
-        .padding()
     }
 
     private var buttonWithLabels: some View {
-        return Group {
+        VStack(alignment: .leading) {
             Text("Button with label")
                 .fontWeight(.heavy)
             Button(action: {}, label: {
@@ -129,23 +156,116 @@ struct ButtonsComponentsView: View, Comparable {
             })
             .modifier(ButtonBorderModifier())
         }
-        .padding()
     }
 
     private var styledButtons: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("BorderlessButtonStyle")
                 .fontWeight(.heavy)
             Button("Style me: borderless", action: {})
                 .buttonStyle(BorderlessButtonStyle())
-
-
+            Divider()
             Text("PlainButtonStyle")
                 .fontWeight(.heavy)
             Button("Style me: plain", action: {})
                 .buttonStyle(PlainButtonStyle())
         }
-        .padding()
+    }
+    
+    private var labelStyledButton: some View {
+        VStack(alignment: .leading) {
+            Text("A button label can have different styles")
+                .fontWeight(.heavy)
+            Button("Label Syle Icon Only", systemImage: "message.badge",  action: {})
+                .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
+                .background(color2)
+                .labelStyle(.iconOnly)
+                .modifier(ButtonRoundedModifier(radius: 10,
+                                                lineWidth: CGFloat(borderWidth),
+                                                color: colorBorder))
+            Button("Label Syle Title Only", systemImage: "message.badge",  action: {})
+                .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
+                .background(color2)
+                .labelStyle(.titleOnly)
+                .modifier(ButtonRoundedModifier(radius: 10,
+                                                lineWidth: CGFloat(borderWidth),
+                                                color: colorBorder))
+            Button("Label Syle Icon and Title", systemImage: "message.badge",  action: {})
+                .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
+                .background(color2)
+                .labelStyle(.titleAndIcon)
+                .modifier(ButtonRoundedModifier(radius: 10,
+                                                lineWidth: CGFloat(borderWidth),
+                                                color: colorBorder))
+        }
+    }
+    
+    private var customizableButton: some View {
+        VStack(alignment: .leading) {
+            Text("A button and properties that you can adjust interactively")
+                .fontWeight(.heavy)
+            Button("change me", systemImage: "message.badge",  action: {})
+                .frame(width: buttonWidth, height: buttonHeight)
+                .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
+                .background(color2)
+                .modifier(ButtonRoundedModifier(radius: radius2,
+                                                lineWidth: CGFloat(borderWidth2),
+                                                color: colorBorder2))
+
+            ColorPicker("Background color:",
+                        selection: $color2,
+                        supportsOpacity: false)
+            
+            ColorPicker("Border color:",
+                        selection: $colorBorder2,
+                        supportsOpacity: false)
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Border width:")
+                    Slider(value: $borderWidth2, in: 0...10, step: 1, label: {
+                        Text("\(borderWidth2)")
+                    }, minimumValueLabel: {
+                        Text("0")
+                    }, maximumValueLabel: {
+                        Text("10")
+                    }, onEditingChanged:{_ in } )
+                }
+                Text("current value: \(Int(borderWidth2))")
+                    .font(.footnote)
+            }
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Frame width:")
+                    Slider(value: $buttonWidth, in: 50...300, step: 1, label: {
+                        Text("\(Int(buttonWidth))")
+                    }, minimumValueLabel: {
+                        Text("50")
+                    }, maximumValueLabel: {
+                        Text("300")
+                    }, onEditingChanged:{_ in } )
+                }
+                Text("current value: \(Int(buttonWidth))")
+                    .font(.footnote)
+            }
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Frame height:")
+                    Slider(value: $buttonHeight, in: 35...100, step: 1, label: {
+                        Text("\(Int(buttonHeight))")
+                    }, minimumValueLabel: {
+                        Text("35")
+                    }, maximumValueLabel: {
+                        Text("100")
+                    }, onEditingChanged:{_ in } )
+                }
+                Text("current value: \(Int(buttonHeight))")
+                    .font(.footnote)
+            }
+            HStack {
+                Text("Font Style:")
+                UIFontTextStylePicker(selection: $textStyle2)
+            }
+        }
     }
 
 
@@ -153,7 +273,7 @@ struct ButtonsComponentsView: View, Comparable {
 
     private var roundedButtons: some View {
         // Contextual information: a short intro to the elements we are showcasing
-        Group {
+        VStack(alignment: .leading) {
             Text("Rounded Button")
                 .fontWeight(.heavy)
             Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier")
@@ -180,7 +300,6 @@ struct ButtonsComponentsView: View, Comparable {
             HStack {
                 Text("Border width:")
                     .fontWeight(.light)
-
                 Slider(
                     value: $borderWidth,
                     in: 0...10,
@@ -190,12 +309,12 @@ struct ButtonsComponentsView: View, Comparable {
 
             }
         }
-        .padding()
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
 
     }
 
     private var customShapeButtons: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Specific Rounded borders with custom shape")
                 .fontWeight(.heavy)
             Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
@@ -214,12 +333,10 @@ struct ButtonsComponentsView: View, Comparable {
                     )
             })
         }
-        .padding()
-
     }
 
     private var strokedBorderButtons: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Stroked borders")
                 .fontWeight(.heavy)
             Text("Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle")
@@ -234,12 +351,11 @@ struct ButtonsComponentsView: View, Comparable {
                     )
             }
         }
-        .padding()
 
     }
 
     private var plainBackgroundButtons: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Button with plain background")
                 .fontWeight(.heavy)
             Button(action: {}, label: {
@@ -249,7 +365,6 @@ struct ButtonsComponentsView: View, Comparable {
             })
             .background(Color.accentColor)
         }
-        .padding()
 
     }
 }

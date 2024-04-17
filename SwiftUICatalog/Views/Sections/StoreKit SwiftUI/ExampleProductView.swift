@@ -120,8 +120,8 @@ struct ExampleProductView: View {
                 ProgressView()
                     .frame(width: 120, height: 120)
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 16)
+            .padding(.vertical, Style.VerticalPadding.large.rawValue)
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .background(.regularMaterial,
                         in: .rect(cornerRadius: 8))
         }
@@ -139,8 +139,8 @@ struct ExampleProductView: View {
             ProductView(id: productId) {
                 productImage
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 16)
+            .padding(.vertical, Style.VerticalPadding.large.rawValue)
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .productViewStyle(.regular)
         }
     }
@@ -157,8 +157,8 @@ struct ExampleProductView: View {
             ProductView(id: productId) {
                 productImage
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 16)
+            .padding(.vertical, Style.VerticalPadding.large.rawValue)
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .productViewStyle(.compact)
         }
     }
@@ -175,8 +175,8 @@ struct ExampleProductView: View {
             ProductView(id: productId) {
                 productImage
             }
-            .padding(.vertical, 24)
-            .padding(.horizontal, 16)
+            .padding(.vertical, Style.VerticalPadding.large.rawValue)
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .productViewStyle(.large)
         }
     }

@@ -47,27 +47,34 @@ struct TextsComponentsView: View, Comparable {
 
         ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: "TEXT VIEW")
 
             
             fontTypes
+            Divider()
             fontWeights
+            Divider()
             fontModifiers
+            Divider()
             textTruncation
+            Divider()
             textTranslations
+            Divider()
             textDates
+            Divider()
             textControls
+            Divider()
 
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
-
-
         })
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
 
     private var textControls: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
 
                 Group {
@@ -76,14 +83,12 @@ struct TextsComponentsView: View, Comparable {
                     Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
                         .fontWeight(.light)
                 }
-                .padding()
 
                 HStack {
                     Text("Text field:")
                     Spacer()
                     TextField("text-field-localised-key", text: $textFieldValue)
                 }
-                .padding(10)
                 HStack {
                     Text("Secure Text field")
                     Spacer()
@@ -92,7 +97,6 @@ struct TextsComponentsView: View, Comparable {
                 }
                 .padding(10)
             }
-            .padding(5)
             Spacer()
         }
 
@@ -100,76 +104,78 @@ struct TextsComponentsView: View, Comparable {
 
     /// Font types
     private var fontTypes: some View {
-        Group {
+        VStack(alignment: .leading) {
 
             // Contextual information: a short intro to the elements we are showcasing
             Text("Available fonts")
                 .fontWeight(.heavy)
-                .padding()
             Text("To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined")
                 .fontWeight(.light)
-                .padding()
-            Text("Headline")
-                .font(.headline)
-            Text("Sub headline")
-                .font(.subheadline)
-            Text("Large title")
-                .font(.largeTitle)
-            Text("Title")
-                .font(.title)
-            Text("Title 2")
-                .font(.title2)
-            Text("Title 3")
-                .font(.title3)
-            Text("Body")
-                .font(.body)
-            Text("Callout")
-                .font(.callout)
-            Text("Caption")
-                .font(.caption)
-            Text("Caption 2")
-                .font(.caption2)
-            Text("Footnote")
-                .font(.footnote)
+            VStack(alignment: .center) {
+                Text("Headline")
+                    .font(.headline)
+                Text("Sub headline")
+                    .font(.subheadline)
+                Text("Large title")
+                    .font(.largeTitle)
+                Text("Title")
+                    .font(.title)
+                Text("Title 2")
+                    .font(.title2)
+                Text("Title 3")
+                    .font(.title3)
+                Text("Body")
+                    .font(.body)
+                Text("Callout")
+                    .font(.callout)
+                Text("Caption")
+                    .font(.caption)
+                Text("Caption 2")
+                    .font(.caption2)
+                Text("Footnote")
+                    .font(.footnote)
+            }
+            .modifier(ViewAlignmentModifier(alignment: .center))
+            .padding()
         }
     }
 
     private var fontWeights: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Available font weights")
                 .fontWeight(.heavy)
-                .padding()
             Text("Fonts can also be assigned a weight, which will change the appereance of the font")
                 .fontWeight(.light)
-                .padding()
-            Text("Weight Black")
-                .fontWeight(.heavy)
-            Text("Weight Heavy")
-                .fontWeight(.heavy)
-            Text("Weight Bold")
-                .fontWeight(.bold)
-            Text("Weight Semibold")
-                .fontWeight(.semibold)
-            Text("Weight Medium")
-                .fontWeight(.medium)
-            Text("Weight Regular")
-                .fontWeight(.regular)
-            Text("Weight Light")
-                .fontWeight(.light)
-            Text("Weight Ultra light")
-                .fontWeight(.ultraLight)
-            Text("Weight Thin")
-                .fontWeight(.thin)
+            VStack(alignment: .center) {
+                Text("Weight Black")
+                    .fontWeight(.heavy)
+                Text("Weight Heavy")
+                    .fontWeight(.heavy)
+                Text("Weight Bold")
+                    .fontWeight(.bold)
+                Text("Weight Semibold")
+                    .fontWeight(.semibold)
+                Text("Weight Medium")
+                    .fontWeight(.medium)
+                Text("Weight Regular")
+                    .fontWeight(.regular)
+                Text("Weight Light")
+                    .fontWeight(.light)
+                Text("Weight Ultra light")
+                    .fontWeight(.ultraLight)
+                Text("Weight Thin")
+                    .fontWeight(.thin)
+            }
+            .modifier(ViewAlignmentModifier(alignment: .center))
+            .padding()
         }
     }
 
     private var fontModifiers: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text( "Text, italic, bold")
                 .fontWeight(.heavy)
-                .padding()
-
-            Group {
+            VStack(alignment: .center) {
                 Text("Italic")
                     .italic()
                 Text("Bold")
@@ -189,16 +195,17 @@ struct TextsComponentsView: View, Comparable {
                             y: 3.0)
 
             }
+            .modifier(ViewAlignmentModifier(alignment: .center))
+            .padding()
 
         }
 
     }
 
     private var textTruncation: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text( "Text, truncations and multiline")
                 .fontWeight(.heavy)
-                .padding()
 
             Text("Very long text truncated")
                 .frame(width: 150)
@@ -213,10 +220,9 @@ struct TextsComponentsView: View, Comparable {
     }
 
     private var textTranslations: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text( "Text and translations")
                 .fontWeight(.heavy)
-                .padding()
 
             Group {
                 // automatically looks in the bundle localised strings file
@@ -224,13 +230,12 @@ struct TextsComponentsView: View, Comparable {
                 // skip trying to localise the string
                 Text(verbatim: "nottranslated")
             }
-
         }
 
     }
 
     private var textDates: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Group {
                     Text("Text and dates")
@@ -238,7 +243,6 @@ struct TextsComponentsView: View, Comparable {
                     Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
                         .fontWeight(.light)
                 }
-                .padding()
 
                 HStack {
                     Text("Text with date:")

@@ -61,14 +61,17 @@ struct DatePickersView: View, Comparable {
 
         ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker", name: "DATE PICKER")
 
             plainDatePicker
+            Divider()
             rangeLimitDatePicker
+            Divider()
             wheelsDatePicker
+            Divider()
             compactDatePicker
+            Divider()
             graphicalDatePicker
-
 
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
@@ -76,15 +79,15 @@ struct DatePickersView: View, Comparable {
 
 
         })
-        .padding(.leading, 16)
-        .padding(.trailing, 16)
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
 
     }
 
     // MARK: - date pickers graphical
 
     private var graphicalDatePicker: some View {
-        Group {
+        VStack(alignment: .leading) {
 
             Group {
                 Text("Style graphical")
@@ -92,7 +95,6 @@ struct DatePickersView: View, Comparable {
                 Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
                     .fontWeight(.light)
             }
-            .padding()
 
             DatePicker(
                 "Start Date 4",
@@ -100,7 +102,6 @@ struct DatePickersView: View, Comparable {
                 displayedComponents: [.date]
             )
             .datePickerStyle(GraphicalDatePickerStyle())
-            .padding()
         }
 
     }
@@ -108,14 +109,13 @@ struct DatePickersView: View, Comparable {
     // MARK: - date pickers compact
 
     private var compactDatePicker: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Text("Style compact")
                     .fontWeight(.heavy)
                 Text("Compact styles make the date picker appear in one line, from which it is expanded")
                     .fontWeight(.light)
             }
-            .padding()
 
             DatePicker(
                 "Start Date 4",
@@ -123,7 +123,6 @@ struct DatePickersView: View, Comparable {
                 displayedComponents: [.date]
             )
             .datePickerStyle(CompactDatePickerStyle())
-            .padding()
         }
 
     }
@@ -131,22 +130,20 @@ struct DatePickersView: View, Comparable {
     // MARK: - date pickers wheels
 
     private var wheelsDatePicker: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Text( "Style wheels")
                     .fontWeight(.heavy)
                 Text("The date picker can adopt different style, here we show the WHEELS style")
                     .fontWeight(.light)
             }
-            .padding()
 
             DatePicker(
-                "Start Date 3",
+                "Picker 3",
                 selection: $date3,
                 displayedComponents: [.date]
             )
             .datePickerStyle(WheelDatePickerStyle())
-            .padding()
         }
 
     }
@@ -154,14 +151,13 @@ struct DatePickersView: View, Comparable {
     // MARK: - date picker with range limit
 
     private var rangeLimitDatePicker: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Text("Range limit")
                     .fontWeight(.heavy)
                 Text("Ranges can be configured using the in: parameter")
                     .fontWeight(.light)
             }
-            .padding()
 
             DatePicker(
                 "Start Date 2",
@@ -169,14 +165,13 @@ struct DatePickersView: View, Comparable {
                 in: dateRange,
                 displayedComponents: [.date, .hourAndMinute]
             )
-            .padding()
         }
 
     }
 
     // MARK: - date picker no range limit
     private var plainDatePicker: some View {
-        Group {
+        VStack(alignment: .leading) {
 
             Group {
                 Text( "No range limit")
@@ -184,14 +179,12 @@ struct DatePickersView: View, Comparable {
                 Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
                     .fontWeight(.light)
             }
-            .padding()
-
+            
             DatePicker(
                 "Start Date 1",
                 selection: $date1,
                 displayedComponents: [.date]
             )
-            .padding()
             .onChange(of: date1, { oldValue, newValue in
                 print("previous value \(oldValue)")
                 print("new value \(newValue)")

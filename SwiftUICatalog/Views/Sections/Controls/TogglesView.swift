@@ -44,8 +44,8 @@ struct TogglesView: View, Comparable {
         PageContainer(
             content:
                 ScrollView {
-                    VStack {
-                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle")
+                    VStack(alignment: .leading) {
+                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle", name: "TOGGLES")
 
                         // Contextual information: a short intro to the elements we are showcasing
                         Group {
@@ -54,12 +54,14 @@ struct TogglesView: View, Comparable {
                             Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
                                 .fontWeight(.light)
                         }
-                        .padding()
 
                        
                         defaultToggle
+                        Divider()
                         switchToggle
+                        Divider()
                         customToggle
+                        Divider()
                         toggleWithStyle
 
                         Spacer()
@@ -68,9 +70,10 @@ struct TogglesView: View, Comparable {
                                           link: "https://github.com/freddy1h")
                         .padding(.top, 80)
                     }
-                    .padding()
                 }
         )
+        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
 
     private var defaultToggle: some View {
