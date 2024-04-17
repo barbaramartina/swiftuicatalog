@@ -12,7 +12,7 @@ struct AspectRatioModePicker: View {
     
     /// possible test aspects ratios to apply to an image
     private let aspectRatios: [CGFloat] = [0.25, 0.40, 0.75, 1]
-    @Binding var aspectRatio: CGFloat
+    @Binding var selection: CGFloat
 
     enum Mode: String, CaseIterable {
         case fill
