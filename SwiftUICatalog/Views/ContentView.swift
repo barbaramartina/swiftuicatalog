@@ -38,7 +38,7 @@ struct ContentView: View {
 
     private let sectionColor = "Dark"
 
-    private let gradient = EllipticalGradient(colors: [ .cyan, .black, .white, .green, .gray],
+    private let gradient = EllipticalGradient(colors: [ .yellowMedium, .white],
                                               center: .topLeading,
                                               startRadiusFraction: 0.3,
 endRadiusFraction: 3)
@@ -51,7 +51,7 @@ endRadiusFraction: 3)
     
     var body: some View {
         
-        NavigationView {
+        NavigationStack {
             ZStack {
                 gradient
                     .ignoresSafeArea()
