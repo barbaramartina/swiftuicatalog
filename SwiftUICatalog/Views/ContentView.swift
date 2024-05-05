@@ -35,15 +35,16 @@ protocol Comparable: Hashable & Equatable & Identifiable {}
 
 
 struct ContentView: View {
-
+    
     private let sectionColor = "Dark"
-
+    
     private let gradient = EllipticalGradient(colors: [ .yellowMedium, .white],
                                               center: .topLeading,
                                               startRadiusFraction: 0.3,
-endRadiusFraction: 3)
-
+                                              endRadiusFraction: 3)
+    
     init(){
+        // change the background of all the tables
         UITableView.appearance().backgroundColor = .clear
     }
     
@@ -56,47 +57,44 @@ endRadiusFraction: 3)
                 gradient
                     .ignoresSafeArea()
                 
-                    List {
-
-                        topHeaderRow
-                        controls
-                        storeKit
-                        layouts
-                        hierachicalViews
-                        drawings
-                        charts
-                        gestures
-                        viewModifiers
-                        accessibility
-                        statusBars
-                        stylingSection
-                        popovers
-                        composedComponents
-
-                    }
-                    .scrollContentBackground(.hidden)
-                    .navigationTitle("Components Catalog")
-                    .foregroundColor(.white)
-
+                List {
+                    
+                    topHeaderRow
+                    controls
+                    storeKit
+                    layouts
+                    hierachicalViews
+                    drawings
+                    charts
+                    gestures
+                    viewModifiers
+                    accessibility
+                    statusBars
+                    stylingSection
+                    popovers
+                    composedComponents
+                    
                 }
+                .scrollContentBackground(.hidden)
+                .navigationTitle("SwiftUI Catalog")
+            }
             
-                
         }
         // end of navigationview
     }
-
+    
     // MARK: - Header sections
-
+    
     private var topHeaderRow: some View {
         Group {
-
+            
             Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
                 .font(.footnote)
                 .fontWeight(.light)
                 .padding(.top, 24)
                 .padding(.bottom, 16)
                 .foregroundColor(.white)
-
+            
             HStack(alignment: .center, spacing: 2) {
                 Spacer()
                 Button(action: {
@@ -107,16 +105,16 @@ endRadiusFraction: 3)
                         .resizable()
                         .frame(width: 50, height: 50)
                 })
-
+                
                 Spacer()
             }
-
+            
         }
         .listRowBackground(Color(sectionColor))
         // end of section
-
+        
     }
-
+    
     private var controls: some View {
         Section(header: Text("Controls")
             .modifier(ListSectionFontModifier())) {
@@ -148,11 +146,11 @@ endRadiusFraction: 3)
                     Link(destination: ProgressViews(),
                          label: "Progress View")
                 }
-
+                
             }
             .listRowBackground(Color(sectionColor))
     }
-
+    
     private var storeKit: some View {
         Section(header: Text("Store Kit Views")
             .modifier(ListSectionFontModifier())) {
@@ -162,9 +160,9 @@ endRadiusFraction: 3)
                 }
             }
             .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var layouts: some View {
         Section(header: Text("Layouts")
             .modifier(ListSectionFontModifier())) {
@@ -181,7 +179,7 @@ endRadiusFraction: 3)
             }
             .listRowBackground(Color(sectionColor))
     }
-
+    
     private var hierachicalViews: some View {
         Section(header: Text("Hierachical Views")   .modifier(ListSectionFontModifier())) {
             Link(destination: NavigationBarsComponentView(),
@@ -194,9 +192,9 @@ endRadiusFraction: 3)
                  label: "Tabs")
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var drawings: some View {
         Section(header: Text("Drawing and animations")                                .modifier(ListSectionFontModifier())) {
             Link(destination: CanvasView(),
@@ -211,19 +209,19 @@ endRadiusFraction: 3)
                  label: "Geometries")
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var charts: some View {
-        Section(header: Text("Charts")                                
+        Section(header: Text("Charts")
             .modifier(ListSectionFontModifier())) {
-            Link(destination: ChartsViews(),
-                 label: "Swift Charts")
-        }
-        .listRowBackground(Color(sectionColor))
-
+                Link(destination: ChartsViews(),
+                     label: "Swift Charts")
+            }
+            .listRowBackground(Color(sectionColor))
+        
     }
-
+    
     private var gestures: some View {
         Section(header: Text("Gestures")                                .modifier(ListSectionFontModifier())) {
             Link(destination: GesturesView(),
@@ -232,9 +230,9 @@ endRadiusFraction: 3)
                  label: "Composing Gestures")
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var viewModifiers: some View {
         Section(header: Text("View modifiers")                                .modifier(ListSectionFontModifier())) {
             Link(destination: TextModifiersView(),
@@ -243,45 +241,45 @@ endRadiusFraction: 3)
                  label: "Effect modifiers")
             Link(destination: LayoutModifiersView(),
                  label: "Layout modifiers")
-
+            
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var accessibility: some View {
         Section(header: Text("Accesibility")                                .modifier(ListSectionFontModifier())) {
-
+            
             Link(destination: AccesibilityView(),
                  label: "Accesibility")
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var statusBars: some View {
         Section(header: Text("Status and tool bars")                                .modifier(ListSectionFontModifier())) {
             Link(destination: ToolbarsComponentView(),
                  label: "Tool Bars")
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var stylingSection: some View {
         Section(header: Text("Styling")
             .modifier(ListSectionFontModifier())) {
-
-            Link(destination: StylesView(),
-                 label: "Styles")
-        }
-        .listRowBackground(Color(sectionColor))
-
+                
+                Link(destination: StylesView(),
+                     label: "Styles")
+            }
+            .listRowBackground(Color(sectionColor))
+        
     }
-
+    
     private var popovers: some View {
         Section(header: Text("Popovers, alerts and sheets")                                .modifier(ListSectionFontModifier())) {
-
+            
             Link(destination: PopoversComponentView(),
                  label: "Popovers")
             Link(destination: SheetView(),
@@ -294,12 +292,12 @@ endRadiusFraction: 3)
                  label: "Spacer")
         }
         .listRowBackground(Color(sectionColor))
-
+        
     }
-
+    
     private var composedComponents: some View {
         Section(header: Text("Composed components to help speed up development")                                .modifier(ListSectionFontModifier())) {
-
+            
             Link(destination: CommonlyUsedViews(),
                  label: "Commonly used views")
             Link(destination: CollectionsViews(),
@@ -307,7 +305,7 @@ endRadiusFraction: 3)
         }
         .listRowBackground(Color(sectionColor))
         // end of Group composed VIEWS
-
+        
     }
 }
 
@@ -323,5 +321,6 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
+
 
 

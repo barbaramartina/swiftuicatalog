@@ -41,7 +41,7 @@ struct TitleSubtitleIconView: View, Identifiable {
     @State var configuration: Configuration
     
     var body: some View {
-
+        
         VStack(alignment: .center) {
             HStack(alignment: configuration.iconVerticalAlignment) {
                 
@@ -50,37 +50,37 @@ struct TitleSubtitleIconView: View, Identifiable {
                         .resizable()
                         .scaledToFit()
                         .frame(width: configuration.iconSize.width, height: configuration.iconSize.height)
-
+                    
                 }
                 
                 VStack(alignment: configuration.iconHorizontalAlignment == .center ? .center : .leading) {
-
+                    
                     if configuration.iconHorizontalAlignment == .center {
                         Image(configuration.icon)
                             .resizable()
                             .scaledToFit()
                             .frame(width: configuration.iconSize.width, height: configuration.iconSize.height,
                                    alignment: .center)
-
+                        
                     }
-
+                    
                     Text(configuration.title)
                         .font(configuration.titleFont)
                         .fontWeight(configuration.titleWeight)
                         .padding(.top, 16)
-
+                    
                     Text(configuration.subtitle)
                         .font(configuration.subtitleFont)
                         .fontWeight(configuration.subtitleWeight)
                         .padding(.top, 16)
                 }
-
+                
                 if configuration.iconHorizontalAlignment == .trailing {
                     Image(configuration.icon)
                         .resizable()
                         .scaledToFit()
                         .frame(width: configuration.iconSize.width, height: configuration.iconSize.height)
-
+                    
                 }
                 
             }
@@ -90,33 +90,33 @@ struct TitleSubtitleIconView: View, Identifiable {
                        height: 1,
                        alignment: .center)
                 .padding(.top, 12)
-
+            
         }
         .background(configuration.backgroundColor)
         .padding(.top, configuration.paddingTop)
         .padding(.bottom, configuration.paddingBottom)
         .padding(.leading, configuration.paddingLeading)
         .padding(.trailing, configuration.paddingTrailing)
-    
+        
     }
-
+    
 }
 
 struct TitleSubtitleIconView_Previews: PreviewProvider {
     
     static var previews: some View {
         TitleSubtitleIconView(configuration: TitleSubtitleIconView.Configuration(backgroundColor: Color.yellow, title: "English Cocker Spaniel"
-                                                                                       , titleFont: .title,
-                                                                                       titleWeight: .bold,
-                                                                                       subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. The English Cocker Spaniel is an active, good-natured, sporting dog[1] standing well up at the withers and compactly built"
-                                                                                       , subtitleFont: .body,
-                                                                                       subtitleWeight: .regular,
+                                                                                 , titleFont: .title,
+                                                                                 titleWeight: .bold,
+                                                                                 subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. The English Cocker Spaniel is an active, good-natured, sporting dog[1] standing well up at the withers and compactly built"
+                                                                                 , subtitleFont: .body,
+                                                                                 subtitleWeight: .regular,
                                                                                  icon: "cocker", iconSize: CGSize(width: 60, height: 60),
                                                                                  iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
-                                                                                       ,
-                                                                                      paddingTop: 16,
-                                                                                      paddingLeading: 16,
-                                                                                      paddingTrailing: 16,
-                                                                                      paddingBottom: 16))
+                                                                                 ,
+                                                                                 paddingTop: 16,
+                                                                                 paddingLeading: 16,
+                                                                                 paddingTrailing: 16,
+                                                                                 paddingBottom: 16))
     }
 }

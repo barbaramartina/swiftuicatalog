@@ -32,54 +32,52 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/slider
 ///
 struct SlidersView: View, Comparable {
-
+    
     // MARK: - Properties
-
-
+    
+    
     let id: String = "SlidersView"
-
+    
     @State private var grams1 = 15.0
     @State private var grams2 = 15.0
     @State private var grams3 = 15.0
     @State private var isEditing1 = false
     @State private var isEditing2 = false
     @State private var isEditing3 = false
-
+    
     // MARK: - Body
-
-
+    
+    
     var body: some View {
-
+        
         PageContainer(content:
-
-                        ScrollView {
-
+                        
+                        Group {
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider", name: "SLIDER")
-
+            
             Group {
                 Text( "Slider with continued values")
                     .fontWeight(.heavy)
                 Text("A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt.")
                     .fontWeight(.light)
             }
-            .padding()
-
-
+            
             sliderGrams
             sliderSteps
             sliderGrams2
             sliderWithVoiceOver
-
+            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
             .padding(.top, 80)
-
+            
         })
         // end of Page container
     }
-
+    
     private var sliderGrams: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Slider(
                 value: $grams1,
                 in: 0...1000,
@@ -91,30 +89,28 @@ struct SlidersView: View, Comparable {
             Text("\(grams1)")
                 .foregroundColor(isEditing1 ? .blue : .black)
         }
-        .padding(10)
-
+        
     }
-
+    
     private var sliderSteps: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Slider with steps")
                 .fontWeight(.heavy)
             Text("A slider can also be configured with a step value, that will make the choose values jump depending on the size of the step, for example here from 20 to 20 more.")
                 .fontWeight(.light)
         }
-        .padding()
-
+        
     }
-
+    
     private var sliderWithVoiceOver: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text( "Slider with VoiceOver Label & min / max values")
                 .fontWeight(.heavy)
                 .padding()
             Text("A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility")
                 .fontWeight(.light)
                 .padding()
-
+            
             VStack {
                 Slider(value: $grams3,
                        in: 0...1000,
@@ -128,20 +124,18 @@ struct SlidersView: View, Comparable {
                        maximumValueLabel: Label(
                         title: { Text("900") },
                         icon: { Image(systemName: "circle") }
-
+                        
                        ),
                        label: {
                     Text("This is a slider for grams")
                 })
                 .padding(30)
-
-
+                
+                
             }
-            .padding(10)
-
         }
     }
-
+    
     private var sliderGrams2: some View {
         Group {
             VStack {
@@ -157,11 +151,9 @@ struct SlidersView: View, Comparable {
                 Text("\(grams2)")
                     .foregroundColor(isEditing2 ? .blue : .black)
             }
-            .padding(10)
-
         }
     }
-
+    
 }
 
 struct SlidersView_Previews: PreviewProvider {
@@ -173,16 +165,16 @@ struct SlidersView_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension SlidersView {
-
+    
     static func == (lhs: SlidersView, rhs: SlidersView) -> Bool {
         return lhs.id == rhs.id
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

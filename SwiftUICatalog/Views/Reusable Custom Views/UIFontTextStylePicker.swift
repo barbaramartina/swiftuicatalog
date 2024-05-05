@@ -14,7 +14,7 @@ struct UIFontTextStylePicker: View {
     
     /// font styles options
     private let options: [UIFont.TextStyle] = [.body, .callout, .caption1, .footnote, .caption2, .extraLargeTitle, .extraLargeTitle2, .headline, .subheadline, .largeTitle, .title1, .title2, .title3]
-
+    
     var body: some View {
         Picker(selection: $selection, label: Text("Font Style")) {
             ForEach(options, id: \.self) {

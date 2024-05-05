@@ -54,12 +54,12 @@ struct AnimationsView: View, Comparable {
     
     
     var body: some View {
-
+        
         Group {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/animation", name: "ANIMATIONS")
-
-            NavigationView {
-
+            
+            NavigationStack {
+                
                 List {
                     Link(destination:                         RobbieWithPulseView(),
                          label: "Pulse animation",
@@ -84,7 +84,7 @@ struct AnimationsView: View, Comparable {
                          textColor: .black)
                 }
                 Spacer()
-
+                
             }
             .navigationTitle("Animations")
         }
@@ -123,146 +123,146 @@ struct PropertiesAnimationsView: View, Comparable {
     @State private var animate2 = false
     @State private var animate3 = false
     @State private var animate4 = false
-
+    
     
     // MARK: - Body
     
-
+    
     var body: some View {
         
-            ScrollView {
-                
-                // MARK: - animating local properties
+        ScrollView {
+            
+            // MARK: - animating local properties
+            
+            Group {
                 
                 Group {
+                    Text( "Animating a toggle on a boolean")
+                        .fontWeight(.heavy)
+                    Text("Using a boolean you can play around with different types of animations")
+                        .fontWeight(.light)
                     
-                    Group {
-                        Text( "Animating a toggle on a boolean")
-                            .fontWeight(.heavy)
-                        Text("Using a boolean you can play around with different types of animations")
-                            .fontWeight(.light)
-
+                }
+                .padding()
+                
+                Button(action: {
+                    withAnimation(.easeInOut(duration: 3)) {
+                        self.animate3.toggle()
+                    }
+                }) {
+                    HStack {
+                        Spacer()
+                        Image("corgie-love")
+                            .resizable()
+                            .rotationEffect(.degrees(animate3 ? 90 : 0))
+                            .scaleEffect(animate3 ? 1.2 : 1)
+                            .frame(width: 200, height: 200)
+                        Spacer()
                     }
                     .padding()
-                    
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 3)) {
-                            self.animate3.toggle()
-                        }
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate3 ? 90 : 0))
-                                .scaleEffect(animate3 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                            Spacer()
-                        }
-                        .padding()
-                        // end of h stack
-                    }
                     // end of h stack
                 }
-                // end of group
-                
-                
-                // MARK: - rotation animated
-                Group {
-                    Group {
-                        Text( "Rotation animated")
-                            .fontWeight(.heavy)
-                        Text("Using a rotation effect and changing the degrees of the angle you can achieve a different animation")
-                            .fontWeight(.light)
-                    }
-                    .padding()
-                    
-                    Button(action: {
-                        self.animate1.toggle()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate1 ? 90 : 0))
-                                .scaleEffect(animate1 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                                .animation(.easeInOut.repeatCount(3), value: animate1)
-                            Spacer()
-                        }
-                        .padding()
-                        // end of h stack
-                    }
-                }
-                // end of group
-                
-                // MARK: - Spring rotation
-                Group {
-                    Group {
-                        Text("Rotation animation with Spring")
-                            .fontWeight(.heavy)
-                        Text("A different type of effect is achieved by using a spring animation")
-                            .fontWeight(.light)
-
-                    }
-                    .padding()
-                    
-                    Button(action: {
-                        self.animate2.toggle()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate2 ? 90 : 0))
-                                .scaleEffect(animate2 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                                .animation(.spring().repeatCount(3), value: animate2)
-                            Spacer()
-                        }
-                        .padding()
-                        // end of h stack
-                    }
-                    // end of h stack
-                }
-                // end of group
-                
-                // MARK: - ripple
-                Group {
-                    Group {
-                        Text("Ripple animation")
-                            .fontWeight(.heavy)
-                        Text("Here's an example of how to use your custom defined animation to simulate a ripple effect on an image")
-                            .fontWeight(.light)
-                    }
-                    .padding()
-                    Button(action: {
-                        self.animate4.toggle()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate4 ? 90 : 0))
-                                .scaleEffect(animate4 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                                .animation(.ripple(index: 2), value: animate4)
-                            Spacer()
-                        }
-                        .padding()
-                        // end of h stack
-                    }
-                    // end of h stack
-                }
-                // end of group
-
-                ContributedByView(name: "Barbara Martina",
-                                  link: "https://github.com/barbaramartina")
-                    .padding(.top, 80)
-
+                // end of h stack
             }
-            // end of list
-
+            // end of group
+            
+            
+            // MARK: - rotation animated
+            Group {
+                Group {
+                    Text( "Rotation animated")
+                        .fontWeight(.heavy)
+                    Text("Using a rotation effect and changing the degrees of the angle you can achieve a different animation")
+                        .fontWeight(.light)
+                }
+                .padding()
+                
+                Button(action: {
+                    self.animate1.toggle()
+                }) {
+                    HStack {
+                        Spacer()
+                        Image("corgie-love")
+                            .resizable()
+                            .rotationEffect(.degrees(animate1 ? 90 : 0))
+                            .scaleEffect(animate1 ? 1.2 : 1)
+                            .frame(width: 200, height: 200)
+                            .animation(.easeInOut.repeatCount(3), value: animate1)
+                        Spacer()
+                    }
+                    .padding()
+                    // end of h stack
+                }
+            }
+            // end of group
+            
+            // MARK: - Spring rotation
+            Group {
+                Group {
+                    Text("Rotation animation with Spring")
+                        .fontWeight(.heavy)
+                    Text("A different type of effect is achieved by using a spring animation")
+                        .fontWeight(.light)
+                    
+                }
+                .padding()
+                
+                Button(action: {
+                    self.animate2.toggle()
+                }) {
+                    HStack {
+                        Spacer()
+                        Image("corgie-love")
+                            .resizable()
+                            .rotationEffect(.degrees(animate2 ? 90 : 0))
+                            .scaleEffect(animate2 ? 1.2 : 1)
+                            .frame(width: 200, height: 200)
+                            .animation(.spring().repeatCount(3), value: animate2)
+                        Spacer()
+                    }
+                    .padding()
+                    // end of h stack
+                }
+                // end of h stack
+            }
+            // end of group
+            
+            // MARK: - ripple
+            Group {
+                Group {
+                    Text("Ripple animation")
+                        .fontWeight(.heavy)
+                    Text("Here's an example of how to use your custom defined animation to simulate a ripple effect on an image")
+                        .fontWeight(.light)
+                }
+                .padding()
+                Button(action: {
+                    self.animate4.toggle()
+                }) {
+                    HStack {
+                        Spacer()
+                        Image("corgie-love")
+                            .resizable()
+                            .rotationEffect(.degrees(animate4 ? 90 : 0))
+                            .scaleEffect(animate4 ? 1.2 : 1)
+                            .frame(width: 200, height: 200)
+                            .animation(.ripple(index: 2), value: animate4)
+                        Spacer()
+                    }
+                    .padding()
+                    // end of h stack
+                }
+                // end of h stack
+            }
+            // end of group
+            
+            ContributedByView(name: "Barbara Martina",
+                              link: "https://github.com/barbaramartina")
+            .padding(.top, 80)
+            
+        }
+        // end of list
+        
     }
     
 }
@@ -279,14 +279,14 @@ struct TransitionsAnimationsView: View, Comparable {
     @State private var animate1 = false
     @State private var animate2 = false
     @State private var animate3 = false
-
+    
     
     // MARK: - Body
     
-
+    
     var body: some View {
         
-         
+        
         if self.animate2 == false && self.animate3 == false {
             Button(action: {
                 withAnimation {
@@ -295,14 +295,14 @@ struct TransitionsAnimationsView: View, Comparable {
             }, label: {
                 Text("Slide in & out")
                     .modifier(ButtonFontModifier())
-
+                
             })
             .padding()
-            .modifier(ButtonRoundedModifier(radius: 10,
-                                            lineWidth: 5))
-
+            .modifier(RoundedBordersModifier(radius: 10,
+                                             lineWidth: 5))
+            
         }
-
+        
         if self.animate1 == false && self.animate3 == false {
             Button(action: {
                 withAnimation {
@@ -311,14 +311,14 @@ struct TransitionsAnimationsView: View, Comparable {
             }, label: {
                 Text("Transition with opacity")
                     .modifier(ButtonFontModifier())
-
+                
             })
             .padding()
-            .modifier(ButtonRoundedModifier(radius: 10,
-                                            lineWidth: 5))
-
+            .modifier(RoundedBordersModifier(radius: 10,
+                                             lineWidth: 5))
+            
         }
-
+        
         if self.animate1 == false && self.animate2 == false {
             Button(action: {
                 withAnimation {
@@ -327,21 +327,21 @@ struct TransitionsAnimationsView: View, Comparable {
             }, label: {
                 Text("Transition moving and fading")
                     .modifier(ButtonFontModifier())
-
+                
             })
             .padding()
-            .modifier(ButtonRoundedModifier(radius: 10,
-                                            lineWidth: 5))
-
+            .modifier(RoundedBordersModifier(radius: 10,
+                                             lineWidth: 5))
+            
         }
-
+        
         if animate1 {
             Image("corgie-love")
                 .resizable()
                 .frame(width: 200, height: 200)
                 .transition(.slide)
         }
-
+        
         if animate2 {
             Image("corgie-love")
                 .resizable()
@@ -355,15 +355,15 @@ struct TransitionsAnimationsView: View, Comparable {
                 .frame(width: 200, height: 200)
                 .transition(.moveAndFade)
         }
-                      
+        
         // end of page container
-
+        
     }
-
+    
 }
 
 // MARK: - custom transitions
-        
+
 extension AnyTransition {
     static var moveAndFade: AnyTransition {
         let insertion = AnyTransition.move(edge: .leading)
@@ -385,8 +385,8 @@ extension AnimationsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 extension TransitionsAnimationsView {
@@ -398,8 +398,8 @@ extension TransitionsAnimationsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 extension PropertiesAnimationsView {
@@ -411,8 +411,8 @@ extension PropertiesAnimationsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

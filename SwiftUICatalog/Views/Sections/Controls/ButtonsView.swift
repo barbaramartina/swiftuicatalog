@@ -35,15 +35,15 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/button
 ///
 struct ButtonsComponentsView: View, Comparable {
-
+    
     // MARK: - Properties
-
+    
     let id: String = "ButtonsComponentsView"
-
+    
     @State private var fruits = [ "Apple", "Banana", "Papaya", "Mango"]
-
+    
     @State private var pastedText: String = ""
-
+    
     /// configuration of the first button: background color
     @State private var color: Color = Color.clear
     /// configuration of the first button: border color
@@ -52,7 +52,7 @@ struct ButtonsComponentsView: View, Comparable {
     @State private var borderWidth: Double = 1
     /// configuration of the first button: custom font
     @State private var font: UIFont = UIFont.preferredFont(forTextStyle: .body)
-
+    
     // MARK: - Interactive button configuration
     /// radius configuration
     @State private var radius2: CGFloat = 10.0
@@ -68,55 +68,62 @@ struct ButtonsComponentsView: View, Comparable {
     @State private var borderWidth2: Double = 1
     /// the style for the button's title
     @State private var textStyle2: UIFont.TextStyle = .body
-  
-
+    
+    
     // MARK: - Body
-
+    
     var body: some View {
-
+        
         PageContainer(content: ScrollView {
-
+            
             VStack(alignment: .leading) {
-
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button", name: "BUTTON")
-
-
+                
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button", name: nil)
+                
+                
                 // MARK: - basics of buttons
                 Group {
                     customizableButton
                     Divider()
+                        .padding(.vertical)
                     roundedButtons
                     Divider()
+                        .padding(.vertical)
                     customShapeButtons
                     Divider()
+                        .padding(.vertical)
                     labelStyledButton
                     Divider()
+                        .padding(.vertical)
                     strokedBorderButtons
                     Divider()
+                        .padding(.vertical)
                     plainBackgroundButtons
                     Divider()
+                        .padding(.vertical)
                     imagesInButtons
                     Divider()
+                        .padding(.vertical)
                     buttonsWithIcons
                     Divider()
+                        .padding(.vertical)
                     buttonWithLabels
                     Divider()
+                        .padding(.vertical)
                     styledButtons
                     Divider()
+                        .padding(.vertical)
                 }
-
+                
                 ContributedByView(name: "Barbara Martina",
                                   link: "https://github.com/barbaramartina")
                 .padding(.top, 80)
             }
-            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         })
-
+        
     }
-
-
-
+    
+    
     private var imagesInButtons: some View {
         VStack(alignment: .leading) {
             Text("Button with image")
@@ -128,7 +135,7 @@ struct ButtonsComponentsView: View, Comparable {
             .border(Color.accentColor, width: 5)
         }
     }
-
+    
     private var buttonsWithIcons: some View {
         VStack(alignment: .leading) {
             Text("Button with icon & label")
@@ -145,7 +152,7 @@ struct ButtonsComponentsView: View, Comparable {
             .modifier(ButtonBorderModifier())
         }
     }
-
+    
     private var buttonWithLabels: some View {
         VStack(alignment: .leading) {
             Text("Button with label")
@@ -157,7 +164,7 @@ struct ButtonsComponentsView: View, Comparable {
             .modifier(ButtonBorderModifier())
         }
     }
-
+    
     private var styledButtons: some View {
         VStack(alignment: .leading) {
             Text("BorderlessButtonStyle")
@@ -180,23 +187,23 @@ struct ButtonsComponentsView: View, Comparable {
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
                 .labelStyle(.iconOnly)
-                .modifier(ButtonRoundedModifier(radius: 10,
-                                                lineWidth: CGFloat(borderWidth),
-                                                color: colorBorder))
+                .modifier(RoundedBordersModifier(radius: 10,
+                                                 lineWidth: CGFloat(borderWidth),
+                                                 color: colorBorder))
             Button("Label Syle Title Only", systemImage: "message.badge",  action: {})
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
                 .labelStyle(.titleOnly)
-                .modifier(ButtonRoundedModifier(radius: 10,
-                                                lineWidth: CGFloat(borderWidth),
-                                                color: colorBorder))
+                .modifier(RoundedBordersModifier(radius: 10,
+                                                 lineWidth: CGFloat(borderWidth),
+                                                 color: colorBorder))
             Button("Label Syle Icon and Title", systemImage: "message.badge",  action: {})
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
                 .labelStyle(.titleAndIcon)
-                .modifier(ButtonRoundedModifier(radius: 10,
-                                                lineWidth: CGFloat(borderWidth),
-                                                color: colorBorder))
+                .modifier(RoundedBordersModifier(radius: 10,
+                                                 lineWidth: CGFloat(borderWidth),
+                                                 color: colorBorder))
         }
     }
     
@@ -208,10 +215,10 @@ struct ButtonsComponentsView: View, Comparable {
                 .frame(width: buttonWidth, height: buttonHeight)
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
-                .modifier(ButtonRoundedModifier(radius: radius2,
-                                                lineWidth: CGFloat(borderWidth2),
-                                                color: colorBorder2))
-
+                .modifier(RoundedBordersModifier(radius: radius2,
+                                                 lineWidth: CGFloat(borderWidth2),
+                                                 color: colorBorder2))
+            
             ColorPicker("Background color:",
                         selection: $color2,
                         supportsOpacity: false)
@@ -267,10 +274,10 @@ struct ButtonsComponentsView: View, Comparable {
             }
         }
     }
-
-
+    
+    
     // MARK: - views
-
+    
     private var roundedButtons: some View {
         // Contextual information: a short intro to the elements we are showcasing
         VStack(alignment: .leading) {
@@ -278,25 +285,25 @@ struct ButtonsComponentsView: View, Comparable {
                 .fontWeight(.heavy)
             Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier")
                 .fontWeight(.light)
-
+            
             Button(action: {},
                    label: {
                 Text("Click")
                     .modifier(ButtonFontModifier(font: Font(font)))
-                    .modifier(ButtonRoundedModifier(radius: 10,
-                                                    lineWidth: CGFloat(borderWidth),
-                                                    color: colorBorder))
+                    .modifier(RoundedBordersModifier(radius: 10,
+                                                     lineWidth: CGFloat(borderWidth),
+                                                     color: colorBorder))
             })
             .background(color)
-
+            
             ColorPicker("Background color:",
                         selection: $color,
                         supportsOpacity: false)
-
+            
             ColorPicker("Border color:",
                         selection: $colorBorder,
                         supportsOpacity: false)
-
+            
             HStack {
                 Text("Border width:")
                     .fontWeight(.light)
@@ -306,20 +313,20 @@ struct ButtonsComponentsView: View, Comparable {
                     step: 1,
                     onEditingChanged: {_ in }
                 )
-
+                
             }
         }
         .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-
+        
     }
-
+    
     private var customShapeButtons: some View {
         VStack(alignment: .leading) {
             Text("Specific Rounded borders with custom shape")
                 .fontWeight(.heavy)
             Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
                 .fontWeight(.light)
-
+            
             Button(action: {},
                    label: {
                 Text("Click")
@@ -334,7 +341,7 @@ struct ButtonsComponentsView: View, Comparable {
             })
         }
     }
-
+    
     private var strokedBorderButtons: some View {
         VStack(alignment: .leading) {
             Text("Stroked borders")
@@ -351,9 +358,9 @@ struct ButtonsComponentsView: View, Comparable {
                     )
             }
         }
-
+        
     }
-
+    
     private var plainBackgroundButtons: some View {
         VStack(alignment: .leading) {
             Text("Button with plain background")
@@ -365,7 +372,7 @@ struct ButtonsComponentsView: View, Comparable {
             })
             .background(Color.accentColor)
         }
-
+        
     }
 }
 
@@ -386,55 +393,55 @@ struct RoundedCorners: Shape {
     var tr: CGFloat = 0.0
     var bl: CGFloat = 0.0
     var br: CGFloat = 0.0
-
+    
     func path(in rect: CGRect) -> Path {
         var path = Path()
-
+        
         let w = rect.size.width
         let h = rect.size.height
-
+        
         // Make sure we do not exceed the size of the rectangle
         let tr = min(min(self.tr, h/2), w/2)
         let tl = min(min(self.tl, h/2), w/2)
         let bl = min(min(self.bl, h/2), w/2)
         let br = min(min(self.br, h/2), w/2)
-
+        
         path.move(to: CGPoint(x: tl, y: 0))
         path.addLine(to: CGPoint(x: w - tr, y: 0))
         path.addArc(center: CGPoint(x: w - tr, y: tr), radius: tr,
                     startAngle: Angle(degrees: -90), endAngle: Angle(degrees: 0), clockwise: false)
-
+        
         path.addLine(to: CGPoint(x: w, y: h - br))
         path.addArc(center: CGPoint(x: w - br, y: h - br), radius: br,
                     startAngle: Angle(degrees: 0), endAngle: Angle(degrees: 90), clockwise: false)
-
+        
         path.addLine(to: CGPoint(x: bl, y: h))
         path.addArc(center: CGPoint(x: bl, y: h - bl), radius: bl,
                     startAngle: Angle(degrees: 90), endAngle: Angle(degrees: 180), clockwise: false)
-
+        
         path.addLine(to: CGPoint(x: 0, y: tl))
         path.addArc(center: CGPoint(x: tl, y: tl), radius: tl,
                     startAngle: Angle(degrees: 180), endAngle: Angle(degrees: 270), clockwise: false)
-
+        
         return path
     }
-
-
+    
+    
 }
 
 // MARK: - HASHABLE
 
 extension ButtonsComponentsView {
-
+    
     static func == (lhs: ButtonsComponentsView, rhs: ButtonsComponentsView) -> Bool {
         return lhs.id == rhs.id
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

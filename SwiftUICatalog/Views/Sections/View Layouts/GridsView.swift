@@ -41,33 +41,35 @@ struct GridsView: View, Comparable {
     
     let id: String = "GridsView"
     
-  var rows: [GridItem] =
-        Array(repeating: .init(.fixed(20)), count: 2)
+    var rows: [GridItem] =
+    Array(repeating: .init(.fixed(20)), count: 2)
     var columns: [GridItem] =
-        Array(repeating: .init(.flexible()), count: 2)
+    Array(repeating: .init(.flexible()), count: 2)
     @Environment(\.openURL) var openURL
     
     var body: some View {
         
         PageContainer(content: ScrollView {
-
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid", name: "GRID VIEWS")
-
+            
             gridsIntroduction
+            Divider()
             lazyHGrid
+            Divider()
             lazyVGrid
-
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)
         })
-
+        
     }
-
+    
     // MARK: - Lazy Vertical Grid
-
+    
     private var lazyVGrid: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Text("Lazy Vertical Grid")
                     .fontWeight(.heavy)
@@ -75,7 +77,7 @@ struct GridsView: View, Comparable {
                     .fontWeight(.light)
             }
             .padding()
-
+            
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach((0...79), id: \.self) {
@@ -88,14 +90,14 @@ struct GridsView: View, Comparable {
                 }
             }
             .frame(width: 300, height: 150, alignment: .center)
-
+            
         }
     }
-
+    
     // MARK: - Lazy Horizontal Grid
-
+    
     private var lazyHGrid: some View {
-        Group {
+        VStack(alignment: .leading) {
             Group {
                 Text("Lazy Horizontal Grid")
                     .fontWeight(.heavy)
@@ -103,7 +105,7 @@ struct GridsView: View, Comparable {
                     .fontWeight(.light)
             }
             .padding()
-
+            
             ScrollView(.horizontal) {
                 LazyHGrid(rows: rows, alignment: .top) {
                     ForEach((0...79), id: \.self) {
@@ -128,12 +130,12 @@ struct GridsView: View, Comparable {
                 })
             }
             .padding(.trailing, 10)
-
+            
         }
     }
-
+    
     private var gridsIntroduction: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("Grid Item")
                 .fontWeight(.heavy)
                 .padding()
@@ -148,7 +150,7 @@ struct GridsView: View, Comparable {
                 .fontWeight(.light)
                 .padding()
                 .modifier(ViewAlignmentModifier(alignment: .leading))
-
+            
         }
     }
 }
@@ -170,8 +172,8 @@ extension GridsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

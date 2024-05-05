@@ -10,19 +10,21 @@ import StoreKit
 
 /// Checkout this view in https://developer.apple.com/videos/play/wwdc2023/10013/
 struct ExampleProductView: View {
-
+    
     /// identifier of the product taken locally from the StoreKitConfiguration
     private var productId: String
     /// A custom image can be set for every product, in case that the image from App Store connect can no be accessed, this image can be used instead
     private var productImageName: String
-
-
+    
+    
     // MARK: - BODY
-
+    
     var body: some View {
         PageContainer(content:
-                        ScrollView {
+                        VStack(alignment: .leading) {
             DocumentationLinkView(link: "https://developer.apple.com/videos/play/wwdc2023/10013/", name: "PRODUCT VIEW")
+            Text("You can preview the main blocks. For a real product overview insert your own in-app purchases identifiers in code.")
+            Divider()
             customizedLoadingView
                 .modifier(Divided())
             customStyleViewReDrawing
@@ -38,15 +40,14 @@ struct ExampleProductView: View {
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
             .padding(.top, 80)
-
+            
         } // end of scroll view
         )
-        .padding()
         // end of container
     }
-
+    
     // MARK: - OTHER VIEWS
-
+    
     private var productImage: some View {
         Image(productImageName)
             .resizable()
@@ -58,14 +59,13 @@ struct ExampleProductView: View {
             .clipShape(Circle())
             .frame(width: 120, height: 120)
     }
-
+    
     /// a view with a custom ProductViewStyle showing a spinner while loading
     private var customStyleView: some View {
-        Group {
+        VStack(alignment: .leading)  {
             HStack {
                 Text("Compact Product Style with self configuration")
                     .fontWeight(.heavy)
-                    .padding(.leading, 16)
                 Spacer()
             }
             ProductView(id: productId) {
@@ -74,14 +74,13 @@ struct ExampleProductView: View {
             .productViewStyle(SpinnerWhenLoadingStyle())
         }
     }
-
+    
     /// A custom product style, where we also re-draw the view elements (not just style some of the loading phases)
     private var customStyleViewReDrawing: some View {
-        Group {
+        VStack(alignment: .leading)  {
             HStack {
                 Text("Compact Product Style re-drawing elements")
                     .fontWeight(.heavy)
-                    .padding(.leading, 16)
                 Spacer()
             }
             ProductView(id: productId) {
@@ -90,14 +89,13 @@ struct ExampleProductView: View {
             .productViewStyle(CustomProductViewStyle())
         }
     }
-
+    
     /// A product view with a spinner for the "loading" phase
     private var customizedLoadingView: some View {
-        Group {
+        VStack(alignment: .leading)  {
             HStack {
                 Text("Compact Product Style with customized loading and background")
                     .fontWeight(.heavy)
-                    .padding(.leading, 16)
                 Spacer()
             }
             ProductView(id: productId) { phase in
@@ -113,7 +111,7 @@ struct ExampleProductView: View {
                 case .success(let promotedIcon): promotedIcon
                 @unknown default:
                     productImage
-
+                    
                 }
             } placeholderIcon: {
                 // When product is loading/unavailable
@@ -126,68 +124,59 @@ struct ExampleProductView: View {
                         in: .rect(cornerRadius: 8))
         }
     }
-
+    
     /// A regular layour for presenting a product
     private var regularProductView: some View {
-        Group {
+        VStack(alignment: .leading) {
             HStack {
                 Text("Regular Product Style")
                     .fontWeight(.heavy)
-                    .padding(.leading, 16)
                 Spacer()
             }
             ProductView(id: productId) {
                 productImage
             }
-            .padding(.vertical, Style.VerticalPadding.large.rawValue)
-            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .productViewStyle(.regular)
         }
     }
-
+    
     /// A product view with a compact style
     private var compactProductView: some View {
-        Group {
+        VStack(alignment: .leading)  {
             HStack {
                 Text("Compact Product Style")
                     .fontWeight(.heavy)
-                    .padding(.leading, 16)
                 Spacer()
             }
             ProductView(id: productId) {
                 productImage
             }
-            .padding(.vertical, Style.VerticalPadding.large.rawValue)
-            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .productViewStyle(.compact)
         }
     }
-
+    
     /// A product view with a large presentation style
     private var largeProductView: some View {
-        Group {
+        VStack(alignment: .leading)  {
             HStack {
                 Text("Large Product Style")
                     .fontWeight(.heavy)
-                    .padding(.leading, 16)
                 Spacer()
             }
             ProductView(id: productId) {
                 productImage
             }
-            .padding(.vertical, Style.VerticalPadding.large.rawValue)
-            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
             .productViewStyle(.large)
         }
     }
-
+    
     // MARK: - INIT
-
+    
     init(productId: String, productImageName: String) {
         self.productId = productId
         self.productImageName = productImageName
     }
-
+    
 }
 
 #Preview {
@@ -202,7 +191,7 @@ struct SpinnerWhenLoadingStyle: ProductViewStyle {
         case .loading:
             ProgressView()
                 .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
-
+            
         default:
             ProductView(configuration)
         }
@@ -213,7 +202,7 @@ struct SpinnerWhenLoadingStyle: ProductViewStyle {
 
 struct CustomProductViewStyle: ProductViewStyle {
     func makeBody(configuration: Configuration) -> some View {
-
+        
         switch configuration.state {
         case .loading:
             ProgressView()

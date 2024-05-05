@@ -28,9 +28,9 @@ struct RobbieWithPulseView: View, Comparable {
             Image("corgie-love")
                 .resizable()
                 .scaledToFill()
-            .frame(width: 200, height: 200)
-            .clipShape(Circle())
-          
+                .frame(width: 200, height: 200)
+                .clipShape(Circle())
+            
         }
         .padding(24)
     }
@@ -44,8 +44,8 @@ struct RobbieWithPulseView: View, Comparable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(pulsing)
     }
-
-
+    
+    
 }
 
 struct RobbieWithPulse_Previews: PreviewProvider {

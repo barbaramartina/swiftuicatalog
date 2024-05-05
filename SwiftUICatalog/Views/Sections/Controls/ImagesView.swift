@@ -35,34 +35,32 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/image
 ///
 struct ImagesComponentView: View, Comparable {
-
+    
     let id: String = "ImagesComponentView"
-
+    
     var body: some View {
-
+        
         PageContainer(content: ScrollView {
-
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image", name: "IMAGE VIEW")
-
+            
             sfSymbols
             Divider()
             imsgesFromBundle
             Divider()
             fixedFrameImages
             Divider()
-
+            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
             .padding(.top, 80)
             Spacer()
-
+            
         })
-        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         // end of page container
-
+        
     }
-
+    
     // Contextual information: a short intro to the elements we are showcasing
     private var sfSymbols: some View {
         VStack(alignment: .leading) {
@@ -77,7 +75,7 @@ struct ImagesComponentView: View, Comparable {
             }
         }
     }
-
+    
     private var imsgesFromBundle: some View {
         VStack(alignment: .leading) {
             Text("Images from Bundle")
@@ -91,7 +89,7 @@ struct ImagesComponentView: View, Comparable {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 200, height: 200)
-
+            
             Divider()
             Text("Corgie scaled to fill")
                 .fontWeight(.semibold)
@@ -99,7 +97,7 @@ struct ImagesComponentView: View, Comparable {
                 .resizable()
                 .scaledToFill()
                 .frame(width: 200, height: 200)
-
+            
             Divider()
             Text("Corgie aspect ratio")
                 .fontWeight(.semibold)
@@ -107,7 +105,7 @@ struct ImagesComponentView: View, Comparable {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 200, height: 200)
-
+            
             Divider()
             Text("Corgie and circled overlay")
                 .fontWeight(.semibold)
@@ -120,10 +118,10 @@ struct ImagesComponentView: View, Comparable {
                 )
                 .clipShape(Circle())
                 .frame(width: 200, height: 200)
-
+            
         }
     }
-
+    
     private var fixedFrameImages: some View {
         VStack(alignment: .leading) {
             Text("Corgie fitting in a fixed frame")
@@ -134,7 +132,7 @@ struct ImagesComponentView: View, Comparable {
                 .frame(width: 300, height: 400, alignment: .topLeading)
                 .border(Color.blue)
                 .clipped()
-
+            
             Text("Tiled corgie")
                 .fontWeight(.semibold)
             Image("corgie-love")
@@ -143,7 +141,7 @@ struct ImagesComponentView: View, Comparable {
                 .border(Color.blue)
         }
     }
-
+    
 }
 
 struct ImagesComponentView_Previews: PreviewProvider {
@@ -156,16 +154,16 @@ struct ImagesComponentView_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension ImagesComponentView {
-
+    
     static func == (lhs: ImagesComponentView, rhs: ImagesComponentView) -> Bool {
         return lhs.id == rhs.id
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

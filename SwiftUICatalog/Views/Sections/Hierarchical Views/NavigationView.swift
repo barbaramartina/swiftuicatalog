@@ -42,7 +42,7 @@ struct NavigationBarsComponentView: View, Comparable {
     
     let id: String = "NavigationBarsComponentView"
     
-   @State private var reminders: [Reminder] = [
+    @State private var reminders: [Reminder] = [
         Reminder(title: "2021-10-21", text: "Pick up John from school"),
         Reminder(title: "Coffee", text: "we are running out of coffee"),
         Reminder(title: "Washing machine", text: "Call the handy man, the machine broke"),
@@ -52,8 +52,8 @@ struct NavigationBarsComponentView: View, Comparable {
     var body: some View {
         
         PageContainer(content:
-
-        NavigationView {
+                        
+                        NavigationStack {
             
             List {
                 NavigationLink(reminders[0].title,
@@ -74,12 +74,12 @@ struct NavigationBarsComponentView: View, Comparable {
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
             
         }
-        // end of navigation view
-                      )
+                      // end of navigation view
+        )
         // end of page container
     }
 }
@@ -101,8 +101,8 @@ extension NavigationBarsComponentView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

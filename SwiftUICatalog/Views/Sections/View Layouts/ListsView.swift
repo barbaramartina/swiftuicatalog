@@ -46,27 +46,14 @@ struct ListsComponentView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
-
-        
         List(selection: $singleSelection){
-             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list", name: "LISTS")
-
-            // contextual information
-            Group {
-                Text("An example of a list with sections")
-                    .fontWeight(.heavy)
-                Text("Here we show an example of how a list can be configured based of the data coming from a double entry structure (countries and dog's breeds)")
-                    .fontWeight(.light)
-            }
-            .padding()
+            documentationView
             
             ForEach(countries) { c in
                 Section(header: Text("\(c.name)")
-                            .font(.title)
-                            .fontWeight(.thin)
-                            .foregroundColor(.white)
+                    .font(.title)
+                    .fontWeight(.thin)
+                    .foregroundColor(.black)
                 ) {
                     ForEach(c.dogs) { d in
                         ZStack {
@@ -98,15 +85,17 @@ struct ListsComponentView: View, Comparable {
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         }
         .listStyle(PlainListStyle())
         .navigationTitle("Dogs 🐶 & countries")
         .toolbar { EditButton() }
         // end of list
-        )
-        // end of page container
+    }
+    
+    private var documentationView: some View {
+        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/list", name: "LISTS")
     }
     
 }
@@ -144,8 +133,8 @@ extension ListsComponentView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

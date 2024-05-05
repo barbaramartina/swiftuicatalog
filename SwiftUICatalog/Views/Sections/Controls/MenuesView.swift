@@ -35,42 +35,32 @@ struct MenusComponentView: View, Comparable {
     
     let id: String = "MenusComponentView"
     
-
+    
     //Custom Menu item Style
     private let redBorderMenuStyle: RedBorderMenuStyle = RedBorderMenuStyle.init()
     
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView{
+                        
+                        ScrollView{
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu", name: "MENUES")
-
+            
             example1
-                .padding()
-
-            Spacer()
-
+            Divider()
             example2
-                .padding()
-
-            Spacer()
-
+            Divider()
             example3
-                .padding()
-
-            Spacer()
-
+            Divider()
             example4
-                .padding()
             
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
             
-
+            
+            
             
         })
     }
@@ -87,22 +77,22 @@ struct MenusComponentView: View, Comparable {
     func bookmarkAll() { action() }
     func show() { action() }
     func addBookmark() { action() }
-
+    
     func action() {
-        #if DEBUG
+#if DEBUG
         print("The Action function called")
-        #endif
+#endif
     }
-
+    
     func primaryAction() {
-        #if DEBUG
+#if DEBUG
         print("The primary action function called")
-        #endif
+#endif
     }
-
+    
     private var example1: some View {
-        Group {
-
+        VStack(alignment: .leading) {
+            
             // Contextual information: a short intro to the elements we are showcasing
             Group {
                 Text( "Menus")
@@ -110,7 +100,7 @@ struct MenusComponentView: View, Comparable {
                 Text("A control for presenting a menu of actions.")
                     .fontWeight(.light)
             }
-
+            
             HStack {
                 Text("Menu + Sub-Menu").fontWeight(.light)
                 Spacer()
@@ -125,13 +115,13 @@ struct MenusComponentView: View, Comparable {
                     }
                 }
             }
-
+            
         }
-
+        
     }
-
+    
     private var example2: some View {
-        Group {
+        VStack(alignment: .leading) {
             HStack{
                 Text("Menu + image").fontWeight(.light)
                 Spacer()
@@ -143,15 +133,15 @@ struct MenusComponentView: View, Comparable {
                 }
             }
         }
-
+        
     }
-
+    
     private var example3: some View {
         /*
          Styling Menus
          Use the menuStyle(_:) modifier to change the style of all menus in a view.
          */
-        Group {
+        VStack(alignment: .leading) {
             HStack {
                 Text("Styling Menus + action").fontWeight(.light)
                 Spacer()
@@ -161,13 +151,13 @@ struct MenusComponentView: View, Comparable {
                 }
                 .menuStyle(redBorderMenuStyle)
             }
-
+            
         }
-
+        
     }
-
+    
     private var example4: some View {
-        Group {
+        VStack(alignment: .leading) {
             VStack{
                 HeaderView(title: "Primary Action")
                 Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a YellowMedium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
@@ -192,7 +182,7 @@ struct MenusComponentView: View, Comparable {
                 }
             }
         }
-
+        
     }
 }
 
@@ -226,8 +216,8 @@ extension MenusComponentView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

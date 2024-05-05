@@ -40,7 +40,7 @@ struct SteppersView: View, Comparable {
     
     @State private var firstStepperValue = 0
     @State private var SecondStepperValue = 0
-
+    
     private let colors: [Color] = [.orange, .red, .gray, .blue,
                                    .green, .purple, .pink]
     // Step Size
@@ -65,26 +65,24 @@ struct SteppersView: View, Comparable {
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView {
-
+                        
+                        ScrollView {
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper", name: "STEPPER")
             plainStepper
             Divider()
             customStepper
             Divider()
-
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         })
-        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         // end of page container
         
     }
-
+    
     private var customStepper: some View {
         VStack(alignment: .leading) {
             Text("Stepper View + custom step")
@@ -99,9 +97,9 @@ struct SteppersView: View, Comparable {
             }
                     .padding(10)
         }
-
+        
     }
-
+    
     private var plainStepper: some View {
         VStack(alignment: .leading) {
             Text("Stepper View")
@@ -115,7 +113,7 @@ struct SteppersView: View, Comparable {
                 decrementStep()
             })
         }
-
+        
     }
 }
 
@@ -136,8 +134,8 @@ extension SteppersView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

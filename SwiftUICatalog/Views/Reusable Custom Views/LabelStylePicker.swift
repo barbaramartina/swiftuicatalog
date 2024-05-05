@@ -14,7 +14,7 @@ struct LabelStylePicker: View {
     
     /// font styles options
     private let options: [LabelStyleWrapper] = [.iconOnly, .automatic, .labelOnly, .iconAndLabel]
-
+    
     var body: some View {
         Picker(selection: $selection, label: Text("Label Style")) {
             ForEach(options, id: \.self) {

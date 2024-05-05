@@ -34,12 +34,12 @@ struct PopoversComponentView: View, Comparable {
     
     @State private var showingPopover = false
     private let documentationURLString = "https://developer.apple.com/documentation/swiftui/button/popover(ispresented:attachmentanchor:arrowedge:content:)"
-
+    
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView {
+                        
+                        ScrollView {
             DocumentationLinkView(link: documentationURLString, name: "POPOVERS")
             
             WebView(url: URL(string: documentationURLString)!)
@@ -49,15 +49,15 @@ struct PopoversComponentView: View, Comparable {
                 showingPopover = true
             },
                    label: {
-                    Text("Show menu")
-                        .modifier(ButtonFontModifier())
-                        .overlay(
-                            RoundedCorners(tl: 10,
-                                           tr: 0,
-                                           bl: 0,
-                                           br: 10)
-                                .stroke(Color.accentColor, lineWidth: 5)
-                        )
+                Text("Show menu")
+                    .modifier(ButtonFontModifier())
+                    .overlay(
+                        RoundedCorners(tl: 10,
+                                       tr: 0,
+                                       bl: 0,
+                                       br: 10)
+                        .stroke(Color.accentColor, lineWidth: 5)
+                    )
             })
             .popover(isPresented: $showingPopover,
                      arrowEdge: .bottom) {
@@ -70,7 +70,7 @@ struct PopoversComponentView: View, Comparable {
                 }
                 .padding()
             }
-
+            
         })
         //end of page container
         
@@ -94,8 +94,8 @@ extension PopoversComponentView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

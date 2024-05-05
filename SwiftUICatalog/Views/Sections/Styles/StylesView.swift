@@ -36,10 +36,10 @@ import SwiftUI
 struct StylesView: View, Comparable {
     
     let id: String = "StylesView"
-
+    
     @State private var selectedPickerString: String = ""
     @State private var toggleValue: Bool = false
-
+    
     private var pickers: some View {
         // styling Pickers
         // https://developer.apple.com/documentation/swiftui/pickerstyle
@@ -97,7 +97,7 @@ struct StylesView: View, Comparable {
                 }
                 .pickerStyle(.wheel)
             }
-
+            
             if #available(iOS 16.0, *) {
                 HStack {
                     Text("Navigation Link style:")
@@ -115,9 +115,9 @@ struct StylesView: View, Comparable {
         }
         .padding()
         // end of styling pickers
-
+        
     }
-
+    
     private var buttons: some View {
         // Styling buttons with all the possible already implemented styles in Swift + 1 custom style
         Group {
@@ -165,12 +165,12 @@ struct StylesView: View, Comparable {
                 Button("Example action") { }
                     .buttonStyle(MyOwnButtonStyle())
             }
-
+            
         }
         .padding()
         // end buttons styles
     }
-
+    
     private var toggles: some View {
         // styling Toggles
         // https://developer.apple.com/documentation/swiftui/togglestyle
@@ -202,12 +202,12 @@ struct StylesView: View, Comparable {
                 }
                 .toggleStyle(.switch)
             }
-
+            
         }
         .padding()
         // end styling toggles
     }
-
+    
     private var menues: some View {
         // styling menues
         return Group {
@@ -251,7 +251,7 @@ struct StylesView: View, Comparable {
         .padding()
         // end of styling menues
     }
-
+    
     private var progress: some View {
         Group {
             // https://developer.apple.com/documentation/swiftui/progressviewstyle
@@ -304,22 +304,22 @@ struct StylesView: View, Comparable {
                     Text("Accessory Circular style:")
                     Spacer()
                     Gauge(value: 0.75) {
-                            Text("Level")
-                        } currentValueLabel: {
-                            Text("0.75")
-                        } minimumValueLabel: {
-                            Text("0")
-                        } maximumValueLabel: {
-                            Text("1")
-                        }
-                        .gaugeStyle(.accessoryCircular)
-
+                        Text("Level")
+                    } currentValueLabel: {
+                        Text("0.75")
+                    } minimumValueLabel: {
+                        Text("0")
+                    } maximumValueLabel: {
+                        Text("1")
+                    }
+                    .gaugeStyle(.accessoryCircular)
+                    
                     // level of clouds today :D
                     Gauge(value: 0.6) {
                         Image(systemName: "cloud")
                     }
                     .gaugeStyle(.accessoryCircular)
-
+                    
                     Gauge(value: 45, in: 0...100) {
                         Label("Sun", systemImage: "sunrise.circle")
                     } currentValueLabel: {
@@ -364,27 +364,34 @@ struct StylesView: View, Comparable {
         .padding()
         // end indicators
     }
-
+    
     var body: some View {
         
-        ScrollView {
-
+        PageContainer(content:
+                        VStack(alignment: .leading) {
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles", name: "STYLE VIEW")
-
+            
             // contextual information
             Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")
                 .fontWeight(.light)
                 .padding()
-
+            
+            
             gauges
+            Divider()
             progress
+            Divider()
             pickers
+            Divider()
             toggles
+            Divider()
             buttons
+            Divider()
             menues
-
+            
         }
-
+        )
     }
 }
 
@@ -405,8 +412,9 @@ extension StylesView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
+
 
 

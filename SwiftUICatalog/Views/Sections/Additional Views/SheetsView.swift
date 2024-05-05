@@ -14,31 +14,31 @@ import SwiftUI
 struct SheetView: View, Comparable {
     
     // MARK: - Properties
-
+    
     
     let id: String = "SheetView"
     
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.dismiss) var dismiss
-
+    
     // MARK: - Body
-
+    
     
     var body: some View {
         
         PageContainer(content:
-
-        Button("Press to dismiss") {
+                        
+                        Button("Press to dismiss") {
             presentationMode.wrappedValue.dismiss()
             // iOS15 dismiss
             // dismiss()
         }
-        .font(.title)
-        .padding()
-        .background(Color.black)
-        .cornerRadius(6)
+            .font(.title)
+            .padding()
+            .background(Color.black)
+            .cornerRadius(6)
                       
-                      )
+        )
         // end of page container
         
     }
@@ -81,11 +81,11 @@ struct SheetsView: View {
                 Text("""
                             Specially in the evenings.
                             """)
-                    .padding(50)
+                .padding(50)
                 Button("Go feed Robbi",
                        action: {
-                        showingSheet2.toggle()
-                       }
+                    showingSheet2.toggle()
+                }
                 )
                 .font(.title)
                 .padding()
@@ -93,11 +93,11 @@ struct SheetsView: View {
                 .cornerRadius(6)
             }
         }
-        .padding(20)
-        .font(.largeTitle)
-
+               .padding(20)
+               .font(.largeTitle)
+        
         Spacer()
-
+        
     }
     
     // MARK: - Functions
@@ -126,8 +126,8 @@ extension SheetView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

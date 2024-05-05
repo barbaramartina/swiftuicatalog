@@ -54,37 +54,36 @@ struct ShapesView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content: ScrollView {
+        PageContainer(content: VStack(alignment: .leading) {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape", name: "SHAPES")
-
+            
             intro
-
+            
             standardExamples
             customExamples
             shapeExample
-
+            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         }
-        .padding())
-
+        )
+        
     }
-
+    
     private var intro: some View {
         Group {
             Text("Rectangles, circles, ellipse and capsules")
                 .fontWeight(.heavy)
-
+            
             Text("SwiftUI brings some pre-defined shapes like rectabgles and circles. But there is also the chance to define your own shapes by creating a path")
                 .fontWeight(.light)
         }
-        .padding()
-
+        
     }
-
+    
     private var standardExamples: some View {
         Group {
             // MARK: - rectangle
@@ -103,31 +102,27 @@ struct ShapesView: View, Comparable {
             Capsule()
                 .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 150)
-
+            
             // MARK: - rounded rectangle
             RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                 .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 100)
-
+            
         }
-        .padding()
-
+        
     }
-
+    
     private var customExamples: some View {
         Group {
-
+            
             Text("Custom shape")
                 .fontWeight(.heavy)
             CustomShape()
                 .fill(Color("YellowMedium"))
                 .frame(width: 100, height: 100)
         }
-        .padding()
-
-
     }
-
+    
     private var shapeExample: some View {
         Group {
             Text("Insettable shape")
@@ -141,11 +136,9 @@ struct ShapesView: View, Comparable {
                                                  dashPhase: 4))
                 .frame(width: 100, height: 100)
         }
-        .padding()
-
     }
-
-
+    
+    
 }
 
 struct ShapesView_Previews: PreviewProvider {
@@ -187,8 +180,8 @@ extension ShapesView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

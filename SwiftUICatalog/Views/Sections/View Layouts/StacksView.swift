@@ -39,49 +39,50 @@ import SwiftUI
 ///
 
 struct StacksView: View, Comparable {
-
-
+    
+    
     let id: String = "StacksView"
-
+    
     let colors: [Color] =
     [ Color("YellowMedium"), .green, .blue, .purple]
-
+    
     var body: some View {
         PageContainer(content: ScrollView () {
-
-            VStack {
+            
+            VStack(alignment: .leading) {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/hstack", name: "STACK VIEWS")
-
+                
                 Text("Stacks – equivalent to UIStackView in UIKit – come in three forms: horizontal (HStack), vertical (VStack) and depth-based (ZStack), with the latter being used when you want to place child views so they overlap.")
                     .fontWeight(.light)
-
+                
                 hStack
+                Divider()
                 lazyHStack
+                Divider()
                 vStack
+                Divider()
                 lazyVStack
             }
-
+            
             zStack1
             Spacer(minLength: 40)
             zStack2
-
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)
-
+            
         })
         // end of page container
     }
-
+    
     private var lazyVStack: some View {
-        Group {
-
+        VStack(alignment: .leading)  {
+            
             Text("An example of a lazyVstack with TextViews")
                 .fontWeight(.heavy)
-                .padding()
             Text("The stack is “lazy,” in that the stack view doesn’t create items until it needs to render them onscreen.")
                 .fontWeight(.light)
-                .padding()
             ScrollView () {
                 LazyVStack {
                     ForEach(
@@ -93,18 +94,16 @@ struct StacksView: View, Comparable {
                 }
             }
             .frame(maxHeight:150)
-
+            
         }
     }
-
+    
     private var zStack1: some View {
-        Group {
+        VStack(alignment: .leading)  {
             Text("An example of a ZStack with RectangleViews")
                 .fontWeight(.heavy)
-                .padding()
             Text("The ZStack assigns each successive child view a higher z-axis value than the one before it, meaning later children appear “on top” of earlier ones.")
                 .fontWeight(.light)
-                .padding()
             ZStack {
                 ForEach(0..<colors.count, id: \.self) {
                     Rectangle()
@@ -114,15 +113,14 @@ struct StacksView: View, Comparable {
                                 y: CGFloat($0) * 10.0)
                 }
             }
-
+            
         }
     }
-
+    
     private var zStack2: some View {
-        Group {
+        VStack(alignment: .leading)  {
             Text("some text over a picture for example (with ZStack)")
                 .fontWeight(.light)
-                .padding()
             ZStack() {
                 Image("labrador")
                     .resizable()
@@ -132,19 +130,17 @@ struct StacksView: View, Comparable {
                     .background(Color.black)
                     .foregroundColor(.white)
             }
-
+            
         }
     }
-
+    
     private var lazyHStack: some View {
-        Group {
-
+        VStack(alignment: .leading)  {
+            
             Text("An example of a lazyHstack with TextViews")
                 .fontWeight(.heavy)
-                .padding()
             Text("The stack is “lazy,” in that the stack view doesn’t create items until it needs to render them onscreen.")
                 .fontWeight(.light)
-                .padding()
             ScrollView (.horizontal) {
                 LazyHStack(
                     alignment: .top,
@@ -159,18 +155,16 @@ struct StacksView: View, Comparable {
                 }
                 .padding()
             }
-
+            
         }
     }
-
+    
     private var vStack: some View {
-        Group {
+        VStack(alignment: .leading)  {
             Text("An example of a Vstack with TextViews")
                 .fontWeight(.heavy)
-                .padding()
             Text("A view that arranges its children in a vertical line. VStack renders the views all at once, regardless of whether they are on- or offscreen. Use the regular VStack when you have a small number of child views or don’t want the delayed rendering behavior of the “lazy” version.")
                 .fontWeight(.light)
-                .padding()
             // MARK: - Vstack
             ScrollView () {
                 VStack {
@@ -183,12 +177,12 @@ struct StacksView: View, Comparable {
                 }
             }
             .frame(maxHeight:150)
-
+            
         }
     }
-
+    
     private var hStack: some View {
-        Group {
+        VStack(alignment: .leading) {
             Text("An example of a Hstack with TextViews")
                 .fontWeight(.heavy)
             Text("A view that arranges its children in a horizontal line.")
@@ -208,7 +202,7 @@ struct StacksView: View, Comparable {
                 .padding()
             }
         }
-
+        
     }
 }
 
@@ -221,16 +215,16 @@ struct StacksView_Previews: PreviewProvider {
 // MARK: - HASHABLE
 
 extension StacksView {
-
+    
     static func == (lhs: StacksView, rhs: StacksView) -> Bool {
         return lhs.id == rhs.id
     }
-
+    
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

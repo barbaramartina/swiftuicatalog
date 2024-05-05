@@ -16,9 +16,15 @@ struct PageContainer<Content>: View where Content: View {
             Color("PageContainerColor")
                 .ignoresSafeArea()
             
-            content
-            
+            ScrollView {
+                content
+            }
+            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+            .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         }
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbarBackground(Color.yellowMedium, for: .navigationBar)
+        .toolbarBackground(.visible, for: .navigationBar)
     }
 }
 

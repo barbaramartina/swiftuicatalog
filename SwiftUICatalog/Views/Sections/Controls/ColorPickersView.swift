@@ -36,22 +36,22 @@ struct ColorPickersView: View, Comparable {
     
     let id: String = "ColorPickersView"
     
-   @State private var bgColor1 =
-        Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+    @State private var bgColor1 =
+    Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     @State private var bgColor2 =
-        Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+    Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView {
+                        
+                        ScrollView {
             Group {
                 VStack(alignment: .leading) {
                     DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker", name: "COLOR PICKER")
-
+                    
                     Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
-
+                    
                     Divider()
                     ColorPicker("Alignment Guides",
                                 selection: $bgColor1)
@@ -73,12 +73,10 @@ struct ColorPickersView: View, Comparable {
                 }
                 ContributedByView(name: "Ali Ghayeni H",
                                   link: "https://github.com/alighayeni")
-                    .padding(.top, 80)
-
+                .padding(.top, 80)
+                
             }
         })
-        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
 }
 
@@ -99,8 +97,8 @@ extension ColorPickersView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

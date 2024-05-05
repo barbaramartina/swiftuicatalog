@@ -46,7 +46,7 @@ struct GesturesView: View, Comparable {
     
     var body: some View {
         
-      
+        
         //MARK: Gestures
         let tap = TapGesture()
             .onEnded{ _ in
@@ -55,24 +55,24 @@ struct GesturesView: View, Comparable {
             }
         
         let lognPress = LongPressGesture(minimumDuration: 2)
-            /**
-             - Update Transient UI State
-             To update a view as a gesture changes, add a GestureState property to your view and update it in the updating(_:body:) callback. SwiftUI invokes the updating callback as soon as it recognizes the gesture and whenever the value of the gesture changes. For example, SwiftUI invokes the updating callback as soon as a magnification gesture begins and then again whenever the magnification value changes. SwiftUI doesn’t invoke the updating callback when the user ends or cancels a gesture. Instead, the gesture state property automatically resets its state back to its initial value.
-             */
+        /**
+         - Update Transient UI State
+         To update a view as a gesture changes, add a GestureState property to your view and update it in the updating(_:body:) callback. SwiftUI invokes the updating callback as soon as it recognizes the gesture and whenever the value of the gesture changes. For example, SwiftUI invokes the updating callback as soon as a magnification gesture begins and then again whenever the magnification value changes. SwiftUI doesn’t invoke the updating callback when the user ends or cancels a gesture. Instead, the gesture state property automatically resets its state back to its initial value.
+         */
             .updating($isDetectingLongPress) { currentState, gestureState, transaction in
                 gestureState = currentState
             }
-            /**
-             - Update Permanent State During a Gesture
-             To track changes to a gesture that shouldn’t reset once the gesture ends, use the onChanged(_:) callback. For example, to count the number of times your app recognizes a long press, add an onChanged(_:) callback and increment a counter.
-             */
+        /**
+         - Update Permanent State During a Gesture
+         To track changes to a gesture that shouldn’t reset once the gesture ends, use the onChanged(_:) callback. For example, to count the number of times your app recognizes a long press, add an onChanged(_:) callback and increment a counter.
+         */
             .onChanged {_ in
                 self.totalNumberOfTaps += 1
             }
-            /**
-             - Update Permanent State When a Gesture Ends
-             To recognize when a gesture successfully completes and to retrieve the gesture’s final value, use the onEnded(_:) function to update your app’s state in the callback. SwiftUI only invokes the onEnded(_:) callback when the gesture succeeds. For example, during a LongPressGesture if the user stops touching the view before minimumDuration seconds have elapsed or moves their finger more than maximumDistance points SwiftUI does not invoke the onEnded(_:) callback.
-             */
+        /**
+         - Update Permanent State When a Gesture Ends
+         To recognize when a gesture successfully completes and to retrieve the gesture’s final value, use the onEnded(_:) function to update your app’s state in the callback. SwiftUI only invokes the onEnded(_:) callback when the gesture succeeds. For example, during a LongPressGesture if the user stops touching the view before minimumDuration seconds have elapsed or moves their finger more than maximumDistance points SwiftUI does not invoke the onEnded(_:) callback.
+         */
             .onEnded { _ in
                 self.customText = "Long press Detected!"
                 print("View Pressed for two seconds!")
@@ -81,11 +81,11 @@ struct GesturesView: View, Comparable {
         ScrollView {
             VStack {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures", name: "GESTURE INTERACTIONS")
-
+                
                 intro
                 
                 Spacer(minLength: 30)
-
+                
                 // MARK: - Circle shape + Gestures
                 Group {
                     Label(
@@ -96,10 +96,10 @@ struct GesturesView: View, Comparable {
                         Circle()
                             .fill(Color.blue)
                             .frame(width: 100, height: 100, alignment: .center)
-                            /**
-                             Add Gesture Modifiers to a View
-                             Each gesture you add applies to a specific view in the view hierarchy. To recognize a gesture event on a particular view, create and configure the gesture, and then use the gesture(_:including:) modifier:
-                             */
+                        /**
+                         Add Gesture Modifiers to a View
+                         Each gesture you add applies to a specific view in the view hierarchy. To recognize a gesture event on a particular view, create and configure the gesture, and then use the gesture(_:including:) modifier:
+                         */
                             .gesture(tap)
                         
                         Circle()
@@ -109,17 +109,17 @@ struct GesturesView: View, Comparable {
                     }
                 }
                 Spacer(minLength: 30)
-
+                
             }
-
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         }
-                      
+        
     }
-
+    
     private var intro: some View {
         Group {
             Text("Gesture modifiers handle all of the logic needed to process user-input events such as touches, and recognize when those events match a known gesture pattern, such as a long press or rotation. When recognizing a pattern, SwiftUI runs a callback you use to update the state of a view or perform an action.")
@@ -140,7 +140,7 @@ struct GesturesView: View, Comparable {
             .padding()
         }
     }
-
+    
 }
 
 struct GesturesView_Previews: PreviewProvider {
@@ -160,8 +160,8 @@ extension GesturesView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

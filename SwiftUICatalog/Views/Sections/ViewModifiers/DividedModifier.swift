@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Divided: ViewModifier {
-
+    
     func body(content: Content) -> some View {
         VStack {
             content

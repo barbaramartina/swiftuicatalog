@@ -1,5 +1,5 @@
 //
-//  ButtonRoundedModifier.swift
+//  RoundedBordersModifier.swift
 //  SwiftUICatalog
 //
 //  Created by Barbara Rodeker on 01.08.21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ButtonRoundedModifier: ViewModifier {
+struct RoundedBordersModifier: ViewModifier {
     
     var radius: CGFloat
     var lineWidth: CGFloat
@@ -15,6 +15,7 @@ struct ButtonRoundedModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            .cornerRadius(radius)
             .overlay(
                 RoundedRectangle(cornerRadius: radius)
                     .stroke(color,

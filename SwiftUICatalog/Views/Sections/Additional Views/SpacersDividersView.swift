@@ -39,16 +39,16 @@ struct SpacersDividersView: View, Comparable {
     
     let id: String = "SpacersDividersView"
     
-   var body: some View {
-
-       PageContainer(content:
-
-        VStack {
+    var body: some View {
+        
+        PageContainer(content:
+                        
+                        VStack {
             ContributionWantedView()
         }
-                     
-                     )
-       // end of page container
+                      
+        )
+        // end of page container
     }
 }
 
@@ -69,8 +69,8 @@ extension SpacersDividersView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

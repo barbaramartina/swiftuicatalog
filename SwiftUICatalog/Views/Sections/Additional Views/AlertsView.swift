@@ -33,13 +33,13 @@ struct AlertsComponentView: View, Comparable {
     let id: String = "AlertsComponentView"
     
     var body: some View {
-
+        
         PageContainer(content:
-
-        VStack {
+                        
+                        VStack {
             ContributionWantedView()
         }
-                      )
+        )
         // end of page container
         
     }
@@ -62,8 +62,8 @@ extension AlertsComponentView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

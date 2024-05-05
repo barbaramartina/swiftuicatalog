@@ -38,7 +38,7 @@ struct GraphicContextsView: View, Comparable {
     
     let id: String = "GraphicContextsView"
     
-   /// width of the path we want to work with
+    /// width of the path we want to work with
     private let width: CGFloat = 250
     /// height of the path we want to work with
     private let height: CGFloat = 250
@@ -46,50 +46,52 @@ struct GraphicContextsView: View, Comparable {
     private let path = Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 250, height: 250)))
     /// colors for the gradients to showcase
     private let gradientColors: [Color] = [.yellow.opacity(0.5),
-                                  .blue.opacity(0.4)]
+                                           .blue.opacity(0.4)]
     
     var body: some View {
         
         PageContainer(content: ScrollView {
-
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/graphicscontext", name: "GRAPHIC CONTEXTS")
             
-            Group {
+            VStack(alignment: .leading) {
                 intro
                 // Canvas 1: context and copy of context
                 example1
+                Divider()
                 // Linear gradient
                 example2
+                Divider()
                 // radial gradient
                 example3
+                Divider()
                 // conic gradient
                 example4
             }
-            .padding()
-
+            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
+            .padding(.top, 80)
             
         })
-
+        
     }
-
+    
     private var example1: some View {
         HStack {
             Spacer()
             Canvas { context, size in
-
+                
                 // drawing directives sorting matters. Try out changing this .fill to the end to see how it renders.
                 context.fill(
                     path,
                     with: .color(.blue))
-
+                
                 context.fill(path,
                              with: .linearGradient(Gradient(colors:gradientColors),
                                                    startPoint: .zero,
                                                    endPoint: CGPoint(x: size.width, y: size.height)))
-
+                
                 // draw in a second context / layer
                 var copyOfContext = context
                 let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
@@ -97,40 +99,40 @@ struct GraphicContextsView: View, Comparable {
                 copyOfContext.fill(
                     Path(ellipseIn: CGRect(origin: .zero, size: size)),
                     with: .color(.yellow))
-
-
-
+                
+                
+                
             }
             .frame(width: width)
             Spacer()
-
+            
         }
         .frame(height: height)
-
+        
     }
-
+    
     private var example2: some View {
         Group {
             Text("Linear gradient")
                 .fontWeight(.heavy)
-
+            
             GradientContainer(height: height,
                               width: width,
                               gradient: .linearGradient(Gradient(colors: gradientColors),
-
+                                                        
                                                         startPoint: .zero,
-
+                                                        
                                                         endPoint: CGPoint(x: width, y: height)),
                               path: path)
-
+            
         }
     }
-
+    
     private var example3: some View {
         Group {
             Text("Radial gradient")
                 .fontWeight(.heavy)
-
+            
             GradientContainer(height: height,
                               width: width,
                               gradient: .radialGradient(Gradient(colors: gradientColors),
@@ -138,10 +140,10 @@ struct GraphicContextsView: View, Comparable {
                                                         startRadius: 2,
                                                         endRadius: 150),
                               path: path)
-
+            
         }
     }
-
+    
     private var example4: some View {
         Group {
             Text("Conic gradient")
@@ -153,22 +155,22 @@ struct GraphicContextsView: View, Comparable {
                                                        angle: Angle(degrees: 45),
                                                        options: .linearColor),
                               path: path)
-
+            
         }
-
+        
     }
-
-
+    
+    
     private var intro: some View {
         Group {
             Text("Graphic Contexts")
                 .fontWeight(.heavy)
-
+            
             Text("A view providing a space for 2D drawing, images, texts or even other views. You can create copies of the initial context, this will add an extra drawing (transparent) layer in a tree")
                 .fontWeight(.light)
         }
     }
-
+    
 }
 
 struct GraphicContextsView_Previews: PreviewProvider {
@@ -188,18 +190,18 @@ private struct GradientContainer: View {
     var body: some View {
         HStack {
             Canvas {  context, size in
-
+                
                 context.fill(path,
                              with: gradient)
-
-
+                
+                
             }
             .frame(width: width)
-
+            
         }
         .frame(height: height)
     }
-
+    
 }
 
 // MARK: - HASHABLE
@@ -213,8 +215,8 @@ extension GraphicContextsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

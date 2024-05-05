@@ -40,15 +40,15 @@ struct TextsComponentsView: View, Comparable {
     
     @State private var textFieldValue: String = ""
     @State private var secureFieldValue: String = ""
-
+    
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView {
+                        
+                        ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: "TEXT VIEW")
-
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: nil)
+            
             
             fontTypes
             Divider()
@@ -64,26 +64,24 @@ struct TextsComponentsView: View, Comparable {
             Divider()
             textControls
             Divider()
-
+            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
+            .padding(.top, 80)
         })
-        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
-
+    
     private var textControls: some View {
         VStack(alignment: .leading) {
             Group {
-
+                
                 Group {
                     Text("Text controls")
                         .fontWeight(.heavy)
                     Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
                         .fontWeight(.light)
                 }
-
+                
                 HStack {
                     Text("Text field:")
                     Spacer()
@@ -99,13 +97,13 @@ struct TextsComponentsView: View, Comparable {
             }
             Spacer()
         }
-
+        
     }
-
+    
     /// Font types
     private var fontTypes: some View {
         VStack(alignment: .leading) {
-
+            
             // Contextual information: a short intro to the elements we are showcasing
             Text("Available fonts")
                 .fontWeight(.heavy)
@@ -139,7 +137,7 @@ struct TextsComponentsView: View, Comparable {
             .padding()
         }
     }
-
+    
     private var fontWeights: some View {
         VStack(alignment: .leading) {
             Text("Available font weights")
@@ -170,7 +168,7 @@ struct TextsComponentsView: View, Comparable {
             .padding()
         }
     }
-
+    
     private var fontModifiers: some View {
         VStack(alignment: .leading) {
             Text( "Text, italic, bold")
@@ -193,20 +191,20 @@ struct TextsComponentsView: View, Comparable {
                             radius: 12,
                             x: 1.0,
                             y: 3.0)
-
+                
             }
             .modifier(ViewAlignmentModifier(alignment: .center))
             .padding()
-
+            
         }
-
+        
     }
-
+    
     private var textTruncation: some View {
         VStack(alignment: .leading) {
             Text( "Text, truncations and multiline")
                 .fontWeight(.heavy)
-
+            
             Text("Very long text truncated")
                 .frame(width: 150)
                 .lineLimit(1)
@@ -216,14 +214,14 @@ struct TextsComponentsView: View, Comparable {
             Text("Multiline text arranged in how many lines as it is needed")
                 .multilineTextAlignment(.center)
         }
-
+        
     }
-
+    
     private var textTranslations: some View {
         VStack(alignment: .leading) {
             Text( "Text and translations")
                 .fontWeight(.heavy)
-
+            
             Group {
                 // automatically looks in the bundle localised strings file
                 Text("translated")
@@ -231,9 +229,9 @@ struct TextsComponentsView: View, Comparable {
                 Text(verbatim: "nottranslated")
             }
         }
-
+        
     }
-
+    
     private var textDates: some View {
         VStack(alignment: .leading) {
             Group {
@@ -243,7 +241,7 @@ struct TextsComponentsView: View, Comparable {
                     Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
                         .fontWeight(.light)
                 }
-
+                
                 HStack {
                     Text("Text with date:")
                     Spacer()
@@ -273,9 +271,9 @@ struct TextsComponentsView: View, Comparable {
             .padding(5)
             Spacer()
         }
-
+        
     }
-
+    
 }
 
 struct TextsComponentsView_Previews: PreviewProvider {
@@ -295,8 +293,8 @@ extension TextsComponentsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

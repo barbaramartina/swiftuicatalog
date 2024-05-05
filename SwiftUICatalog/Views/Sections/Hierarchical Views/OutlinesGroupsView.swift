@@ -37,8 +37,8 @@ struct OutlinesGroupsView: View, Comparable {
     
     let id: String = "OutlinesGroupsView"
     
-   @Environment(\.openURL) var openURL
-
+    @Environment(\.openURL) var openURL
+    
     struct FileItem: Hashable, Identifiable, CustomStringConvertible {
         var id: Self { self }
         var name: String
@@ -54,49 +54,49 @@ struct OutlinesGroupsView: View, Comparable {
     }
     
     let data =
-        FileItem(name: "Users", children:
-                    [FileItem(name: " user1234", children:
-                                [FileItem(name: "   Photos", children:
-                                            [FileItem(name: "photo001.jpg"),
-                                             FileItem(name: "photo002.jpg")]),
-                                 FileItem(name: "   Movies", children:
-                                            [FileItem(name: "movie001.mp4")]),
-                                 FileItem(name: "   Documents", children: [])
-                                ]),
-                     FileItem(name: " newuser", children:
-                                [FileItem(name: "   Documents", children: [])
-                                ])
-                    ])
+    FileItem(name: "Users", children:
+                [FileItem(name: " user1234", children:
+                            [FileItem(name: "   Photos", children:
+                                        [FileItem(name: "photo001.jpg"),
+                                         FileItem(name: "photo002.jpg")]),
+                             FileItem(name: "   Movies", children:
+                                        [FileItem(name: "movie001.mp4")]),
+                             FileItem(name: "   Documents", children: [])
+                            ]),
+                 FileItem(name: " newuser", children:
+                            [FileItem(name: "   Documents", children: [])
+                            ])
+                ])
     
     
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView {
-
+                        
+                        VStack(alignment: .leading) {
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup", name: "OUTLINE GROUP")
                 .padding()
-
+            
             Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
                 .fontWeight(.light)
                 .padding()
-
+            
             Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. This allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.")
                 .fontWeight(.light)
                 .padding()
-
+            
             Group {
                 OutlineGroup(data, children: \.children) { item in
                     Text("\(item.description)")}
             }
             .padding()
             
-
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         })
     }
 }
@@ -118,8 +118,8 @@ extension OutlinesGroupsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

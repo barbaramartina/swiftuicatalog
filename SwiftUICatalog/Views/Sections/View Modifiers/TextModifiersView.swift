@@ -43,8 +43,8 @@ struct TextModifiersView: View, Comparable {
     var body: some View {
         
         PageContainer(content:
-
-        ScrollView {
+                        
+                        ScrollView {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: "TEXT MODIFIERS")
             
             // contextual information
@@ -78,7 +78,7 @@ struct TextModifiersView: View, Comparable {
                         .fontWeight(.heavy)
                 }
                 // end of Font weights
-
+                
                 Divider()
                     .padding(.top, 16)
                     .padding(.bottom, 16)
@@ -118,8 +118,8 @@ struct TextModifiersView: View, Comparable {
                     Divider()
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-
-
+                    
+                    
                     Text("Foregroung color: A pink text")
                         .foregroundColor(.pink)
                 }
@@ -142,7 +142,7 @@ struct TextModifiersView: View, Comparable {
                     Divider()
                         .padding(.top, 16)
                         .padding(.bottom, 16)
-
+                    
                     Text("Backgrounds: a text with a text background")
                         .font(.title)
                         .background(Text("AAAAAAAAAA")
@@ -163,7 +163,7 @@ struct TextModifiersView: View, Comparable {
                                    height: 100,
                                    alignment: .center))
                         .padding()
-
+                    
                 }
                 
                 // Opacity
@@ -193,14 +193,14 @@ struct TextModifiersView: View, Comparable {
                         .underline()
                     Text("Italic text")
                         .italic()
-
+                    
                 }
                 // end of bold and underlined
-
+                
             }
             
             Group {
-
+                
                 // tightening
                 Group {
                     Divider()
@@ -242,19 +242,19 @@ struct TextModifiersView: View, Comparable {
                         TextField("Text field with alphabet keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.alphabet)
                             .padding()
-
+                        
                         TextField("Text field with ascii keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.asciiCapable)
                             .padding()
-
+                        
                         TextField("Text field with ascii number pad keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.asciiCapableNumberPad)
                             .padding()
-
+                        
                         TextField("Text field with decimal pad keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.decimalPad)
                             .padding()
-
+                        
                         TextField("Text field with email address keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.emailAddress)
                             .padding()
@@ -262,30 +262,30 @@ struct TextModifiersView: View, Comparable {
                         TextField("Text field with name phone pad keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.namePhonePad)
                             .padding()
-
+                        
                         TextField("Text field with number pad keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.numberPad)
                             .padding()
-
+                        
                         TextField("Text field with numbers and punctuation keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.numbersAndPunctuation)
                             .padding()
-
+                        
                         TextField("Text field with twitter keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.twitter)
                             .padding()
-
+                        
                         TextField("Text field with web search keyboard", text: $text1)
                             .keyboardType(UIKeyboardType.webSearch)
                             .padding()
                     }
-
+                    
                 }
                 // end of keyboard examples
                 
             }
             
-
+            
         })
         // end of page container
     }
@@ -308,8 +308,8 @@ extension TextModifiersView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

@@ -50,34 +50,37 @@ struct DisclosureGroupsView: View, Comparable {
     var body: some View {
         
         PageContainer(content: ScrollView {
-
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup", name: "DISCLOSURE GROUP")
-
-            introduction
-            disclosureGroupsExample
-
+            
+            VStack(alignment: .leading) {
+                introduction
+                Divider()
+                disclosureGroupsExample
+            }
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)
         }
             .padding()
         )
-
+        
     }
-
+    
     private var introduction: some View {
         Group {
             Text("A view that shows or hides another content view, based on the state of a disclosure control.")
                 .fontWeight(.light)
                 .padding()
-
+            
             Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
                 .fontWeight(.light)
                 .padding()
-
+            
         }
     }
-
+    
     private var disclosureGroupsExample: some View {
         DisclosureGroup("Items", isExpanded: $topExpanded) {
             Toggle("Toggle 1", isOn: $toggleStates.oneIsOn)
@@ -88,7 +91,7 @@ struct DisclosureGroupsView: View, Comparable {
                 Text("  Sub-item 1")
             }
         }
-
+        
     }
 }
 
@@ -109,8 +112,8 @@ extension DisclosureGroupsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

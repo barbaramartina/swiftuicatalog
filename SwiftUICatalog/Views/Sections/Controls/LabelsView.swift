@@ -36,7 +36,7 @@ import SwiftUI
 struct LabelsView: View, Comparable {
     
     let id: String = "LabelsView"
-
+    
     // Label Style
     // https://developer.apple.com/documentation/swiftui/labelstyle
     // please note that: some of the label style is available from iOS version 14.5 or above.
@@ -51,10 +51,10 @@ struct LabelsView: View, Comparable {
     var body: some View {
         
         PageContainer(content:
-        ScrollView {
+                        ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label", name: "LABELS")
-
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label", name: nil)
+            
             labelTypes
             Divider()
             labelsGroups
@@ -62,21 +62,19 @@ struct LabelsView: View, Comparable {
             labelsCustomViews
             Divider()
             truncationAndMultilineLabels
-
+            
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         })
-        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
     }
-
+    
     // MARK: - LABEL TYPE
-
+    
     private var labelTypes: some View {
         VStack(alignment: .leading) {
-
+            
             // Contextual information: a short intro to the elements we are showcasing
             Group {
                 Text("Label Types")
@@ -84,7 +82,7 @@ struct LabelsView: View, Comparable {
                 Text("You can create a label in SwiftUI by adding an icon to it, using only a text or conbining text and icons in one label")
                     .fontWeight(.light)
             }
-
+            
             VStack {
                 Spacer()
                 HStack {
@@ -125,7 +123,7 @@ struct LabelsView: View, Comparable {
                 ///         }
                 ///     }
                 ///
-
+                
                 Spacer()
                 HStack{
                     Text("Only icon:")
@@ -139,10 +137,10 @@ struct LabelsView: View, Comparable {
                     Label("Lightning",
                           systemImage: "bolt.fill")
                     .labelStyle(redBorderedLabelStyle)
-
+                    
                 }
                 Spacer()
-
+                
                 /// you csn customise the label with Text views check the following example
                 HStack {
                     Text("Label, icon and font:")
@@ -153,11 +151,11 @@ struct LabelsView: View, Comparable {
                 }
             }
         }
-
+        
     }
-
+    
     // MARK: - LABEL GROUPS
-
+    
     private var labelsGroups: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading) {
@@ -166,7 +164,7 @@ struct LabelsView: View, Comparable {
                         .fontWeight(.heavy)
                     Text("Labels can be grouped in other containers to layout them as a group")
                         .fontWeight(.light)
-
+                    
                 }
                 Group {
                     VStack {
@@ -176,7 +174,7 @@ struct LabelsView: View, Comparable {
                     }
                     .foregroundColor(.accentColor)
                     Divider()
-
+                    
                     /// To apply a common label style to a group of labels, apply the style
                     /// to the view hierarchy that contains the labels:
                     VStack {
@@ -185,25 +183,25 @@ struct LabelsView: View, Comparable {
                         Label("Sun", systemImage: "sun.max")
                     }
                     Divider()
-                    .labelStyle(titleOnly)
-
+                        .labelStyle(titleOnly)
+                    
                     VStack {
                         Label("", systemImage: "cloud.rain")
                         Label("", systemImage: "snow")
                         Label("", systemImage: "sun.max")
                     }
                     .foregroundColor(.accentColor)
-
+                    
                 }
                 .modifier(ViewAlignmentModifier(alignment: .center))
-
+                
             }
         }
-
+        
     }
-
+    
     // MARK: - TRUNCATION AND MULTILINE
-
+    
     private var truncationAndMultilineLabels: some View {
         VStack(alignment: .leading) {
             Group {
@@ -223,7 +221,7 @@ struct LabelsView: View, Comparable {
             .lineLimit(1)
             .allowsTightening(false)
             .truncationMode(.middle)
-
+            
             Label(
                 title: { Text("Multiline text arranged in how many lines as it is needed")
                         .multilineTextAlignment(.center)
@@ -235,11 +233,11 @@ struct LabelsView: View, Comparable {
             .allowsTightening(true)
             .truncationMode(.middle)
         }
-
+        
     }
-
+    
     // MARK: - LABEL WITH CUSTOM VIEWS
-
+    
     private var labelsCustomViews: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading)  {
@@ -249,7 +247,7 @@ struct LabelsView: View, Comparable {
                     Text("It's also possible to make labels using views to compose the label's icon")
                         .fontWeight(.light)
                 }
-
+                
                 /// It's also possible to make labels using views to compose the label's icon
                 /// programmatically, rather than using a pre-made image. In this example, the
                 /// icon portion of the label uses a filled ``Circle`` overlaid
@@ -268,9 +266,9 @@ struct LabelsView: View, Comparable {
                         .overlay(Text("A+").foregroundColor(.white))
                 }
             }
-
+            
         }
-
+        
     }
 }
 
@@ -300,8 +298,8 @@ extension LabelsView: Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

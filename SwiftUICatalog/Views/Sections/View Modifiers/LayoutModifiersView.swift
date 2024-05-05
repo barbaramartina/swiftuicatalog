@@ -37,29 +37,29 @@ import SwiftUI
 struct LayoutModifiersView: View, Comparable {
     
     let id: String = "LayoutModifiersView"
-
+    
     /// current stack view alignment
     @State var verticalAlignment: VerticalAlignment = .center
-
+    
     /// some offset to exemplify individual item's alignment
     let offsets: [CGFloat] = [-15, -50, 15, 50]
     /// current selected offset index
     private var offsetIndex: Int = 0
-
+    
     /// current aspect ratio
     @State var aspectRatio: CGFloat = 0.8
     /// the currently selected content mode
     @State var mode: AspectRatioModePicker.Mode = .fill
-
+    
     var body: some View {
         
         ScrollView {
             anchorPreferences
             alignmentExamples
         }
-
+        
     }
-
+    
     private var anchorPreferences: some View {
         Group {
             VStack(alignment: .leading) {
@@ -80,15 +80,15 @@ struct LayoutModifiersView: View, Comparable {
             .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         }
     }
-
-
+    
+    
     private var alignmentExamples: some View {
         VStack {
-
+            
             VStack {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/alignmentguide(_:computevalue:)-6y3u2", name: "LAYOUT MODIFIER")
                     .padding()
-
+                
                 Text("Views can be vertically aligned in respect to each other using precise offsets for each view, or using the view dimensions to calculate offsets")
                     .fontWeight(.light)
                     .padding()
@@ -120,7 +120,7 @@ struct LayoutModifiersView: View, Comparable {
                 .padding()
                 .border(Color("YellowMedium"), width: 1)
                 VerticalAlignmentPicker(selection: $verticalAlignment)
-                .pickerStyle(.wheel)
+                    .pickerStyle(.wheel)
             }
         }
     }
@@ -144,8 +144,8 @@ extension LayoutModifiersView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 extension VerticalAlignment: Hashable {
@@ -153,11 +153,11 @@ extension VerticalAlignment: Hashable {
     public func hash(into hasher: inout Hasher) {
         hasher.combine(self.description)
     }
-
+    
 }
 
 extension VerticalAlignment {
-
+    
     var description: String {
         switch self {
         case .bottom: "bottom"
@@ -169,5 +169,5 @@ extension VerticalAlignment {
             ""
         }
     }
-
+    
 }

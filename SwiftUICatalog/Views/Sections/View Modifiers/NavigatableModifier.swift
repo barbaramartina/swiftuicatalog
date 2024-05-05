@@ -9,7 +9,7 @@
 import SwiftUI
 
 extension View {
-
+    
     /// Navigate to a new view. When the main view is not a navigation view, then embbeding a navigation view will make the navigation link
     /// open in the frame where the navigation view is, therefore this modifier helps to open links in a new view
     /// - Parameters:
@@ -21,7 +21,7 @@ extension View {
                 self
                     .navigationBarTitle("")
                     .navigationBarHidden(true)
-
+                
                 NavigationLink(
                     destination: view
                         .navigationBarTitle("")

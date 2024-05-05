@@ -10,7 +10,7 @@ import SwiftUI
 struct ListSectionFontModifier: ViewModifier {
     
     var font = Font.system(.title).weight(.black)
-
+    
     func body(content: Content) -> some View {
         content
             .font(font)
@@ -18,7 +18,7 @@ struct ListSectionFontModifier: ViewModifier {
             .tint(.white)
             .padding(.top, 16)
             .padding(.bottom, 16)
-
+        
     }
 }
 

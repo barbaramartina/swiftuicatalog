@@ -14,7 +14,7 @@ struct DocumentationLinkView: View, Identifiable {
     var id: String {
         return link
     }
-        
+    
     /// documentation link
     let link: String
     
@@ -23,7 +23,7 @@ struct DocumentationLinkView: View, Identifiable {
     
     init(link: String, name: String? = nil) {
         self.link = link
-        self.name = name ?? "documentation"
+        self.name = name ?? "Documentation"
     }
     
     var body: some View {
@@ -31,19 +31,16 @@ struct DocumentationLinkView: View, Identifiable {
             UIApplication.shared.open(URL(string: link)!)
         }, label: {
             HStack {
-                Text("[ \(name)")
-                    .padding(8)
-                    .fontWeight(.bold)
-                Image(systemName: "link")
-                Text("]")
-                    .padding(8)
-
+                Image(systemName: "book.and.wrench")
             }
+            .padding(12)
             .fontWeight(.bold)
             .foregroundColor(Color("YellowMedium"))
             .background(.primary)
+            .modifier(RoundedBordersModifier(radius: 8, lineWidth: 1))
         })
-        .modifier(ViewAlignmentModifier(alignment: .leading))
+        .padding(.bottom, 16)
+        .modifier(ViewAlignmentModifier(alignment: .trailing))
     }
 }
 

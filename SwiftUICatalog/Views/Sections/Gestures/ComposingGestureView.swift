@@ -79,18 +79,18 @@ struct ComposingGesturesView: View, Comparable {
     
     var body: some View {
         
-       
+        
         let longPressDrag = LongPressGesture(minimumDuration: minimumLongPressDuration)
             .sequenced(before: DragGesture())
             .updating($dragState) { value, state, transaction in
                 switch value {
-                // Long press begins.
+                    // Long press begins.
                 case .first(true):
                     state = .pressing
-                // Long press confirmed, dragging may begin.
+                    // Long press confirmed, dragging may begin.
                 case .second(true, let drag):
                     state = .dragging(translation: drag?.translation ?? .zero)
-                // Dragging ended or the long press cancelled.
+                    // Dragging ended or the long press cancelled.
                 default:
                     state = .inactive
                 }
@@ -100,9 +100,10 @@ struct ComposingGesturesView: View, Comparable {
                 self.viewState.width += drag.translation.width
                 self.viewState.height += drag.translation.height
             }
-        ScrollView {
+        
+        VStack(alignment: .leading) {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures", name: "GESTURES")
-
+            
             Text("Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI.")
                 .fontWeight(.light)
                 .padding()
@@ -121,8 +122,8 @@ struct ComposingGesturesView: View, Comparable {
             
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         }
         
         // end of page container
@@ -148,8 +149,8 @@ extension ComposingGesturesView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

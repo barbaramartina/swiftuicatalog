@@ -40,9 +40,9 @@ struct EffectsModifiersView: View, Comparable {
     var body: some View {
         
         PageContainer(content:
-
-        List {
-
+                        
+                        List {
+            
             // MARK: -
             
             Group {
@@ -54,12 +54,12 @@ struct EffectsModifiersView: View, Comparable {
                     .clipped()
                     .shadow(radius: 10)
                     .rotationEffect(Angle(degrees: 30))
-
+                
                 
             }
             .padding(.top, 50)
             .padding(.bottom, 100)
-
+            
             // MARK: - Masking
             
             Group {
@@ -69,13 +69,13 @@ struct EffectsModifiersView: View, Comparable {
                     .resizable()
                     .scaledToFill()
                     .mask(Text("Awesome Robbie. Corgie is a very special breed is not so easy to find around the world")
-                            .font(.largeTitle)
-                            .fontWeight(.heavy)
-                            .multilineTextAlignment(.center)
-                            .frame(width:320, height: 220))
+                        .font(.largeTitle)
+                        .fontWeight(.heavy)
+                        .multilineTextAlignment(.center)
+                        .frame(width:320, height: 220))
                 
             }
-
+            
             // MARK: - gray scale and luminance to alpha
             
             Group {
@@ -88,7 +88,7 @@ struct EffectsModifiersView: View, Comparable {
                     .hoverEffect(.highlight)
                     .luminanceToAlpha()
             }
-
+            
             // MARK: - Border & blur effect
             
             Group {
@@ -99,7 +99,7 @@ struct EffectsModifiersView: View, Comparable {
                     Image("corgie-love")
                         .resizable()
                         .scaledToFill()
-                        // border effect
+                    // border effect
                         .border(Color.pink, width: 10)
                         .frame(width: 200, height: 200)
                 }
@@ -124,7 +124,7 @@ struct EffectsModifiersView: View, Comparable {
             }
             .colorInvert()
             // end of group
-
+            
             // MARK: - Brigthness effect
             
             Group {
@@ -135,7 +135,7 @@ struct EffectsModifiersView: View, Comparable {
                     .brightness(0.3)
             }
             // end of group
-
+            
             // MARK: - Color multiply & Contrast effect
             
             Group {
@@ -143,15 +143,15 @@ struct EffectsModifiersView: View, Comparable {
                 Image("corgie-love")
                     .resizable()
                     .scaledToFill()
-                    
+                
             }
             // color effect
             .colorMultiply(.blue)
             // Defines the content shape for hit testing.
             .contentShape(Circle())
             .contrast(3.0)
-             // end of group
-
+            // end of group
+            
             // MARK: - Blend mode effect
             
             Group {
@@ -163,11 +163,11 @@ struct EffectsModifiersView: View, Comparable {
             }
             
         }
-        // accent color effect
-        .accentColor(.green)
-                      )
+                      // accent color effect
+            .accentColor(.green)
+        )
         // end of page container
-      
+        
     }
 }
 
@@ -184,7 +184,7 @@ struct BlendExamplesView: View {
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-                // blend mode
+            // blend mode
                 .blendMode(.colorBurn)
         }
         .padding(20)
@@ -193,7 +193,7 @@ struct BlendExamplesView: View {
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-                // blend mode
+            // blend mode
                 .blendMode(.luminosity)
         }
         .padding(20)
@@ -202,21 +202,21 @@ struct BlendExamplesView: View {
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-                // blend mode
+            // blend mode
                 .blendMode(.lighten)
         }
         .padding(20)
-
+        
         VStack {
             Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-                // blend mode
+            // blend mode
                 .blendMode(.exclusion)
         }
         .padding(20)
-
+        
     }
 }
 
@@ -231,8 +231,8 @@ extension EffectsModifiersView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

@@ -40,12 +40,12 @@ struct MotionAnimationView: View, Comparable {
     
     // MARK: - Body
     
-
+    
     var body: some View {
         
         PageContainer(content:
-
-        GeometryReader { geometry in
+                        
+                        GeometryReader { geometry in
             ZStack {
                 
                 ForEach(0...randomShapeCount, id: \.self) { item in
@@ -58,13 +58,13 @@ struct MotionAnimationView: View, Comparable {
                         .position(
                             x: randomCoordinate(max: geometry.size.width),
                             y: randomCoordinate(max: geometry.size.height)
-                    )
+                        )
                         .animation(
                             Animation.interpolatingSpring(stiffness: 0.5,
                                                           damping: 0.5)
-                                .repeatForever()
-                                .speed(randomSpeed())
-                                .delay(randomDelay()),
+                            .repeatForever()
+                            .speed(randomSpeed())
+                            .delay(randomDelay()),
                             value: isAnimating
                         )
                         .onAppear(perform: {
@@ -79,8 +79,8 @@ struct MotionAnimationView: View, Comparable {
             // end of z stack
             
         }
-        // end of geometry
-                      )
+                      // end of geometry
+        )
         // end of page container
     }
 }
@@ -102,8 +102,8 @@ extension MotionAnimationView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

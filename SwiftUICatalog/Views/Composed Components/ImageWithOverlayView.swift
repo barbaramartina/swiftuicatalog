@@ -32,11 +32,11 @@ struct ImageWithOverlayView<Overlay: View>: View, Identifiable {
         }
         
         // Another Alternative implementation for simple composiitions can be done by using the standard overlay modifier
-//        Image(image)
-//            .resizable()
-//            .scaledToFit()
-//            .overlay(overlay, alignment: aligment)
-
+        //        Image(image)
+        //            .resizable()
+        //            .scaledToFit()
+        //            .overlay(overlay, alignment: aligment)
+        
     }
 }
 

@@ -32,11 +32,11 @@ struct AccesibilityView: View, Comparable {
     
     let id: String = "AccesibilityView"
     
-   var body: some View {
+    var body: some View {
         VStack {
             ContributionWantedView()
         }
-
+        
     }
 }
 

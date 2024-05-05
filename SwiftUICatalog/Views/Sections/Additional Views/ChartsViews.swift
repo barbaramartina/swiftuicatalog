@@ -32,7 +32,7 @@ import SwiftUI
 import Charts
 
 struct ChartsViews: View {
-
+    
     /// value used to draw a line chart example. It represents the initial time of a heart rate check.
     private let initialHour = 9
     /// value used to draw a line chart example. It represents the final time of a heart rate check.
@@ -41,9 +41,9 @@ struct ChartsViews: View {
     private var xValuesHours: [Int] {
         stride(from: initialHour, to: finalHour, by: 1).map { $0 }
     }
-
+    
     // MARK: - Bar chart example data
-
+    
     /// For the bar chart, we will use clothes as examples, there are clothes of different colors. The colors will help to pile up bars for each type of item.
     private struct ClotheItem: Identifiable {
         var id = UUID()
@@ -51,7 +51,7 @@ struct ChartsViews: View {
         var color: String
         var count: Double
     }
-
+    
     private let clothes: [ClotheItem] = [
         .init(type: "T-Shirt", color: "Pink", count: 4),
         .init(type: "T-Shirt", color: "Green", count: 5),
@@ -60,9 +60,9 @@ struct ChartsViews: View {
         .init(type: "Skirt", color: "Yellow", count: 4),
         .init(type: "Skirt", color: "Green", count: 9)
     ]
-
+    
     // MARK: - Point Chart example data
-
+    
     /// For the points chart we will use appliances which are stored in different rooms and we will plot the amount of appliances per storage unit/room
     private struct Appliance: Identifiable {
         var id = UUID()
@@ -71,7 +71,7 @@ struct ChartsViews: View {
         var count: Double
         var storageUnit: String
     }
-
+    
     private let appliances: [Appliance] = [
         Appliance(type: "Mixer", code: 1, count: 2, storageUnit: "Room1"),
         Appliance(type: "Mixer", code: 1, count: 4, storageUnit: "Room2"),
@@ -83,9 +83,9 @@ struct ChartsViews: View {
         Appliance(type: "Washing Machine", code: 3, count: 2, storageUnit: "Room2"),
         Appliance(type: "Washing Machine", code: 3, count: 10, storageUnit: "Room3")
     ]
-
+    
     // MARK: - Line Chart example data
-
+    
     /// for the line chart example we will pretend to be in a clinical study where 3 persons' hearts rate are measures from 10:00h to 14:00h
     private struct HeartRate: Identifiable {
         var id = UUID()
@@ -93,7 +93,7 @@ struct ChartsViews: View {
         let heartRate: Double
         let personName: String
     }
-
+    
     private let rates: [HeartRate] = [
         HeartRate(hour: 10, heartRate: 90.0, personName: "Mary"),
         HeartRate(hour: 11, heartRate: 87.0, personName: "Mary"),
@@ -108,19 +108,20 @@ struct ChartsViews: View {
         HeartRate(hour: 12, heartRate: 105.0, personName: "Mark"),
         HeartRate(hour: 13, heartRate: 95.0, personName: "Mark")
     ]
-
-
+    
+    
     // MARK: - Main view
-
-
+    
+    
     var body: some View {
-        ScrollView {
-
+        PageContainer(content:
+                        VStack(alignment: .leading) {
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/charts/creating-a-chart-using-swift-charts", name: "CHARTS")
-
+            
             if #available(iOS 16.0, *) {
-
-
+                
+                
                 // BAR CHART
                 Text("Bar Chart example")
                     .fontWeight(.heavy)
@@ -140,7 +141,7 @@ struct ChartsViews: View {
                     "Yellow": .yellow
                 ])
                 .padding()
-
+                
                 // POINT CHART
                 Text("Point Chart examples")
                     .fontWeight(.heavy)
@@ -160,7 +161,7 @@ struct ChartsViews: View {
                     }
                 }
                 .padding()
-
+                
                 // LINE CHART
                 Text("Line Chart example")
                     .fontWeight(.heavy)
@@ -180,16 +181,16 @@ struct ChartsViews: View {
                     AxisMarks(values: xValuesHours)
                 }
                 .padding()
-
+                
             }
-
-
+            
+            
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
             .padding(.top, 80)
-
-
+            
         }
+        )
     }
 }
 

@@ -33,12 +33,12 @@ struct HeaderImageTitleSubtitle: View, Identifiable {
             Image(configuration.header)
                 .resizable()
                 .scaledToFit()
-
+            
             Text(configuration.title)
                 .font(configuration.titleFont)
                 .fontWeight(configuration.titleWeight)
                 .padding(.top, 16)
-
+            
             Text(configuration.subtitle)
                 .font(configuration.subtitleFont)
                 .fontWeight(configuration.subtitleWeight)
@@ -50,8 +50,8 @@ struct HeaderImageTitleSubtitle: View, Identifiable {
                        height: 1,
                        alignment: .center)
                 .padding(.top, 12)
-                
-
+            
+            
         }
         .padding(.top, configuration.paddingTop)
         .padding(.bottom, configuration.paddingBottom)
@@ -71,9 +71,9 @@ struct HeaderImageTitleSubtitle_Previews: PreviewProvider {
                                                                                        subtitleWeight: .regular,
                                                                                        header: "cocker"
                                                                                        ,
-                                                                                      paddingTop: 16,
-                                                                                      paddingLeading: 16,
-                                                                                      paddingTrailing: 16,
-                                                                                      paddingBottom: 16))
+                                                                                       paddingTop: 16,
+                                                                                       paddingLeading: 16,
+                                                                                       paddingTrailing: 16,
+                                                                                       paddingBottom: 16))
     }
 }

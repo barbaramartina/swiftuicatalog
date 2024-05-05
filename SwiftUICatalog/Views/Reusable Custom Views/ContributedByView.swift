@@ -13,7 +13,7 @@ struct ContributedByView: View, Identifiable {
         return name + link
     }
     
-  /// contributor's name
+    /// contributor's name
     let name: String
     /// link of the contributor
     let link: String
@@ -33,7 +33,7 @@ struct ContributedByView: View, Identifiable {
                 .padding(.trailing, 16)
         })
         
-
+        
         
         
     }

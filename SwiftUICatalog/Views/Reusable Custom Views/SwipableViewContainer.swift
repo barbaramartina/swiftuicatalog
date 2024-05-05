@@ -10,14 +10,14 @@ import SwiftUI
 struct SwipableViewContainer: View {
     
     @State var subviews: [TitleSubtitleIconView]
-
+    
     /// a gesture to move the sub views around
     @GestureState private var dragState = DragState.inactive
     /// executed when the view is swipped left or right
     @State private var viewRemovalTransition = AnyTransition.trailingBottom
     /// the space to consider either from left or right, to determine when the view has to be removed from the stack
     private let dragAreaThreshold: CGFloat = 65.0
-
+    
     
     // MARK: TOP VIEW
     
@@ -37,28 +37,28 @@ struct SwipableViewContainer: View {
         
         var translation: CGSize {
             switch self {
-                case .inactive, .pressing:
-                    return .zero
-                case .dragging(let translation):
-                    return translation
+            case .inactive, .pressing:
+                return .zero
+            case .dragging(let translation):
+                return translation
             }
         }
         
         var isDragging: Bool {
             switch self {
-                case .dragging:
-                    return true
-                case .pressing, .inactive:
-                    return false
+            case .dragging:
+                return true
+            case .pressing, .inactive:
+                return false
             }
         }
         
         var isPressing: Bool {
             switch self {
-                case .pressing, .dragging:
-                    return true
-                case .inactive:
-                    return false
+            case .pressing, .dragging:
+                return true
+            case .inactive:
+                return false
             }
         }
     }
@@ -78,12 +78,12 @@ struct SwipableViewContainer: View {
                         .sequenced(before: DragGesture())
                         .updating(self.$dragState, body: { (value, state, transaction) in
                             switch value {
-                                case .first(true):
-                                    state = .pressing
-                                case .second(true, let drag):
-                                    state = .dragging(translation: drag?.translation ?? .zero)
-                                default:
-                                    break
+                            case .first(true):
+                                state = .pressing
+                            case .second(true, let drag):
+                                state = .dragging(translation: drag?.translation ?? .zero)
+                            default:
+                                break
                             }
                         })
                              
@@ -125,52 +125,52 @@ struct SwipableView_Previews: PreviewProvider {
                                                                      subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
                                                                      , subtitleFont: .body,
                                                                      subtitleWeight: .regular,
-                                                               icon: "cocker", iconSize: CGSize(width: 60, height: 60),
-                                                               iconVerticalAlignment: .top, iconHorizontalAlignment: .leading
+                                                                     icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                     iconVerticalAlignment: .top, iconHorizontalAlignment: .leading
                                                                      ,
-                                                                    paddingTop: 16,
-                                                                    paddingLeading: 16,
-                                                                    paddingTrailing: 16,
-                                                                    paddingBottom: 16)
+                                                                     paddingTop: 16,
+                                                                     paddingLeading: 16,
+                                                                     paddingTrailing: 16,
+                                                                     paddingBottom: 16)
         let subview1 = TitleSubtitleIconView(configuration: configurationIcon)
         subview1.background(Color.gray)
         
-    
-    
+        
+        
         let configurationIcon2 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.cyan, title: "English Cocker Spaniel"
-                                                                 , titleFont: .title,
-                                                                 titleWeight: .bold,
-                                                                 subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
-                                                                 , subtitleFont: .body,
-                                                                 subtitleWeight: .regular,
-                                                           icon: "cocker", iconSize: CGSize(width: 60, height: 60),
-                                                           iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
-                                                                 ,
-                                                                paddingTop: 16,
-                                                                paddingLeading: 16,
-                                                                paddingTrailing: 16,
-                                                                paddingBottom: 16)
-    
+                                                                      , titleFont: .title,
+                                                                      titleWeight: .bold,
+                                                                      subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                      , subtitleFont: .body,
+                                                                      subtitleWeight: .regular,
+                                                                      icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                      iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
+                                                                      ,
+                                                                      paddingTop: 16,
+                                                                      paddingLeading: 16,
+                                                                      paddingTrailing: 16,
+                                                                      paddingBottom: 16)
+        
         let subview2 = TitleSubtitleIconView(configuration: configurationIcon2)
         subview2.background(Color.pink)
-
+        
         
         let configurationIcon3 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.accentColor, title: "English Cocker Spaniel"
-                                                                     , titleFont: .title,
-                                                                     titleWeight: .bold,
-                                                                     subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
-                                                                     , subtitleFont: .body,
-                                                                     subtitleWeight: .regular,
-                                                               icon: "cocker", iconSize: CGSize(width: 60, height: 60),
-                                                               iconVerticalAlignment: .top, iconHorizontalAlignment: .center
-                                                                     ,
-                                                                    paddingTop: 16,
-                                                                    paddingLeading: 16,
-                                                                    paddingTrailing: 16,
-                                                                    paddingBottom: 16)
+                                                                      , titleFont: .title,
+                                                                      titleWeight: .bold,
+                                                                      subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                      , subtitleFont: .body,
+                                                                      subtitleWeight: .regular,
+                                                                      icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                      iconVerticalAlignment: .top, iconHorizontalAlignment: .center
+                                                                      ,
+                                                                      paddingTop: 16,
+                                                                      paddingLeading: 16,
+                                                                      paddingTrailing: 16,
+                                                                      paddingBottom: 16)
         let subview3 = TitleSubtitleIconView(configuration: configurationIcon3)
         subview3.background(Color("PaleGreen"))
-
+        
         let subviews = [subview1, subview2, subview3]
         
         SwipableViewContainer(subviews: subviews)

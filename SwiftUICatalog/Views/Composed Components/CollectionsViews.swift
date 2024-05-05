@@ -11,7 +11,7 @@ struct CollectionsViews: View, Comparable {
     
     let id: String = "CollectionsViews"
     
-   var body: some View {
+    var body: some View {
         
         VStack {
             ContributionWantedView()

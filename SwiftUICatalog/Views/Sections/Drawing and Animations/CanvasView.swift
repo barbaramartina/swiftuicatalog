@@ -39,17 +39,17 @@ struct CanvasView: View, Comparable {
     let id: String = "CanvasView"
     
     private let spaces: [CGRect] = [CGRect(x: 0,
-                                   y: 0,
-                                   width: 100,
-                                   height: 100),
-                            CGRect(x: 10,
-                                   y: 10,
-                                   width: 10,
-                                   height: 10),
-                            CGRect(x: 100,
-                                   y: 0,
-                                   width: 200,
-                                   height: 200)]
+                                           y: 0,
+                                           width: 100,
+                                           height: 100),
+                                    CGRect(x: 10,
+                                           y: 10,
+                                           width: 10,
+                                           height: 10),
+                                    CGRect(x: 100,
+                                           y: 0,
+                                           width: 200,
+                                           height: 200)]
     private let circle = Image(systemName: "circle")
     private let square = Image(systemName: "square")
     
@@ -61,27 +61,26 @@ struct CanvasView: View, Comparable {
     var body: some View {
         
         PageContainer(content: ScrollView {
-
+            
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas", name: "CANVAS")
-
-            Group {
+            
+            VStack(alignment: .leading) {
                 intro1
                 canvas1
-
+                Divider()
                 intro2
                 canvas2
             }
-            .padding()
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
             
         })
-
+        
     }
-
+    
     private var intro1: some View {
         Group {
             Text("Canvas views")
@@ -89,16 +88,16 @@ struct CanvasView: View, Comparable {
             Text("A canvas can be used to render 2D drawings You can use a graphic context and draw on it.")
                 .fontWeight(.light)
         }
-
+        
     }
-
+    
     private var canvas1: some View {
         Canvas { context, size in
             context.stroke(
                 Path(ellipseIn: CGRect(origin: .zero, size: size)),
                 with: .color(.purple),
                 lineWidth: 4)
-
+            
             let halfSize = size.applying(CGAffineTransform(scaleX: 0.5, y: 0.5))
             context.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
             context.fill(
@@ -107,15 +106,15 @@ struct CanvasView: View, Comparable {
         }
         .frame(width: 300, height: 200)
         .border(Color.blue)
-
+        
     }
-
+    
     private var intro2: some View {
         Text("Or you can use a canvas and fill it with renderable SwiftUI views.")
             .fontWeight(.light)
-
+        
     }
-
+    
     private var canvas2: some View {
         Canvas { context, size in
             if let circle = context.resolveSymbol(id: ViewId.circle) {
@@ -134,7 +133,7 @@ struct CanvasView: View, Comparable {
         }
         .frame(width: 300, height: 200)
         .border(Color.blue)
-
+        
     }
 }
 
@@ -155,8 +154,8 @@ extension CanvasView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

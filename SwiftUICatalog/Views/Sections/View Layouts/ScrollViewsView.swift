@@ -36,68 +36,64 @@ import SwiftUI
 ///
 
 struct ScrollViewsView: View, Comparable {
-
+    
     
     let id: String = "ScrollViewsView"
     
-  @State private var topButtonId: String = "top-button"
+    @State private var topButtonId: String = "top-button"
     @State private var bottomButtonId: String = "bottom-button"
-
+    
     var body: some View {
         
         PageContainer(content:
-
-        
-        ScrollViewReader { proxy in
+                        
+                        
+                        ScrollViewReader { proxy in
             
-            ScrollView {
+            VStack(alignment: .leading) {
                 
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview", name: "SCROLL VIEWS")
-
+                
                 introductionTexts
-
+                
                 scrollToBottomButton(proxy: proxy)
-
+                
                 VStack(spacing: 0) {
                     ForEach(0..<100) { i in
                         Text("Row \(i)")
                             .multilineTextAlignment(.leading)
                     }
                 }
-
+                
                 scrollToTopButton(proxy: proxy)
-
-
+                
+                
             }
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
-
+            .padding(.top, 80)
+            
         })
         // end of page container
         
     }
-
+    
     private var introductionTexts: some View {
         Group {
             Text("Scrollviews in SwiftUI")
                 .fontWeight(.heavy)
-                .padding()
             Text("Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views")
                 .fontWeight(.light)
-                .padding()
-
         }
     }
-
+    
     private func scrollToTopButton(proxy: ScrollViewProxy) -> some View {
         Button("Back to Top") {
             withAnimation {
                 proxy.scrollTo(topButtonId)
             }
         }
-        .padding()
         .id(bottomButtonId)
     }
     private func scrollToBottomButton(proxy: ScrollViewProxy) -> some View {
@@ -106,9 +102,8 @@ struct ScrollViewsView: View, Comparable {
                 proxy.scrollTo(bottomButtonId)
             }
         }
-        .padding()
         .id(topButtonId)
-
+        
     }
 }
 
@@ -129,8 +124,8 @@ extension ScrollViewsView {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-
-
+    
+    
 }
 
 

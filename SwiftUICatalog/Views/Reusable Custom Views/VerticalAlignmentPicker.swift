@@ -14,7 +14,7 @@ struct VerticalAlignmentPicker: View {
     
     /// alignments for stack view elements
     private let verticalAlignments: [VerticalAlignment] = [.top, .bottom, .center, .firstTextBaseline, .lastTextBaseline]
-
+    
     var body: some View {
         Picker(selection: $selection, label: Text("alignment")) {
             ForEach(verticalAlignments, id: \.self) {
