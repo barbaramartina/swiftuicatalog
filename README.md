@@ -1,24 +1,29 @@
 # SwiftUI Catalog
 An open source catalog, under MIT License, containing components, controls, effects, styles, layouts, containers, modifiers and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.
 
+- Quick preview of all SwiftUI components
+- Easily shared with your designers
+- On the fly customization for many components
+- Reusable views, copy and paste code to develop faster.
+- MIT License! free usage in commercial projects. 
 
-We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
-Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
-
-
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/76cdeed6-aa98-4723-9fc4-f8ce79729325" alt="alt text"  height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6bd3db2b-1f55-40d4-858c-33ee72c28af9" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6eead1ad-743f-4021-bd3f-7257fe04f6ce" alt="alt text"  height="400">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c20ede87-4ef6-428f-b289-e2e300c115ca" alt="alt text"  height="400">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/aab92f9d-cb0c-478a-899a-17ac24619b88" alt="alt text"  height="400">
 
 
 # Get the catalog on your device
-Easily install the catalog on your device or share it with your designers!
+Easily install the catalog on your device or share it with anyone!
 
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e3dadebe-98f1-44d8-bff3-89fc3894bbdf" alt="alt text"  height="200">
 
 [App Store Download](https://apps.apple.com/de/app/swiftui-catalog/id1597742701?l=en-GB)
 
 # Goal
+We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
+Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
+
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
 
 For example all the possible containers (like form, group, groupBox, controlGroup), all the hierarchical views (such as tabs view, outline views, diclosure views). 
