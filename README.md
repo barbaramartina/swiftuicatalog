@@ -7,8 +7,8 @@ We'd like to promote this as a collaborative initiative developed over time, you
 Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
 
 
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6bd3db2b-1f55-40d4-858c-33ee72c28af9" alt="alt text"  height="700">
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/76cdeed6-aa98-4723-9fc4-f8ce79729325" alt="alt text"  height="700">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6bd3db2b-1f55-40d4-858c-33ee72c28af9" alt="alt text"  height="700">
 
 
 # Goal
