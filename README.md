@@ -11,13 +11,20 @@ Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EI
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6bd3db2b-1f55-40d4-858c-33ee72c28af9" alt="alt text"  height="700">
 
 
+# Get the catalog on your device
+Easily install the catalog on your device or share it with your designers!
+
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e3dadebe-98f1-44d8-bff3-89fc3894bbdf" alt="alt text"  height="200">
+
+[App Store Download](https://apps.apple.com/de/app/swiftui-catalog/id1597742701?l=en-GB)
+
 # Goal
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
 
 For example all the possible containers (like form, group, groupBox, controlGroup), all the hierarchical views (such as tabs view, outline views, diclosure views). 
 
 
-This catalog will allow developers who already know the theoretical aspects of [data / state handling](https://developer.apple.com/documentation/swiftui/state-and-data-flow) and SwiftUI [App Structure and Behaviour](https://developer.apple.com/documentation/swiftui/app-structure-and-behavior) to discover and reused easily UI elements to compose SwiftUI Interfaces.
+This catalog will allow developers who already know the theoretical aspects of [data / state handling](https://developer.apple.com/documentation/swiftui/state-and-data-flow) and SwiftUI [App Structure and Behaviour](https://developer.apple.com/documentation/swiftui/app-structure-and-behavior) to discover and reuse easily UI elements to compose SwiftUI Interfaces.
 
 # You can use this catalog for:
 
