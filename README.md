@@ -1,27 +1,35 @@
 # SwiftUI Catalog
 An open source catalog, under MIT License, containing components, controls, effects, styles, layouts, containers, modifiers and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.
 
+- Quick preview of all SwiftUI components
+- Easily shared with your designers
+- On the fly customization for many components
+- Reusable views, copy and paste code to develop faster.
+- MIT License! free usage in commercial projects. 
 
-We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 
-Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6eead1ad-743f-4021-bd3f-7257fe04f6ce" alt="alt text"  height="400">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c20ede87-4ef6-428f-b289-e2e300c115ca" alt="alt text"  height="400">
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/aab92f9d-cb0c-478a-899a-17ac24619b88" alt="alt text"  height="400">
 
 
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e0bca7ff-87bb-40e5-a47c-feb2726f8c46" alt="alt text"  height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/29d2995f-46da-4f73-9145-e4bf2f0c7fde" alt="alt text"  height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c0fe8053-ed70-42ac-90aa-66b63bcf28cf" alt="alt text" height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/b8dd644a-7ec5-4a2a-8ca5-c10b7c3b8537" alt="alt text"  height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/55678d48-98f0-421d-889e-40ff69cdecf7" alt="alt text" height="700">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c0f65608-ec2d-4755-b80a-0204c3dde785" alt="alt text" height="700">
+# Get the catalog on your device
+Easily install the catalog on your device or share it with anyone!
 
+<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e3dadebe-98f1-44d8-bff3-89fc3894bbdf" alt="alt text"  height="200">
+
+[App Store Download](https://apps.apple.com/de/app/swiftui-catalog/id1597742701?l=en-GB)
 
 # Goal
+We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
+Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
+
 There's plenty of documentation and examples showing how to use SwiftUI, but apart from the official documentation I could not find one source of code where all the possible elements of SwiftUI are showcased clearly together. 
 
 For example all the possible containers (like form, group, groupBox, controlGroup), all the hierarchical views (such as tabs view, outline views, diclosure views). 
 
 
-This catalog will allow developers who already know the theoretical aspects of [data / state handling](https://developer.apple.com/documentation/swiftui/state-and-data-flow) and SwiftUI [App Structure and Behaviour](https://developer.apple.com/documentation/swiftui/app-structure-and-behavior) to discover and reused easily UI elements to compose SwiftUI Interfaces.
+This catalog will allow developers who already know the theoretical aspects of [data / state handling](https://developer.apple.com/documentation/swiftui/state-and-data-flow) and SwiftUI [App Structure and Behaviour](https://developer.apple.com/documentation/swiftui/app-structure-and-behavior) to discover and reuse easily UI elements to compose SwiftUI Interfaces.
 
 # You can use this catalog for:
 
