@@ -70,9 +70,9 @@ struct SteppersView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/stepper", name: "STEPPER")
             plainStepper
-            Divider()
+                .modifier(Divided())
             customStepper
-            Divider()
+                .modifier(Divided())
             
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")

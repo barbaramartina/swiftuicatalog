@@ -40,6 +40,33 @@ struct StylesView: View, Comparable {
     @State private var selectedPickerString: String = ""
     @State private var toggleValue: Bool = false
     
+    var body: some View {
+        
+        PageContainer(content:
+                        VStack(alignment: .leading) {
+            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles", name: "STYLE VIEW")
+            
+            // contextual information
+            Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")
+                .fontWeight(.light)
+                .modifier(Divided())
+            gauges
+                .modifier(Divided())
+            progress
+                .modifier(Divided())
+            pickers
+                .modifier(Divided())
+            toggles
+                .modifier(Divided())
+            buttons
+                .modifier(Divided())
+            menues
+            
+        }
+        )
+    }
+    
     private var pickers: some View {
         // styling Pickers
         // https://developer.apple.com/documentation/swiftui/pickerstyle
@@ -98,22 +125,17 @@ struct StylesView: View, Comparable {
                 .pickerStyle(.wheel)
             }
             
-            if #available(iOS 16.0, *) {
-                HStack {
-                    Text("Navigation Link style:")
-                    Spacer()
-                    Picker("Option", selection: $selectedPickerString) {
-                        Text("Option 1")
-                        Text("Option 2")
-                        Text("Option 3")
-                    }
-                    .pickerStyle(.navigationLink)
+            HStack {
+                Text("Navigation Link style:")
+                Spacer()
+                Picker("Option", selection: $selectedPickerString) {
+                    Text("Option 1")
+                    Text("Option 2")
+                    Text("Option 3")
                 }
-            } else {
-                // Fallback on earlier versions
+                .pickerStyle(.navigationLink)
             }
         }
-        .padding()
         // end of styling pickers
         
     }
@@ -167,7 +189,6 @@ struct StylesView: View, Comparable {
             }
             
         }
-        .padding()
         // end buttons styles
     }
     
@@ -175,7 +196,6 @@ struct StylesView: View, Comparable {
         // styling Toggles
         // https://developer.apple.com/documentation/swiftui/togglestyle
         Group {
-            Divider()
             Text("Styling Toggles")
                 .fontWeight(.heavy)
             HStack {
@@ -204,14 +224,12 @@ struct StylesView: View, Comparable {
             }
             
         }
-        .padding()
         // end styling toggles
     }
     
     private var menues: some View {
         // styling menues
         return Group {
-            Divider()
             Text("Styling Menues")
                 .fontWeight(.heavy)
             if #available(iOS 16.0, *) {
@@ -248,14 +266,12 @@ struct StylesView: View, Comparable {
                 .menuStyle(MyOwnMenuStyle())
             }
         }
-        .padding()
         // end of styling menues
     }
     
     private var progress: some View {
         Group {
             // https://developer.apple.com/documentation/swiftui/progressviewstyle
-            Divider()
             Text("Styling progress indicator")
                 .fontWeight(.heavy)
             VStack {
@@ -283,116 +299,83 @@ struct StylesView: View, Comparable {
                 .progressViewStyle(.circular)
             }
         }
-        .padding()
     }
     private var gauges: some View {
-        Group {
+        VStack(alignment: .leading) {
             // https://developer.apple.com/documentation/swiftui/gaugestyle
-            Divider()
             Text("Styling gauges")
                 .fontWeight(.heavy)
-            if #available(iOS 16.0, *) {
-                VStack {
-                    Text("Automatic style:")
-                    Spacer()
-                    Gauge(value: 0.6) {
-                        Text("Level")
-                    }
-                    .gaugeStyle(.automatic)
+            VStack(alignment: .leading) {
+                Text("Automatic style:")
+                Spacer()
+                Gauge(value: 0.6) {
+                    Text("Level")
                 }
-                VStack {
-                    Text("Accessory Circular style:")
-                    Spacer()
-                    Gauge(value: 0.75) {
-                        Text("Level")
-                    } currentValueLabel: {
-                        Text("0.75")
-                    } minimumValueLabel: {
-                        Text("0")
-                    } maximumValueLabel: {
-                        Text("1")
-                    }
-                    .gaugeStyle(.accessoryCircular)
-                    
-                    // level of clouds today :D
-                    Gauge(value: 0.6) {
-                        Image(systemName: "cloud")
-                    }
-                    .gaugeStyle(.accessoryCircular)
-                    
-                    Gauge(value: 45, in: 0...100) {
-                        Label("Sun", systemImage: "sunrise.circle")
-                    } currentValueLabel: {
-                        Text(45.formatted())
-                    } minimumValueLabel: {
-                        Image(systemName: "sun.min")
-                            .foregroundColor(.gray)
-                    } maximumValueLabel: {
-                        Image(systemName: "sun.max")
-                            .foregroundColor(.orange)
-                    }
-                    .tint(.yellow)
-                    .labelStyle(.iconOnly)
-                    .gaugeStyle(.accessoryCircular)
+                .gaugeStyle(.automatic)
+            }
+            VStack(alignment: .leading) {
+                Text("Accessory Circular style:")
+                Spacer()
+                Gauge(value: 0.75) {
+                    Text("Level")
+                } currentValueLabel: {
+                    Text("0.75")
+                } minimumValueLabel: {
+                    Text("0")
+                } maximumValueLabel: {
+                    Text("1")
                 }
-                VStack {
-                    Text("accessoryCircularCapacity style:")
-                    Spacer()
-                    Gauge(value: 0.6) {
-                        Text("Level")
-                    }
-                    .gaugeStyle(.accessoryCircularCapacity)
+                .gaugeStyle(.accessoryCircular)
+                
+                // level of clouds today :D
+                Gauge(value: 0.6) {
+                    Image(systemName: "cloud")
                 }
-                VStack {
-                    Text("linearCapacity style:")
-                    Spacer()
-                    Gauge(value: 0.6) {
-                        Text("Level")
-                    }
-                    .gaugeStyle(.linearCapacity)
+                .gaugeStyle(.accessoryCircular)
+                
+                Gauge(value: 45, in: 0...100) {
+                    Label("Sun", systemImage: "sunrise.circle")
+                } currentValueLabel: {
+                    Text(45.formatted())
+                } minimumValueLabel: {
+                    Image(systemName: "sun.min")
+                        .foregroundColor(.gray)
+                } maximumValueLabel: {
+                    Image(systemName: "sun.max")
+                        .foregroundColor(.orange)
                 }
-                VStack {
-                    Text("accessoryLinearCapacity style:")
-                    Spacer()
-                    Gauge(value: 0.6) {
-                        Text("Level")
-                    }
-                    .gaugeStyle(.accessoryLinearCapacity)
+                .tint(.yellow)
+                .labelStyle(.iconOnly)
+                .gaugeStyle(.accessoryCircular)
+            }
+            VStack(alignment: .leading) {
+                Text("accessoryCircularCapacity style:")
+                Spacer()
+                Gauge(value: 0.6) {
+                    Text("Level")
                 }
+                .gaugeStyle(.accessoryCircularCapacity)
+            }
+            VStack(alignment: .leading) {
+                Text("linearCapacity style:")
+                Spacer()
+                Gauge(value: 0.6) {
+                    Text("Level")
+                }
+                .gaugeStyle(.linearCapacity)
+            }
+            VStack(alignment: .leading) {
+                Text("accessoryLinearCapacity style:")
+                Spacer()
+                Gauge(value: 0.6) {
+                    Text("Level")
+                }
+                .gaugeStyle(.accessoryLinearCapacity)
             }
         }
-        .padding()
         // end indicators
     }
     
-    var body: some View {
-        
-        PageContainer(content:
-                        VStack(alignment: .leading) {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles", name: "STYLE VIEW")
-            
-            // contextual information
-            Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")
-                .fontWeight(.light)
-                .padding()
-            
-            
-            gauges
-            Divider()
-            progress
-            Divider()
-            pickers
-            Divider()
-            toggles
-            Divider()
-            buttons
-            Divider()
-            menues
-            
-        }
-        )
-    }
 }
 
 struct StylesView_Previews: PreviewProvider {

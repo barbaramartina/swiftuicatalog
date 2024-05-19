@@ -74,45 +74,39 @@ struct ButtonsComponentsView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content: ScrollView {
+        PageContainer(content:
+                        
+                        ScrollView {
             
             VStack(alignment: .leading) {
                 
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/button", name: nil)
                 
-                
+                Text("Give an action and a label you can create a button. When a user clicks or taps the button, an action—a method or closure property—is triggered. The label is a view that can display text, an icon, or both to describe the operation of the button. Any type of view, such as a Text view for text-only labels, can be the label of a button.")
+                    .fontWeight(.light)
+                    .padding(.bottom)
                 // MARK: - basics of buttons
                 Group {
                     customizableButton
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     roundedButtons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     customShapeButtons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     labelStyledButton
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     strokedBorderButtons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     plainBackgroundButtons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     imagesInButtons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     buttonsWithIcons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     buttonWithLabels
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                     styledButtons
-                    Divider()
-                        .padding(.vertical)
+                        .modifier(Divided())
                 }
                 
                 ContributedByView(name: "Barbara Martina",
@@ -128,11 +122,14 @@ struct ButtonsComponentsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Button with image")
                 .fontWeight(.heavy)
+            Text("An Image view can be used instead of the usual title, the image just needs to be set as the label of the button.")
+                .fontWeight(.light)
             Button(action: {}, label: {
                 Image(systemName: "person")
                     .padding()
             })
             .border(Color.accentColor, width: 5)
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
     }
     
@@ -140,6 +137,7 @@ struct ButtonsComponentsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Button with icon & label")
                 .fontWeight(.heavy)
+            Text("Any other combination of views can be used as the 'label' of the button, this allows for a lot of flexibility when it comes to have clicks areas which are bigger, while conserving the highlighting state of the button component.")
             Button(action: {}, label: {
                 Label {
                     Text("Add person")
@@ -150,6 +148,7 @@ struct ButtonsComponentsView: View, Comparable {
                 }
             })
             .modifier(ButtonBorderModifier())
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
     }
     
@@ -157,11 +156,14 @@ struct ButtonsComponentsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Button with label")
                 .fontWeight(.heavy)
+            Text("In the simplest of the forms, a button can be just connected to a text.")
+                .fontWeight(.light)
             Button(action: {}, label: {
                 Text("Add ")
                     .modifier(ButtonFontModifier())
             })
             .modifier(ButtonBorderModifier())
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
     }
     
@@ -169,13 +171,19 @@ struct ButtonsComponentsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("BorderlessButtonStyle")
                 .fontWeight(.heavy)
+            Text("There is an specific button style called BorderlessButtonStyle which can be used to create simple buttons.")
+                .fontWeight(.light)
             Button("Style me: borderless", action: {})
                 .buttonStyle(BorderlessButtonStyle())
+                .padding()
             Divider()
             Text("PlainButtonStyle")
                 .fontWeight(.heavy)
+            Text("A button style that, when in an idle state, does not style or decorate its content; instead, it may apply a visual effect to show if the button is pressed, focused, or enabled.")
+                .fontWeight(.light)
             Button("Style me: plain", action: {})
                 .buttonStyle(PlainButtonStyle())
+                .padding()
         }
     }
     
@@ -183,6 +191,8 @@ struct ButtonsComponentsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("A button label can have different styles")
                 .fontWeight(.heavy)
+            Text("A modifier can be used to set a specific style for all labels within a view, to show only an icon, or only the title or both.")
+                .fontWeight(.light)
             Button("Label Syle Icon Only", systemImage: "message.badge",  action: {})
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
@@ -190,6 +200,7 @@ struct ButtonsComponentsView: View, Comparable {
                 .modifier(RoundedBordersModifier(radius: 10,
                                                  lineWidth: CGFloat(borderWidth),
                                                  color: colorBorder))
+                .padding(.leading, Style.HorizontalPadding.small.rawValue)
             Button("Label Syle Title Only", systemImage: "message.badge",  action: {})
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
@@ -197,6 +208,7 @@ struct ButtonsComponentsView: View, Comparable {
                 .modifier(RoundedBordersModifier(radius: 10,
                                                  lineWidth: CGFloat(borderWidth),
                                                  color: colorBorder))
+                .padding(.leading, Style.HorizontalPadding.small.rawValue)
             Button("Label Syle Icon and Title", systemImage: "message.badge",  action: {})
                 .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                 .background(color2)
@@ -204,6 +216,7 @@ struct ButtonsComponentsView: View, Comparable {
                 .modifier(RoundedBordersModifier(radius: 10,
                                                  lineWidth: CGFloat(borderWidth),
                                                  color: colorBorder))
+                .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
     }
     
@@ -218,6 +231,7 @@ struct ButtonsComponentsView: View, Comparable {
                 .modifier(RoundedBordersModifier(radius: radius2,
                                                  lineWidth: CGFloat(borderWidth2),
                                                  color: colorBorder2))
+                .padding(.leading, Style.HorizontalPadding.small.rawValue)
             
             ColorPicker("Background color:",
                         selection: $color2,
@@ -295,6 +309,7 @@ struct ButtonsComponentsView: View, Comparable {
                                                      color: colorBorder))
             })
             .background(color)
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
             
             ColorPicker("Background color:",
                         selection: $color,
@@ -316,7 +331,6 @@ struct ButtonsComponentsView: View, Comparable {
                 
             }
         }
-        .padding(.vertical, Style.VerticalPadding.medium.rawValue)
         
     }
     
@@ -339,6 +353,7 @@ struct ButtonsComponentsView: View, Comparable {
                         .stroke(Color.accentColor, lineWidth: 5)
                     )
             })
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
     }
     
@@ -357,6 +372,7 @@ struct ButtonsComponentsView: View, Comparable {
                                     style: StrokeStyle(lineWidth: 5, dash: [10]))
                     )
             }
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
         
     }
@@ -365,12 +381,15 @@ struct ButtonsComponentsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Button with plain background")
                 .fontWeight(.heavy)
+            Text("Using the background modifier an color can be added as the background of the button.")
+                .fontWeight(.light)
             Button(action: {}, label: {
                 Text("Click")
                     .padding()
                     .modifier(ButtonFontModifier())
             })
             .background(Color.accentColor)
+            .padding(.leading, Style.HorizontalPadding.small.rawValue)
         }
         
     }

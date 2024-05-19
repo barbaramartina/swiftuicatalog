@@ -19,5 +19,6 @@ struct Style {
     enum HorizontalPadding: CGFloat {
         case small = 8
         case medium = 16
+        case large = 24
     }
 }

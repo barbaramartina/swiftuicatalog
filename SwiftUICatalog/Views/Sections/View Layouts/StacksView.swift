@@ -56,11 +56,11 @@ struct StacksView: View, Comparable {
                     .fontWeight(.light)
                 
                 hStack
-                Divider()
+                    .modifier(Divided())
                 lazyHStack
-                Divider()
+                    .modifier(Divided())
                 vStack
-                Divider()
+                    .modifier(Divided())
                 lazyVStack
             }
             

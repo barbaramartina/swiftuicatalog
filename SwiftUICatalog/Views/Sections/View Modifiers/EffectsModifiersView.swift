@@ -39,63 +39,25 @@ struct EffectsModifiersView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
-                        
-                        List {
+        VStack(alignment: .leading) {
             
-            // MARK: -
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/rotationeffect(_:anchor:)")
             
-            Group {
+            Text("There are different effects that are provided out of the box and can be applied to any view, such as for example applying a degree of rotation, a shadow, a blurring effect.")
+                .fontWeight(.light)
+            List {
+                rotation
+                masking
+                grayScale
                 
-                HeaderView(title: "Rotation with shadow")
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                    .clipped()
-                    .shadow(radius: 10)
-                    .rotationEffect(Angle(degrees: 30))
+                // todo: keep extracting views
                 
+                // MARK: - Border & blur effect
                 
-            }
-            .padding(.top, 50)
-            .padding(.bottom, 100)
-            
-            // MARK: - Masking
-            
-            Group {
-                
-                HeaderView(title: "Masking")
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                    .mask(Text("Awesome Robbie. Corgie is a very special breed is not so easy to find around the world")
-                        .font(.largeTitle)
-                        .fontWeight(.heavy)
-                        .multilineTextAlignment(.center)
-                        .frame(width:320, height: 220))
-                
-            }
-            
-            // MARK: - gray scale and luminance to alpha
-            
-            Group {
-                
-                HeaderView(title: "Gray scale")
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                    .grayscale(0.30)
-                    .hoverEffect(.highlight)
-                    .luminanceToAlpha()
-            }
-            
-            // MARK: - Border & blur effect
-            
-            Group {
-                
-                VStack(alignment: .center) {
+                VStack(alignment: .leading) {
                     
-                    HeaderView(title: "Border & blur effect")
+                    Text("Border & blur effect")
+                        .fontWeight(.heavy)
                     Image("corgie-love")
                         .resizable()
                         .scaledToFill()
@@ -103,70 +65,118 @@ struct EffectsModifiersView: View, Comparable {
                         .border(Color.pink, width: 10)
                         .frame(width: 200, height: 200)
                 }
+                // blur effect
+                .blur(radius: 1.0)
+                // end of group
                 
-            }
-            // blur effect
-            .blur(radius: 1.0)
-            // end of group
-            
-            // MARK: - Clip Shape & color inverted effect
-            
-            Group {
+                // MARK: - Clip Shape & color inverted effect
                 
-                HeaderView(title: "Clip Shape & color inverted effect")
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 300, height: 300)
-                    .clipShape(Circle())
-                
-                
-            }
-            .colorInvert()
-            // end of group
-            
-            // MARK: - Brigthness effect
-            
-            Group {
-                HeaderView(title: "Brigthness effect")
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                    .brightness(0.3)
-            }
-            // end of group
-            
-            // MARK: - Color multiply & Contrast effect
-            
-            Group {
-                HeaderView(title: "Color multiply & Contrast effect")
-                Image("corgie-love")
-                    .resizable()
-                    .scaledToFill()
-                
-            }
-            // color effect
-            .colorMultiply(.blue)
-            // Defines the content shape for hit testing.
-            .contentShape(Circle())
-            .contrast(3.0)
-            // end of group
-            
-            // MARK: - Blend mode effect
-            
-            Group {
-                
-                HeaderView(title: "Blend mode effect")
-                HStack {
-                    BlendExamplesView()
+                VStack(alignment: .leading) {
+                    
+                    Text("Clip Shape & color inverted effect")
+                        .fontWeight(.heavy)
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 300, height: 300)
+                        .clipShape(Circle())
+                    
+                    
                 }
+                .colorInvert()
+                // end of group
+                
+                // MARK: - Brigthness effect
+                
+                VStack(alignment: .leading) {
+                    Text("Brigthness effect")
+                        .fontWeight(.heavy)
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFill()
+                        .brightness(0.3)
+                }
+                // end of group
+                
+                // MARK: - Color multiply & Contrast effect
+                
+                VStack(alignment: .leading) {
+                    Text("Color multiply & Contrast effect")
+                        .fontWeight(.heavy)
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFill()
+                    
+                }
+                // color effect
+                .colorMultiply(.blue)
+                // Defines the content shape for hit testing.
+                .contentShape(Circle())
+                .contrast(3.0)
+                // end of group
+                
+                // MARK: - Blend mode effect
+                
+                Group {
+                    
+                    Text("Blend mode effect")
+                    HStack {
+                        BlendExamplesView()
+                    }
+                }
+                
             }
+            .listStyle(PlainListStyle())
+            // accent color effect
+            .accentColor(.green)
+        }
+        .padding(.horizontal)
+    }
+    
+    private var grayScale: some View {
+        VStack(alignment: .leading) {
+            Text("Gray scale")
+                .fontWeight(.heavy)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFill()
+                .grayscale(0.30)
+                .hoverEffect(.highlight)
+                .luminanceToAlpha()
+        }
+        
+    }
+    
+    private var rotation: some View {
+        VStack(alignment: .leading) {
+            Text("Rotation with shadow")
+                .fontWeight(.heavy)
+                .padding(.bottom, 60)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFill()
+                .clipped()
+                .shadow(radius: 10)
+                .rotationEffect(Angle(degrees: 30))
+                .padding(.bottom, 70)
+                .padding(.horizontal, 30)
+        }
+    }
+    
+    private var masking: some View {
+        VStack(alignment: .leading) {
+            Text("Masking")
+                .fontWeight(.heavy)
+            Image("corgie-love")
+                .resizable()
+                .scaledToFill()
+                .mask(Text("Awesome Robbie. Corgie is a very special breed is not so easy to find around the world")
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .multilineTextAlignment(.center)
+                    .frame(width:320, height: 220))
             
         }
-                      // accent color effect
-            .accentColor(.green)
-        )
-        // end of page container
         
     }
 }

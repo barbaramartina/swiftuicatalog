@@ -55,13 +55,15 @@ struct LabelsView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label", name: nil)
             
-            labelTypes
-            Divider()
-            labelsGroups
-            Divider()
-            labelsCustomViews
-            Divider()
-            truncationAndMultilineLabels
+            VStack(alignment: .leading) {
+                labelTypes
+                    .modifier(Divided())
+                labelsGroups
+                    .modifier(Divided())
+                labelsCustomViews
+                    .modifier(Divided())
+                truncationAndMultilineLabels
+            }
             
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
@@ -166,14 +168,14 @@ struct LabelsView: View, Comparable {
                         .fontWeight(.light)
                     
                 }
-                Group {
+                HStack {
                     VStack {
                         Label("Rain", systemImage: "cloud.rain")
                         Label("Snow", systemImage: "snow")
                         Label("Sun", systemImage: "sun.max")
                     }
                     .foregroundColor(.accentColor)
-                    Divider()
+                    .modifier(Divided())
                     
                     /// To apply a common label style to a group of labels, apply the style
                     /// to the view hierarchy that contains the labels:
@@ -182,8 +184,8 @@ struct LabelsView: View, Comparable {
                         Label("Snow", systemImage: "snow")
                         Label("Sun", systemImage: "sun.max")
                     }
-                    Divider()
-                        .labelStyle(titleOnly)
+                    .labelStyle(titleOnly)
+                    .modifier(Divided())
                     
                     VStack {
                         Label("", systemImage: "cloud.rain")
@@ -205,7 +207,7 @@ struct LabelsView: View, Comparable {
     private var truncationAndMultilineLabels: some View {
         VStack(alignment: .leading) {
             Group {
-                Text("truncations and multiline")
+                Text("Truncations and multiline")
                     .fontWeight(.heavy)
                 Text("Similar configuration as there were in UIKit can be applied in SwiftUI to manage truncation and multiline text in a label")
                     .fontWeight(.light)
@@ -240,33 +242,28 @@ struct LabelsView: View, Comparable {
     
     private var labelsCustomViews: some View {
         VStack(alignment: .leading) {
-            VStack(alignment: .leading)  {
-                Group {
-                    Text( "Label With Custom Views")
-                        .fontWeight(.heavy)
-                    Text("It's also possible to make labels using views to compose the label's icon")
-                        .fontWeight(.light)
-                }
-                
-                /// It's also possible to make labels using views to compose the label's icon
-                /// programmatically, rather than using a pre-made image. In this example, the
-                /// icon portion of the label uses a filled ``Circle`` overlaid
-                /// with the user's initials:
-                Label {
-                    Text("Lightning Body")
-                        .font(.body)
-                        .foregroundColor(.primary)
-                    Text("Lightning SubHeadline")
-                        .font(.subheadline)
-                        .foregroundColor(Color("YellowMedium"))
-                } icon: {
-                    Circle()
-                        .fill(Color.accentColor)
-                        .frame(width: 44, height: 44, alignment: .center)
-                        .overlay(Text("A+").foregroundColor(.white))
-                }
-            }
+            Text( "Label With Custom Views")
+                .fontWeight(.heavy)
+            Text("It's also possible to make labels using views to compose the label's icon")
+                .fontWeight(.light)
             
+            /// It's also possible to make labels using views to compose the label's icon
+            /// programmatically, rather than using a pre-made image. In this example, the
+            /// icon portion of the label uses a filled ``Circle`` overlaid
+            /// with the user's initials:
+            Label {
+                Text("Lightning Body")
+                    .font(.body)
+                    .foregroundColor(.primary)
+                Text("Lightning SubHeadline")
+                    .font(.subheadline)
+                    .foregroundColor(Color("YellowMedium"))
+            } icon: {
+                Circle()
+                    .fill(Color.accentColor)
+                    .frame(width: 44, height: 44, alignment: .center)
+                    .overlay(Text("A+").foregroundColor(.white))
+            }
         }
         
     }

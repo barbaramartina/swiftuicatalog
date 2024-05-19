@@ -51,8 +51,7 @@ struct ColorPickersView: View, Comparable {
                     DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker", name: "COLOR PICKER")
                     
                     Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
-                    
-                    Divider()
+                        .modifier(Divided())
                     ColorPicker("Alignment Guides",
                                 selection: $bgColor1)
                     HStack{
@@ -61,7 +60,7 @@ struct ColorPickersView: View, Comparable {
                         Spacer()
                     }
                     Spacer(minLength: 40)
-                    Divider()
+                        .modifier(Divided())
                     ColorPicker("Alignment Guides",
                                 selection: $bgColor2,
                                 supportsOpacity: false)

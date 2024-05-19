@@ -51,9 +51,9 @@ struct ContainersView: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/controlgroup", name: "CONTAINERS")
             
             containersIntro
-            Divider()
+                .modifier(Divided())
             formExample
-            Divider()
+                .modifier(Divided())
             groupBoxExample
             
             ContributedByView(name: "Barbara Martina",

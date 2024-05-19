@@ -46,12 +46,12 @@ struct TabsView: View, Comparable {
                         
                         VStack(alignment: .leading) {
             
-            DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview", name: "TAB VIEW")
+            DocumentationLinkView(link: "ttps://developer.apple.com/documentation/swiftui/tabview")
             
             intro
-            Divider()
             example1
-            Divider()
+                .padding(.top, Style.HorizontalPadding.large.rawValue * 4)
+                .modifier(Divided())
             
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
@@ -63,36 +63,33 @@ struct TabsView: View, Comparable {
     
     private var intro: some View {
         Group {
-            Text("A view that switches between multiple child views using interactive user interface elements.")
-                .fontWeight(.light)
-            Text("To create a user interface with tabs, place views in a TabView and apply the tabItem(_:) modifier to the contents of each tab. On iOS, you can also use one of the badge modifiers, like badge(_:), to assign a badge to each of the tabs.")
+            Text("A view that switches between multiple child views using interactive user interface elements. \n\nTo create a user interface with tabs, place views in a TabView and apply the tabItem(_:) modifier to the contents of each tab. On iOS, you can also use one of the badge modifiers, like badge(_:), to assign a badge to each of the tabs. \n\nTo provide optional, extra information about a view, use a badge. The badge's text should be as brief as feasible. Only list rows, tab bars, and menus have badges.")
                 .fontWeight(.light)
         }
         
     }
     
     private var example1: some View {
-        Group {
-            TabView {
-                Text("The First Tab")
-                    .tabItem {
-                        Image(systemName: "1.square.fill")
-                        Text("First")
-                    }
-                Text("Another Tab")
-                    .tabItem {
-                        Image(systemName: "2.square.fill")
-                        Text("Second")
-                    }
-                Text("The Last Tab")
-                    .tabItem {
-                        Image(systemName: "3.square.fill")
-                        Text("Third")
-                    }
-            }
-            .font(.headline)
+        TabView {
+            Text("The First Tab")
+                .tabItem {
+                    Image(systemName: "1.square.fill")
+                    Text("First")
+                }
+            Text("Another Tab")
+                .tabItem {
+                    Image(systemName: "2.square.fill")
+                    Text("Second")
+                }
+                .badge(10)
+            Text("The Last Tab")
+                .tabItem {
+                    Image(systemName: "3.square.fill")
+                    Text("Third")
+                }
+                .badge("!")
         }
-        
+        .font(.headline)
     }
 }
 

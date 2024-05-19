@@ -30,7 +30,7 @@ import SwiftUI
 
 ///
 /// Example on how to set and configure a NavigationView in SwiftUI
-/// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/navigationview
+/// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/navigationstack
 /// https://developer.apple.com/documentation/swiftui/navigationlink
 ///
 struct NavigationBarsComponentView: View, Comparable {
@@ -51,9 +51,9 @@ struct NavigationBarsComponentView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
-                        
-                        NavigationStack {
+        NavigationStack {
+            
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/navigationstack")
             
             List {
                 NavigationLink(reminders[0].title,
@@ -75,12 +75,11 @@ struct NavigationBarsComponentView: View, Comparable {
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
             .padding(.top, 80)
-            
-            
         }
-                      // end of navigation view
-        )
-        // end of page container
+        .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
+        // end of navigation view
+        
+        
     }
 }
 

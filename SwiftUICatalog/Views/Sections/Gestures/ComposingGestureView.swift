@@ -106,7 +106,6 @@ struct ComposingGesturesView: View, Comparable {
             
             Text("Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI.")
                 .fontWeight(.light)
-                .padding()
             Circle()
                 .fill(Color.blue)
                 .overlay(dragState.isDragging ? Circle().stroke(Color.white, lineWidth: 2) : nil)
@@ -120,11 +119,13 @@ struct ComposingGesturesView: View, Comparable {
                 .animation(.linear(duration: minimumLongPressDuration), value: dragState)
                 .gesture(longPressDrag)
             
+            Spacer()
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)
             
         }
+        .padding(.horizontal)
         
         // end of page container
         

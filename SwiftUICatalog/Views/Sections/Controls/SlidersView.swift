@@ -56,17 +56,19 @@ struct SlidersView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider", name: "SLIDER")
             
-            Group {
+            VStack(alignment: .leading) {
                 Text( "Slider with continued values")
                     .fontWeight(.heavy)
                 Text("A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt.")
                     .fontWeight(.light)
+                sliderGrams
+                    .modifier(Divided())
+                sliderSteps
+                sliderGrams2
+                    .modifier(Divided())
+                sliderWithVoiceOver
             }
             
-            sliderGrams
-            sliderSteps
-            sliderGrams2
-            sliderWithVoiceOver
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
@@ -106,11 +108,8 @@ struct SlidersView: View, Comparable {
         VStack(alignment: .leading) {
             Text( "Slider with VoiceOver Label & min / max values")
                 .fontWeight(.heavy)
-                .padding()
             Text("A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility")
                 .fontWeight(.light)
-                .padding()
-            
             VStack {
                 Slider(value: $grams3,
                        in: 0...1000,
@@ -130,8 +129,6 @@ struct SlidersView: View, Comparable {
                     Text("This is a slider for grams")
                 })
                 .padding(30)
-                
-                
             }
         }
     }

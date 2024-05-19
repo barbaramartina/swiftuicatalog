@@ -51,19 +51,19 @@ struct TextsComponentsView: View, Comparable {
             
             
             fontTypes
-            Divider()
+                .modifier(Divided())
             fontWeights
-            Divider()
+                .modifier(Divided())
             fontModifiers
-            Divider()
+                .modifier(Divided())
             textTruncation
-            Divider()
+                .modifier(Divided())
             textTranslations
-            Divider()
+                .modifier(Divided())
             textDates
-            Divider()
+                .modifier(Divided())
             textControls
-            Divider()
+                .modifier(Divided())
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")

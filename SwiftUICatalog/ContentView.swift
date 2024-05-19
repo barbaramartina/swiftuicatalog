@@ -60,19 +60,9 @@ struct ContentView: View {
                 List {
                     
                     topHeaderRow
-                    controls
-                    storeKit
-                    layouts
-                    hierachicalViews
-                    drawings
-                    charts
-                    gestures
-                    viewModifiers
-                    accessibility
-                    statusBars
-                    stylingSection
-                    popovers
-                    composedComponents
+                    ForEach(sectionContainer.readySections) { section in
+                        section.view
+                    }
                     
                 }
                 .scrollContentBackground(.hidden)
@@ -115,7 +105,7 @@ struct ContentView: View {
         
     }
     
-    private var controls: some View {
+    var controls: some View {
         Section(header: Text("Controls")
             .modifier(ListSectionFontModifier())) {
                 Group {
@@ -151,7 +141,7 @@ struct ContentView: View {
             .listRowBackground(Color(sectionColor))
     }
     
-    private var storeKit: some View {
+    var storeKit: some View {
         Section(header: Text("Store Kit Views")
             .modifier(ListSectionFontModifier())) {
                 Group {
@@ -163,7 +153,7 @@ struct ContentView: View {
         
     }
     
-    private var layouts: some View {
+    var layouts: some View {
         Section(header: Text("Layouts")
             .modifier(ListSectionFontModifier())) {
                 Link(destination: ListsComponentView(),
@@ -180,7 +170,7 @@ struct ContentView: View {
             .listRowBackground(Color(sectionColor))
     }
     
-    private var hierachicalViews: some View {
+    var hierachicalViews: some View {
         Section(header: Text("Hierachical Views")   .modifier(ListSectionFontModifier())) {
             Link(destination: NavigationBarsComponentView(),
                  label: "Navigation")
@@ -195,7 +185,7 @@ struct ContentView: View {
         
     }
     
-    private var drawings: some View {
+    var drawings: some View {
         Section(header: Text("Drawing and animations")                                .modifier(ListSectionFontModifier())) {
             Link(destination: CanvasView(),
                  label: "Canvas")
@@ -212,7 +202,7 @@ struct ContentView: View {
         
     }
     
-    private var charts: some View {
+    var charts: some View {
         Section(header: Text("Charts")
             .modifier(ListSectionFontModifier())) {
                 Link(destination: ChartsViews(),
@@ -222,7 +212,7 @@ struct ContentView: View {
         
     }
     
-    private var gestures: some View {
+    var gestures: some View {
         Section(header: Text("Gestures")                                .modifier(ListSectionFontModifier())) {
             Link(destination: GesturesView(),
                  label: "Gestures")
@@ -233,7 +223,7 @@ struct ContentView: View {
         
     }
     
-    private var viewModifiers: some View {
+    var viewModifiers: some View {
         Section(header: Text("View modifiers")                                .modifier(ListSectionFontModifier())) {
             Link(destination: TextModifiersView(),
                  label: "Text modifiers")
@@ -247,7 +237,7 @@ struct ContentView: View {
         
     }
     
-    private var accessibility: some View {
+    var accessibility: some View {
         Section(header: Text("Accesibility")                                .modifier(ListSectionFontModifier())) {
             
             Link(destination: AccesibilityView(),
@@ -257,7 +247,7 @@ struct ContentView: View {
         
     }
     
-    private var statusBars: some View {
+    var statusBars: some View {
         Section(header: Text("Status and tool bars")                                .modifier(ListSectionFontModifier())) {
             Link(destination: ToolbarsComponentView(),
                  label: "Tool Bars")
@@ -266,7 +256,7 @@ struct ContentView: View {
         
     }
     
-    private var stylingSection: some View {
+    var stylingSection: some View {
         Section(header: Text("Styling")
             .modifier(ListSectionFontModifier())) {
                 
@@ -277,15 +267,15 @@ struct ContentView: View {
         
     }
     
-    private var popovers: some View {
+    var popovers: some View {
         Section(header: Text("Popovers, alerts and sheets")                                .modifier(ListSectionFontModifier())) {
             
             Link(destination: PopoversComponentView(),
                  label: "Popovers")
             Link(destination: SheetView(),
                  label: "Sheets")
-            Link(destination: AlertsComponentView(),
-                 label: "Alerts")
+            //            Link(destination: AlertsComponentView(),
+            //                 label: "Alerts")
             Link(destination: TimelineViews(),
                  label: "Timelines")
             Link(destination: SpacersDividersView(),
@@ -295,18 +285,19 @@ struct ContentView: View {
         
     }
     
-    private var composedComponents: some View {
+    var composedComponents: some View {
         Section(header: Text("Composed components to help speed up development")                                .modifier(ListSectionFontModifier())) {
             
             Link(destination: CommonlyUsedViews(),
                  label: "Commonly used views")
-            Link(destination: CollectionsViews(),
-                 label: "Collections of components")
+            //    Link(destination: CollectionsViews(),
+            //       label: "Collections of components")
         }
         .listRowBackground(Color(sectionColor))
         // end of Group composed VIEWS
         
     }
+    
 }
 
 

@@ -62,14 +62,21 @@ struct CanvasView: View, Comparable {
         
         PageContainer(content: ScrollView {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas", name: "CANVAS")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
             
             VStack(alignment: .leading) {
                 intro1
                 canvas1
-                Divider()
+                    .modifier(Divided())
                 intro2
                 canvas2
+                    .modifier(Divided())
+                Text("A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random corgie images are plot on a graph")
+                    .fontWeight(.light)
+                canvas3
+                    .modifier(Divided())
+                Text("Accessibility and interaction for specific elements—such as views that you pass in as symbols—are not provided by a canvas. However, a canvas perform better in the case of a complex drawing. To enhance performance for a drawing that doesn't primarily require interactive features or text you can use a canvas.")
+                    .fontWeight(.light)
             }
             
             ContributedByView(name: "Barbara Martina",
@@ -85,7 +92,7 @@ struct CanvasView: View, Comparable {
         Group {
             Text("Canvas views")
                 .fontWeight(.heavy)
-            Text("A canvas can be used to render 2D drawings You can use a graphic context and draw on it.")
+            Text("A canvas can be used to render 2D drawings You can use a graphic context and draw on it to create vibrant, dynamic 2D images inside of a SwiftUI display. \nTo conduct immediate mode drawing operations, you use the closure that receives a GraphicsContext from the canvas. You can also modify what you draw by using the CGSize value that the canvas passes. ")
                 .fontWeight(.light)
         }
         
@@ -135,6 +142,20 @@ struct CanvasView: View, Comparable {
         .border(Color.blue)
         
     }
+    
+    private var randomRects: [CGRect] {
+        var result = [CGRect]()
+        for _ in 0...60 {
+            result.append(CGRect(x: CGFloat.random(in: 0...300),
+                                 y: CGFloat.random(in: 0...200),
+                                 width: CGFloat.random(in: 10...30),
+                                 height: CGFloat.random(in: 10...30)))
+        }
+        return result
+    }
+    private var canvas3: some View {
+        PlotView(rects: randomRects, mark: Image("corgie-love"))
+    }
 }
 
 struct CanvasView_Previews: PreviewProvider {
@@ -159,3 +180,26 @@ extension CanvasView {
 }
 
 
+struct PlotView<Mark: View>: View {
+    let rects: [CGRect]
+    let mark: Mark
+    
+    
+    enum SymbolID: Int {
+        case mark
+    }
+    
+    var body: some View {
+        Canvas { context, size in
+            if let mark = context.resolveSymbol(id: SymbolID.mark) {
+                for rect in rects {
+                    context.draw(mark, in: rect)
+                }
+            }
+        } symbols: {
+            mark.tag(SymbolID.mark)
+        }
+        .frame(width: 300, height: 200)
+        .border(Color.blue)
+    }
+}

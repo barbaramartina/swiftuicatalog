@@ -63,7 +63,7 @@ struct PopoversComponentView: View, Comparable {
                      arrowEdge: .bottom) {
                 VStack {
                     Text("Here you can insert any other type of view for your popover")
-                    Divider()
+                        .modifier(Divided())
                     Button("Click to dismiss") {
                         showingPopover = false
                     }

@@ -11,11 +11,9 @@ import SwiftUI
 struct Divided: ViewModifier {
     
     func body(content: Content) -> some View {
-        VStack {
-            content
-            Divider()
-                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-        }
+        content
+        Divider()
+            .padding(.vertical)
     }
 }
 

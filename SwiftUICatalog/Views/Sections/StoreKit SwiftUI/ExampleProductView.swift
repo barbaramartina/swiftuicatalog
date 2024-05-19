@@ -24,7 +24,7 @@ struct ExampleProductView: View {
                         VStack(alignment: .leading) {
             DocumentationLinkView(link: "https://developer.apple.com/videos/play/wwdc2023/10013/", name: "PRODUCT VIEW")
             Text("You can preview the main blocks. For a real product overview insert your own in-app purchases identifiers in code.")
-            Divider()
+                .modifier(Divided())
             customizedLoadingView
                 .modifier(Divided())
             customStyleViewReDrawing

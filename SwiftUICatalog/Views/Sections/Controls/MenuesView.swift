@@ -48,11 +48,11 @@ struct MenusComponentView: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu", name: "MENUES")
             
             example1
-            Divider()
+                .modifier(Divided())
             example2
-            Divider()
+                .modifier(Divided())
             example3
-            Divider()
+                .modifier(Divided())
             example4
             
             ContributedByView(name: "Ali Ghayeni H",
@@ -158,27 +158,26 @@ struct MenusComponentView: View, Comparable {
     
     private var example4: some View {
         VStack(alignment: .leading) {
-            VStack{
-                HeaderView(title: "Primary Action")
-                Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a YellowMedium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
-                HStack {
-                    Text("Menu + primary action").fontWeight(.light)
-                    Spacer()
-                    Menu {
-                        Button(action: addCurrentTabToReadingList) {
-                            Label("Add to Reading List", systemImage: "eyeglasses")
-                        }
-                        Button(action: bookmarkAll) {
-                            Label("Add Bookmarks for All Tabs", systemImage: "book")
-                        }
-                        Button(action: show) {
-                            Label("Show All Bookmarks", systemImage: "books.vertical")
-                        }
-                    } label: {
-                        Label("Add Bookmark", systemImage: "book")
-                    } primaryAction: {
-                        primaryAction()
+            Text("Primary Action")
+                .fontWeight(.heavy)
+            Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a YellowMedium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
+            HStack {
+                Text("Menu + primary action").fontWeight(.light)
+                Spacer()
+                Menu {
+                    Button(action: addCurrentTabToReadingList) {
+                        Label("Add to Reading List", systemImage: "eyeglasses")
                     }
+                    Button(action: bookmarkAll) {
+                        Label("Add Bookmarks for All Tabs", systemImage: "book")
+                    }
+                    Button(action: show) {
+                        Label("Show All Bookmarks", systemImage: "books.vertical")
+                    }
+                } label: {
+                    Label("Add Bookmark", systemImage: "book")
+                } primaryAction: {
+                    primaryAction()
                 }
             }
         }

@@ -13,13 +13,17 @@ struct MotionAnimationView: View, Comparable {
     
     let id: String = "MotionAnimationView"
     
-    @State private var randomShapeCount = Int.random(in: 12...16)
+    @State private var randomShapeCount = Int.random(in: 12...26)
     @State private var isAnimating: Bool = false
     
     // MARK: Functions random
     
     func randomCoordinate(max: CGFloat) -> CGFloat {
         return CGFloat.random(in: 0...max)
+    }
+    
+    var randomColor: Color {
+        [Color.blue, Color.pink, .green].randomElement() ?? .accentColor
     }
     
     func randomSize() -> CGFloat {
@@ -31,7 +35,7 @@ struct MotionAnimationView: View, Comparable {
     }
     
     func randomSpeed() -> Double {
-        return Double.random(in: 0.025...1.0)
+        return Double.random(in: 0.025...2.0)
     }
     
     func randomDelay() -> Double {
@@ -43,45 +47,45 @@ struct MotionAnimationView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content:
-                        
-                        GeometryReader { geometry in
-            ZStack {
-                
-                ForEach(0...randomShapeCount, id: \.self) { item in
-                    Circle()
-                        .foregroundColor(.accentColor)
-                        .opacity(0.15)
-                        .frame(width: randomSize(),
-                               height: randomSize(), alignment: .center)
-                        .scaleEffect(isAnimating ? randomScale() : 1)
-                        .position(
-                            x: randomCoordinate(max: geometry.size.width),
-                            y: randomCoordinate(max: geometry.size.height)
-                        )
-                        .animation(
-                            Animation.interpolatingSpring(stiffness: 0.5,
-                                                          damping: 0.5)
-                            .repeatForever()
-                            .speed(randomSpeed())
-                            .delay(randomDelay()),
-                            value: isAnimating
-                        )
-                        .onAppear(perform: {
-                            isAnimating = true
-                        })
+        ScrollView {
+            GeometryReader { geometry in
+                ZStack {
+                    
+                    ForEach(0...randomShapeCount, id: \.self) { item in
+                        Circle()
+                            .foregroundColor(randomColor)
+                            .opacity(0.15)
+                            .frame(width: randomSize(),
+                                   height: randomSize(), alignment: .center)
+                            .scaleEffect(isAnimating ? randomScale() : 1)
+                            .position(
+                                x: randomCoordinate(max: geometry.size.width),
+                                y: randomCoordinate(max: geometry.size.height)
+                            )
+                            .animation(
+                                Animation.interpolatingSpring(stiffness: 0.5,
+                                                              damping: 0.5)
+                                .repeatForever()
+                                .speed(randomSpeed())
+                                .delay(randomDelay()),
+                                value: isAnimating
+                            )
+                            .onAppear(perform: {
+                                isAnimating = true
+                            })
+                    }
+                    // end of loop
+                    
                 }
-                // end of loop
+                // this allows the rendering to be faster and powered by metal
+                .frame(height: 600)
+                .drawingGroup()
+                // end of z stack
                 
             }
-            // this allows the rendering to be faster and powered by metal
-            .drawingGroup()
-            // end of z stack
-            
+            // end of geometry
         }
-                      // end of geometry
-        )
-        // end of page container
+        // end of scrollview
     }
 }
 
@@ -105,5 +109,6 @@ extension MotionAnimationView {
     
     
 }
+
 
 

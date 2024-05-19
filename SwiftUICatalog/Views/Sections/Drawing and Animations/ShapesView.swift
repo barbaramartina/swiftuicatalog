@@ -78,7 +78,7 @@ struct ShapesView: View, Comparable {
             Text("Rectangles, circles, ellipse and capsules")
                 .fontWeight(.heavy)
             
-            Text("SwiftUI brings some pre-defined shapes like rectabgles and circles. But there is also the chance to define your own shapes by creating a path")
+            Text("SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path")
                 .fontWeight(.light)
         }
         

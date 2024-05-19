@@ -44,23 +44,24 @@ struct PickersView: View, Comparable {
         
         PageContainer(content:
                         
-                        Group {
+                        ScrollView {
             
-            example1
-            Divider()
-                .padding(.vertical)
-            example2
-            Divider()
-                .padding(.vertical)
-            example3
-            Divider()
-                .padding(.vertical)
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/picker", name: nil)
             
+            VStack(alignment: .leading) {
+                
+                example1
+                    .modifier(Divided())
+                example2
+                    .modifier(Divided())
+                example3
+                    .modifier(Divided())
+            }
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)
-            
-        })
+        }
+        )
         // end of page container
     }
     
@@ -120,9 +121,11 @@ struct PickersView: View, Comparable {
             Text("Styling Pickers").fontWeight(.heavy)
             Text("You can customize the appearance and interaction of pickers by creating styles that conform to the PickerStyle protocol. You create your own style or use one of the styles provided by SwiftUI, like segmented or menu.")
                 .fontWeight(.light)
-            VStack {
+            VStack(alignment: .leading) {
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
+                    .padding(.vertical)
                 Text("Selected topping: \(selectedTopping.rawValue)")
+                    .padding(.vertical)
                 Picker(selection: $selectedFlavor, label: Text("Flavor")) {
                     ForEach(Flavor.allCases, id: \.self) {
                         Text($0.rawValue.capitalized)

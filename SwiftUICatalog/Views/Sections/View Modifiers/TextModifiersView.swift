@@ -78,10 +78,7 @@ struct TextModifiersView: View, Comparable {
                         .fontWeight(.heavy)
                 }
                 // end of Font weights
-                
-                Divider()
-                    .padding(.top, 16)
-                    .padding(.bottom, 16)
+                .modifier(Divided())
                 
                 Group {
                     Group {

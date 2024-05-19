@@ -49,21 +49,23 @@ struct DisclosureGroupsView: View, Comparable {
     
     var body: some View {
         
-        PageContainer(content: ScrollView {
+        PageContainer(content: 
+                        
+                        ScrollView {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup", name: "DISCLOSURE GROUP")
             
             VStack(alignment: .leading) {
                 introduction
-                Divider()
+                    .modifier(Divided())
                 disclosureGroupsExample
             }
             
+            Spacer()
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)
         }
-            .padding()
         )
         
     }
@@ -72,11 +74,9 @@ struct DisclosureGroupsView: View, Comparable {
         Group {
             Text("A view that shows or hides another content view, based on the state of a disclosure control.")
                 .fontWeight(.light)
-                .padding()
             
             Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
                 .fontWeight(.light)
-                .padding()
             
         }
     }
@@ -84,9 +84,9 @@ struct DisclosureGroupsView: View, Comparable {
     private var disclosureGroupsExample: some View {
         DisclosureGroup("Items", isExpanded: $topExpanded) {
             Toggle("Toggle 1", isOn: $toggleStates.oneIsOn)
-                .padding()
+                .padding(.trailing, Style.HorizontalPadding.small.rawValue)
             Toggle("Toggle 2", isOn: $toggleStates.twoIsOn)
-                .padding()
+                .padding(.trailing, Style.HorizontalPadding.small.rawValue)
             DisclosureGroup(" Sub-items") {
                 Text("  Sub-item 1")
             }

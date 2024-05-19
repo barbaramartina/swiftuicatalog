@@ -57,11 +57,11 @@ struct TogglesView: View, Comparable {
                         
                         
                         defaultToggle
-                        Divider()
+                            .modifier(Divided())
                         switchToggle
-                        Divider()
+                            .modifier(Divided())
                         customToggle
-                        Divider()
+                            .modifier(Divided())
                         toggleWithStyle
                         
                         Spacer()
@@ -81,6 +81,7 @@ struct TogglesView: View, Comparable {
                 Text("Default Toggle Style")
             }
         )
+        .padding(.trailing, 8)
         .toggleStyle(.automatic)
     }
     
@@ -91,6 +92,7 @@ struct TogglesView: View, Comparable {
                 Text("Switch Toggle Style")
             }
         )
+        .padding(.trailing, 8)
         .tint(Color.purple)
         .toggleStyle(.switch)
         
@@ -104,6 +106,7 @@ struct TogglesView: View, Comparable {
                 Text("Custom Toggle Style")
             }
         )
+        .padding(.trailing, 8)
         .toggleStyle(.custom)
         
     }

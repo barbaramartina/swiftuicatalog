@@ -64,13 +64,13 @@ struct DatePickersView: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/datepicker", name: "DATE PICKER")
             
             plainDatePicker
-            Divider()
+                .modifier(Divided())
             rangeLimitDatePicker
-            Divider()
+                .modifier(Divided())
             wheelsDatePicker
-            Divider()
+                .modifier(Divided())
             compactDatePicker
-            Divider()
+                .modifier(Divided())
             graphicalDatePicker
             
             ContributedByView(name: "Barbara Martina",

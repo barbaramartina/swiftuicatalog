@@ -75,24 +75,21 @@ struct OutlinesGroupsView: View, Comparable {
                         
                         VStack(alignment: .leading) {
             
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup", name: "OUTLINE GROUP")
+            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
                 .padding()
             
             Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
                 .fontWeight(.light)
-                .padding()
             
-            Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. This allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.")
+            Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. \nThis allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.\nTry it out by clicking on the > below:")
                 .fontWeight(.light)
-                .padding()
             
             Group {
                 OutlineGroup(data, children: \.children) { item in
                     Text("\(item.description)")}
             }
-            .padding()
             
-            
+            Spacer()
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
             .padding(.top, 80)

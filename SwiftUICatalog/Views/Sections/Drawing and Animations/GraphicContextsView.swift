@@ -58,13 +58,13 @@ struct GraphicContextsView: View, Comparable {
                 intro
                 // Canvas 1: context and copy of context
                 example1
-                Divider()
+                    .modifier(Divided())
                 // Linear gradient
                 example2
-                Divider()
+                    .modifier(Divided())
                 // radial gradient
                 example3
-                Divider()
+                    .modifier(Divided())
                 // conic gradient
                 example4
             }
@@ -78,8 +78,7 @@ struct GraphicContextsView: View, Comparable {
     }
     
     private var example1: some View {
-        HStack {
-            Spacer()
+        VStack {
             Canvas { context, size in
                 
                 // drawing directives sorting matters. Try out changing this .fill to the end to see how it renders.
@@ -104,8 +103,6 @@ struct GraphicContextsView: View, Comparable {
                 
             }
             .frame(width: width)
-            Spacer()
-            
         }
         .frame(height: height)
         

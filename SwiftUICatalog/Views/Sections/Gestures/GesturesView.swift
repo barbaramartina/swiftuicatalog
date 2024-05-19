@@ -46,7 +46,6 @@ struct GesturesView: View, Comparable {
     
     var body: some View {
         
-        
         //MARK: Gestures
         let tap = TapGesture()
             .onEnded{ _ in
@@ -79,7 +78,7 @@ struct GesturesView: View, Comparable {
             }
         
         ScrollView {
-            VStack {
+            VStack(alignment: .leading) {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures", name: "GESTURE INTERACTIONS")
                 
                 intro
@@ -117,19 +116,18 @@ struct GesturesView: View, Comparable {
             .padding(.top, 80)
             
         }
+        .padding(.horizontal)
         
     }
     
     private var intro: some View {
         Group {
             Text("Gesture modifiers handle all of the logic needed to process user-input events such as touches, and recognize when those events match a known gesture pattern, such as a long press or rotation. When recognizing a pattern, SwiftUI runs a callback you use to update the state of a view or perform an action.")
-                .padding()
             Spacer()
             Label(
-                title: { Text(customText) },
+                title: { Text(customText).padding(.vertical) },
                 icon: {  }
             )
-            .padding()
             Spacer()
             Label(
                 title: { Text("** Try Tap on objects on the left side. Try Long press on objects on the right side.")
@@ -137,7 +135,6 @@ struct GesturesView: View, Comparable {
                 },
                 icon: {  }
             )
-            .padding()
         }
     }
     

@@ -50,9 +50,9 @@ struct ProgressViews: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview", name: "PROGRESS VIEW")
             
             plainProgressViews
-            Divider()
+                .modifier(Divided())
             tintedProgressView
-            Divider()
+                .modifier(Divided())
             subviewsInProgressView
             
             ContributedByView(name: "Barbara Martina",
