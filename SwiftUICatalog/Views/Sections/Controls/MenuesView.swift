@@ -91,45 +91,49 @@ struct MenusComponentView: View, Comparable {
     }
     
     private var example1: some View {
-        VStack(alignment: .leading) {
-            
-            // Contextual information: a short intro to the elements we are showcasing
-            Group {
-                Text( "Menus")
-                    .fontWeight(.heavy)
-                Text("A control for presenting a menu of actions.")
-                    .fontWeight(.light)
-            }
-            
-            HStack {
-                Text("Menu + Sub-Menu").fontWeight(.light)
-                Spacer()
-                Menu("Menu") {
-                    Button("Duplicate", action: duplicate)
-                    Button("Rename", action: rename)
-                    Button("Delete…", action: delete)
-                    Menu("+ Copy") {
-                        Button("Copy", action: copy)
-                        Button("Copy Formatted", action: copyFormatted)
-                        Button("Copy Library Path", action: copyPath)
+        GroupBox {
+            VStack(alignment: .leading) {
+                
+                // Contextual information: a short intro to the elements we are showcasing
+                Group {
+                    Text( "Menus")
+                        .fontWeight(.heavy)
+                    Text("A control for presenting a menu of actions.")
+                        .fontWeight(.light)
+                }
+                
+                HStack {
+                    Text("Menu + Sub-Menu").fontWeight(.light)
+                    Spacer()
+                    Menu("Menu") {
+                        Button("Duplicate", action: duplicate)
+                        Button("Rename", action: rename)
+                        Button("Delete…", action: delete)
+                        Menu("+ Copy") {
+                            Button("Copy", action: copy)
+                            Button("Copy Formatted", action: copyFormatted)
+                            Button("Copy Library Path", action: copyPath)
+                        }
                     }
                 }
+                
             }
-            
         }
         
     }
     
     private var example2: some View {
-        VStack(alignment: .leading) {
-            HStack{
-                Text("Menu + image").fontWeight(.light)
-                Spacer()
-                Menu {
-                    Button("Open in Preview", action: action)
-                    Button("Save as PDF", action: action)
-                } label: {
-                    Label("PDF", systemImage: "doc.fill")
+        GroupBox {
+            VStack(alignment: .leading) {
+                HStack{
+                    Text("Menu + image").fontWeight(.light)
+                    Spacer()
+                    Menu {
+                        Button("Open in Preview", action: action)
+                        Button("Save as PDF", action: action)
+                    } label: {
+                        Label("PDF", systemImage: "doc.fill")
+                    }
                 }
             }
         }
@@ -141,43 +145,47 @@ struct MenusComponentView: View, Comparable {
          Styling Menus
          Use the menuStyle(_:) modifier to change the style of all menus in a view.
          */
-        VStack(alignment: .leading) {
-            HStack {
-                Text("Styling Menus + action").fontWeight(.light)
-                Spacer()
-                Menu("Editing") {
-                    Button("Set In Point", action: setInPoint)
-                    Button("Set Out Point", action: setOutPoint)
+        GroupBox {
+            VStack(alignment: .leading) {
+                HStack {
+                    Text("Styling Menus + action").fontWeight(.light)
+                    Spacer()
+                    Menu("Editing") {
+                        Button("Set In Point", action: setInPoint)
+                        Button("Set Out Point", action: setOutPoint)
+                    }
+                    .menuStyle(redBorderMenuStyle)
                 }
-                .menuStyle(redBorderMenuStyle)
+                
             }
-            
         }
         
     }
     
     private var example4: some View {
-        VStack(alignment: .leading) {
-            Text("Primary Action")
-                .fontWeight(.heavy)
-            Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a YellowMedium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
-            HStack {
-                Text("Menu + primary action").fontWeight(.light)
-                Spacer()
-                Menu {
-                    Button(action: addCurrentTabToReadingList) {
-                        Label("Add to Reading List", systemImage: "eyeglasses")
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Primary Action")
+                    .fontWeight(.heavy)
+                Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a YellowMedium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
+                HStack {
+                    Text("Menu + primary action").fontWeight(.light)
+                    Spacer()
+                    Menu {
+                        Button(action: addCurrentTabToReadingList) {
+                            Label("Add to Reading List", systemImage: "eyeglasses")
+                        }
+                        Button(action: bookmarkAll) {
+                            Label("Add Bookmarks for All Tabs", systemImage: "book")
+                        }
+                        Button(action: show) {
+                            Label("Show All Bookmarks", systemImage: "books.vertical")
+                        }
+                    } label: {
+                        Label("Add Bookmark", systemImage: "book")
+                    } primaryAction: {
+                        primaryAction()
                     }
-                    Button(action: bookmarkAll) {
-                        Label("Add Bookmarks for All Tabs", systemImage: "book")
-                    }
-                    Button(action: show) {
-                        Label("Show All Bookmarks", systemImage: "books.vertical")
-                    }
-                } label: {
-                    Label("Add Bookmark", systemImage: "book")
-                } primaryAction: {
-                    primaryAction()
                 }
             }
         }

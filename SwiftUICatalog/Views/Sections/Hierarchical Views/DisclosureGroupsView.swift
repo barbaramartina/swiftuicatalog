@@ -55,12 +55,17 @@ struct DisclosureGroupsView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup", name: "DISCLOSURE GROUP")
             
-            VStack(alignment: .leading) {
-                introduction
-                    .modifier(Divided())
-                disclosureGroupsExample
+            GroupBox {
+                VStack(alignment: .leading) {
+                    Text("A view that shows or hides another content view, based on the state of a disclosure control.")
+                        .fontWeight(.light)
+                    
+                    Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
+                        .fontWeight(.light)
+                    disclosureGroupsExample
+                }
             }
-            
+
             Spacer()
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")
@@ -68,17 +73,6 @@ struct DisclosureGroupsView: View, Comparable {
         }
         )
         
-    }
-    
-    private var introduction: some View {
-        Group {
-            Text("A view that shows or hides another content view, based on the state of a disclosure control.")
-                .fontWeight(.light)
-            
-            Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
-                .fontWeight(.light)
-            
-        }
     }
     
     private var disclosureGroupsExample: some View {

@@ -29,7 +29,7 @@ struct CommonlyUsedViews: View, Comparable {
     // Big header - title - description view
     private var example1: some View {
         
-        Group {
+        GroupBox {
             
             Text("A view with an image as header, a title and a longer text below")
                 .fontWeight(.heavy)
@@ -57,7 +57,7 @@ struct CommonlyUsedViews: View, Comparable {
     
     // Card with icons - title - description
     private var example2: some View {
-        Group {
+        GroupBox {
             Text("A view with an icon, a title and a longer text below")
                 .fontWeight(.heavy)
                 .padding(.top, 12)
@@ -109,7 +109,7 @@ struct CommonlyUsedViews: View, Comparable {
     
     // swipable view
     private var example3: some View {
-        Group {
+        GroupBox {
             
             let configurationIcon1 = iconConfiguration(with: Color.pink,
                                                        title: huskyTitle,

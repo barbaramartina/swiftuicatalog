@@ -84,34 +84,38 @@ struct SteppersView: View, Comparable {
     }
     
     private var customStepper: some View {
-        VStack(alignment: .leading) {
-            Text("Stepper View + custom step")
-                .fontWeight(.heavy)
-            Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
-                .fontWeight(.light)
-            Stepper(value: $SecondStepperValue,
-                    in: range,
-                    step: step) {
-                Text("Current: \(SecondStepperValue) in \(range.description) " +
-                     "stepping by \(step)")
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Stepper View + custom step")
+                    .fontWeight(.heavy)
+                Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
+                    .fontWeight(.light)
+                Stepper(value: $SecondStepperValue,
+                        in: range,
+                        step: step) {
+                    Text("Current: \(SecondStepperValue) in \(range.description) " +
+                         "stepping by \(step)")
+                }
+                        .padding(10)
             }
-                    .padding(10)
         }
         
     }
     
     private var plainStepper: some View {
-        VStack(alignment: .leading) {
-            Text("Stepper View")
-                .fontWeight(.heavy)
-            Text("Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. ")
-                .fontWeight(.light)
-            Stepper("Position: \(firstStepperValue) \nColor: \(colors[firstStepperValue].description)"
-                    , onIncrement: {
-                incrementStep()
-            }, onDecrement: {
-                decrementStep()
-            })
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Stepper View")
+                    .fontWeight(.heavy)
+                Text("Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. ")
+                    .fontWeight(.light)
+                Stepper("Position: \(firstStepperValue) \nColor: \(colors[firstStepperValue].description)"
+                        , onIncrement: {
+                    incrementStep()
+                }, onDecrement: {
+                    decrementStep()
+                })
+            }
         }
         
     }

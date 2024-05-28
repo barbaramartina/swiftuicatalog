@@ -70,8 +70,7 @@ struct StylesView: View, Comparable {
     private var pickers: some View {
         // styling Pickers
         // https://developer.apple.com/documentation/swiftui/pickerstyle
-        Group {
-            Divider()
+        GroupBox {
             Text("Styling Pickers")
                 .fontWeight(.heavy)
             HStack {
@@ -142,7 +141,7 @@ struct StylesView: View, Comparable {
     
     private var buttons: some View {
         // Styling buttons with all the possible already implemented styles in Swift + 1 custom style
-        Group {
+        GroupBox {
             Text("Styling buttons")
                 .fontWeight(.heavy)
             HStack {
@@ -195,7 +194,7 @@ struct StylesView: View, Comparable {
     private var toggles: some View {
         // styling Toggles
         // https://developer.apple.com/documentation/swiftui/togglestyle
-        Group {
+        GroupBox {
             Text("Styling Toggles")
                 .fontWeight(.heavy)
             HStack {
@@ -229,7 +228,7 @@ struct StylesView: View, Comparable {
     
     private var menues: some View {
         // styling menues
-        return Group {
+        GroupBox {
             Text("Styling Menues")
                 .fontWeight(.heavy)
             if #available(iOS 16.0, *) {
@@ -270,107 +269,111 @@ struct StylesView: View, Comparable {
     }
     
     private var progress: some View {
-        Group {
-            // https://developer.apple.com/documentation/swiftui/progressviewstyle
-            Text("Styling progress indicator")
-                .fontWeight(.heavy)
-            VStack {
-                Text("Automatic style:")
-                Spacer()
-                ProgressView("Downloading…",
-                             value: 76,
-                             total: 100)
-                .progressViewStyle(.automatic)
-            }
-            VStack {
-                Text("Linear style:")
-                Spacer()
-                ProgressView("Downloading…",
-                             value: 76,
-                             total: 100)
-                .progressViewStyle(.linear)
-            }
-            VStack {
-                Text("Circular style:")
-                Spacer()
-                ProgressView("Downloading…",
-                             value: 76,
-                             total: 100)
-                .progressViewStyle(.circular)
+        GroupBox {
+            Group {
+                // https://developer.apple.com/documentation/swiftui/progressviewstyle
+                Text("Styling progress indicator")
+                    .fontWeight(.heavy)
+                VStack {
+                    Text("Automatic style:")
+                    Spacer()
+                    ProgressView("Downloading…",
+                                 value: 76,
+                                 total: 100)
+                    .progressViewStyle(.automatic)
+                }
+                VStack {
+                    Text("Linear style:")
+                    Spacer()
+                    ProgressView("Downloading…",
+                                 value: 76,
+                                 total: 100)
+                    .progressViewStyle(.linear)
+                }
+                VStack {
+                    Text("Circular style:")
+                    Spacer()
+                    ProgressView("Downloading…",
+                                 value: 76,
+                                 total: 100)
+                    .progressViewStyle(.circular)
+                }
             }
         }
     }
     private var gauges: some View {
-        VStack(alignment: .leading) {
-            // https://developer.apple.com/documentation/swiftui/gaugestyle
-            Text("Styling gauges")
-                .fontWeight(.heavy)
+        GroupBox {
             VStack(alignment: .leading) {
-                Text("Automatic style:")
-                Spacer()
-                Gauge(value: 0.6) {
-                    Text("Level")
+                // https://developer.apple.com/documentation/swiftui/gaugestyle
+                Text("Styling gauges")
+                    .fontWeight(.heavy)
+                VStack(alignment: .leading) {
+                    Text("Automatic style:")
+                    Spacer()
+                    Gauge(value: 0.6) {
+                        Text("Level")
+                    }
+                    .gaugeStyle(.automatic)
                 }
-                .gaugeStyle(.automatic)
-            }
-            VStack(alignment: .leading) {
-                Text("Accessory Circular style:")
-                Spacer()
-                Gauge(value: 0.75) {
-                    Text("Level")
-                } currentValueLabel: {
-                    Text("0.75")
-                } minimumValueLabel: {
-                    Text("0")
-                } maximumValueLabel: {
-                    Text("1")
+                VStack(alignment: .leading) {
+                    Text("Accessory Circular style:")
+                    Spacer()
+                    Gauge(value: 0.75) {
+                        Text("Level")
+                    } currentValueLabel: {
+                        Text("0.75")
+                    } minimumValueLabel: {
+                        Text("0")
+                    } maximumValueLabel: {
+                        Text("1")
+                    }
+                    .gaugeStyle(.accessoryCircular)
+                    
+                    // level of clouds today :D
+                    Gauge(value: 0.6) {
+                        Image(systemName: "cloud")
+                    }
+                    .gaugeStyle(.accessoryCircular)
+                    
+                    Gauge(value: 45, in: 0...100) {
+                        Label("Sun", systemImage: "sunrise.circle")
+                    } currentValueLabel: {
+                        Text(45.formatted())
+                    } minimumValueLabel: {
+                        Image(systemName: "sun.min")
+                            .foregroundColor(.gray)
+                    } maximumValueLabel: {
+                        Image(systemName: "sun.max")
+                            .foregroundColor(.orange)
+                    }
+                    .tint(.yellow)
+                    .labelStyle(.iconOnly)
+                    .gaugeStyle(.accessoryCircular)
                 }
-                .gaugeStyle(.accessoryCircular)
-                
-                // level of clouds today :D
-                Gauge(value: 0.6) {
-                    Image(systemName: "cloud")
+                VStack(alignment: .leading) {
+                    Text("accessoryCircularCapacity style:")
+                    Spacer()
+                    Gauge(value: 0.6) {
+                        Text("Level")
+                    }
+                    .gaugeStyle(.accessoryCircularCapacity)
                 }
-                .gaugeStyle(.accessoryCircular)
-                
-                Gauge(value: 45, in: 0...100) {
-                    Label("Sun", systemImage: "sunrise.circle")
-                } currentValueLabel: {
-                    Text(45.formatted())
-                } minimumValueLabel: {
-                    Image(systemName: "sun.min")
-                        .foregroundColor(.gray)
-                } maximumValueLabel: {
-                    Image(systemName: "sun.max")
-                        .foregroundColor(.orange)
+                VStack(alignment: .leading) {
+                    Text("linearCapacity style:")
+                    Spacer()
+                    Gauge(value: 0.6) {
+                        Text("Level")
+                    }
+                    .gaugeStyle(.linearCapacity)
                 }
-                .tint(.yellow)
-                .labelStyle(.iconOnly)
-                .gaugeStyle(.accessoryCircular)
-            }
-            VStack(alignment: .leading) {
-                Text("accessoryCircularCapacity style:")
-                Spacer()
-                Gauge(value: 0.6) {
-                    Text("Level")
+                VStack(alignment: .leading) {
+                    Text("accessoryLinearCapacity style:")
+                    Spacer()
+                    Gauge(value: 0.6) {
+                        Text("Level")
+                    }
+                    .gaugeStyle(.accessoryLinearCapacity)
                 }
-                .gaugeStyle(.accessoryCircularCapacity)
-            }
-            VStack(alignment: .leading) {
-                Text("linearCapacity style:")
-                Spacer()
-                Gauge(value: 0.6) {
-                    Text("Level")
-                }
-                .gaugeStyle(.linearCapacity)
-            }
-            VStack(alignment: .leading) {
-                Text("accessoryLinearCapacity style:")
-                Spacer()
-                Gauge(value: 0.6) {
-                    Text("Level")
-                }
-                .gaugeStyle(.accessoryLinearCapacity)
             }
         }
         // end indicators

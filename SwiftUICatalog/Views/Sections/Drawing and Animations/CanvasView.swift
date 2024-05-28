@@ -65,16 +65,24 @@ struct CanvasView: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/canvas")
             
             VStack(alignment: .leading) {
-                intro1
-                canvas1
-                    .modifier(Divided())
-                intro2
-                canvas2
-                    .modifier(Divided())
-                Text("A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random corgie images are plot on a graph")
-                    .fontWeight(.light)
-                canvas3
-                    .modifier(Divided())
+                GroupBox {
+                    intro1
+                    canvas1
+                }
+                    
+                .modifier(Divided())
+                GroupBox {
+                    intro2
+                    canvas2
+                }
+                .modifier(Divided())
+                GroupBox {
+                    Text("A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random corgie images are plot on a graph")
+                        .fontWeight(.light)
+                    canvas3
+                }
+                    
+                .modifier(Divided())
                 Text("Accessibility and interaction for specific elements—such as views that you pass in as symbols—are not provided by a canvas. However, a canvas perform better in the case of a complex drawing. To enhance performance for a drawing that doesn't primarily require interactive features or text you can use a canvas.")
                     .fontWeight(.light)
             }

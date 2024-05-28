@@ -55,14 +55,15 @@ struct TogglesView: View, Comparable {
                                 .fontWeight(.light)
                         }
                         
-                        
-                        defaultToggle
-                            .modifier(Divided())
-                        switchToggle
-                            .modifier(Divided())
-                        customToggle
-                            .modifier(Divided())
-                        toggleWithStyle
+                        GroupBox {
+                            defaultToggle
+                                .modifier(Divided())
+                            switchToggle
+                                .modifier(Divided())
+                            customToggle
+                                .modifier(Divided())
+                            toggleWithStyle
+                        }
                         
                         Spacer()
                         
@@ -75,14 +76,18 @@ struct TogglesView: View, Comparable {
     }
     
     private var defaultToggle: some View {
-        Toggle(
-            isOn: $isBasicToggleOn,
-            label: {
-                Text("Default Toggle Style")
-            }
-        )
-        .padding(.trailing, 8)
+        Group {
+            Text("The default toggle style is 'switch', which draws a rounded rectangle with a tint color, usually green, that can be changed.")
+                .fontWeight(.light)
+            Toggle(
+                isOn: $isBasicToggleOn,
+                label: {
+                    Text("Default Toggle Style")
+                }
+            )
+            .padding(.trailing, 8)
         .toggleStyle(.automatic)
+        }
     }
     
     private var switchToggle: some View {
@@ -95,20 +100,22 @@ struct TogglesView: View, Comparable {
         .padding(.trailing, 8)
         .tint(Color.purple)
         .toggleStyle(.switch)
-        
     }
     
     private var customToggle: some View {
-        
-        Toggle(
-            isOn: $isCustomToggleOn,
-            label: {
-                Text("Custom Toggle Style")
-            }
-        )
-        .padding(.trailing, 8)
-        .toggleStyle(.custom)
-        
+        Group {
+            Text("In this custom toggle, the background color has changed and there is a narrower indicator when the toggle is switched.")
+                .fontWeight(.light)
+            Toggle(
+                isOn: $isCustomToggleOn,
+                label: {
+                    Text("Custom Toggle Style")
+                }
+            )
+            .padding(.trailing, 8)
+            .toggleStyle(.custom)
+            .frame(maxWidth: .infinity)
+        }
     }
     
     private var toggleWithStyle: some View {
@@ -116,11 +123,11 @@ struct TogglesView: View, Comparable {
             isOn: $isButtonToggleOn,
             label: {
                 Text("Button Toggle Style")
+                    .frame(maxWidth: .infinity)
             }
         )
         .toggleStyle(.button)
         .tint(Color.purple)
-        
     }
 }
 

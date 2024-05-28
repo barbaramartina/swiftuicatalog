@@ -55,7 +55,6 @@ struct GridsView: View, Comparable {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid", name: "GRID VIEWS")
                 
                 gridsIntroduction
-                    .modifier(Divided())
                 lazyHGrid
                     .modifier(Divided())
                 lazyVGrid
@@ -71,48 +70,52 @@ struct GridsView: View, Comparable {
     // MARK: - Lazy Vertical Grid
     
     private var lazyVGrid: some View {
-        VStack(alignment: .leading) {
-            Text("Lazy Vertical Grid")
-                .fontWeight(.heavy)
-            Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
-                .fontWeight(.light)
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach((0...79), id: \.self) {
-                        let codepoint = $0 + 0x1f600
-                        let codepointString = String(format: "%02X", codepoint)
-                        Text("\(codepointString)")
-                        let emoji = String(Character(UnicodeScalar(codepoint)!))
-                        Text("\(emoji)")
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Lazy Vertical Grid")
+                    .fontWeight(.heavy)
+                Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
+                    .fontWeight(.light)
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach((0...79), id: \.self) {
+                            let codepoint = $0 + 0x1f600
+                            let codepointString = String(format: "%02X", codepoint)
+                            Text("\(codepointString)")
+                            let emoji = String(Character(UnicodeScalar(codepoint)!))
+                            Text("\(emoji)")
+                        }
                     }
                 }
+                .frame(width: 300, height: 150, alignment: .center)
             }
-            .frame(width: 300, height: 150, alignment: .center)
         }
     }
     
     // MARK: - Lazy Horizontal Grid
     
     private var lazyHGrid: some View {
-        VStack(alignment: .leading) {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
-            Text("Lazy Horizontal Grid")
-                .fontWeight(.heavy)
-            Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
-                .fontWeight(.light)
-            ScrollView(.horizontal) {
-                LazyHGrid(rows: rows, alignment: .top) {
-                    ForEach((0...79), id: \.self) {
-                        let codepoint = $0 + 0x1f600
-                        let codepointString = String(format: "%02X", codepoint)
-                        Text("\(codepointString)")
-                            .font(.footnote)
-                        let emoji = String(Character(UnicodeScalar(codepoint)!))
-                        Text("\(emoji)")
-                            .font(.largeTitle)
+        GroupBox {
+            VStack(alignment: .leading) {
+                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
+                Text("Lazy Horizontal Grid")
+                    .fontWeight(.heavy)
+                Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
+                    .fontWeight(.light)
+                ScrollView(.horizontal) {
+                    LazyHGrid(rows: rows, alignment: .top) {
+                        ForEach((0...79), id: \.self) {
+                            let codepoint = $0 + 0x1f600
+                            let codepointString = String(format: "%02X", codepoint)
+                            Text("\(codepointString)")
+                                .font(.footnote)
+                            let emoji = String(Character(UnicodeScalar(codepoint)!))
+                            Text("\(emoji)")
+                                .font(.largeTitle)
+                        }
                     }
+                    .frame(width: 100, height: 100, alignment: .center)
                 }
-                .frame(width: 100, height: 100, alignment: .center)
             }
         }
     }

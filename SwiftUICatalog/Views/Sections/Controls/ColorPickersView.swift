@@ -51,23 +51,25 @@ struct ColorPickersView: View, Comparable {
                     DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker", name: "COLOR PICKER")
                     
                     Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
-                        .modifier(Divided())
-                    ColorPicker("Alignment Guides",
-                                selection: $bgColor1)
-                    HStack{
-                        Text("with opacity")
-                            .fontWeight(.ultraLight)
-                        Spacer()
+                    GroupBox {
+                        ColorPicker("Alignment Guides",
+                                    selection: $bgColor1)
+                        HStack{
+                            Text("with opacity")
+                                .fontWeight(.ultraLight)
+                            Spacer()
+                        }
                     }
-                    Spacer(minLength: 40)
-                        .modifier(Divided())
-                    ColorPicker("Alignment Guides",
-                                selection: $bgColor2,
-                                supportsOpacity: false)
-                    HStack{
-                        Text("without opacity")
-                            .fontWeight(.ultraLight)
-                        Spacer()
+                    .modifier(Divided())
+                    GroupBox {
+                        ColorPicker("Alignment Guides",
+                                    selection: $bgColor2,
+                                    supportsOpacity: false)
+                        HStack{
+                            Text("without opacity")
+                                .fontWeight(.ultraLight)
+                            Spacer()
+                        }
                     }
                 }
                 ContributedByView(name: "Ali Ghayeni H",

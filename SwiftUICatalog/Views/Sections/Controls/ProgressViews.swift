@@ -70,72 +70,94 @@ struct ProgressViews: View, Comparable {
     }
     
     private var plainProgressViews: some View {
-        VStack(alignment: .leading) {
-            Text("Are used to indicate steps in a tasks or to show the user feedback while waiting. The first example is a linear progress view with text")
+        Group {
+            Text("Progress views are used to indicate steps in a task, or to show feedback while waiting for results. \nExample 1: The first example is a linear progress view with a title shown at the top of the progress bar.")
                 .fontWeight(.light)
                 .padding(.bottom)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
-            
-            ProgressView("Downloading…",
-                         value: progress,
-                         total: 100)
-            
-            Text("Simple progress views, with an spinner can be configured when no value are passed as parameter")
+            Text("Example 2: Simple progress views can also be used, and the progress bar won't have an associated title.")
                 .fontWeight(.light)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
-            
-            ProgressView()
-            
-            Text("A spinner can also be shown with a text associated")
+            Text("Example 3: A spinner can also be shown with a text associated.")
                 .fontWeight(.light)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
-            
-            ProgressView("Downloading")
-            
-            ProgressView("Please wait...")
-                .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
-            
+
+
+            GroupBox {
+                VStack(alignment: .center) {
+                    ProgressView("Downloading…",
+                                 value: progress,
+                                 total: 100)
+                    .padding(.vertical)
+                    .modifier(Divided())
+                    
+                    ProgressView()
+                        .padding(.vertical)
+                    .modifier(Divided())
+
+                    ProgressView("Downloading")
+                        .padding(.vertical)
+                        .modifier(Divided())
+
+                    ProgressView("Please wait...")
+                        .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                        .padding(.bottom)
+                    
+                }
+            }
         }
     }
     
     private var subviewsInProgressView: some View {
-        VStack(alignment: .leading) {
-            Text("Also any view can be included inside the progress view, such as in this case, a button")
+        Group {
+            Text("Also any view can be included inside the progress view, such as in this case, a button.")
                 .fontWeight(.light)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             
-            ProgressView {
-                Button(action: {
-                    // to do: your cancellation logic
-                }) {
-                    Text("Cancel download")
-                        .fontWeight(.heavy)
-                        .foregroundColor(.accentColor)
+            GroupBox {
+                VStack(alignment: .leading) {
+                    ProgressView {
+                        Button(action: {
+                            // to do: your cancellation logic
+                        }) {
+                            Text("Cancel download")
+                                .fontWeight(.heavy)
+                                .foregroundColor(.accentColor)
+                        }
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color("YellowMedium"))
+                        .cornerRadius(5)
+                        .padding()
+                    }
+                    
                 }
-                .padding()
-                .background(Color("YellowMedium"))
-                .cornerRadius(5)
             }
-            
         }
     }
     
     private var tintedProgressView: some View {
-        VStack(alignment: .leading) {
-            Text("The color of the spinner can be chosen with a tint color")
+        Group {
+            Text("The color of the spinner can be changed with a tint color of your choice.")
                 .fontWeight(.light)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             
-            ProgressView("Please wait...", value: progress,
-                         
-                         total: 100)
-            .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
-            .foregroundColor(Color("YellowMedium"))
-            
+            GroupBox {
+                VStack(alignment: .leading) {
+                    
+                    ProgressView("Please wait...", value: progress,
+                                 
+                                 total: 100)
+                    .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
+                    .foregroundColor(Color("YellowMedium"))
+                    .padding(.vertical)
+                    
+                }
+            }
         }
     }
 }

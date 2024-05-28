@@ -47,98 +47,90 @@ struct TextModifiersView: View, Comparable {
                         ScrollView {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: "TEXT MODIFIERS")
             
-            // contextual information
             Group {
-                Text("Text view modifiers")
-                    .fontWeight(.heavy)
-                
-                Text("Examples of modifiers that can be applied to Text Views")
-                    .fontWeight(.light)
-            }
-            .padding()
-            
-            Group {
-                // Font weights
-                Group {
-                    Text("Font Weight Light")
-                        .fontWeight(.light)
-                    Text("Font Weight Medium")
-                        .fontWeight(.medium)
-                    Text("Font Weight Bold")
-                        .fontWeight(.bold)
-                    Text("Font Weight regular")
-                        .fontWeight(.regular)
-                    Text("Font Weight Semibold")
-                        .fontWeight(.semibold)
-                    Text("Font Weight thin")
-                        .fontWeight(.thin)
-                    Text("Font Weight Ultralight")
-                        .fontWeight(.ultraLight)
-                    Text("Font Weight Black")
-                        .fontWeight(.heavy)
+                GroupBox {
+                    VStack(alignment: .leading) {
+                        Text("Text view modifiers")
+                            .fontWeight(.heavy)
+                        
+                        Text("Examples of modifiers that can be applied to Text Views")
+                            .fontWeight(.light)
+                        // Font weights
+                        Group {
+                            Text("Font Weight Light")
+                                .fontWeight(.light)
+                            Text("Font Weight Medium")
+                                .fontWeight(.medium)
+                            Text("Font Weight Bold")
+                                .fontWeight(.bold)
+                            Text("Font Weight regular")
+                                .fontWeight(.regular)
+                            Text("Font Weight Semibold")
+                                .fontWeight(.semibold)
+                            Text("Font Weight thin")
+                                .fontWeight(.thin)
+                            Text("Font Weight Ultralight")
+                                .fontWeight(.ultraLight)
+                            Text("Font Weight Black")
+                                .fontWeight(.heavy)
+                        }
+                    }
                 }
                 // end of Font weights
                 .modifier(Divided())
-                
-                Group {
-                    Group {
-                        Text("Font type Headline")
-                            .font(.headline)
-                        Text("Font type Subheadline")
-                            .font(.subheadline)
-                        Text("Font type Large title")
-                            .font(.largeTitle)
-                        Text("Font type Title")
-                            .font(.title)
-                        Text("Font type title 2")
-                            .font(.title2)
-                        Text("Font type title 3")
-                            .font(.title3)
+
+                GroupBox {
+                    VStack(alignment: .leading) {
+                            Text("Font type Headline")
+                                .font(.headline)
+                            Text("Font type Subheadline")
+                                .font(.subheadline)
+                            Text("Font type Large title")
+                                .font(.largeTitle)
+                            Text("Font type Title")
+                                .font(.title)
+                            Text("Font type title 2")
+                                .font(.title2)
+                            Text("Font type title 3")
+                                .font(.title3)
+                            Text("Font type Body")
+                                .font(.body)
+                            Text("Font type Callout")
+                                .font(.callout)
+                            Text("Font type Caption")
+                                .font(.caption)
+                            Text("Font type Caption 2")
+                                .font(.caption2)
+                            Text("Font type Footnote")
+                                .font(.footnote)
                     }
-                    Group {
-                        Text("Font type Body")
-                            .font(.body)
-                        Text("Font type Callout")
-                            .font(.callout)
-                        Text("Font type Caption")
-                            .font(.caption)
-                        Text("Font type Caption 2")
-                            .font(.caption2)
-                        Text("Font type Footnote")
-                            .font(.footnote)
-                    }
+                    .frame(maxWidth: .infinity)
                 }
+                .modifier(Divided())
                 // end of font types
                 
                 // Foreground colors
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
-                    
-                    
+                GroupBox {
                     Text("Foregroung color: A pink text")
                         .foregroundColor(.pink)
+                        .frame(maxWidth: .infinity)
+
                 }
+                .modifier(Divided())
                 // end of foreground colors
                 
                 // Line limit
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
                     Text("Line limit: A very long text that can only occupy 2 lines. A very long text that can only occupy 2 lines.A very long text that can only occupy 2 lines.A very long text that can only occupy 2 lines. ")
                         .lineLimit(2)
                         .padding()
                 }
+                .modifier(Divided())
                 // end of line limit
                 
                 // Backgrounds
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
                     Text("Backgrounds: a text with a text background")
                         .font(.title)
@@ -160,38 +152,40 @@ struct TextModifiersView: View, Comparable {
                                    height: 100,
                                    alignment: .center))
                         .padding()
-                    
                 }
+                .modifier(Divided())
                 
                 // Opacity
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
-                    Text("A text with opacity 0.3")
-                        .opacity(0.3)
-                    Text("A text with opacity 0.6")
-                        .opacity(0.6)
-                    Text("A text with opacity 0.9")
-                        .opacity(0.9)
+                    VStack(alignment: .leading) {
+                        Text("A text with opacity 0.3")
+                            .opacity(0.3)
+                        Text("A text with opacity 0.6")
+                            .opacity(0.6)
+                        Text("A text with opacity 0.9")
+                            .opacity(0.9)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
+                .modifier(Divided())
                 // end of opacity
                 
                 // Bold , underlined..
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
-                    Text("Bold text")
-                        .bold()
-                    Text("Underlined text")
-                        .underline()
-                    Text("Italic text")
-                        .italic()
+                    VStack(alignment: .leading) {
+                        Text("Bold text")
+                            .bold()
+                        Text("Underlined text")
+                            .underline()
+                        Text("Italic text")
+                            .italic()
+                    }
+                    .frame(maxWidth: .infinity)
                     
                 }
+                .modifier(Divided())
                 // end of bold and underlined
                 
             }
@@ -199,10 +193,7 @@ struct TextModifiersView: View, Comparable {
             Group {
                 
                 // tightening
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
                     Text("Example of a text which is slightly long for a line and we set a modifier to allow the characters to tighten")
                         .lineLimit(1)
@@ -214,26 +205,25 @@ struct TextModifiersView: View, Comparable {
                         .allowsTightening(true)
                         .padding()
                 }
+                .modifier(Divided())
                 // end of tightening
                 
                 // Layout direction
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
-                    Link(destination: Text("https://developer.apple.com/documentation/swiftui/environmentvalues/layoutdirection"),
-                         label: "Layout Direction")
-                    Text("Preparing a text to adjust to the layout direction change")
-                        .flipsForRightToLeftLayoutDirection(true)
+                    VStack(alignment: .leading) {
+                        Link(destination: Text("https://developer.apple.com/documentation/swiftui/environmentvalues/layoutdirection"),
+                             label: "Layout Direction")
+                        Text("Preparing a text to adjust to the layout direction change")
+                            .flipsForRightToLeftLayoutDirection(true)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
+                .modifier(Divided())
                 // end of layout direction
                 
                 // Keyboard types
-                Group {
-                    Divider()
-                        .padding(.top, 16)
-                        .padding(.bottom, 16)
+                GroupBox {
                     
                     Group {
                         TextField("Text field with alphabet keyboard", text: $text1)
@@ -278,6 +268,7 @@ struct TextModifiersView: View, Comparable {
                     }
                     
                 }
+                .modifier(Divided())
                 // end of keyboard examples
                 
             }

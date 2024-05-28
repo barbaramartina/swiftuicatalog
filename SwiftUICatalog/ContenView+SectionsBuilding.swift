@@ -50,7 +50,7 @@ extension ContentView {
                                    state: .notPublishable,
                                    view: AnyView(popovers))
         let composedComponents = MenuSection(name: "Composed Components",
-                                             state: .ready,
+                                             state: .notPublishable,
                                              view: AnyView(composedComponents))
         
         

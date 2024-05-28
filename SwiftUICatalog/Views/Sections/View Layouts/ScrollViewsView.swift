@@ -54,20 +54,18 @@ struct ScrollViewsView: View, Comparable {
                 
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview", name: "SCROLL VIEWS")
                 
-                introductionTexts
-                
-                scrollToBottomButton(proxy: proxy)
-                
-                VStack(spacing: 0) {
-                    ForEach(0..<100) { i in
-                        Text("Row \(i)")
-                            .multilineTextAlignment(.leading)
+                GroupBox {
+                    introductionTexts
+                    scrollToBottomButton(proxy: proxy)
+                    VStack(spacing: 0) {
+                        ForEach(0..<100) { i in
+                            Text("Row \(i)")
+                                .multilineTextAlignment(.leading)
+                        }
                     }
+                    .frame(maxWidth: .infinity)
+                    scrollToTopButton(proxy: proxy)
                 }
-                
-                scrollToTopButton(proxy: proxy)
-                
-                
             }
             
             ContributedByView(name: "Barbara Martina",

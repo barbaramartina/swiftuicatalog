@@ -59,9 +59,6 @@ struct ListsComponentView: View, Comparable {
             list3
                 .modifier(Divided())
             list4
-                .modifier(Divided())
-            list5
-                .modifier(Divided())
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
@@ -75,218 +72,182 @@ struct ListsComponentView: View, Comparable {
     }
     
     private var list1: some View {
-        List(selection: $singleSelection){
-            ForEach(countries) { c in
-                Section(header: Text("\(c.name)")
-                    .fontWeight(.thin)
-                    .foregroundColor(.black)
-                ) {
-                    ForEach(c.dogs) { d in
-                        HStack(alignment: .center) {
-                            Image(d.image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 50, height: 50)
-                                .clipped()
-                                .clipShape(Circle())
-                            Text(d.name)
-                                .font(.subheadline)
-                                .fontWeight(.heavy)
-                                .foregroundColor(.accentColor)
+        GroupBox {
+            List(selection: $singleSelection){
+                ForEach(countries) { c in
+                    Section(header: Text("\(c.name)")
+                        .fontWeight(.thin)
+                        .foregroundColor(.black)
+                    ) {
+                        ForEach(c.dogs) { d in
+                            HStack(alignment: .center) {
+                                Image(d.image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .clipped()
+                                    .clipShape(Circle())
+                                Text(d.name)
+                                    .font(.subheadline)
+                                    .fontWeight(.heavy)
+                                    .foregroundColor(.accentColor)
+                            }
                         }
+                        .onDelete(perform: { indexSet in
+                            // action
+                        })
+                        .onMove(perform: { indices, newOffset in
+                            // action
+                        })
+                        // end of for each
                     }
-                    .onDelete(perform: { indexSet in
-                        // action
-                    })
-                    .onMove(perform: { indices, newOffset in
-                        // action
-                    })
-                    // end of for each
                 }
+                
+                
             }
-            
-            
-        }
-        .frame(height: 300)
-        .listStyle(PlainListStyle())
+            .frame(height: 300)
+            .listStyle(PlainListStyle())
         .toolbar { EditButton() }
+        }
         // end of list 1
         
     }
     
     private var list2: some View {
-        VStack(alignment: .leading) {
-            Text("This second example is using the style 'GroupedListStyle'.")
-                .fontWeight(.light)
-            
-            List(selection: $singleSelection){
-                ForEach(countries) { c in
-                    Section(header: Text("\(c.name)")
-                        .fontWeight(.thin)
-                        .foregroundColor(.black)
-                    ) {
-                        ForEach(c.dogs) { d in
-                            HStack(alignment: .center) {
-                                Image(d.image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .clipped()
-                                    .clipShape(Circle())
-                                Text(d.name)
-                                    .font(.subheadline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.accentColor)
-                            }
-                        }
-                        .onDelete(perform: { indexSet in
-                            // action
-                        })
-                        .onMove(perform: { indices, newOffset in
-                            // action
-                        })
-                        // end of for each
-                    }
-                }
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("This second example is using the style 'GroupedListStyle'.")
+                    .fontWeight(.light)
                 
+                List(selection: $singleSelection){
+                    ForEach(countries) { c in
+                        Section(header: Text("\(c.name)")
+                            .fontWeight(.thin)
+                            .foregroundColor(.black)
+                        ) {
+                            ForEach(c.dogs) { d in
+                                HStack(alignment: .center) {
+                                    Image(d.image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 50, height: 50)
+                                        .clipped()
+                                        .clipShape(Circle())
+                                    Text(d.name)
+                                        .font(.subheadline)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.accentColor)
+                                }
+                            }
+                            .onDelete(perform: { indexSet in
+                                // action
+                            })
+                            .onMove(perform: { indices, newOffset in
+                                // action
+                            })
+                            // end of for each
+                        }
+                    }
+                    
+                    
+                }
+                .frame(height: 300)
+                .listStyle(GroupedListStyle())
+                // end of list 2
                 
             }
-            .frame(height: 300)
-            .listStyle(GroupedListStyle())
-            // end of list 2
-            
         }
     }
     
     private var list3: some View {
-        VStack(alignment: .leading) {
-            Text("This next example is using the style 'InsetListStyle'.")
-                .fontWeight(.light)
-            
-            List(selection: $singleSelection){
-                ForEach(countries) { c in
-                    Section(header: Text("\(c.name)")
-                        .fontWeight(.thin)
-                        .foregroundColor(.black)
-                    ) {
-                        ForEach(c.dogs) { d in
-                            HStack(alignment: .center) {
-                                Image(d.image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .clipped()
-                                    .clipShape(Circle())
-                                Text(d.name)
-                                    .font(.subheadline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.accentColor)
-                            }
-                        }
-                        .onDelete(perform: { indexSet in
-                            // action
-                        })
-                        .onMove(perform: { indices, newOffset in
-                            // action
-                        })
-                        // end of for each
-                    }
-                }
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("This next example is using the style 'InsetListStyle'.")
+                    .fontWeight(.light)
                 
+                List(selection: $singleSelection){
+                    ForEach(countries) { c in
+                        Section(header: Text("\(c.name)")
+                            .fontWeight(.thin)
+                            .foregroundColor(.black)
+                        ) {
+                            ForEach(c.dogs) { d in
+                                HStack(alignment: .center) {
+                                    Image(d.image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 50, height: 50)
+                                        .clipped()
+                                        .clipShape(Circle())
+                                    Text(d.name)
+                                        .font(.subheadline)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.accentColor)
+                                }
+                            }
+                            .onDelete(perform: { indexSet in
+                                // action
+                            })
+                            .onMove(perform: { indices, newOffset in
+                                // action
+                            })
+                            // end of for each
+                        }
+                    }
+                    
+                    
+                }
+                .frame(height: 300)
+                .listStyle(InsetListStyle())
+                // end of list 3
                 
             }
-            .frame(height: 300)
-            .listStyle(InsetListStyle())
-            // end of list 3
-            
         }
     }
     
     private var list4: some View {
-        VStack(alignment: .leading) {
-            Text("This next example is using the style 'InsetGroupedListStyle'.")
-                .fontWeight(.light)
-            
-            List(selection: $singleSelection){
-                ForEach(countries) { c in
-                    Section(header: Text("\(c.name)")
-                        .fontWeight(.thin)
-                        .foregroundColor(.black)
-                    ) {
-                        ForEach(c.dogs) { d in
-                            HStack(alignment: .center) {
-                                Image(d.image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .clipped()
-                                    .clipShape(Circle())
-                                Text(d.name)
-                                    .font(.subheadline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.accentColor)
-                            }
-                        }
-                        .onDelete(perform: { indexSet in
-                            // action
-                        })
-                        .onMove(perform: { indices, newOffset in
-                            // action
-                        })
-                        // end of for each
-                    }
-                }
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("This next example is using the style 'InsetGroupedListStyle'.")
+                    .fontWeight(.light)
                 
+                List(selection: $singleSelection){
+                    ForEach(countries) { c in
+                        Section(header: Text("\(c.name)")
+                            .fontWeight(.thin)
+                            .foregroundColor(.black)
+                        ) {
+                            ForEach(c.dogs) { d in
+                                HStack(alignment: .center) {
+                                    Image(d.image)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 50, height: 50)
+                                        .clipped()
+                                        .clipShape(Circle())
+                                    Text(d.name)
+                                        .font(.subheadline)
+                                        .fontWeight(.heavy)
+                                        .foregroundColor(.accentColor)
+                                }
+                            }
+                            .onDelete(perform: { indexSet in
+                                // action
+                            })
+                            .onMove(perform: { indices, newOffset in
+                                // action
+                            })
+                            // end of for each
+                        }
+                    }
+                    
+                    
+                }
+                .frame(height: 300)
+                .listStyle(InsetGroupedListStyle())
+                // end of list 3
                 
             }
-            .frame(height: 300)
-            .listStyle(InsetGroupedListStyle())
-            // end of list 3
-            
-        }
-    }
-    
-    private var list5: some View {
-        VStack(alignment: .leading) {
-            Text("This next example is using the style 'SidebarListStyle'.")
-                .fontWeight(.light)
-            
-            List(selection: $singleSelection){
-                ForEach(countries) { c in
-                    Section(header: Text("\(c.name)")
-                        .fontWeight(.thin)
-                        .foregroundColor(.black)
-                    ) {
-                        ForEach(c.dogs) { d in
-                            HStack(alignment: .center) {
-                                Image(d.image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 50, height: 50)
-                                    .clipped()
-                                    .clipShape(Circle())
-                                Text(d.name)
-                                    .font(.subheadline)
-                                    .fontWeight(.heavy)
-                                    .foregroundColor(.accentColor)
-                            }
-                        }
-                        .onDelete(perform: { indexSet in
-                            // action
-                        })
-                        .onMove(perform: { indices, newOffset in
-                            // action
-                        })
-                        // end of for each
-                    }
-                }
-                
-                
-            }
-            .frame(height: 300)
-            .listStyle(SidebarListStyle())
-            // end of list 3
-            
         }
     }
     

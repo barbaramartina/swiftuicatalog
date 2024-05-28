@@ -85,21 +85,23 @@ struct DatePickersView: View, Comparable {
     // MARK: - date pickers graphical
     
     private var graphicalDatePicker: some View {
-        VStack(alignment: .leading) {
-            
-            Group {
-                Text("Style graphical")
-                    .fontWeight(.heavy)
-                Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
-                    .fontWeight(.light)
+        GroupBox {
+            VStack(alignment: .leading) {
+                
+                Group {
+                    Text("Style graphical")
+                        .fontWeight(.heavy)
+                    Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
+                        .fontWeight(.light)
+                }
+                
+                DatePicker(
+                    "Start Date 4",
+                    selection: $date4,
+                    displayedComponents: [.date]
+                )
+                .datePickerStyle(GraphicalDatePickerStyle())
             }
-            
-            DatePicker(
-                "Start Date 4",
-                selection: $date4,
-                displayedComponents: [.date]
-            )
-            .datePickerStyle(GraphicalDatePickerStyle())
         }
         
     }
@@ -107,20 +109,22 @@ struct DatePickersView: View, Comparable {
     // MARK: - date pickers compact
     
     private var compactDatePicker: some View {
-        VStack(alignment: .leading) {
-            Group {
-                Text("Style compact")
-                    .fontWeight(.heavy)
-                Text("Compact styles make the date picker appear in one line, from which it is expanded")
-                    .fontWeight(.light)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Group {
+                    Text("Style compact")
+                        .fontWeight(.heavy)
+                    Text("Compact styles make the date picker appear in one line, from which it is expanded")
+                        .fontWeight(.light)
+                }
+                
+                DatePicker(
+                    "Start Date 4",
+                    selection: $date4,
+                    displayedComponents: [.date]
+                )
+                .datePickerStyle(CompactDatePickerStyle())
             }
-            
-            DatePicker(
-                "Start Date 4",
-                selection: $date4,
-                displayedComponents: [.date]
-            )
-            .datePickerStyle(CompactDatePickerStyle())
         }
         
     }
@@ -128,20 +132,22 @@ struct DatePickersView: View, Comparable {
     // MARK: - date pickers wheels
     
     private var wheelsDatePicker: some View {
-        VStack(alignment: .leading) {
-            Group {
-                Text( "Style wheels")
-                    .fontWeight(.heavy)
-                Text("The date picker can adopt different style, here we show the WHEELS style")
-                    .fontWeight(.light)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Group {
+                    Text( "Style wheels")
+                        .fontWeight(.heavy)
+                    Text("The date picker can adopt different style, here we show the WHEELS style")
+                        .fontWeight(.light)
+                }
+                
+                DatePicker(
+                    "Picker 3",
+                    selection: $date3,
+                    displayedComponents: [.date]
+                )
+                .datePickerStyle(WheelDatePickerStyle())
             }
-            
-            DatePicker(
-                "Picker 3",
-                selection: $date3,
-                displayedComponents: [.date]
-            )
-            .datePickerStyle(WheelDatePickerStyle())
         }
         
     }
@@ -149,44 +155,48 @@ struct DatePickersView: View, Comparable {
     // MARK: - date picker with range limit
     
     private var rangeLimitDatePicker: some View {
-        VStack(alignment: .leading) {
-            Group {
-                Text("Range limit")
-                    .fontWeight(.heavy)
-                Text("Ranges can be configured using the in: parameter")
-                    .fontWeight(.light)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Group {
+                    Text("Range limit")
+                        .fontWeight(.heavy)
+                    Text("Ranges can be configured using the in: parameter")
+                        .fontWeight(.light)
+                }
+                
+                DatePicker(
+                    "Start Date 2",
+                    selection: $date2,
+                    in: dateRange,
+                    displayedComponents: [.date, .hourAndMinute]
+                )
             }
-            
-            DatePicker(
-                "Start Date 2",
-                selection: $date2,
-                in: dateRange,
-                displayedComponents: [.date, .hourAndMinute]
-            )
         }
         
     }
     
     // MARK: - date picker no range limit
     private var plainDatePicker: some View {
-        VStack(alignment: .leading) {
-            
-            Group {
-                Text( "No range limit")
-                    .fontWeight(.heavy)
-                Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
-                    .fontWeight(.light)
+        GroupBox {
+            VStack(alignment: .leading) {
+                
+                Group {
+                    Text( "No range limit")
+                        .fontWeight(.heavy)
+                    Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
+                        .fontWeight(.light)
+                }
+                
+                DatePicker(
+                    "Start Date 1",
+                    selection: $date1,
+                    displayedComponents: [.date]
+                )
+                .onChange(of: date1, { oldValue, newValue in
+                    print("previous value \(oldValue)")
+                    print("new value \(newValue)")
+                })
             }
-            
-            DatePicker(
-                "Start Date 1",
-                selection: $date1,
-                displayedComponents: [.date]
-            )
-            .onChange(of: date1, { oldValue, newValue in
-                print("previous value \(oldValue)")
-                print("new value \(newValue)")
-            })
         }
         
     }

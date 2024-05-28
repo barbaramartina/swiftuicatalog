@@ -65,75 +65,81 @@ struct ImagesComponentView: View, Comparable {
     
     // Contextual information: a short intro to the elements we are showcasing
     private var sfSymbols: some View {
-        VStack(alignment: .leading) {
-            Text("Images with SF Symbols")
-                .fontWeight(.heavy)
-            Text("SF Symbols is a collection of iconography that has over 5,000 symbols and is made to work perfectly with San Francisco, the system font used by Apple platforms. Symbols automatically align with text and are available in three scales and nine weights. Using vector graphics editing software, they can be altered and exported to produce unique symbols with shared accessibility features and design elements. With SF Symbols 5, you can now create bespoke symbols with improved tools, over 700 new symbols, and a variety of expressive animations. You can find more about SF Symbols in [the SF Official page](https://developer.apple.com/design/resources/#sf-symbols)")
-                .fontWeight(.light)
-            HStack(alignment: .center, spacing: 20) {
-                Image(systemName: "house.circle")
-                Image(systemName: "square.circle")
-                Image(systemName: "dpad")
-                Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
-                Image(systemName: "eraser")
-                Image(systemName: "paperplane.circle")
-                Image(systemName: "externaldrive.connected.to.line.below")
-                Image(systemName: "keyboard.badge.eye")
-                Image(systemName: "printer.dotmatrix.fill")
-                Image(systemName: "figure.2")
-                Image(systemName: "figure.2.circle")
-                Image(systemName: "eye")
-                Image(systemName: "eye.fill")
-                Image(systemName: "textformat.size")
-                Image(systemName: "checkmark.seal.fill")
-                Image(systemName: "exclamationmark.bubble.circle")
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Images with SF Symbols")
+                    .fontWeight(.heavy)
+                Text("SF Symbols is a collection of iconography that has over 5,000 symbols and is made to work perfectly with San Francisco, the system font used by Apple platforms. Symbols automatically align with text and are available in three scales and nine weights. Using vector graphics editing software, they can be altered and exported to produce unique symbols with shared accessibility features and design elements. With SF Symbols 5, you can now create bespoke symbols with improved tools, over 700 new symbols, and a variety of expressive animations. You can find more about SF Symbols in [the SF Official page](https://developer.apple.com/design/resources/#sf-symbols)")
+                    .fontWeight(.light)
+                ScrollView(.horizontal) {
+                    HStack(alignment: .center, spacing: 20) {
+                        Image(systemName: "house.circle")
+                        Image(systemName: "square.circle")
+                        Image(systemName: "dpad")
+                        Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
+                        Image(systemName: "eraser")
+                        Image(systemName: "paperplane.circle")
+                        Image(systemName: "externaldrive.connected.to.line.below")
+                        Image(systemName: "keyboard.badge.eye")
+                        Image(systemName: "printer.dotmatrix.fill")
+                        Image(systemName: "figure.2")
+                        Image(systemName: "figure.2.circle")
+                        Image(systemName: "eye")
+                        Image(systemName: "eye.fill")
+                        Image(systemName: "textformat.size")
+                        Image(systemName: "checkmark.seal.fill")
+                        Image(systemName: "exclamationmark.bubble.circle")
+                    }
+                    .frame(width: 350)
+                .padding(.vertical)
+                }
             }
-            .frame(width: 350)
-            .padding(.vertical)
         }
     }
     
     private var imsgesFromBundle: some View {
-        VStack(alignment: .leading) {
-            Text("Images from Bundle")
-                .fontWeight(.heavy)
-            Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
-                .fontWeight(.light)
-            // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
-            Text("Corgie scaled to fit")
-                .fontWeight(.semibold)
-                .padding(.top)
-            Image("corgie-love")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200)
-                .modifier(Divided())
-            Text("Corgie scaled to fill")
-                .fontWeight(.semibold)
-            Image("corgie-love")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 200, height: 200)
-                .modifier(Divided())
-            Text("Corgie aspect ratio")
-                .fontWeight(.semibold)
-            Image("corgie-love")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200, height: 200)
-                .modifier(Divided())
-            Text("Corgie and circled overlay")
-                .fontWeight(.semibold)
-            Image("corgie-love")
-                .resizable()
-                .scaledToFit()
-                .overlay(
-                    Color.gray
-                        .opacity(0.5)
-                )
-                .clipShape(Circle())
-                .frame(width: 200, height: 200)
-            
+        GroupBox {
+            VStack(alignment: .leading) {
+                    Text("Images from Bundle")
+                        .fontWeight(.heavy)
+                    Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
+                        .fontWeight(.light)
+                    // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
+                    Text("Corgie scaled to fit")
+                        .fontWeight(.semibold)
+                        .padding(.top)
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 200, height: 200)
+                        .modifier(Divided())
+                    Text("Corgie scaled to fill")
+                        .fontWeight(.semibold)
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 200, height: 200)
+                        .modifier(Divided())
+                    Text("Corgie aspect ratio")
+                        .fontWeight(.semibold)
+                    Image("corgie-love")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                        .modifier(Divided())
+                    Text("Corgie and circled overlay")
+                        .fontWeight(.semibold)
+                    Image("corgie-love")
+                        .resizable()
+                        .scaledToFit()
+                        .overlay(
+                            Color.gray
+                                .opacity(0.5)
+                        )
+                        .clipShape(Circle())
+                        .frame(width: 200, height: 200)
+                    
+            }
         }
     }
     

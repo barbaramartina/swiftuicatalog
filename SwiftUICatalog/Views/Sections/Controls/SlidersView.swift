@@ -57,14 +57,7 @@ struct SlidersView: View, Comparable {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/slider", name: "SLIDER")
             
             VStack(alignment: .leading) {
-                Text( "Slider with continued values")
-                    .fontWeight(.heavy)
-                Text("A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt.")
-                    .fontWeight(.light)
                 sliderGrams
-                    .modifier(Divided())
-                sliderSteps
-                sliderGrams2
                     .modifier(Divided())
                 sliderWithVoiceOver
             }
@@ -79,17 +72,23 @@ struct SlidersView: View, Comparable {
     }
     
     private var sliderGrams: some View {
-        VStack(alignment: .leading) {
-            Slider(
-                value: $grams1,
-                in: 0...1000,
-                onEditingChanged: { editing in
-                    isEditing1 = editing
-                }
-            )
-            .padding(30)
-            Text("\(grams1)")
-                .foregroundColor(isEditing1 ? .blue : .black)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text( "Slider with continued values")
+                    .fontWeight(.heavy)
+                Text("A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt.")
+                    .fontWeight(.light)
+                Slider(
+                    value: $grams1,
+                    in: 0...1000,
+                    onEditingChanged: { editing in
+                        isEditing1 = editing
+                    }
+                )
+                .padding(30)
+                Text("\(grams1)")
+                    .foregroundColor(isEditing1 ? .blue : .black)
+            }
         }
         
     }
@@ -105,30 +104,32 @@ struct SlidersView: View, Comparable {
     }
     
     private var sliderWithVoiceOver: some View {
-        VStack(alignment: .leading) {
-            Text( "Slider with VoiceOver Label & min / max values")
-                .fontWeight(.heavy)
-            Text("A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility")
-                .fontWeight(.light)
-            VStack {
-                Slider(value: $grams3,
-                       in: 0...1000,
-                       onEditingChanged: { editing in
-                    isEditing3 = editing
-                },
-                       minimumValueLabel: Label(
-                        title: { Text("50") },
-                        icon: { Image(systemName: "circle") }
-                       ),
-                       maximumValueLabel: Label(
-                        title: { Text("900") },
-                        icon: { Image(systemName: "circle") }
-                        
-                       ),
-                       label: {
-                    Text("This is a slider for grams")
-                })
-                .padding(30)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text( "Slider with VoiceOver Label & min / max values")
+                    .fontWeight(.heavy)
+                Text("A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility")
+                    .fontWeight(.light)
+                VStack {
+                    Slider(value: $grams3,
+                           in: 0...1000,
+                           onEditingChanged: { editing in
+                        isEditing3 = editing
+                    },
+                           minimumValueLabel: Label(
+                            title: { Text("50") },
+                            icon: { Image(systemName: "circle") }
+                           ),
+                           maximumValueLabel: Label(
+                            title: { Text("900") },
+                            icon: { Image(systemName: "circle") }
+                            
+                           ),
+                           label: {
+                        Text("This is a slider for grams")
+                    })
+                    .padding(30)
+                }
             }
         }
     }
