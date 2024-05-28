@@ -57,9 +57,19 @@ struct AnimationsView: View, Comparable {
         
         NavigationStack {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/animation")
+                .padding(.trailing)
             List {
                 Link(destination:                         RobbieWithPulseView(),
                      label: "Pulse animation",
+                     textColor: .black)
+                Link(destination:                         MyCustomAnimationView(),
+                     label: "Custom animation",
+                     textColor: .black)
+                Link(destination:                         SpringAnimationView(),
+                     label: "Springs animation",
+                     textColor: .black)
+                Link(destination:                         TimingCurvesView(),
+                     label: "Timing curves in animations",
                      textColor: .black)
                 Link(destination: PropertiesAnimationsView(),
                      label: "Properties animations",
@@ -83,7 +93,6 @@ struct AnimationsView: View, Comparable {
             }
             .navigationTitle("Animations")
         }
-        .padding(.horizontal)
     }
 }
 
@@ -105,256 +114,6 @@ extension Animation {
             .speed(2)
             .delay(0.03 * Double(index))
     }
-}
-
-// MARK: - Properties animations
-
-struct PropertiesAnimationsView: View, Comparable {
-    
-    // MARK: - Properties
-    
-    let id: String = "PropertiesAnimationsView"
-    
-    @State private var animate1 = false
-    @State private var animate2 = false
-    @State private var animate3 = false
-    @State private var animate4 = false
-    
-    
-    // MARK: - Body
-    
-    
-    var body: some View {
-        
-        ScrollView {
-            
-            VStack(alignment: .leading) {
-                
-                // MARK: - animating local properties
-                Group {
-                    
-                    Group {
-                        Text( "Animating a toggle on a boolean")
-                            .fontWeight(.heavy)
-                        Text("Using a boolean you can play around with different types of animations. Tap the images to see how each animation looks like.")
-                            .fontWeight(.light)
-                        
-                    }
-                    
-                    Button(action: {
-                        withAnimation(.easeInOut(duration: 3)) {
-                            self.animate3.toggle()
-                        }
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate3 ? 90 : 0))
-                                .scaleEffect(animate3 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                            Spacer()
-                        }
-                        .padding()
-                        // end of h stack
-                    }
-                    // end of h stack
-                }
-                // end of group
-                
-                
-                // MARK: - rotation animated
-                Group {
-                    Group {
-                        Text( "Rotation animated")
-                            .fontWeight(.heavy)
-                        Text("Using a rotation effect and changing the degrees of the angle you can achieve a different animation.")
-                            .fontWeight(.light)
-                    }
-                    
-                    Button(action: {
-                        self.animate1.toggle()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate1 ? 90 : 0))
-                                .scaleEffect(animate1 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                                .animation(.easeInOut.repeatCount(3), value: animate1)
-                            Spacer()
-                        }
-                        // end of h stack
-                    }
-                }
-                // end of group
-                
-                // MARK: - Spring rotation
-                Group {
-                    Group {
-                        Text("Rotation animation with Spring")
-                            .fontWeight(.heavy)
-                        Text("A different type of effect is achieved by using a spring animation.")
-                            .fontWeight(.light)
-                        
-                    }
-                    
-                    Button(action: {
-                        self.animate2.toggle()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate2 ? 90 : 0))
-                                .scaleEffect(animate2 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                                .animation(.spring().repeatCount(3), value: animate2)
-                            Spacer()
-                        }
-                        // end of h stack
-                    }
-                    // end of h stack
-                }
-                // end of group
-                
-                // MARK: - ripple
-                Group {
-                    Group {
-                        Text("Ripple animation")
-                            .fontWeight(.heavy)
-                        Text("Here's an example of how to use your custom defined animation to simulate a ripple effect on an image.")
-                            .fontWeight(.light)
-                    }
-                    Button(action: {
-                        self.animate4.toggle()
-                    }) {
-                        HStack {
-                            Spacer()
-                            Image("corgie-love")
-                                .resizable()
-                                .rotationEffect(.degrees(animate4 ? 90 : 0))
-                                .scaleEffect(animate4 ? 1.2 : 1)
-                                .frame(width: 200, height: 200)
-                                .animation(.ripple(index: 2), value: animate4)
-                            Spacer()
-                        }
-                        // end of h stack
-                    }
-                    // end of h stack
-                }
-                // end of group
-                
-                ContributedByView(name: "Barbara Martina",
-                                  link: "https://github.com/barbaramartina")
-                .padding(.top, 80)
-                
-            }
-            // end of list
-        }
-        .padding(.horizontal)
-    }
-    
-}
-
-
-// MARK: - transitions
-
-struct TransitionsAnimationsView: View, Comparable {
-    
-    // MARK: - Properties
-    
-    let id: String = "TransitionsAnimationsView"
-    
-    @State private var animate1 = false
-    @State private var animate2 = false
-    @State private var animate3 = false
-    
-    
-    // MARK: - Body
-    
-    
-    var body: some View {
-        
-        Text("Tap each button to see how the animation mentioned would look like.")
-            .fontWeight(.light)
-        
-        if self.animate2 == false && self.animate3 == false {
-            Button(action: {
-                withAnimation {
-                    self.animate1.toggle()
-                }
-            }, label: {
-                Text("Slide in & out")
-                    .modifier(ButtonFontModifier())
-                
-            })
-            .modifier(RoundedBordersModifier(radius: 10,
-                                             lineWidth: 5))
-            .padding()
-            
-        }
-        
-        if self.animate1 == false && self.animate3 == false {
-            Button(action: {
-                withAnimation {
-                    self.animate2.toggle()
-                }
-            }, label: {
-                Text("Transition with opacity")
-                    .modifier(ButtonFontModifier())
-                
-            })
-            .modifier(RoundedBordersModifier(radius: 10,
-                                             lineWidth: 5))
-            .padding()
-            
-        }
-        
-        if self.animate1 == false && self.animate2 == false {
-            Button(action: {
-                withAnimation {
-                    self.animate3.toggle()
-                }
-            }, label: {
-                Text("Transition moving and fading")
-                    .modifier(ButtonFontModifier())
-                
-            })
-            .modifier(RoundedBordersModifier(radius: 10,
-                                             lineWidth: 5))
-            .padding()
-            
-        }
-        
-        if animate1 {
-            Image("corgie-love")
-                .resizable()
-                .frame(width: 200, height: 200)
-                .transition(.slide)
-        }
-        
-        if animate2 {
-            Image("corgie-love")
-                .resizable()
-                .frame(width: 200, height: 200)
-                .transition(.opacity)
-        }
-        
-        if animate3 {
-            Image("corgie-love")
-                .resizable()
-                .frame(width: 200, height: 200)
-                .transition(.moveAndFade)
-        }
-        
-        Spacer()
-        
-        // end of page container
-        
-    }
-    
 }
 
 // MARK: - custom transitions
