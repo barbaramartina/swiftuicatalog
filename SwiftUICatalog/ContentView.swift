@@ -218,6 +218,8 @@ struct ContentView: View {
                  label: "Gestures")
             Link(destination: ComposingGesturesView(),
                  label: "Composing Gestures")
+            Link(destination: SensoryFeedbackInViews(),
+                 label: "Sensory Feedback")
         }
         .listRowBackground(Color(sectionColor))
         
