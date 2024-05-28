@@ -124,66 +124,71 @@ struct ChartsViews: View {
                 .padding(.bottom)
             
             // BAR CHART
-            Text("Bar Chart example")
-                .fontWeight(.heavy)
-            Chart {
-                ForEach(clothes) { item in
-                    BarMark(
-                        x: .value("Item", item.type),
-                        y: .value("Total Count", item.count)
-                    )
-                    .foregroundStyle(by: .value("Color", item.color))
+            GroupBox {
+                Text("Bar Chart example")
+                    .fontWeight(.heavy)
+                Chart {
+                    ForEach(clothes) { item in
+                        BarMark(
+                            x: .value("Item", item.type),
+                            y: .value("Total Count", item.count)
+                        )
+                        .foregroundStyle(by: .value("Color", item.color))
+                    }
                 }
+                .chartForegroundStyleScale([
+                    "Green": .green,
+                    "Black": .black,
+                    "Pink": .pink,
+                    "Yellow": .yellow
+                ])
+                .padding()
             }
-            .chartForegroundStyleScale([
-                "Green": .green,
-                "Black": .black,
-                "Pink": .pink,
-                "Yellow": .yellow
-            ])
-            .padding()
+            .modifier(Divided())
             
-            // POINT CHART
-            Text("Point Chart examples")
-                .fontWeight(.heavy)
-            Chart {
-                ForEach(appliances) {
-                    PointMark(x: .value("Appliance Type", $0.type),
-                              y: .value("count", $0.count))
-                    .foregroundStyle(by: .value("Storage Unit", $0.storageUnit))
+            GroupBox {
+                // POINT CHART
+                Text("Point Chart examples")
+                    .fontWeight(.heavy)
+                Chart {
+                    ForEach(appliances) {
+                        PointMark(x: .value("Appliance Type", $0.type),
+                                  y: .value("count", $0.count))
+                        .foregroundStyle(by: .value("Storage Unit", $0.storageUnit))
+                    }
                 }
-            }
-            .padding()
-            Chart {
-                ForEach(appliances) {
-                    PointMark(x: .value("Appliance Type", $0.type),
-                              y: .value("count", $0.count))
-                    .symbol(by: .value("Storage Unit", $0.storageUnit))
+                .padding()
+                Chart {
+                    ForEach(appliances) {
+                        PointMark(x: .value("Appliance Type", $0.type),
+                                  y: .value("count", $0.count))
+                        .symbol(by: .value("Storage Unit", $0.storageUnit))
+                    }
                 }
+                .padding()
             }
-            .padding()
-            
-            // LINE CHART
-            Text("Line Chart example")
-                .fontWeight(.heavy)
-            Chart {
-                ForEach(rates) {
-                    LineMark(
-                        x: .value("Hour", $0.hour),
-                        y: .value("Value", $0.heartRate)
-                    )
-                    .foregroundStyle(by: .value("Name", $0.personName))
+            .modifier(Divided())
+            GroupBox {
+                // LINE CHART
+                Text("Line Chart example")
+                    .fontWeight(.heavy)
+                Chart {
+                    ForEach(rates) {
+                        LineMark(
+                            x: .value("Hour", $0.hour),
+                            y: .value("Value", $0.heartRate)
+                        )
+                        .foregroundStyle(by: .value("Name", $0.personName))
+                    }
                 }
+                // This is one way to define a custom range for an axis
+                .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 9, upper: 14)))
+                // and this is how to set the labels for the custom defined axis
+                .chartXAxis {
+                    AxisMarks(values: xValuesHours)
+                }
+                .padding()
             }
-            // This is one way to define a custom range for an axis
-            .chartXScale(domain: ClosedRange(uncheckedBounds: (lower: 9, upper: 14)))
-            // and this is how to set the labels for the custom defined axis
-            .chartXAxis {
-                AxisMarks(values: xValuesHours)
-            }
-            .padding()
-            
-            
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
