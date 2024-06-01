@@ -85,29 +85,33 @@ struct ShapesView: View, Comparable {
     }
     
     private var standardExamples: some View {
-        Group {
-            // MARK: - rectangle
-            Rectangle()
-                .fill(Color("YellowMedium"))
-                .frame(width: 100, height: 100)
-            // MARK: - Circle
-            Circle()
-                .fill(Color("YellowMedium"))
-                .frame(width: 100, height: 100)
-            // MARK: - Ellipse
-            Ellipse()
-                .fill(Color("YellowMedium"))
-                .frame(width: 100, height: 200)
-            // MARK: - capsule
-            Capsule()
-                .fill(Color("YellowMedium"))
-                .frame(width: 100, height: 150)
-            
-            // MARK: - rounded rectangle
-            RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                .fill(Color("YellowMedium"))
-                .frame(width: 100, height: 100)
-            
+        VStack {
+            VStack(alignment: .leading) {
+                HStack {
+                    // MARK: - rectangle
+                    Rectangle()
+                        .fill(Color("YellowMedium"))
+                        .frame(width: 50, height: 50)
+                    // MARK: - Circle
+                    Circle()
+                        .fill(Color("YellowMedium"))
+                        .frame(width: 50, height: 50)
+                    // MARK: - Ellipse
+                    Ellipse()
+                        .fill(Color("YellowMedium"))
+                        .frame(width: 50, height: 100)
+                    // MARK: - capsule
+                    Capsule()
+                        .fill(Color("YellowMedium"))
+                        .frame(width: 50, height: 120)
+                    
+                    // MARK: - rounded rectangle
+                    RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
+                        .fill(Color("YellowMedium"))
+                        .frame(width: 50, height: 50)
+                }
+                
+            }
         }
         
     }
@@ -119,26 +123,51 @@ struct ShapesView: View, Comparable {
                 .fontWeight(.heavy)
             CustomShape()
                 .fill(Color("YellowMedium"))
-                .frame(width: 100, height: 100)
+                .frame(width: 50, height: 50)
         }
     }
     
     private var shapeExample: some View {
         Group {
-            Text("Insettable shape")
+            Text("Shapes can also be decorated with stroke borders")
                 .fontWeight(.heavy)
-            Rectangle()
-                .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                 lineCap: CGLineCap.round,
-                                                 lineJoin: CGLineJoin.miter,
-                                                 miterLimit: 2,
-                                                 dash: [1, 2],
-                                                 dashPhase: 4))
-                .frame(width: 100, height: 100)
+            HStack {
+                Rectangle()
+                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                     lineCap: CGLineCap.butt,
+                                                     lineJoin: CGLineJoin.miter,
+                                                     miterLimit: 2,
+                                                     dash: [1, 2],
+                                                     dashPhase: 1))
+                    .frame(width: 50, height: 50)
+                Rectangle()
+                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                     lineCap: CGLineCap.round,
+                                                     lineJoin: CGLineJoin.miter,
+                                                     miterLimit: 2,
+                                                     dash: [1, 2],
+                                                     dashPhase: 1))
+                    .frame(width: 50, height: 50)
+                Rectangle()
+                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                     lineCap: CGLineCap.square,
+                                                     lineJoin: CGLineJoin.round,
+                                                     miterLimit: 2,
+                                                     dash: [1, 7],
+                                                     dashPhase: 10))
+                    .frame(width: 50, height: 50)
+                Rectangle()
+                    .strokeBorder(style: StrokeStyle(lineWidth: 10,
+                                                     lineCap: CGLineCap.round,
+                                                     lineJoin: CGLineJoin.round,
+                                                     miterLimit: 4,
+                                                     dash: [1, 3],
+                                                     dashPhase: 2))
+                    .frame(width: 50, height: 50)
+            }
         }
     }
-    
-    
+       
 }
 
 struct ShapesView_Previews: PreviewProvider {
