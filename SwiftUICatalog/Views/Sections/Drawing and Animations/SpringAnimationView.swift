@@ -37,7 +37,7 @@ struct SpringAnimationView: View {
     private var example1: some View {
         GroupBox {
             Button(action: {
-                withAnimation(.spring(.bouncy(extraBounce: 0.45),
+                withAnimation(.spring(.bouncy(extraBounce: 0.08),
                                       blendDuration: 10)) {
                     isActive1.toggle()
                 }
