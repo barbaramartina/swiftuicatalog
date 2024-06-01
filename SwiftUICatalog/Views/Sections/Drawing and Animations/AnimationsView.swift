@@ -63,10 +63,13 @@ struct AnimationsView: View, Comparable {
                      label: "Pulse animation",
                      textColor: .black)
                 Link(destination:                         MyCustomAnimationView(),
-                     label: "Custom animation",
+                     label: "Custom animations",
                      textColor: .black)
                 Link(destination:                         SpringAnimationView(),
-                     label: "Springs animation",
+                     label: "Springs animations",
+                     textColor: .black)
+                Link(destination:                         IconsAnimationsView(),
+                     label: "Icons animations",
                      textColor: .black)
                 Link(destination:                         TimingCurvesView(),
                      label: "Timing curves in animations",
