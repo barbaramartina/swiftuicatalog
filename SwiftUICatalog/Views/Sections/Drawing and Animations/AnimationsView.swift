@@ -62,24 +62,31 @@ struct AnimationsView: View, Comparable {
                 Link(destination:                         RobbieWithPulseView(),
                      label: "Pulse animation",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination:                         MyCustomAnimationView(),
                      label: "Custom animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination:                         SpringAnimationView(),
                      label: "Springs animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination:                         IconsAnimationsView(),
                      label: "Icons animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination:                         TimingCurvesView(),
                      label: "Timing curves in animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination: PropertiesAnimationsView(),
                      label: "Properties animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination: TransitionsAnimationsView(),
                      label: "Transitions animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
                 Link(destination: VStack(alignment: .leading) {
                     Group {
                         Text("Circles in motion animation")
@@ -93,6 +100,7 @@ struct AnimationsView: View, Comparable {
                 } ,
                      label: "Moving circles animations",
                      textColor: .black)
+                .listRowBackground(Color.white)
             }
             .navigationTitle("Animations")
         }
