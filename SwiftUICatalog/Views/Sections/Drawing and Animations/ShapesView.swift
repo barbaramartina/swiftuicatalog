@@ -58,8 +58,6 @@ struct ShapesView: View, Comparable {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape", name: "SHAPES")
             
-            intro
-            
             standardExamples
             customExamples
             shapeExample
@@ -73,20 +71,14 @@ struct ShapesView: View, Comparable {
         
     }
     
-    private var intro: some View {
-        Group {
-            Text("Rectangles, circles, ellipse and capsules")
-                .fontWeight(.heavy)
-            
-            Text("SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path")
-                .fontWeight(.light)
-        }
-        
-    }
-    
     private var standardExamples: some View {
-        VStack {
+        GroupBox {
             VStack(alignment: .leading) {
+                Text("Rectangles, circles, ellipse and capsules")
+                    .fontWeight(.heavy)
+                
+                Text("SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path")
+                    .fontWeight(.light)
                 HStack {
                     // MARK: - rectangle
                     Rectangle()
@@ -110,61 +102,70 @@ struct ShapesView: View, Comparable {
                         .fill(Color("YellowMedium"))
                         .frame(width: 50, height: 50)
                 }
-                
             }
+            .frame(maxWidth: .infinity)
         }
         
     }
     
     private var customExamples: some View {
-        Group {
-            
-            Text("Custom shape")
-                .fontWeight(.heavy)
-            CustomShape()
-                .fill(Color("YellowMedium"))
-                .frame(width: 50, height: 50)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Custom shape")
+                    .fontWeight(.heavy)
+                HStack {
+                    CustomShape()
+                        .fill(Color("YellowMedium"))
+                        .frame(width: 50, height: 50)
+                    Spacer()
+                }
+            }
+            .frame(maxWidth: .infinity)
         }
     }
     
     private var shapeExample: some View {
-        Group {
-            Text("Shapes can also be decorated with stroke borders")
-                .fontWeight(.heavy)
-            HStack {
-                Rectangle()
-                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                     lineCap: CGLineCap.butt,
-                                                     lineJoin: CGLineJoin.miter,
-                                                     miterLimit: 2,
-                                                     dash: [1, 2],
-                                                     dashPhase: 1))
-                    .frame(width: 50, height: 50)
-                Rectangle()
-                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                     lineCap: CGLineCap.round,
-                                                     lineJoin: CGLineJoin.miter,
-                                                     miterLimit: 2,
-                                                     dash: [1, 2],
-                                                     dashPhase: 1))
-                    .frame(width: 50, height: 50)
-                Rectangle()
-                    .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                     lineCap: CGLineCap.square,
-                                                     lineJoin: CGLineJoin.round,
-                                                     miterLimit: 2,
-                                                     dash: [1, 7],
-                                                     dashPhase: 10))
-                    .frame(width: 50, height: 50)
-                Rectangle()
-                    .strokeBorder(style: StrokeStyle(lineWidth: 10,
-                                                     lineCap: CGLineCap.round,
-                                                     lineJoin: CGLineJoin.round,
-                                                     miterLimit: 4,
-                                                     dash: [1, 3],
-                                                     dashPhase: 2))
-                    .frame(width: 50, height: 50)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Shapes can also be decorated with stroke borders")
+                    .fontWeight(.heavy)
+                HStack {
+                    Rectangle()
+                        .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                         lineCap: CGLineCap.butt,
+                                                         lineJoin: CGLineJoin.miter,
+                                                         miterLimit: 2,
+                                                         dash: [1, 2],
+                                                         dashPhase: 1))
+                        .frame(width: 50, height: 50)
+                    Rectangle()
+                        .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                         lineCap: CGLineCap.round,
+                                                         lineJoin: CGLineJoin.miter,
+                                                         miterLimit: 2,
+                                                         dash: [1, 2],
+                                                         dashPhase: 1))
+                        .frame(width: 50, height: 50)
+                    Rectangle()
+                        .strokeBorder(style: StrokeStyle(lineWidth: 5,
+                                                         lineCap: CGLineCap.square,
+                                                         lineJoin: CGLineJoin.round,
+                                                         miterLimit: 2,
+                                                         dash: [1, 7],
+                                                         dashPhase: 10))
+                        .frame(width: 50, height: 50)
+                    Rectangle()
+                        .strokeBorder(style: StrokeStyle(lineWidth: 10,
+                                                         lineCap: CGLineCap.round,
+                                                         lineJoin: CGLineJoin.round,
+                                                         miterLimit: 4,
+                                                         dash: [1, 3],
+                                                         dashPhase: 2))
+                        .frame(width: 50, height: 50)
+                    Spacer()
+                }
             }
+            .frame(maxWidth: .infinity)
         }
     }
        
