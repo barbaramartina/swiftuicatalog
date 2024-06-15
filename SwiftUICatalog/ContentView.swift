@@ -38,7 +38,7 @@ struct ContentView: View {
     
     private let sectionColor = "Dark"
     
-    private let gradient = EllipticalGradient(colors: [ .black, .white],
+    private let gradient = EllipticalGradient(colors: [ .yellowMedium, .white],
                                               center: .topLeading,
                                               startRadiusFraction: 0.3,
                                               endRadiusFraction: 3)
