@@ -122,6 +122,25 @@ struct LayoutModifiersView: View, Comparable {
                 VerticalAlignmentPicker(selection: $verticalAlignment)
                     .pickerStyle(.wheel)
             }
+            Divider()
+            VStack(alignment: .leading) {
+                Text("Views typically have a default priority of 0 which causes space to be apportioned evenly to all sibling views. Raising a view’s layout priority encourages the higher priority view to shrink later when the group is shrunk and stretch sooner when the group is stretched.")
+                    .fontWeight(.light)
+                    .padding()
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Life is too short to wait! Start now.")
+                        Text("layoutPriority(1)")
+                    }
+                    .background(Color.secondary.opacity(0.5))
+                    .layoutPriority(1)
+                    
+                    Text("Only in the darkness you can see stars.")
+                        .background(Color.secondary.opacity(0.5))
+                }
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .center)
+            }
         }
     }
 }

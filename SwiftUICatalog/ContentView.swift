@@ -136,7 +136,6 @@ struct ContentView: View {
                     Link(destination: ProgressViews(),
                          label: "Progress View")
                 }
-                
             }
             .listRowBackground(Color(sectionColor))
     }
@@ -314,6 +313,3 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
-
-
-

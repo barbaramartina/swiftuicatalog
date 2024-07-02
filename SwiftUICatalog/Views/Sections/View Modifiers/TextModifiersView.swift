@@ -222,6 +222,70 @@ struct TextModifiersView: View, Comparable {
                 .modifier(Divided())
                 // end of layout direction
                 
+                // text selection
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("textSelection():")
+                            .padding(.top, 3)
+                            .textSelection(.enabled)
+                        
+                        Text("Controls whether people can select text within this view. Sometimes we need to copy useful information from Text views, we can apply this to individual or container to make each text selectable.")
+                        
+                        Text("Long press to copy")
+                        
+                        Text("iOS 15+")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .textSelection(.enabled)
+                }
+                .modifier(Divided())
+                // end of text selection
+                
+                // text rotation
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Text Rotation Effect")
+                        
+                        Text("This text is rotated")
+                            .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
+                        
+                        Text("iOS 13+")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .modifier(Divided())
+                // end of text rotation
+                
+                // text Shadow
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Text Shadow")
+                            .shadow(color: .green, radius: 2, x: 2, y: 2)
+                        
+                        Text("iOS 13+")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .modifier(Divided())
+                // end of text Shadow
+
+                // text tracking
+                GroupBox {
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text("Space between characters")
+                            .tracking(2.5)
+                        
+                        Text("iOS 13+")
+                            .fontWeight(.light)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .modifier(Divided())
+                // end of text tracking
+
                 // Keyboard types
                 GroupBox {
                     
@@ -299,5 +363,3 @@ extension TextModifiersView {
     
     
 }
-
-
