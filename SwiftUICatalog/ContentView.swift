@@ -135,8 +135,6 @@ struct ContentView: View {
                          label: "Color pickers")
                     Link(destination: ProgressViews(),
                          label: "Progress View")
-                    Link(destination: ActionSheetView(), label: "Action Sheet")
-                    Link(destination: ConfirmationDialogView(), label: "Confirmation Dialog")
                 }
             }
             .listRowBackground(Color(sectionColor))
@@ -167,10 +165,6 @@ struct ContentView: View {
                      label: "Containers")
                 Link(destination: ScrollViewsView(),
                      label: "Scrollviews")
-                Link(destination: ZIndexView(), label: "Z Index")
-                Link(destination: LayoutPriorityView(), label: "Layout Priority")
-                Link(destination: FixedSizeExampleView(), label: "Fixed Size View")
-                Link(destination: OffsetView(), label: "Offset")
             }
             .listRowBackground(Color(sectionColor))
     }
