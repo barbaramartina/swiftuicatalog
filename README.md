@@ -20,6 +20,22 @@ Easily install the catalog on your device or share it with anyone!
 
 [App Store Download](https://apps.apple.com/de/app/swiftui-catalog/id1597742701?l=en-GB)
 
+
+# How to contribute?
+- Select a VIEW you want to develop (example "toggles" or "sliders"). Focus on the minimal required to showcase a component, if you want to add examples for only a modifier, we have a section for this. There are too many component and it is important to keep it lean.
+- Only develop for the latest iOS SDK, we focus on showcasing the most up to date components.
+- If you have doubts before adding a contribution, open an issue so we can discuss it.
+- Once discussed, check if it is free to take (no other PR is made)
+- Create a branch named like the VIEW you want to contribute to (the name is the one you see when you run the demo App, example "toggles")
+- Replace this section "{ YOUR NAME HERE 🏆 }" with your name. Commit it.
+- Inmediately create a DRAFT Pull Request (So other can see it's taken)
+- Develop
+- Convert the DRAFT to an OPEN Pull Request
+- I'll review and merge your PR
+
+If you have any other suggestion or wish regarding this catalog please open an ISSUE and we can discuss it there.
+
+
 # Goal
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
 Checkout a short video about the catalog here https://youtu.be/EPaQVNjBx6I?si=EIybImB1IR_oy1hE
@@ -42,16 +58,3 @@ This catalog will allow developers who already know the theoretical aspects of [
 # Do not use this catalog for:
 - Learning SwiftUI, you need to have already an understanding of how it works, since there is no theory included in this project.
 - Seeing how data handling works, since the catalog focuses on UI, not in data states.
-
-# How to contribute?
-- Select a VIEW you want to develop (example "toggles" or "sliders")
-- Check if it is free to take (no other PR is made)
-- Create a branch named like the VIEW you want to contribute to (the name is the one you see when you run the demo App, example "toggles")
-- Replace this section "{ YOUR NAME HERE 🏆 }" with your name. Commit it.
-- Inmediately create a DRAFT Pull Request (So other can see it's taken)
-- Develop
-- Convert the DRAFT to an OPEN Pull Request
-- I'll review and merge your PR
-
-If you have any other suggestion or wish regarding this catalog please open an ISSUE and we can discuss it there.
-
