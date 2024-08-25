@@ -45,7 +45,7 @@ struct GraphicContextsView: View, Comparable {
     /// path to use for rendering different drawings
     private let path = Path(ellipseIn: CGRect(origin: .zero, size: CGSize(width: 250, height: 250)))
     /// colors for the gradients to showcase
-    private let gradientColors: [Color] = [.yellow.opacity(0.5),
+    private let gradientColors: [Color] = [Color("Medium").opacity(0.5),
                                            .blue.opacity(0.4)]
     
     var body: some View {
@@ -113,14 +113,18 @@ struct GraphicContextsView: View, Comparable {
             Text("Linear gradient")
                 .fontWeight(.heavy)
             
-            GradientContainer(height: height,
-                              width: width,
-                              gradient: .linearGradient(Gradient(colors: gradientColors),
-                                                        
-                                                        startPoint: .zero,
-                                                        
-                                                        endPoint: CGPoint(x: width, y: height)),
-                              path: path)
+            HStack {
+                Spacer()
+                GradientContainer(height: height,
+                                  width: width,
+                                  gradient: .linearGradient(Gradient(colors: gradientColors),
+                                                            
+                                                            startPoint: .zero,
+                                                            
+                                                            endPoint: CGPoint(x: width, y: height)),
+                                  path: path)
+                Spacer()
+            }
             
         }
     }
@@ -130,13 +134,17 @@ struct GraphicContextsView: View, Comparable {
             Text("Radial gradient")
                 .fontWeight(.heavy)
             
-            GradientContainer(height: height,
-                              width: width,
-                              gradient: .radialGradient(Gradient(colors: gradientColors),
-                                                        center: CGPoint(x: 60, y: 60),
-                                                        startRadius: 2,
-                                                        endRadius: 150),
-                              path: path)
+            HStack {
+                Spacer()
+                GradientContainer(height: height,
+                                  width: width,
+                                  gradient: .radialGradient(Gradient(colors: gradientColors),
+                                                            center: CGPoint(x: 60, y: 60),
+                                                            startRadius: 2,
+                                                            endRadius: 150),
+                                  path: path)
+                Spacer()
+            }
             
         }
     }
@@ -145,13 +153,17 @@ struct GraphicContextsView: View, Comparable {
         Group {
             Text("Conic gradient")
                 .fontWeight(.heavy)
-            GradientContainer(height: height,
-                              width: width,
-                              gradient: .conicGradient(Gradient(colors: gradientColors),
-                                                       center: CGPoint(x: 70, y: 70),
-                                                       angle: Angle(degrees: 45),
-                                                       options: .linearColor),
-                              path: path)
+            HStack {
+                Spacer()
+                GradientContainer(height: height,
+                                  width: width,
+                                  gradient: .conicGradient(Gradient(colors: gradientColors),
+                                                           center: CGPoint(x: 70, y: 70),
+                                                           angle: Angle(degrees: 45),
+                                                           options: .linearColor),
+                                  path: path)
+                Spacer()
+            }
             
         }
         

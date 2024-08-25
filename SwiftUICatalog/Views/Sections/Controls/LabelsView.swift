@@ -264,7 +264,7 @@ struct LabelsView: View, Comparable {
                         .foregroundColor(.primary)
                     Text("Lightning SubHeadline")
                         .font(.subheadline)
-                        .foregroundColor(Color("YellowMedium"))
+                        .foregroundColor(Color("Medium"))
                 } icon: {
                     Circle()
                         .fill(Color.accentColor)

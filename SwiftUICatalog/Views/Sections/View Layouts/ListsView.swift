@@ -28,19 +28,19 @@ struct ListsComponentView: View, Comparable {
     
     private let countries: [Country]  = [
         Country(name: "Germany",
-                dogs: [Dog(name: "Shepherd",
-                           image: "shepherd"),
-                       Dog(name: "Schnautzer",
-                           image: "schnautzer")]),
+                weatherFields: [WeatherField(name: "Sun minimum",
+                                             image: "sun.min"),
+                                WeatherField(name: "Sun maximum",
+                                             image: "sun.max")]),
         Country(name: "Spain",
-                dogs: [Dog(name: "Cocker",
-                           image: "cocker")]),
+                weatherFields: [WeatherField(name: "Sunrise",
+                                             image: "sunrise.fill")]),
         Country(name: "UK",
-                dogs: [Dog(name: "Labrador",
-                           image: "labrador")]),
+                weatherFields: [WeatherField(name: "Sun and snow",
+                                             image: "sun.snow.fill")]),
         Country(name: "Russia",
-                dogs: [Dog(name: "Husky",
-                           image: "husky")])
+                weatherFields: [WeatherField(name: "Snow",
+                                             image: "snowflake.circle.fill")])
     ]
     @State private var singleSelection : UUID?
     
@@ -79,9 +79,9 @@ struct ListsComponentView: View, Comparable {
                         .fontWeight(.thin)
                         .foregroundColor(.black)
                     ) {
-                        ForEach(c.dogs) { d in
+                        ForEach(c.weatherFields) { d in
                             HStack(alignment: .center) {
-                                Image(d.image)
+                                Image(systemName: d.image)
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 50, height: 50)
@@ -107,7 +107,7 @@ struct ListsComponentView: View, Comparable {
             }
             .frame(height: 300)
             .listStyle(PlainListStyle())
-        .toolbar { EditButton() }
+            .toolbar { EditButton() }
         }
         // end of list 1
         
@@ -125,9 +125,9 @@ struct ListsComponentView: View, Comparable {
                             .fontWeight(.thin)
                             .foregroundColor(.black)
                         ) {
-                            ForEach(c.dogs) { d in
+                            ForEach(c.weatherFields) { d in
                                 HStack(alignment: .center) {
-                                    Image(d.image)
+                                    Image(systemName: d.image)
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 50, height: 50)
@@ -171,12 +171,12 @@ struct ListsComponentView: View, Comparable {
                             .fontWeight(.thin)
                             .foregroundColor(.black)
                         ) {
-                            ForEach(c.dogs) { d in
+                            ForEach(c.weatherFields) { d in
                                 HStack(alignment: .center) {
-                                    Image(d.image)
+                                    Image(systemName: d.image)
                                         .resizable()
                                         .scaledToFill()
-                                        .frame(width: 50, height: 50)
+                                        .frame(width: 24, height: 24)
                                         .clipped()
                                         .clipShape(Circle())
                                     Text(d.name)
@@ -217,9 +217,9 @@ struct ListsComponentView: View, Comparable {
                             .fontWeight(.thin)
                             .foregroundColor(.black)
                         ) {
-                            ForEach(c.dogs) { d in
+                            ForEach(c.weatherFields) { d in
                                 HStack(alignment: .center) {
-                                    Image(d.image)
+                                    Image(systemName: d.image)
                                         .resizable()
                                         .scaledToFill()
                                         .frame(width: 50, height: 50)
@@ -263,17 +263,17 @@ struct ListsComponentView_Previews: PreviewProvider {
     }
 }
 
-struct DogQuality: Hashable, Identifiable {
+struct WeatherFieldQuality: Hashable, Identifiable {
     let name: String
     let id = UUID()
 }
 struct Country: Identifiable {
     let id = UUID()
     let name: String
-    let dogs: [Dog]
+    let weatherFields: [WeatherField]
 }
 
-struct Dog: Identifiable {
+struct WeatherField: Identifiable {
     let name: String
     let image: String
     let id = UUID()

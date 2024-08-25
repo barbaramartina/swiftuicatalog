@@ -35,16 +35,16 @@ struct PropertiesAnimationsView: View, Comparable {
                     VStack(alignment: .leading) {
                         Text( "Animating an array of images")
                             .fontWeight(.heavy)
-                        Text("Given an array of images, which together build a frame animation, they can be displayed in sequence, generating a lively effect.")
+                        Text("Given an array of images, which together build a frame animation, they can be displayed in sequence, generating a lively effect. \n Press on top of the icons to play the animations.")
                             .fontWeight(.light)
                         HStack {
                             Spacer()
                             AnimatableView(images: [
-                                UIImage(named: "corgie-love")!,
-                                UIImage(named: "husky")!,
-                                UIImage(named: "schnautzer")!,
-                                UIImage(named: "labrador")!,
-                                UIImage(named: "husky")!,
+                                UIImage(systemName: "hands.and.sparkles.fill")!,
+                                UIImage(systemName: "hands.and.sparkles")!,
+                                UIImage(systemName: "hands.clap.fill")!,
+                                UIImage(systemName: "hands.clap")!,
+                                UIImage(systemName: "hand.wave.fill")!,
                             ],
                                            duration: 5,
                                            frame: CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -69,7 +69,7 @@ struct PropertiesAnimationsView: View, Comparable {
                         }) {
                             HStack {
                                 Spacer()
-                                Image("corgie-love")
+                                Image(systemName: "hands.and.sparkles.fill")
                                     .resizable()
                                     .rotationEffect(.degrees(animate3 ? 90 : 0))
                                     .scaleEffect(animate3 ? 1.2 : 1)
@@ -99,7 +99,7 @@ struct PropertiesAnimationsView: View, Comparable {
                         }) {
                             HStack {
                                 Spacer()
-                                Image("corgie-love")
+                                Image(systemName: "hands.and.sparkles.fill")
                                     .resizable()
                                     .rotationEffect(.degrees(animate1 ? 90 : 0))
                                     .scaleEffect(animate1 ? 1.2 : 1)
@@ -129,7 +129,7 @@ struct PropertiesAnimationsView: View, Comparable {
                         }) {
                             HStack {
                                 Spacer()
-                                Image("corgie-love")
+                                Image(systemName: "hands.and.sparkles.fill")
                                     .resizable()
                                     .rotationEffect(.degrees(animate2 ? 90 : 0))
                                     .scaleEffect(animate2 ? 1.2 : 1)
@@ -158,7 +158,7 @@ struct PropertiesAnimationsView: View, Comparable {
                         }) {
                             HStack {
                                 Spacer()
-                                Image("corgie-love")
+                                Image(systemName: "hands.and.sparkles.fill")
                                     .resizable()
                                     .rotationEffect(.degrees(animate4 ? 90 : 0))
                                     .scaleEffect(animate4 ? 1.2 : 1)

@@ -82,7 +82,7 @@ struct PickersView: View, Comparable {
                     .font(.subheadline)
                     .tag(Flavor.star)
                 }
-                .background(Color("YellowMedium"))
+                .background(Color("Medium"))
             }
         }
         

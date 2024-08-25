@@ -63,14 +63,13 @@ struct HeaderImageTitleSubtitle: View, Identifiable {
 
 struct HeaderImageTitleSubtitle_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "English Cocker Spaniel"
-                                                                                       , titleFont: .largeTitle,
+        HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "Snow flakes",
+                                                                                       titleFont: .title,
                                                                                        titleWeight: .bold,
-                                                                                       subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. The English Cocker Spaniel is an active, good-natured, sporting dog[1] standing well up at the withers and compactly built"
-                                                                                       , subtitleFont: .body,
+                                                                                       subtitle: "Snow comprises individual ice crystals that grow while suspended in the atmosphere—usually within clouds—and then fall",
+                                                                                       subtitleFont: .body,
                                                                                        subtitleWeight: .regular,
-                                                                                       header: "cocker"
-                                                                                       ,
+                                                                                       header: "snowflake",
                                                                                        paddingTop: 16,
                                                                                        paddingLeading: 16,
                                                                                        paddingTrailing: 16,

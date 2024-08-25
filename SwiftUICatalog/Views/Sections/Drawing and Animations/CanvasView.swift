@@ -77,7 +77,7 @@ struct CanvasView: View, Comparable {
                 }
                 .modifier(Divided())
                 GroupBox {
-                    Text("A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random corgie images are plot on a graph")
+                    Text("A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random images are plot on a graph")
                         .fontWeight(.light)
                     canvas3
                 }
@@ -117,7 +117,7 @@ struct CanvasView: View, Comparable {
             context.clip(to: Path(CGRect(origin: .zero, size: halfSize)))
             context.fill(
                 Path(ellipseIn: CGRect(origin: .zero, size: size)),
-                with: .color(.yellow))
+                with: .color(Color("Medium")))
         }
         .frame(width: 300, height: 200)
         .border(Color.blue)
@@ -162,7 +162,7 @@ struct CanvasView: View, Comparable {
         return result
     }
     private var canvas3: some View {
-        PlotView(rects: randomRects, mark: Image("corgie-love"))
+        PlotView(rects: randomRects, mark: Image(systemName: "hands.and.sparkles.fill"))
     }
 }
 

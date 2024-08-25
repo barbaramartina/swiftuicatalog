@@ -147,7 +147,7 @@ struct TextModifiersView: View, Comparable {
                         .font(.title)
                         .background(Image(systemName: "person")
                             .resizable()
-                            .foregroundColor(.yellow)
+                            .foregroundColor(Color("Medium"))
                             .frame(width: 100,
                                    height: 100,
                                    alignment: .center))

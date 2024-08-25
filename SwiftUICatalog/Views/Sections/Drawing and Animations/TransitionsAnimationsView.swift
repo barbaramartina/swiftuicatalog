@@ -53,72 +53,75 @@ struct TransitionsAnimationsView: View, Comparable {
                     button9
                 }
                 
-                if animate1 {
-                    Image(systemName: "cloud.circle.fill")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.slide)
-                        .padding(100)
+                VStack(spacing: 0) {
+                    if animate1 {
+                        Image(systemName: "cloud.circle.fill")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.slide)
+                            .padding(100)
+                    }
+                    
+                    if animate2 {
+                        Image(systemName: "cloud.circle")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.opacity)
+                            .padding(100)
+                    }
+                    
+                    if animate3 {
+                        Image(systemName: "moon.stars.circle")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.moveAndFade)
+                            .padding(100)
+                    }
+                    
+                    if animate4 {
+                        Image(systemName: "moon.stars.circle.fill")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.scale)
+                            .padding(100)
+                    }
+                    if animate5 {
+                        Image(systemName: "moon.haze.circle.fill")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.move(edge: .bottom))
+                            .padding(.vertical, 100)
+                    }
+                    if animate6 {
+                        Image(systemName: "sparkles")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.leadingBottom)
+                            .padding(100)
+                    }
+                    if animate7 {
+                        Image(systemName: "moon.stars")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.trailingBottom)
+                            .padding(100)
+                    }
+                    if animate8 {
+                        Image(systemName: "moon.stars.fill")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.push(from: .bottom))
+                            .padding(100)
+                    }
+                    if animate9 {
+                        Image(systemName: "moon.stars.circle")
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .transition(.blurReplace)
+                            .padding(100)
+                    }
                 }
-                
-                if animate2 {
-                    Image(systemName: "cloud.circle")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.opacity)
-                        .padding(100)
-                }
-                
-                if animate3 {
-                    Image(systemName: "moon.stars.circle")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.moveAndFade)
-                        .padding(100)
-                }
-                
-                if animate4 {
-                    Image(systemName: "moon.stars.circle.fill")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.scale)
-                        .padding(100)
-                }
-                if animate5 {
-                    Image(systemName: "moon.haze.circle.fill")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.move(edge: .bottom))
-                        .padding(.vertical, 100)
-                }
-                if animate6 {
-                    Image(systemName: "sparkles")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.leadingBottom)
-                        .padding(100)
-                }
-                if animate7 {
-                    Image(systemName: "moon.stars")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.trailingBottom)
-                        .padding(100)
-                }
-                if animate8 {
-                    Image(systemName: "moon.stars.fill")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.push(from: .bottom))
-                        .padding(100)
-                }
-                if animate9 {
-                    Image(systemName: "moon.stars.circle")
-                        .resizable()
-                        .frame(width: 100, height: 100)
-                        .transition(.blurReplace)
-                        .padding(100)
-                }
+                .frame(maxWidth: .infinity, idealHeight: 250)
             }
         })
         

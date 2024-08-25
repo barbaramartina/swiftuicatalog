@@ -44,7 +44,7 @@ struct StacksView: View, Comparable {
     let id: String = "StacksView"
     
     let colors: [Color] =
-    [ Color("YellowMedium"), .green, .blue, .purple]
+    [ Color("Medium"), .green, .blue, .purple]
     
     var body: some View {
         PageContainer(content: ScrollView () {
@@ -127,10 +127,10 @@ struct StacksView: View, Comparable {
                 Text("some text over a picture for example (with ZStack)")
                     .fontWeight(.light)
                 ZStack() {
-                    Image("labrador")
+                    Image(systemName: "captions.bubble")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                    Text("labrador")
+                    Text("Bubble with caption")
                         .font(.largeTitle)
                         .background(Color.black)
                         .foregroundColor(.white)

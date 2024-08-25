@@ -46,9 +46,10 @@ struct TitleSubtitleIconView: View, Identifiable {
             HStack(alignment: configuration.iconVerticalAlignment) {
                 
                 if configuration.iconHorizontalAlignment == .leading {
-                    Image(configuration.icon)
+                    Image(systemName: configuration.icon)
                         .resizable()
                         .scaledToFit()
+                        .padding(.top)
                         .frame(width: configuration.iconSize.width, height: configuration.iconSize.height)
                     
                 }
@@ -56,7 +57,7 @@ struct TitleSubtitleIconView: View, Identifiable {
                 VStack(alignment: configuration.iconHorizontalAlignment == .center ? .center : .leading) {
                     
                     if configuration.iconHorizontalAlignment == .center {
-                        Image(configuration.icon)
+                        Image(systemName: configuration.icon)
                             .resizable()
                             .scaledToFit()
                             .frame(width: configuration.iconSize.width, height: configuration.iconSize.height,
@@ -76,7 +77,7 @@ struct TitleSubtitleIconView: View, Identifiable {
                 }
                 
                 if configuration.iconHorizontalAlignment == .trailing {
-                    Image(configuration.icon)
+                    Image(systemName: configuration.icon)
                         .resizable()
                         .scaledToFit()
                         .frame(width: configuration.iconSize.width, height: configuration.iconSize.height)
@@ -105,18 +106,19 @@ struct TitleSubtitleIconView: View, Identifiable {
 struct TitleSubtitleIconView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TitleSubtitleIconView(configuration: TitleSubtitleIconView.Configuration(backgroundColor: Color.yellow, title: "English Cocker Spaniel"
-                                                                                 , titleFont: .title,
-                                                                                 titleWeight: .bold,
-                                                                                 subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. The English Cocker Spaniel is an active, good-natured, sporting dog[1] standing well up at the withers and compactly built"
-                                                                                 , subtitleFont: .body,
-                                                                                 subtitleWeight: .regular,
-                                                                                 icon: "cocker", iconSize: CGSize(width: 60, height: 60),
-                                                                                 iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
-                                                                                 ,
-                                                                                 paddingTop: 16,
-                                                                                 paddingLeading: 16,
-                                                                                 paddingTrailing: 16,
-                                                                                 paddingBottom: 16))
+        TitleSubtitleIconView(configuration:  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "Sun"
+                                                                                  , titleFont: .title,
+                                                                                  titleWeight: .bold,
+                                                                                  subtitle: "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything – from the biggest planets to the smallest"
+                                                                                  , subtitleFont: .body,
+                                                                                  subtitleWeight: .regular,
+                                                                                  icon: "sun.max", iconSize: CGSize(width: 60, height: 60),
+                                                                                  iconVerticalAlignment: .center, iconHorizontalAlignment: .leading
+                                                                                  ,
+                                                                                  paddingTop: 16,
+                                                                                  paddingLeading: 16,
+                                                                                  paddingTrailing: 16,
+                                                                                  paddingBottom: 16)
+        )
     }
 }

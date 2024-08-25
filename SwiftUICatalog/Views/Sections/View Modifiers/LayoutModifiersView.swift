@@ -118,7 +118,7 @@ struct LayoutModifiersView: View, Comparable {
                         .font(.title)
                 }
                 .padding()
-                .border(Color("YellowMedium"), width: 1)
+                .border(Color("Medium"), width: 1)
                 VerticalAlignmentPicker(selection: $verticalAlignment)
                     .pickerStyle(.wheel)
             }

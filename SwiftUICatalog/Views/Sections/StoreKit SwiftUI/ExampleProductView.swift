@@ -49,7 +49,7 @@ struct ExampleProductView: View {
     // MARK: - OTHER VIEWS
     
     private var productImage: some View {
-        Image(productImageName)
+        Image(systemName: productImageName)
             .resizable()
             .scaledToFit()
             .overlay(
@@ -180,7 +180,7 @@ struct ExampleProductView: View {
 }
 
 #Preview {
-    ExampleProductView(productId: "product.consumable.example.1", productImageName: "corgie-love")
+    ExampleProductView(productId: "product.consumable.example.1", productImageName: "hands.and.sparkles.fill")
 }
 
 // MARK: - SpinnerWhenLoadingStyle

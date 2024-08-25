@@ -37,14 +37,13 @@ struct CommonlyUsedViews: View, Comparable {
             Text("You can combine a set of those in an array and iterate to create a collection layout. Padding, fonts and content are configurable.")
                 .fontWeight(.light)
             
-            
-            HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "English Cocker Spaniel",
+           HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "Snow flakes",
                                                                                            titleFont: .title,
                                                                                            titleWeight: .bold,
-                                                                                           subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds.",
+                                                                                           subtitle: "Snow comprises individual ice crystals that grow while suspended in the atmosphere—usually within clouds—and then fall",
                                                                                            subtitleFont: .body,
                                                                                            subtitleWeight: .regular,
-                                                                                           header: "cocker",
+                                                                                           header: "snowflake",
                                                                                            paddingTop: 16,
                                                                                            paddingLeading: 16,
                                                                                            paddingTrailing: 16,
@@ -65,23 +64,23 @@ struct CommonlyUsedViews: View, Comparable {
                 .fontWeight(.light)
             
             let configurationIcon1 = iconConfiguration(with: Color.pink,
-                                                       title: cockerTitle,
-                                                       subtitle: cockerDescription,
-                                                       iconName: cockerIcon)
+                                                       title: snowTitle,
+                                                       subtitle: snowDescription,
+                                                       iconName: snowIcon)
             
             TitleSubtitleIconView(configuration: configurationIcon1)
             
             let configurationIcon2 = iconConfiguration(with: Color.gray,
-                                                       title: cockerTitle,
-                                                       subtitle: cockerDescription,
-                                                       iconName: cockerIcon)
+                                                       title: sunTitle,
+                                                       subtitle: sunDescription,
+                                                       iconName: sunIcon)
             
             TitleSubtitleIconView(configuration: configurationIcon2)
             
             let configurationIcon3 = iconConfiguration(with: Color.green,
-                                                       title: cockerTitle,
-                                                       subtitle: cockerDescription,
-                                                       iconName: cockerIcon)
+                                                       title: rainTitle,
+                                                       subtitle: rainDescription,
+                                                       iconName: rainIcon)
             
             TitleSubtitleIconView(configuration: configurationIcon3)
             
@@ -112,14 +111,14 @@ struct CommonlyUsedViews: View, Comparable {
         GroupBox {
             
             let configurationIcon1 = iconConfiguration(with: Color.pink,
-                                                       title: huskyTitle,
-                                                       subtitle: huskyDescription,
-                                                       iconName: huskyIcon)
+                                                       title: snowTitle,
+                                                       subtitle: snowDescription,
+                                                       iconName: snowIcon)
             
             let configurationIcon2 = iconConfiguration(with: Color.blue,
-                                                       title: cockerTitle,
-                                                       subtitle: cockerDescription,
-                                                       iconName: cockerIcon)
+                                                       title: sunTitle,
+                                                       subtitle: sunDescription,
+                                                       iconName: sunIcon)
             
             
             SwipableViewContainer(subviews: [TitleSubtitleIconView(configuration: configurationIcon2),
@@ -131,30 +130,42 @@ struct CommonlyUsedViews: View, Comparable {
     // In a real production application these vars will fit better in a view model
     // but this catalog is only focused on showing UI in SwiftUI, not in architecture or data organization
     
-    private var huskyIcon: String {
-        "husky"
+    private var snowIcon: String {
+        "snowflake"
     }
     
-    private var huskyTitle: String {
-        "Husky"
+    private var snowTitle: String {
+        "snowflake.circle.fill"
     }
     
-    private var huskyDescription: String {
-        "The Siberian Husky is a medium-sized working sled dog breed. The breed belongs to the Spitz genetic family. It is recognizable by its thickly furred double coat, erect triangular ears, and distinctive markings, and is smaller than the similar-looking Alaskan "
+    private var snowDescription: String {
+        "Snow comprises individual ice crystals that grow while suspended in the atmosphere—usually within clouds"
     }
     
-    private var cockerIcon: String {
-        "cocker"
+    private var sunIcon: String {
+        "sun.max"
     }
     
-    private var cockerTitle: String {
-        "English Cocker Spaniel"
+    private var sunTitle: String {
+        "Sun"
     }
     
-    private var cockerDescription: String {
-        "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+    private var sunDescription: String {
+        "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything – from the biggest planets to the smallest"
+    }
+
+    private var rainIcon: String {
+        "cloud.bolt.rain"
     }
     
+    private var rainTitle: String {
+        "Rain"
+    }
+    
+    private var rainDescription: String {
+        "Rain is water droplets that have condensed from atmospheric water vapor and then fall under gravity. "
+    }
+
 }
 
 struct CommonlyUsedViews_Previews: PreviewProvider {

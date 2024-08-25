@@ -58,7 +58,7 @@ struct EffectsModifiersView: View, Comparable {
                     
                     Text("Border & blur effect")
                         .fontWeight(.heavy)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
                     // border effect
@@ -75,7 +75,7 @@ struct EffectsModifiersView: View, Comparable {
                     
                     Text("Clip Shape & color inverted effect")
                         .fontWeight(.heavy)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 300, height: 300)
@@ -91,7 +91,7 @@ struct EffectsModifiersView: View, Comparable {
                 VStack(alignment: .leading) {
                     Text("Brigthness effect")
                         .fontWeight(.heavy)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
                         .brightness(0.3)
@@ -103,7 +103,7 @@ struct EffectsModifiersView: View, Comparable {
                 VStack(alignment: .leading) {
                     Text("Color multiply & Contrast effect")
                         .fontWeight(.heavy)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
                     
@@ -117,9 +117,9 @@ struct EffectsModifiersView: View, Comparable {
                 
                 // MARK: - Blend mode effect
                 
-                Group {
-                    
+                VStack(alignment: .leading) {
                     Text("Blend mode effect")
+                        .fontWeight(.heavy)
                     HStack {
                         BlendExamplesView()
                     }
@@ -137,12 +137,11 @@ struct EffectsModifiersView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Gray scale")
                 .fontWeight(.heavy)
-            Image("corgie-love")
+            Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
                 .grayscale(0.30)
                 .hoverEffect(.highlight)
-                .luminanceToAlpha()
         }
         
     }
@@ -152,7 +151,7 @@ struct EffectsModifiersView: View, Comparable {
             Text("Rotation with shadow")
                 .fontWeight(.heavy)
                 .padding(.bottom, 60)
-            Image("corgie-love")
+            Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
                 .clipped()
@@ -167,10 +166,10 @@ struct EffectsModifiersView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Masking")
                 .fontWeight(.heavy)
-            Image("corgie-love")
+            Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
-                .mask(Text("Awesome Robbie. Corgie is a very special breed is not so easy to find around the world")
+                .mask(Text("An example to show how to mask an image with a text on top")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .multilineTextAlignment(.center)
@@ -190,7 +189,7 @@ struct EffectsModifiersView_Previews: PreviewProvider {
 struct BlendExamplesView: View {
     var body: some View {
         VStack {
-            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
+            Color("Medium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
@@ -199,7 +198,7 @@ struct BlendExamplesView: View {
         }
         .padding(20)
         VStack {
-            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
+            Color("Medium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
@@ -208,7 +207,7 @@ struct BlendExamplesView: View {
         }
         .padding(20)
         VStack {
-            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
+            Color("Medium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
@@ -218,7 +217,7 @@ struct BlendExamplesView: View {
         .padding(20)
         
         VStack {
-            Color("YellowMedium").frame(width: 50, height: 50, alignment: .center)
+            Color("Medium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)

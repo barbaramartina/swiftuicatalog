@@ -48,7 +48,7 @@ struct ImagesComponentView: View, Comparable {
             
             sfSymbols
                 .modifier(Divided())
-            imsgesFromBundle
+            imagesFromBundle
                 .modifier(Divided())
             fixedFrameImages
                 .modifier(Divided())
@@ -97,7 +97,7 @@ struct ImagesComponentView: View, Comparable {
         }
     }
     
-    private var imsgesFromBundle: some View {
+    private var imagesFromBundle: some View {
         GroupBox {
             VStack(alignment: .leading) {
                     Text("Images from Bundle")
@@ -105,31 +105,31 @@ struct ImagesComponentView: View, Comparable {
                     Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
                         .fontWeight(.light)
                     // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
-                    Text("Corgie scaled to fit")
+                    Text("Image scaled to fit")
                         .fontWeight(.semibold)
                         .padding(.top)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 200, height: 200)
                         .modifier(Divided())
-                    Text("Corgie scaled to fill")
+                    Text("Image scaled to fill")
                         .fontWeight(.semibold)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
                         .frame(width: 200, height: 200)
                         .modifier(Divided())
-                    Text("Corgie aspect ratio")
+                    Text("Aspect ratio")
                         .fontWeight(.semibold)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 200, height: 200)
                         .modifier(Divided())
-                    Text("Corgie and circled overlay")
+                    Text("Circled overlay")
                         .fontWeight(.semibold)
-                    Image("corgie-love")
+                    Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFit()
                         .overlay(
@@ -144,22 +144,24 @@ struct ImagesComponentView: View, Comparable {
     }
     
     private var fixedFrameImages: some View {
-        VStack(alignment: .leading) {
-            Text("Corgie fitting in a fixed frame")
-                .fontWeight(.semibold)
-            Image("corgie-love")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 300, height: 400, alignment: .topLeading)
-                .border(Color.blue)
-                .clipped()
-            
-            Text("Tiled corgie")
-                .fontWeight(.semibold)
-            Image("corgie-love")
-                .resizable(resizingMode: .tile)
-                .frame(width: 370, height: 900, alignment: .topLeading)
-                .border(Color.blue)
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Image fitting in a fixed frame")
+                    .fontWeight(.semibold)
+                Image(systemName: "hands.and.sparkles.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 250, height: 250, alignment: .topLeading)
+                    .border(Color.blue)
+                    .clipped()
+                
+                Text("Tiled Image: A mode to repeat the image at its original size, as many times as necessary to fill the available space.")
+                    .fontWeight(.semibold)
+                Image("github")
+                    .resizable(resizingMode: .tile)
+                    .frame(width: 300, height: 900, alignment: .topLeading)
+                    .border(Color.blue)
+            }
         }
     }
     

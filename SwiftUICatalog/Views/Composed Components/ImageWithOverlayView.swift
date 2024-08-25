@@ -42,8 +42,8 @@ struct ImageWithOverlayView<Overlay: View>: View, Identifiable {
 
 struct ImageWithOverlayView_Previews: PreviewProvider {
     static var previews: some View {
-        ImageWithOverlayView(image: "cocker",
-                             overlay: Text("Nice puppy :)"),
+        ImageWithOverlayView(image: "snowflake",
+                             overlay: Text("A cold snowflake"),
                              alignment: Alignment(horizontal: .leading,
                                                   vertical: .top))
     }

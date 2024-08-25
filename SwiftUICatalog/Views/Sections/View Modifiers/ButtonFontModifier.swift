@@ -14,7 +14,7 @@ struct ButtonFontModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(font)
-            .foregroundColor(Color("YellowMedium"))
+            .foregroundColor(Color("MainFont"))
             .padding()
         
     }

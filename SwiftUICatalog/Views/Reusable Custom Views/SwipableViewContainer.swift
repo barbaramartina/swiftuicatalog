@@ -119,13 +119,13 @@ struct SwipableViewContainer: View {
 struct SwipableView_Previews: PreviewProvider {
     static var previews: some View {
         
-        let configurationIcon =  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "English Cocker Spaniel"
+        let configurationIcon =  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "Sun"
                                                                      , titleFont: .title,
                                                                      titleWeight: .bold,
-                                                                     subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                     subtitle: "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything – from the biggest planets to the smallest"
                                                                      , subtitleFont: .body,
                                                                      subtitleWeight: .regular,
-                                                                     icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                     icon: "sun.max", iconSize: CGSize(width: 60, height: 60),
                                                                      iconVerticalAlignment: .top, iconHorizontalAlignment: .leading
                                                                      ,
                                                                      paddingTop: 16,
@@ -137,13 +137,13 @@ struct SwipableView_Previews: PreviewProvider {
         
         
         
-        let configurationIcon2 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.cyan, title: "English Cocker Spaniel"
+        let configurationIcon2 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.cyan, title: "snowflake"
                                                                       , titleFont: .title,
                                                                       titleWeight: .bold,
-                                                                      subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                      subtitle: "Snow comprises individual ice crystals that grow while suspended in the atmosphere—usually within clouds—and then fall"
                                                                       , subtitleFont: .body,
                                                                       subtitleWeight: .regular,
-                                                                      icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                      icon: "snowflake", iconSize: CGSize(width: 60, height: 60),
                                                                       iconVerticalAlignment: .top, iconHorizontalAlignment: .trailing
                                                                       ,
                                                                       paddingTop: 16,
@@ -155,13 +155,13 @@ struct SwipableView_Previews: PreviewProvider {
         subview2.background(Color.pink)
         
         
-        let configurationIcon3 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.accentColor, title: "English Cocker Spaniel"
+        let configurationIcon3 =  TitleSubtitleIconView.Configuration(backgroundColor: Color.accentColor, title: "Rain"
                                                                       , titleFont: .title,
                                                                       titleWeight: .bold,
-                                                                      subtitle: "The English Cocker Spaniel is a breed of gun dog. It is noteworthy for producing one of the most varied numbers of pups in a litter among all dog breeds. "
+                                                                      subtitle: "Rain is water droplets that have condensed from atmospheric water vapor and then fall under gravity."
                                                                       , subtitleFont: .body,
                                                                       subtitleWeight: .regular,
-                                                                      icon: "cocker", iconSize: CGSize(width: 60, height: 60),
+                                                                      icon: "cloud.rain.circle", iconSize: CGSize(width: 60, height: 60),
                                                                       iconVerticalAlignment: .top, iconHorizontalAlignment: .center
                                                                       ,
                                                                       paddingTop: 16,

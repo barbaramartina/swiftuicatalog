@@ -82,24 +82,24 @@ struct ShapesView: View, Comparable {
                 HStack {
                     // MARK: - rectangle
                     Rectangle()
-                        .fill(Color("YellowMedium"))
+                        .fill(Color("Medium"))
                         .frame(width: 50, height: 50)
                     // MARK: - Circle
                     Circle()
-                        .fill(Color("YellowMedium"))
+                        .fill(Color("Medium"))
                         .frame(width: 50, height: 50)
                     // MARK: - Ellipse
                     Ellipse()
-                        .fill(Color("YellowMedium"))
+                        .fill(Color("Medium"))
                         .frame(width: 50, height: 100)
                     // MARK: - capsule
                     Capsule()
-                        .fill(Color("YellowMedium"))
+                        .fill(Color("Medium"))
                         .frame(width: 50, height: 120)
                     
                     // MARK: - rounded rectangle
                     RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
-                        .fill(Color("YellowMedium"))
+                        .fill(Color("Medium"))
                         .frame(width: 50, height: 50)
                 }
             }
@@ -115,7 +115,7 @@ struct ShapesView: View, Comparable {
                     .fontWeight(.heavy)
                 HStack {
                     CustomShape()
-                        .fill(Color("YellowMedium"))
+                        .fill(Color("Medium"))
                         .frame(width: 50, height: 50)
                     Spacer()
                 }

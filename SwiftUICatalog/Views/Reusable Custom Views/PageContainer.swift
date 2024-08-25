@@ -23,7 +23,7 @@ struct PageContainer<Content>: View where Content: View {
             .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(Color.yellowMedium, for: .navigationBar)
+        .toolbarBackground(Color("Medium"), for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
     }
 }

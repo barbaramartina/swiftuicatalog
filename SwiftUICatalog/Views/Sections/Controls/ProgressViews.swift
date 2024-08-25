@@ -129,7 +129,7 @@ struct ProgressViews: View, Comparable {
                         }
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color("YellowMedium"))
+                        .background(Color("Medium"))
                         .cornerRadius(5)
                         .padding()
                     }
@@ -153,7 +153,7 @@ struct ProgressViews: View, Comparable {
                                  
                                  total: 100)
                     .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
-                    .foregroundColor(Color("YellowMedium"))
+                    .foregroundColor(Color("Medium"))
                     .padding(.vertical)
                     
                 }

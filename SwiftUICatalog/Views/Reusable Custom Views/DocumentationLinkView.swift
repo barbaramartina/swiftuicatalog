@@ -32,15 +32,18 @@ struct DocumentationLinkView: View, Identifiable {
         }, label: {
             HStack {
                 Image(systemName: "book.and.wrench")
+                    .accessibilityLabel("Documentation")
+                    .accessibilityHint("Touching this button will take you outside the application and into the browser, where you can access more information about the current example.")
             }
             .padding(12)
             .fontWeight(.bold)
-            .foregroundColor(Color("YellowMedium"))
+            .foregroundColor(Color("Medium"))
             .background(.primary)
             .modifier(RoundedBordersModifier(radius: 8, lineWidth: 1))
         })
         .padding(.bottom, 16)
         .modifier(ViewAlignmentModifier(alignment: .trailing))
+        .accessibilityAddTraits(.isButton)
     }
 }
 

@@ -38,10 +38,10 @@ struct ContentView: View {
     
     private let sectionColor = "Dark"
     
-    private let gradient = EllipticalGradient(colors: [ .yellowMedium, .white],
+    private let gradient = EllipticalGradient(colors: [ Color("Medium"), .white],
                                               center: .topLeading,
                                               startRadiusFraction: 0.3,
-                                              endRadiusFraction: 3)
+                                              endRadiusFraction: 5)
     
     init(){
         // change the background of all the tables
@@ -60,8 +60,10 @@ struct ContentView: View {
                 List {
                     
                     topHeaderRow
+                        .accessibilityHeading(.h1)
                     ForEach(sectionContainer.readySections) { section in
                         section.view
+                            .accessibilityHeading(.h2)
                     }
                     
                 }
@@ -77,7 +79,6 @@ struct ContentView: View {
     
     private var topHeaderRow: some View {
         Group {
-            
             Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
                 .font(.footnote)
                 .fontWeight(.light)
@@ -107,6 +108,7 @@ struct ContentView: View {
     
     var controls: some View {
         Section(header: Text("Controls")
+            .font(.title)
             .modifier(ListSectionFontModifier())) {
                 Group {
                     Link(destination: ButtonsComponentsView(),
@@ -142,9 +144,10 @@ struct ContentView: View {
     
     var storeKit: some View {
         Section(header: Text("Store Kit Views")
+            .font(.title)
             .modifier(ListSectionFontModifier())) {
                 Group {
-                    Link(destination: ExampleProductView(productId: "product.consumable.example.1", productImageName: "corgie-love"),
+                    Link(destination: ExampleProductView(productId: "product.consumable.example.1", productImageName: "giftcard.fill"),
                          label: "Consumable Product View")
                 }
             }
@@ -154,6 +157,7 @@ struct ContentView: View {
     
     var layouts: some View {
         Section(header: Text("Layouts")
+            .font(.title)
             .modifier(ListSectionFontModifier())) {
                 Link(destination: ListsComponentView(),
                      label: "Lists")
@@ -170,7 +174,8 @@ struct ContentView: View {
     }
     
     var hierachicalViews: some View {
-        Section(header: Text("Hierachical Views")   .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Hierachical Views")               .font(.title)
+            .modifier(ListSectionFontModifier())) {
             Link(destination: NavigationBarsComponentView(),
                  label: "Navigation")
             Link(destination: OutlinesGroupsView(),
@@ -185,7 +190,9 @@ struct ContentView: View {
     }
     
     var drawings: some View {
-        Section(header: Text("Drawing and animations")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Drawing and animations")          
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             Link(destination: CanvasView(),
                  label: "Canvas")
             Link(destination: GraphicContextsView(),
@@ -203,6 +210,7 @@ struct ContentView: View {
     
     var charts: some View {
         Section(header: Text("Charts")
+            .font(.title)
             .modifier(ListSectionFontModifier())) {
                 Link(destination: ChartsViews(),
                      label: "Swift Charts")
@@ -212,7 +220,9 @@ struct ContentView: View {
     }
     
     var gestures: some View {
-        Section(header: Text("Gestures")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Gestures")                        
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             Link(destination: GesturesView(),
                  label: "Gestures")
             Link(destination: ComposingGesturesView(),
@@ -225,7 +235,9 @@ struct ContentView: View {
     }
     
     var viewModifiers: some View {
-        Section(header: Text("View modifiers")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("View modifiers")                  
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             Link(destination: TextModifiersView(),
                  label: "Text modifiers")
             Link(destination: EffectsModifiersView(),
@@ -239,7 +251,9 @@ struct ContentView: View {
     }
     
     var accessibility: some View {
-        Section(header: Text("Accesibility")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Accesibility")                    
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             
             Link(destination: AccesibilityView(),
                  label: "Accesibility")
@@ -249,7 +263,9 @@ struct ContentView: View {
     }
     
     var statusBars: some View {
-        Section(header: Text("Status and tool bars")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Status and tool bars")            
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             Link(destination: ToolbarsComponentView(),
                  label: "Tool Bars")
         }
@@ -259,6 +275,7 @@ struct ContentView: View {
     
     var stylingSection: some View {
         Section(header: Text("Styling")
+            .font(.title)
             .modifier(ListSectionFontModifier())) {
                 
                 Link(destination: StylesView(),
@@ -269,7 +286,9 @@ struct ContentView: View {
     }
     
     var popovers: some View {
-        Section(header: Text("Popovers, alerts and sheets")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Popovers, alerts and sheets")     
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             
             Link(destination: PopoversComponentView(),
                  label: "Popovers")
@@ -287,7 +306,9 @@ struct ContentView: View {
     }
     
     var composedComponents: some View {
-        Section(header: Text("Composed components to help speed up development")                                .modifier(ListSectionFontModifier())) {
+        Section(header: Text("Composed components to help speed up development")                                
+            .font(.title)
+            .modifier(ListSectionFontModifier())) {
             
             Link(destination: CommonlyUsedViews(),
                  label: "Commonly used views")

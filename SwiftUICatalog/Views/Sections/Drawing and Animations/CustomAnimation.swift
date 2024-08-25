@@ -26,7 +26,7 @@ struct MyOwnAnimation: CustomAnimation {
         // this creates a psychodelics crazy animation that makes the view grow randomly at the start and beggining
         // of the animation
         if time < duration / 4 {
-            return value.scaled(by: Double.random(in: 0...2))
+            return value.scaled(by: Double.random(in: 0...0.5))
         } else if time > (duration / 4) * 3 {
             return value.scaled(by: Double.random(in: 0...1))
         } else {

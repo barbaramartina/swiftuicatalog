@@ -7,13 +7,13 @@
       "internalID" : "4A2577D8",
       "localizations" : [
         {
-          "description" : "To make that guy spend energy",
+          "description" : "To play vollebay on the beach",
           "displayName" : "Colored balls",
           "locale" : "en_US"
         }
       ],
       "productID" : "product.nonrenewable.subscription.example.1",
-      "referenceName" : "Toys for Labradors",
+      "referenceName" : "Toys for the beach",
       "type" : "NonRenewingSubscription"
     }
   ],
@@ -24,18 +24,13 @@
       "internalID" : "616FEA8B",
       "localizations" : [
         {
-          "description" : "Get some tasty bites for your corgie",
-          "displayName" : "Corgie Food",
+          "description" : "Get protection all day long. Waterproof.",
+          "displayName" : "Sun Protection",
           "locale" : "en_US"
-        },
-        {
-          "description" : "الكلمات الأكثر بحثاً في معجم عربي عربي",
-          "displayName" : "عارف عارف عارف عارف ",
-          "locale" : "ar"
         }
       ],
       "productID" : "product.consumable.example.1",
-      "referenceName" : "Corgie Food",
+      "referenceName" : "Sun protection",
       "type" : "Consumable"
     },
     {
@@ -44,13 +39,13 @@
       "internalID" : "6D889D78",
       "localizations" : [
         {
-          "description" : "Artificial Snow 180L Keep your Husky happy",
-          "displayName" : "Husky Snow Pack",
+          "description" : "Artificial Snow 180L ",
+          "displayName" : "Snow Pack",
           "locale" : "en_US"
         }
       ],
       "productID" : "product.non.consumable.example.1",
-      "referenceName" : "Husky Snow Pack",
+      "referenceName" : "Snow Pack",
       "type" : "NonConsumable"
     }
   ],
@@ -155,16 +150,11 @@
               "description" : "Professional hair cuts for your dog",
               "displayName" : "Pet hair cuts",
               "locale" : "en_US"
-            },
-            {
-              "description" : "الكلمات الأكثر بحثاً في معجم عربي عربيالكلمات ",
-              "displayName" : "الكلمات الأكثر بحثاً في معجم عر",
-              "locale" : "ar"
             }
           ],
           "productID" : "product.renewable.subscription.1",
           "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Schnautzer hairdresser session",
+          "referenceName" : "Hairdresser session",
           "subscriptionGroupID" : "71DCD07D",
           "type" : "RecurringSubscription"
         }

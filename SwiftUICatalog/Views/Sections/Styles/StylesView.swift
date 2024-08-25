@@ -346,7 +346,7 @@ struct StylesView: View, Comparable {
                         Image(systemName: "sun.max")
                             .foregroundColor(.orange)
                     }
-                    .tint(.yellow)
+                    .tint(Color("Medium"))
                     .labelStyle(.iconOnly)
                     .gaugeStyle(.accessoryCircular)
                 }

@@ -88,17 +88,25 @@ struct SteppersView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Stepper View + custom step")
                     .fontWeight(.heavy)
+                    .accessibilityAddTraits(.isStaticText)
+                    .accessibilityHint("What you heard was the title of the view")
                 Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
                     .fontWeight(.light)
+                    .accessibilityAddTraits(.isStaticText)
+                    .accessibilityHint("What you heard was the description of the example presented")
                 Stepper(value: $SecondStepperValue,
                         in: range,
                         step: step) {
                     Text("Current: \(SecondStepperValue) in \(range.description) " +
                          "stepping by \(step)")
+                    .accessibilityAddTraits(.isSummaryElement)
                 }
-                        .padding(10)
+                .accessibilityAddTraits(.allowsDirectInteraction)
+                .padding(10)
             }
         }
+        .accessibilityIdentifier("steppers.custom.stepper")
+        .accessibilityHint("In this view you can experience how to define custom steps")
         
     }
     

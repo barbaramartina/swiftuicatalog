@@ -31,6 +31,7 @@ struct AnimatableView: UIViewRepresentable {
         animatedImageView.autoresizesSubviews = true
         animatedImageView.contentMode = UIView.ContentMode.scaleAspectFill
         animatedImageView.image = animatedImage
+        animatedImageView.animationRepeatCount = 0
         
         container.addSubview(animatedImageView)
         

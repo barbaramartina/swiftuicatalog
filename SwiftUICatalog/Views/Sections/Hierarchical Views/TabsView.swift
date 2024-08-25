@@ -90,6 +90,8 @@ struct TabsView: View, Comparable {
                 .badge("!")
         }
         .font(.headline)
+        // iOS 18
+        //.tabViewStyle(.sidebarAdaptable)
     }
 }
 

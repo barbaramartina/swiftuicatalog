@@ -17,7 +17,7 @@ struct RobbieWithPulseView: View, Comparable {
         ZStack {
             Circle()
                 .frame(width: 220, height: 220)
-                .foregroundColor(Color("YellowMedium"))
+                .foregroundColor(Color("Medium"))
                 .scaleEffect(pulsing ? 1.2 : 1.0)
                 .opacity(pulsing ? 0.1 : 1.0)
                 .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true).speed(0.5), value: pulsing)
@@ -25,7 +25,7 @@ struct RobbieWithPulseView: View, Comparable {
                     self.pulsing.toggle()
                 }
             
-            Image("corgie-love")
+            Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
                 .frame(width: 200, height: 200)

@@ -67,7 +67,7 @@ struct GeometriesView: View, Comparable {
                         Spacer()
                         Text("First item")
                             .font(.largeTitle)
-                            .foregroundColor(Color("YellowMedium"))
+                            .foregroundColor(Color("Medium"))
                             .frame(width: geometry.size.width * 0.30)
                             .background(.primary)
                             .minimumScaleFactor(0.5)
@@ -76,7 +76,7 @@ struct GeometriesView: View, Comparable {
                             .font(.largeTitle)
                             .foregroundColor(.primary)
                             .frame(width: geometry.size.width * 0.60)
-                            .background(Color("YellowMedium"))
+                            .background(Color("Medium"))
                             .minimumScaleFactor(0.5)
                         Spacer()
                     }

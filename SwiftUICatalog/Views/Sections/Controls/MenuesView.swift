@@ -167,7 +167,7 @@ struct MenusComponentView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Primary Action")
                     .fontWeight(.heavy)
-                Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a YellowMedium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
+                Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a Medium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
                 HStack {
                     Text("Menu + primary action").fontWeight(.light)
                     Spacer()

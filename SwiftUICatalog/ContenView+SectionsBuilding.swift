@@ -38,7 +38,7 @@ extension ContentView {
                                         state: .ready,
                                         view: AnyView(viewModifiers))
         let accessibility = MenuSection(name: "Accessibility",
-                                        state: .notPublishable,
+                                        state: .ready,
                                         view: AnyView(accessibility))
         let statusBars = MenuSection(name: "Status Bars",
                                      state: .notPublishable,
