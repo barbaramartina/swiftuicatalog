@@ -167,7 +167,7 @@ extension LayoutModifiersView {
     
 }
 
-extension VerticalAlignment: Hashable {
+extension VerticalAlignment: @retroactive Hashable {
     
     public func hash(into hasher: inout Hasher) {
         hasher.combine(self.description)
