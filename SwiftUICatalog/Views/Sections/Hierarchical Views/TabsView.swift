@@ -37,15 +37,21 @@ import SwiftUI
 struct TabsView: View, Comparable {
     
     let id: String = "TabsView"
-    
+    /// required to allow customization in iPads / style side bar
+    @State private var customization = TabViewCustomization()
+    /// allowed for selecting a tab
+    @State private var currentTab = 0
+
     @Environment(\.openURL) var openURL
     
     var body: some View {
         example1
+            .onAppear {
+                // this simulate a selection of a given tab
+                currentTab = 2
+            }
     }
     
-    @State private var customization = TabViewCustomization()
-    @State private var currentTab = 0
     private var example1: some View {
         // for selection to work, do not forget to add "value", this was tricky and I could not find much examples about it
         TabView(selection: $currentTab) {
@@ -66,10 +72,10 @@ struct TabsView: View, Comparable {
             .badge(10)
             // use a section to organize the content - in iOS that does not have any effect, but it does in iPad.
             TabSection("Section") {
-                Tab("Tab section 1", systemImage: "3.square.fill", value: 5) {
+                Tab("Tab section 1", systemImage: "3.square.fill", value: 3) {
                     Text("Content - tab 1")
                 }
-                Tab("Tab section 2", systemImage: "3.square.fill", value: 6) {
+                Tab("Tab section 2", systemImage: "3.square.fill", value: 4) {
                     Text("Content - tab 2")
                 }
             }
