@@ -231,17 +231,15 @@ struct StylesView: View, Comparable {
         GroupBox {
             Text("Styling Menues")
                 .fontWeight(.heavy)
-            if #available(iOS 16.0, *) {
-                HStack {
-                    Text("Button style:")
-                    Spacer()
-                    Menu("Open Menu") {
-                        Button("Menu option 1", action: {})
-                        Button("Menu option 2",
-                               action: {})
-                    }
-                    .menuStyle(ButtonMenuStyle())
+            HStack {
+                Text("Button style:")
+                Spacer()
+                Menu("Open Menu") {
+                    Button("Menu option 1", action: {})
+                    Button("Menu option 2",
+                           action: {})
                 }
+                .menuStyle(ButtonMenuStyle())
             }
             HStack {
                 Text("Automatic style:")
