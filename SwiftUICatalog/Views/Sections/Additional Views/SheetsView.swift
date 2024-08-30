@@ -35,6 +35,7 @@ struct SheetView: View, Comparable {
         }
             .font(.title)
             .padding()
+            .foregroundColor(.white)
             .background(Color.black)
             .cornerRadius(6)
                       
@@ -66,6 +67,7 @@ struct SheetsView: View {
         }
         .padding(20)
         .font(.largeTitle)
+        .presentationSizing(.form)
         
         Spacer()
         
