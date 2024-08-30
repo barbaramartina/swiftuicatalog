@@ -109,6 +109,8 @@ struct ContentView: View {
     var controls: some View {
         Section(header: Text("Controls")
             .font(.title)
+                // see more information here https://developer.apple.com/documentation/swiftui/textvariantpreference?changes=_4
+            .textVariant(.sizeDependent)
             .modifier(ListSectionFontModifier())) {
                 Group {
                     Link(destination: ButtonsComponentsView(),
