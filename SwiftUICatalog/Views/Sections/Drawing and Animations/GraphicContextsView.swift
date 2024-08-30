@@ -67,6 +67,9 @@ struct GraphicContextsView: View, Comparable {
                     .modifier(Divided())
                 // conic gradient
                 example4
+                // mesh gradient
+                example5
+                    .modifier(Divided())
             }
             
             ContributedByView(name: "Barbara Martina",
@@ -78,7 +81,8 @@ struct GraphicContextsView: View, Comparable {
     }
     
     private var example1: some View {
-        VStack {
+        HStack {
+            Spacer()
             Canvas { context, size in
                 
                 // drawing directives sorting matters. Try out changing this .fill to the end to see how it renders.
@@ -103,6 +107,7 @@ struct GraphicContextsView: View, Comparable {
                 
             }
             .frame(width: width)
+            Spacer()
         }
         .frame(height: height)
         
@@ -168,7 +173,20 @@ struct GraphicContextsView: View, Comparable {
         }
         
     }
-    
+    private var example5: some View {
+        Group {
+            Text("Mesh gradient")
+                .fontWeight(.heavy)
+            HStack {
+                Spacer()
+                MyMesh()
+                Spacer()
+            }
+            
+        }
+        
+    }
+
     
     private var intro: some View {
         Group {
@@ -229,3 +247,26 @@ extension GraphicContextsView {
 }
 
 
+struct MyMesh: View {
+    var body: some View {
+        MeshGradient(
+            width: 4,
+            height: 3,
+            points: [
+                .init(0, 2), .init(0.8, 0.2), .init(1, 4),
+                .init(Float(Int.random(in: 0...5)), 0.5), .init(0.3, 0.5), .init(1, 0.5),
+                .init(0, 1), .init(0.5, 1), .init(1, Float(Int.random(in: 0...1))),
+                .init(4, 2), .init(0.8, 0.2), .init(1, 8),
+                .init(0, 2), .init(0.8, 0.2), .init(1, Float(Int.random(in: 0...15)))
+            ],
+            colors: [
+                .white, .cyan, .black,
+                .red, .purple, .indigo,
+                .orange, .cyan, .blue,
+                .white, .cyan, .black,
+                .indigo, .purple, .black
+            ]
+        )
+        .frame(height: 300)
+    }
+}
