@@ -43,6 +43,12 @@ struct ListsComponentView: View, Comparable {
                                              image: "snowflake.circle.fill")])
     ]
     @State private var singleSelection : UUID?
+    @Environment(\.horizontalSizeClass) var sizeClass
+    var scrollTargetBehavior: some ScrollTargetBehavior {
+        sizeClass == .compact
+            ? AnyScrollTargetBehavior(.paging)
+            : AnyScrollTargetBehavior(.viewAligned)
+    }
     
     var body: some View {
         
@@ -68,7 +74,8 @@ struct ListsComponentView: View, Comparable {
             0
         })
         .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
-        
+        // check docs here https://developer.apple.com/documentation/swiftui/anyscrolltargetbehavior
+        .scrollTargetBehavior(scrollTargetBehavior)
     }
     
     private var list1: some View {
