@@ -171,6 +171,8 @@ struct ContentView: View {
                      label: "Containers")
                 Link(destination: ScrollViewsView(),
                      label: "Scrollviews")
+                Link(destination: TableViews(),
+                     label: "Table Views")
             }
             .listRowBackground(Color(sectionColor))
     }
@@ -199,6 +201,8 @@ struct ContentView: View {
                  label: "Canvas")
             Link(destination: GraphicContextsView(),
                  label: "Graphic Context")
+                Link(destination: CustomMeshGradient(),
+                     label: "Mesh gradients")
             Link(destination: ShapesView(),
                  label: "Shapes")
             Link(destination: AnimationsView(),
