@@ -88,10 +88,12 @@ struct SteppersView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Stepper View + custom step")
                     .fontWeight(.heavy)
+                    .font(.title)
                     .accessibilityAddTraits(.isStaticText)
                     .accessibilityHint("What you heard was the title of the view")
                 Text("The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:")
                     .fontWeight(.light)
+                    .font(.title2)
                     .accessibilityAddTraits(.isStaticText)
                     .accessibilityHint("What you heard was the description of the example presented")
                 Stepper(value: $SecondStepperValue,
@@ -101,8 +103,8 @@ struct SteppersView: View, Comparable {
                          "stepping by \(step)")
                     .accessibilityAddTraits(.isSummaryElement)
                 }
-                .accessibilityAddTraits(.allowsDirectInteraction)
-                .padding(10)
+                        .accessibilityAddTraits(.allowsDirectInteraction)
+                        .padding(10)
             }
         }
         .accessibilityIdentifier("steppers.custom.stepper")
@@ -115,8 +117,10 @@ struct SteppersView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Stepper View")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Stepper("Position: \(firstStepperValue) \nColor: \(colors[firstStepperValue].description)"
                         , onIncrement: {
                     incrementStep()

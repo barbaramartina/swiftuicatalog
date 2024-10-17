@@ -50,6 +50,7 @@ struct StylesView: View, Comparable {
             // contextual information
             Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")
                 .fontWeight(.light)
+                .font(.title2)
                 .modifier(Divided())
             gauges
                 .modifier(Divided())
@@ -73,6 +74,7 @@ struct StylesView: View, Comparable {
         GroupBox {
             Text("Styling Pickers")
                 .fontWeight(.heavy)
+                .font(.title)
             HStack {
                 Text("Automatic style:")
                 Spacer()
@@ -144,9 +146,11 @@ struct StylesView: View, Comparable {
         GroupBox {
             Text("Styling buttons")
                 .fontWeight(.heavy)
+                .font(.title)
             HStack {
                 Text("Automatic button style: ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
                 Button("Example action") { }
                     .buttonStyle(.automatic)
@@ -154,6 +158,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Bordered button style: ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
                 Button("Example action") { }
                     .buttonStyle(.bordered)
@@ -161,6 +166,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Border less button style: ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
                 Button("Example action") { }
                     .buttonStyle(.borderless)
@@ -168,6 +174,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Border prominent less button style: ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
                 Button("Example action") { }
                     .buttonStyle(.borderedProminent)
@@ -175,6 +182,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Plain button style: ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
                 Button("Example action") { }
                     .buttonStyle(.plain)
@@ -182,6 +190,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("My own button style: ")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
                 Button("Example action") { }
                     .buttonStyle(MyOwnButtonStyle())
@@ -197,6 +206,7 @@ struct StylesView: View, Comparable {
         GroupBox {
             Text("Styling Toggles")
                 .fontWeight(.heavy)
+                .font(.title)
             HStack {
                 Text("Automatic style:")
                 Spacer()
@@ -231,6 +241,7 @@ struct StylesView: View, Comparable {
         GroupBox {
             Text("Styling Menues")
                 .fontWeight(.heavy)
+                .font(.title)
             HStack {
                 Text("Button style:")
                 Spacer()
@@ -272,6 +283,7 @@ struct StylesView: View, Comparable {
                 // https://developer.apple.com/documentation/swiftui/progressviewstyle
                 Text("Styling progress indicator")
                     .fontWeight(.heavy)
+                    .font(.title)
                 VStack {
                     Text("Automatic style:")
                     Spacer()
@@ -305,6 +317,7 @@ struct StylesView: View, Comparable {
                 // https://developer.apple.com/documentation/swiftui/gaugestyle
                 Text("Styling gauges")
                     .fontWeight(.heavy)
+                    .font(.title)
                 VStack(alignment: .leading) {
                     Text("Automatic style:")
                     Spacer()

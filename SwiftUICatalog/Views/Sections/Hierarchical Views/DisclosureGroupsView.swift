@@ -59,13 +59,15 @@ struct DisclosureGroupsView: View, Comparable {
                 VStack(alignment: .leading) {
                     Text("A view that shows or hides another content view, based on the state of a disclosure control.")
                         .fontWeight(.light)
+                        .font(.title2)
                     
                     Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
                         .fontWeight(.light)
+                        .font(.title2)
                     disclosureGroupsExample
                 }
             }
-
+            
             Spacer()
             ContributedByView(name: "Ali Ghayeni H",
                               link: "https://github.com/alighayeni")

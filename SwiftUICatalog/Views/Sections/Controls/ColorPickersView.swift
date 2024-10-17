@@ -57,6 +57,7 @@ struct ColorPickersView: View, Comparable {
                         HStack{
                             Text("with opacity")
                                 .fontWeight(.ultraLight)
+                                .font(.title3)
                             Spacer()
                         }
                     }
@@ -68,6 +69,7 @@ struct ColorPickersView: View, Comparable {
                         HStack{
                             Text("without opacity")
                                 .fontWeight(.ultraLight)
+                                .font(.title3)
                             Spacer()
                         }
                     }

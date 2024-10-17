@@ -76,9 +76,10 @@ struct ShapesView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Rectangles, circles, ellipse and capsules")
                     .fontWeight(.heavy)
-                
+                    .font(.title)
                 Text("SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path")
                     .fontWeight(.light)
+                    .font(.title2)
                 HStack {
                     // MARK: - rectangle
                     Rectangle()
@@ -113,6 +114,7 @@ struct ShapesView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Custom shape")
                     .fontWeight(.heavy)
+                    .font(.title)
                 HStack {
                     CustomShape()
                         .fill(Color("Medium"))
@@ -129,6 +131,7 @@ struct ShapesView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Shapes can also be decorated with stroke borders")
                     .fontWeight(.heavy)
+                    .font(.title)
                 HStack {
                     Rectangle()
                         .strokeBorder(style: StrokeStyle(lineWidth: 5,
@@ -168,7 +171,7 @@ struct ShapesView: View, Comparable {
             .frame(maxWidth: .infinity)
         }
     }
-       
+    
 }
 
 struct ShapesView_Previews: PreviewProvider {

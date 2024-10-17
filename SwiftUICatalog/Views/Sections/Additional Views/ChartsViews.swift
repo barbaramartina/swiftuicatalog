@@ -121,12 +121,14 @@ struct ChartsViews: View {
             
             Text("Since iOS16 Swift offers Swift Charts, there are different types of charts supported, we show many of them in the following examples.")
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.bottom)
             
             // BAR CHART
             GroupBox {
                 Text("Bar Chart example")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Chart {
                     ForEach(clothes) { item in
                         BarMark(
@@ -150,6 +152,7 @@ struct ChartsViews: View {
                 // POINT CHART
                 Text("Point Chart examples")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Chart {
                     ForEach(appliances) {
                         PointMark(x: .value("Appliance Type", $0.type),
@@ -172,6 +175,7 @@ struct ChartsViews: View {
                 // LINE CHART
                 Text("Line Chart example")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Chart {
                     ForEach(rates) {
                         LineMark(

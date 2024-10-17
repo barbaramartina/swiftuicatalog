@@ -61,7 +61,6 @@ struct TextsComponentsView: View, Comparable {
             textDates
                 .modifier(Divided())
             textControls
-                .modifier(Divided())
             
             ContributedByView(name: "Barbara Martina",
                               link: "https://github.com/barbaramartina")
@@ -77,8 +76,10 @@ struct TextsComponentsView: View, Comparable {
                     Group {
                         Text("Text controls")
                             .fontWeight(.heavy)
+                            .font(.title)
                         Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     
                     HStack {
@@ -108,8 +109,10 @@ struct TextsComponentsView: View, Comparable {
                 // Contextual information: a short intro to the elements we are showcasing
                 Text("Available fonts")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined")
                     .fontWeight(.light)
+                    .font(.title2)
                 VStack(alignment: .center) {
                     Text("Headline")
                         .font(.headline)
@@ -145,11 +148,13 @@ struct TextsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Available font weights")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("Fonts can also be assigned a weight, which will change the appereance of the font")
                     .fontWeight(.light)
+                    .font(.title2)
                 VStack(alignment: .center) {
                     Text("Weight Black")
-                        .fontWeight(.heavy)
+                        .fontWeight(.black)
                     Text("Weight Heavy")
                         .fontWeight(.heavy)
                     Text("Weight Bold")
@@ -162,8 +167,10 @@ struct TextsComponentsView: View, Comparable {
                         .fontWeight(.regular)
                     Text("Weight Light")
                         .fontWeight(.light)
+                        .font(.title2)
                     Text("Weight Ultra light")
                         .fontWeight(.ultraLight)
+                        .font(.title3)
                     Text("Weight Thin")
                         .fontWeight(.thin)
                 }
@@ -178,6 +185,7 @@ struct TextsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text( "Text, italic, bold")
                     .fontWeight(.heavy)
+                    .font(.title)
                 VStack(alignment: .center) {
                     Text("Italic")
                         .italic()
@@ -211,6 +219,7 @@ struct TextsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text( "Text, truncations and multiline")
                     .fontWeight(.heavy)
+                    .font(.title)
                 
                 Text("Very long text truncated")
                     .frame(width: 150)
@@ -232,8 +241,10 @@ struct TextsComponentsView: View, Comparable {
                     Group {
                         Text("Text and dates")
                             .fontWeight(.heavy)
+                            .font(.title)
                         Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     
                     HStack {

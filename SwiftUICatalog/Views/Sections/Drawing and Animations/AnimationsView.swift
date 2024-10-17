@@ -91,9 +91,11 @@ struct AnimationsView: View, Comparable {
                     Group {
                         Text("Circles in motion animation")
                             .fontWeight(.heavy)
+                            .font(.title)
                             .padding(.top)
                         Text("A custom complex animation using geometry reader to create shapes and make them move and scale around the screen")
                             .fontWeight(.light)
+                            .font(.title2)
                         MotionAnimationView()
                     }
                     .padding(.horizontal)

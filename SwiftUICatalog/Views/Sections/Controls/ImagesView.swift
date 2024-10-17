@@ -69,8 +69,10 @@ struct ImagesComponentView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Images with SF Symbols")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("SF Symbols is a collection of iconography that has over 5,000 symbols and is made to work perfectly with San Francisco, the system font used by Apple platforms. Symbols automatically align with text and are available in three scales and nine weights. Using vector graphics editing software, they can be altered and exported to produce unique symbols with shared accessibility features and design elements. With SF Symbols 5, you can now create bespoke symbols with improved tools, over 700 new symbols, and a variety of expressive animations. You can find more about SF Symbols in [the SF Official page](https://developer.apple.com/design/resources/#sf-symbols)")
                     .fontWeight(.light)
+                    .font(.title2)
                 ScrollView(.horizontal) {
                     HStack(alignment: .center, spacing: 20) {
                         Image(systemName: "house.circle")
@@ -90,8 +92,8 @@ struct ImagesComponentView: View, Comparable {
                         Image(systemName: "checkmark.seal.fill")
                         Image(systemName: "exclamationmark.bubble.circle")
                     }
-                    .frame(width: 350)
-                .padding(.vertical)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical)
                 }
             }
         }
@@ -100,45 +102,47 @@ struct ImagesComponentView: View, Comparable {
     private var imagesFromBundle: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                    Text("Images from Bundle")
-                        .fontWeight(.heavy)
-                    Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
-                        .fontWeight(.light)
-                    // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
-                    Text("Image scaled to fit")
-                        .fontWeight(.semibold)
-                        .padding(.top)
-                    Image(systemName: "hands.and.sparkles.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 200, height: 200)
-                        .modifier(Divided())
-                    Text("Image scaled to fill")
-                        .fontWeight(.semibold)
-                    Image(systemName: "hands.and.sparkles.fill")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 200, height: 200)
-                        .modifier(Divided())
-                    Text("Aspect ratio")
-                        .fontWeight(.semibold)
-                    Image(systemName: "hands.and.sparkles.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                        .modifier(Divided())
-                    Text("Circled overlay")
-                        .fontWeight(.semibold)
-                    Image(systemName: "hands.and.sparkles.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .overlay(
-                            Color.gray
-                                .opacity(0.5)
-                        )
-                        .clipShape(Circle())
-                        .frame(width: 200, height: 200)
-                    
+                Text("Images from Bundle")
+                    .fontWeight(.heavy)
+                    .font(.title)
+                Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
+                    .fontWeight(.light)
+                    .font(.title2)
+                // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
+                Text("Image scaled to fit")
+                    .fontWeight(.semibold)
+                    .padding(.top)
+                Image(systemName: "hands.and.sparkles.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+                    .modifier(Divided())
+                Text("Image scaled to fill")
+                    .fontWeight(.semibold)
+                Image(systemName: "hands.and.sparkles.fill")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 200, height: 200)
+                    .modifier(Divided())
+                Text("Aspect ratio")
+                    .fontWeight(.semibold)
+                Image(systemName: "hands.and.sparkles.fill")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 200, height: 200)
+                    .modifier(Divided())
+                Text("Circled overlay")
+                    .fontWeight(.semibold)
+                Image(systemName: "hands.and.sparkles.fill")
+                    .resizable()
+                    .scaledToFit()
+                    .overlay(
+                        Color.gray
+                            .opacity(0.5)
+                    )
+                    .clipShape(Circle())
+                    .frame(width: 200, height: 200)
+                
             }
         }
     }

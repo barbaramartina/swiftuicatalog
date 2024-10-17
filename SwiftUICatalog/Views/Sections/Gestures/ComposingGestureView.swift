@@ -106,6 +106,8 @@ struct ComposingGesturesView: View, Comparable {
             
             Text("Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI.")
                 .fontWeight(.light)
+                .font(.title2)
+            Text("Offset = x: \(viewState.width + dragState.translation.width) - y: \(viewState.height + dragState.translation.height)")
             Circle()
                 .fill(Color.blue)
                 .overlay(dragState.isDragging ? Circle().stroke(Color.white, lineWidth: 2) : nil)

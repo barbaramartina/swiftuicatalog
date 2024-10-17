@@ -82,6 +82,7 @@ struct ContentView: View {
             Text("A catalog of components, controls, effects, styles and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.")
                 .font(.footnote)
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.top, 24)
                 .padding(.bottom, 16)
                 .foregroundColor(.white)
@@ -180,37 +181,37 @@ struct ContentView: View {
     var hierachicalViews: some View {
         Section(header: Text("Hierachical Views")               .font(.title)
             .modifier(ListSectionFontModifier())) {
-            Link(destination: NavigationBarsComponentView(),
-                 label: "Navigation")
-            Link(destination: OutlinesGroupsView(),
-                 label: "Outlines")
-            Link(destination: DisclosureGroupsView(),
-                 label: "Disclosures")
-            Link(destination: TabsView(),
-                 label: "Tabs")
-        }
-        .listRowBackground(Color(sectionColor))
+                Link(destination: NavigationBarsComponentView(),
+                     label: "Navigation")
+                Link(destination: OutlinesGroupsView(),
+                     label: "Outlines")
+                Link(destination: DisclosureGroupsView(),
+                     label: "Disclosures")
+                Link(destination: TabsView(),
+                     label: "Tabs")
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
     var drawings: some View {
-        Section(header: Text("Drawing and animations")          
+        Section(header: Text("Drawing and animations")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            Link(destination: CanvasView(),
-                 label: "Canvas")
-            Link(destination: GraphicContextsView(),
-                 label: "Graphic Context")
+                Link(destination: CanvasView(),
+                     label: "Canvas")
+                Link(destination: GraphicContextsView(),
+                     label: "Graphic Context")
                 Link(destination: CustomMeshGradient(),
                      label: "Mesh gradients")
-            Link(destination: ShapesView(),
-                 label: "Shapes")
-            Link(destination: AnimationsView(),
-                 label: "Animations")
-            Link(destination: GeometriesView(),
-                 label: "Geometries")
-        }
-        .listRowBackground(Color(sectionColor))
+                Link(destination: ShapesView(),
+                     label: "Shapes")
+                Link(destination: AnimationsView(),
+                     label: "Animations")
+                Link(destination: GeometriesView(),
+                     label: "Geometries")
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
@@ -226,56 +227,56 @@ struct ContentView: View {
     }
     
     var gestures: some View {
-        Section(header: Text("Gestures")                        
+        Section(header: Text("Gestures")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            Link(destination: GesturesView(),
-                 label: "Gestures")
-            Link(destination: ComposingGesturesView(),
-                 label: "Composing Gestures")
-            Link(destination: SensoryFeedbackInViews(),
-                 label: "Sensory Feedback")
-        }
-        .listRowBackground(Color(sectionColor))
+                Link(destination: GesturesView(),
+                     label: "Gestures")
+                Link(destination: ComposingGesturesView(),
+                     label: "Composing Gestures")
+                Link(destination: SensoryFeedbackInViews(),
+                     label: "Sensory Feedback")
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
     var viewModifiers: some View {
-        Section(header: Text("View modifiers")                  
+        Section(header: Text("View modifiers")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            Link(destination: TextModifiersView(),
-                 label: "Text modifiers")
-            Link(destination: EffectsModifiersView(),
-                 label: "Effect modifiers")
-            Link(destination: LayoutModifiersView(),
-                 label: "Layout modifiers")
-            
-        }
-        .listRowBackground(Color(sectionColor))
+                Link(destination: TextModifiersView(),
+                     label: "Text modifiers")
+                Link(destination: EffectsModifiersView(),
+                     label: "Effect modifiers")
+                Link(destination: LayoutModifiersView(),
+                     label: "Layout modifiers")
+                
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
     var accessibility: some View {
-        Section(header: Text("Accesibility")                    
+        Section(header: Text("Accesibility")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            
-            Link(destination: AccesibilityView(),
-                 label: "Accesibility")
-        }
-        .listRowBackground(Color(sectionColor))
+                
+                Link(destination: AccesibilityView(),
+                     label: "Accesibility")
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
     var statusBars: some View {
-        Section(header: Text("Status and tool bars")            
+        Section(header: Text("Status and tool bars")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            Link(destination: ToolbarsComponentView(),
-                 label: "Tool Bars")
-        }
-        .listRowBackground(Color(sectionColor))
+                Link(destination: ToolbarsComponentView(),
+                     label: "Tool Bars")
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
@@ -292,36 +293,36 @@ struct ContentView: View {
     }
     
     var popovers: some View {
-        Section(header: Text("Popovers, alerts and sheets")     
+        Section(header: Text("Popovers, alerts and sheets")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            
-            Link(destination: PopoversComponentView(),
-                 label: "Popovers")
-            Link(destination: SheetView(),
-                 label: "Sheets")
-            //            Link(destination: AlertsComponentView(),
-            //                 label: "Alerts")
-            Link(destination: TimelineViews(),
-                 label: "Timelines")
-            Link(destination: SpacersDividersView(),
-                 label: "Spacer")
-        }
-        .listRowBackground(Color(sectionColor))
+                
+                Link(destination: PopoversComponentView(),
+                     label: "Popovers")
+                Link(destination: SheetView(),
+                     label: "Sheets")
+                //            Link(destination: AlertsComponentView(),
+                //                 label: "Alerts")
+                Link(destination: TimelineViews(),
+                     label: "Timelines")
+                Link(destination: SpacersDividersView(),
+                     label: "Spacer")
+            }
+            .listRowBackground(Color(sectionColor))
         
     }
     
     var composedComponents: some View {
-        Section(header: Text("Composed components to help speed up development")                                
+        Section(header: Text("Composed components to help speed up development")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-            
-            Link(destination: CommonlyUsedViews(),
-                 label: "Commonly used views")
-            //    Link(destination: CollectionsViews(),
-            //       label: "Collections of components")
-        }
-        .listRowBackground(Color(sectionColor))
+                
+                Link(destination: CommonlyUsedViews(),
+                     label: "Commonly used views")
+                //    Link(destination: CollectionsViews(),
+                //       label: "Collections of components")
+            }
+            .listRowBackground(Color(sectionColor))
         // end of Group composed VIEWS
         
     }
@@ -340,3 +341,4 @@ struct ContentView_Previews: PreviewProvider {
         
     }
 }
+

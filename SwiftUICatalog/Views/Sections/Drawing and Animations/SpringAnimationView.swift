@@ -11,7 +11,7 @@ struct SpringAnimationView: View {
     @State private var isActive1 = false
     @State private var isActive2 = false
     @State private var isActive3 = false
-
+    
     var body: some View {
         
         PageContainer(content:
@@ -23,6 +23,7 @@ struct SpringAnimationView: View {
             VStack(alignment: .leading) {
                 Text("Since iOS17 spring animations can be applied to views and easily created.")
                     .fontWeight(.light)
+                    .font(.title2)
                 example1
                     .modifier(Divided())
                 example2
@@ -30,7 +31,7 @@ struct SpringAnimationView: View {
                 example3
                     .modifier(Divided())
             }
-
+            
         })
     }
     

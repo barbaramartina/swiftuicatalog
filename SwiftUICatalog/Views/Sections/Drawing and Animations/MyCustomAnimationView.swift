@@ -9,11 +9,12 @@ import SwiftUI
 
 struct MyCustomAnimationView: View {
     @State private var isActive = false
-
+    
     var body: some View {
         VStack(alignment: .leading) {
             Text("This will play a custom animation. If you are sensitive to movements and light please be aware that this is a psychodelic random animation.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.customAnimation) {
                     isActive.toggle()

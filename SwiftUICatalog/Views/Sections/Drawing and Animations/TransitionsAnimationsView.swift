@@ -32,6 +32,7 @@ struct TransitionsAnimationsView: View, Comparable {
                 HStack {
                     Text("Tap each button to see how the animation mentioned would look like, and then tap it again to see how the animation reverses.")
                         .fontWeight(.light)
+                        .font(.title2)
                     Spacer()
                 }
                 

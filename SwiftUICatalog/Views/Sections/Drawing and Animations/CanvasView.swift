@@ -69,7 +69,7 @@ struct CanvasView: View, Comparable {
                     intro1
                     canvas1
                 }
-                    
+                
                 .modifier(Divided())
                 GroupBox {
                     intro2
@@ -79,12 +79,14 @@ struct CanvasView: View, Comparable {
                 GroupBox {
                     Text("A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random images are plot on a graph")
                         .fontWeight(.light)
+                        .font(.title2)
                     canvas3
                 }
-                    
+                
                 .modifier(Divided())
                 Text("Accessibility and interaction for specific elements—such as views that you pass in as symbols—are not provided by a canvas. However, a canvas perform better in the case of a complex drawing. To enhance performance for a drawing that doesn't primarily require interactive features or text you can use a canvas.")
                     .fontWeight(.light)
+                    .font(.title2)
             }
             
             ContributedByView(name: "Barbara Martina",
@@ -100,8 +102,10 @@ struct CanvasView: View, Comparable {
         Group {
             Text("Canvas views")
                 .fontWeight(.heavy)
+                .font(.title)
             Text("A canvas can be used to render 2D drawings You can use a graphic context and draw on it to create vibrant, dynamic 2D images inside of a SwiftUI display. \nTo conduct immediate mode drawing operations, you use the closure that receives a GraphicsContext from the canvas. You can also modify what you draw by using the CGSize value that the canvas passes. ")
                 .fontWeight(.light)
+                .font(.title2)
         }
         
     }
@@ -127,6 +131,7 @@ struct CanvasView: View, Comparable {
     private var intro2: some View {
         Text("Or you can use a canvas and fill it with renderable SwiftUI views.")
             .fontWeight(.light)
+            .font(.title2)
         
     }
     
@@ -211,3 +216,4 @@ struct PlotView<Mark: View>: View {
         .border(Color.blue)
     }
 }
+

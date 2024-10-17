@@ -66,6 +66,7 @@ struct ExampleProductView: View {
             HStack {
                 Text("Compact Product Style with self configuration")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Spacer()
             }
             ProductView(id: productId) {
@@ -81,6 +82,7 @@ struct ExampleProductView: View {
             HStack {
                 Text("Compact Product Style re-drawing elements")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Spacer()
             }
             ProductView(id: productId) {
@@ -131,6 +133,7 @@ struct ExampleProductView: View {
             HStack {
                 Text("Regular Product Style")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Spacer()
             }
             ProductView(id: productId) {
@@ -146,6 +149,7 @@ struct ExampleProductView: View {
             HStack {
                 Text("Compact Product Style")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Spacer()
             }
             ProductView(id: productId) {
@@ -161,6 +165,7 @@ struct ExampleProductView: View {
             HStack {
                 Text("Large Product Style")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Spacer()
             }
             ProductView(id: productId) {

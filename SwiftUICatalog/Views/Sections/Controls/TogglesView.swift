@@ -47,15 +47,13 @@ struct TogglesView: View, Comparable {
                     VStack(alignment: .leading) {
                         DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle", name: "TOGGLES")
                         
-                        // Contextual information: a short intro to the elements we are showcasing
-                        Group {
+                        GroupBox {
                             Text("Toggles")
                                 .fontWeight(.heavy)
+                                .font(.title)
                             Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
                                 .fontWeight(.light)
-                        }
-                        
-                        GroupBox {
+                                .font(.title2)
                             defaultToggle
                                 .modifier(Divided())
                             switchToggle
@@ -79,6 +77,7 @@ struct TogglesView: View, Comparable {
         Group {
             Text("The default toggle style is 'switch', which draws a rounded rectangle with a tint color, usually green, that can be changed.")
                 .fontWeight(.light)
+                .font(.title2)
             Toggle(
                 isOn: $isBasicToggleOn,
                 label: {
@@ -86,7 +85,7 @@ struct TogglesView: View, Comparable {
                 }
             )
             .padding(.trailing, 8)
-        .toggleStyle(.automatic)
+            .toggleStyle(.automatic)
         }
     }
     
@@ -106,6 +105,7 @@ struct TogglesView: View, Comparable {
         Group {
             Text("In this custom toggle, the background color has changed and there is a narrower indicator when the toggle is switched.")
                 .fontWeight(.light)
+                .font(.title2)
             Toggle(
                 isOn: $isCustomToggleOn,
                 label: {
@@ -119,15 +119,20 @@ struct TogglesView: View, Comparable {
     }
     
     private var toggleWithStyle: some View {
-        Toggle(
-            isOn: $isButtonToggleOn,
-            label: {
-                Text("Button Toggle Style")
-                    .frame(maxWidth: .infinity)
-            }
-        )
-        .toggleStyle(.button)
-        .tint(Color.purple)
+        Group {
+            Text("In this toggle we have assigned a custom BUTTON style, therefore the behaviour of the component keeps working as a toggle but it looks like a button, switching on and off the associated value.")
+                .fontWeight(.light)
+                .font(.title2)
+            Toggle(
+                isOn: $isButtonToggleOn,
+                label: {
+                    Text("Button Toggle Style")
+                        .frame(maxWidth: .infinity)
+                }
+            )
+            .toggleStyle(.button)
+            .tint(Color.purple)
+        }
     }
 }
 

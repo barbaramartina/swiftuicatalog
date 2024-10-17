@@ -54,6 +54,7 @@ struct StacksView: View, Comparable {
                 
                 Text("Stacks – equivalent to UIStackView in UIKit – come in three forms: horizontal (HStack), vertical (VStack) and depth-based (ZStack), with the latter being used when you want to place child views so they overlap.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 hStack
                     .modifier(Divided())
@@ -82,8 +83,10 @@ struct StacksView: View, Comparable {
                 
                 Text("An example of a lazyVstack with TextViews")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("The stack is “lazy,” in that the stack view doesn’t create items until it needs to render them onscreen.")
                     .fontWeight(.light)
+                    .font(.title2)
                 ScrollView () {
                     LazyVStack {
                         ForEach(
@@ -105,8 +108,10 @@ struct StacksView: View, Comparable {
             VStack(alignment: .leading)  {
                 Text("An example of a ZStack with RectangleViews")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("The ZStack assigns each successive child view a higher z-axis value than the one before it, meaning later children appear “on top” of earlier ones.")
                     .fontWeight(.light)
+                    .font(.title2)
                 ZStack {
                     ForEach(0..<colors.count, id: \.self) {
                         Rectangle()
@@ -126,6 +131,7 @@ struct StacksView: View, Comparable {
             VStack(alignment: .leading)  {
                 Text("some text over a picture for example (with ZStack)")
                     .fontWeight(.light)
+                    .font(.title2)
                 ZStack() {
                     Image(systemName: "captions.bubble")
                         .resizable()
@@ -146,8 +152,10 @@ struct StacksView: View, Comparable {
                 
                 Text("An example of a lazyHstack with TextViews")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("The stack is “lazy,” in that the stack view doesn’t create items until it needs to render them onscreen.")
                     .fontWeight(.light)
+                    .font(.title2)
                 ScrollView (.horizontal) {
                     LazyHStack(
                         alignment: .top,
@@ -172,8 +180,10 @@ struct StacksView: View, Comparable {
             VStack(alignment: .leading)  {
                 Text("An example of a Vstack with TextViews")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("A view that arranges its children in a vertical line. VStack renders the views all at once, regardless of whether they are on- or offscreen. Use the regular VStack when you have a small number of child views or don’t want the delayed rendering behavior of the “lazy” version.")
                     .fontWeight(.light)
+                    .font(.title2)
                 // MARK: - Vstack
                 ScrollView () {
                     VStack {
@@ -196,8 +206,10 @@ struct StacksView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("An example of a Hstack with TextViews")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("A view that arranges its children in a horizontal line.")
                     .fontWeight(.light)
+                    .font(.title2)
                 ScrollView (.horizontal) {
                     HStack(
                         alignment: .top,

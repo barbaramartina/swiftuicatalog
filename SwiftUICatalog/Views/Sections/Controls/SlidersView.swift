@@ -76,8 +76,10 @@ struct SlidersView: View, Comparable {
             VStack(alignment: .leading) {
                 Text( "Slider with continued values")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Slider(
                     value: $grams1,
                     in: 0...1000,
@@ -85,7 +87,6 @@ struct SlidersView: View, Comparable {
                         isEditing1 = editing
                     }
                 )
-                .padding(30)
                 Text("\(grams1)")
                     .foregroundColor(isEditing1 ? .blue : .black)
             }
@@ -97,8 +98,10 @@ struct SlidersView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Slider with steps")
                 .fontWeight(.heavy)
+                .font(.title)
             Text("A slider can also be configured with a step value, that will make the choose values jump depending on the size of the step, for example here from 20 to 20 more.")
                 .fontWeight(.light)
+                .font(.title2)
         }
         
     }
@@ -110,6 +113,7 @@ struct SlidersView: View, Comparable {
                     .fontWeight(.heavy)
                 Text("A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility")
                     .fontWeight(.light)
+                    .font(.title2)
                 VStack {
                     Slider(value: $grams3,
                            in: 0...1000,
@@ -128,7 +132,6 @@ struct SlidersView: View, Comparable {
                            label: {
                         Text("This is a slider for grams")
                     })
-                    .padding(30)
                 }
             }
         }

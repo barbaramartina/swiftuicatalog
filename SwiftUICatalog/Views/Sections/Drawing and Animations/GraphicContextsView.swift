@@ -114,6 +114,7 @@ struct GraphicContextsView: View, Comparable {
         Group {
             Text("Linear gradient")
                 .fontWeight(.heavy)
+                .font(.title)
             
             HStack {
                 Spacer()
@@ -135,6 +136,7 @@ struct GraphicContextsView: View, Comparable {
         Group {
             Text("Radial gradient")
                 .fontWeight(.heavy)
+                .font(.title)
             
             HStack {
                 Spacer()
@@ -155,6 +157,7 @@ struct GraphicContextsView: View, Comparable {
         Group {
             Text("Conic gradient")
                 .fontWeight(.heavy)
+                .font(.title)
             HStack {
                 Spacer()
                 GradientContainer(height: height,
@@ -178,6 +181,7 @@ struct GraphicContextsView: View, Comparable {
             
             Text("A view providing a space for 2D drawing, images, texts or even other views. You can create copies of the initial context, this will add an extra drawing (transparent) layer in a tree")
                 .fontWeight(.light)
+                .font(.title2)
         }
     }
     

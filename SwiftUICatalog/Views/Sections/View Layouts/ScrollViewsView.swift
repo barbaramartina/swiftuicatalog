@@ -81,8 +81,10 @@ struct ScrollViewsView: View, Comparable {
         Group {
             Text("Scrollviews in SwiftUI")
                 .fontWeight(.heavy)
+                .font(.title)
             Text("Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views")
                 .fontWeight(.light)
+                .font(.title2)
         }
     }
     

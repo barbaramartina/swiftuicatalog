@@ -70,6 +70,7 @@ struct ContainersView: View, Comparable {
         Group {
             Text("Similarly, GroupBox is used for distinguishing a set of views in the screen (in an alert type box)")
                 .fontWeight(.light)
+                .font(.title2)
             
             GroupBox(label:
                         Label("Terms and conditions", systemImage: "building.columns"),
@@ -93,8 +94,10 @@ struct ContainersView: View, Comparable {
         Group {
             Text("View containers")
                 .fontWeight(.heavy)
+                .font(.title)
             Text("Some controls in SwiftUI allows grouping of other views, for example the Form component allows to group other views together and platform specific styling is then applied to all the contained views")
                 .fontWeight(.light)
+                .font(.title2)
             
         }
         

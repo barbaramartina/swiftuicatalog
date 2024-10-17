@@ -43,14 +43,18 @@ struct InterfacingWithUIKitView<Page: View>: View {
                     HStack(){
                         Text("Framework Integration")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     HStack{
                         Text("Framework Integration Interfacing with UIKit")
                             .fontWeight(.heavy)
+                            .font(.title)
+                        
                             .multilineTextAlignment(.center)
                     }
                     Text("SwiftUI works seamlessly with the existing UI frameworks on all Apple platforms. For example, you can place UIKit views and view controllers inside SwiftUI views, and vice versa.")
                         .fontWeight(.ultraLight)
+                        .font(.title3)
                 }
                 .padding(5)
                 Group(){
@@ -65,7 +69,7 @@ struct InterfacingWithUIKitView<Page: View>: View {
                 .padding(5)
                 ContributedByView(name: "Ali Ghayeni H",
                                   link: "https://github.com/alighayeni")
-                    .padding(.top, 80)
+                .padding(.top, 80)
             }
         }
         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)

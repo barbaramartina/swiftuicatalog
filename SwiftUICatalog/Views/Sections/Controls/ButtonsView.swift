@@ -84,6 +84,7 @@ struct ButtonsComponentsView: View, Comparable {
                 
                 Text("Given an action and a label you can create a button. When a user clicks or taps the button, an action—a method or closure property—is triggered. The label is a view that can display text, an icon, or both to describe the operation of the button. Any type of view, such as a Text view for text-only labels, can be the label of a button.")
                     .fontWeight(.light)
+                    .font(.title2)
                     .padding(.bottom)
                 // MARK: - basics of buttons
                 Group {
@@ -123,8 +124,10 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Button with image")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("An Image view can be used instead of the usual title, the image just needs to be set as the label of the button.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Button(action: {}, label: {
                     Image(systemName: "person")
                         .padding()
@@ -140,6 +143,7 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Button with icon & label")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("Any other combination of views can be used as the 'label' of the button, this allows for a lot of flexibility when it comes to have clicks areas which are bigger, while conserving the highlighting state of the button component.")
                 Button(action: {}, label: {
                     Label {
@@ -247,8 +251,12 @@ struct ButtonsComponentsView: View, Comparable {
     private var customizableButton: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                Text("At continuation we show a button and some properties, so that you can adjust them interactively and see how the button changes.")
+                Text("Customizable button")
                     .fontWeight(.heavy)
+                    .font(.title)
+                Text("At continuation, we show a button and some properties, so that you can adjust them interactively and see how the button changes. If you change the font style to extraLargeTitle, you will need to increase the width of the button to make the size fit. Since we're showcasing how a fixed size affects the content of a button in this case, we choose to fix a width. But you can easily give your buttons a min and max width values to make them react to different font styles.")
+                    .fontWeight(.light)
+                    .font(.title2)
                 Button("change me", systemImage: "message.badge",  action: {})
                     .frame(width: buttonWidth, height: buttonHeight)
                     .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
@@ -324,8 +332,10 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Rounded Button")
                     .fontWeight(.heavy)
-                Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier")
+                    .font(.title)
+                Text("One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 Button(action: {},
                        label: {
@@ -349,6 +359,7 @@ struct ButtonsComponentsView: View, Comparable {
                 HStack {
                     Text("Border width:")
                         .fontWeight(.light)
+                        .font(.title2)
                     Slider(
                         value: $borderWidth,
                         in: 0...10,
@@ -367,21 +378,44 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Specific Rounded borders with custom shape")
                     .fontWeight(.heavy)
-                Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View")
+                    .font(.title)
+                Text("Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View. This can also be achieved by using an UnevenRectangle as a clip shape and giving each corner a different radius.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
-                Button(action: {},
-                       label: {
-                    Text("Click")
-                        .modifier(ButtonFontModifier())
-                        .overlay(
-                            RoundedCorners(tl: 10,
-                                           tr: 0,
-                                           bl: 0,
-                                           br: 10)
-                            .stroke(Color.accentColor, lineWidth: 5)
-                        )
-                })
+                HStack {
+                    Button(action: {},
+                           label: {
+                        Text("Click")
+                            .modifier(ButtonFontModifier())
+                            .overlay(
+                                RoundedCorners(tl: 10,
+                                               tr: 0,
+                                               bl: 0,
+                                               br: 10)
+                                .stroke(Color.accentColor, lineWidth: 5)
+                            )
+                    })
+                    Button(action: {},
+                           label: {
+                        Text("Click")
+                            .modifier(ButtonFontModifier())
+                            .border(.black, width: 3)
+                            .clipShape(
+                                UnevenRoundedRectangle(topLeadingRadius: 3,
+                                                       bottomLeadingRadius: 18,
+                                                       bottomTrailingRadius: 0,
+                                                       topTrailingRadius: 10)
+                            )
+                            .overlay(
+                                UnevenRoundedRectangle(topLeadingRadius: 3,
+                                                       bottomLeadingRadius: 18,
+                                                       bottomTrailingRadius: 0,
+                                                       topTrailingRadius: 10)
+                                .stroke(Color.accentColor, lineWidth: 5)
+                            )
+                    })
+                }
                 .padding(.leading, Style.HorizontalPadding.small.rawValue)
             }
         }
@@ -392,8 +426,10 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Stroked borders")
                     .fontWeight(.heavy)
-                Text("Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle")
+                    .font(.title)
+                Text("Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Button(action: {}) {
                     Text("Click")
                         .modifier(ButtonFontModifier())
@@ -414,14 +450,16 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Button with plain background")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("Using the background modifier an color can be added as the background of the button.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Button(action: {}, label: {
                     Text("Click")
                         .padding()
                         .modifier(ButtonFontModifier())
                 })
-                .background(Color.accentColor)
+                .background(Color("Medium"))
                 .padding(.leading, Style.HorizontalPadding.small.rawValue)
             }
         }

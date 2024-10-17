@@ -46,8 +46,8 @@ struct ListsComponentView: View, Comparable {
     @Environment(\.horizontalSizeClass) var sizeClass
     var scrollTargetBehavior: some ScrollTargetBehavior {
         sizeClass == .compact
-            ? AnyScrollTargetBehavior(.paging)
-            : AnyScrollTargetBehavior(.viewAligned)
+        ? AnyScrollTargetBehavior(.paging)
+        : AnyScrollTargetBehavior(.viewAligned)
     }
     
     var body: some View {
@@ -57,6 +57,7 @@ struct ListsComponentView: View, Comparable {
             
             Text("A list is a container with data rows organized in a single column and an optional selection field for one or more members. \nThe first example shows a list with sections, each section font weight and color have been customized. The style of this list is 'PlainListStyle'.")
                 .fontWeight(.light)
+                .font(.title2)
             
             list1
                 .modifier(Divided())
@@ -97,6 +98,7 @@ struct ListsComponentView: View, Comparable {
                                 Text(d.name)
                                     .font(.subheadline)
                                     .fontWeight(.heavy)
+                                    .font(.title)
                                     .foregroundColor(.accentColor)
                             }
                         }
@@ -125,6 +127,7 @@ struct ListsComponentView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("This second example is using the style 'GroupedListStyle'.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 List(selection: $singleSelection){
                     ForEach(countries) { c in
@@ -143,6 +146,7 @@ struct ListsComponentView: View, Comparable {
                                     Text(d.name)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)
+                                        .font(.title)
                                         .foregroundColor(.accentColor)
                                 }
                             }
@@ -171,6 +175,7 @@ struct ListsComponentView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("This next example is using the style 'InsetListStyle'.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 List(selection: $singleSelection){
                     ForEach(countries) { c in
@@ -189,6 +194,7 @@ struct ListsComponentView: View, Comparable {
                                     Text(d.name)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)
+                                        .font(.title)
                                         .foregroundColor(.accentColor)
                                 }
                             }
@@ -217,6 +223,7 @@ struct ListsComponentView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("This next example is using the style 'InsetGroupedListStyle'.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 List(selection: $singleSelection){
                     ForEach(countries) { c in
@@ -235,6 +242,7 @@ struct ListsComponentView: View, Comparable {
                                     Text(d.name)
                                         .font(.subheadline)
                                         .fontWeight(.heavy)
+                                        .font(.title)
                                         .foregroundColor(.accentColor)
                                 }
                             }

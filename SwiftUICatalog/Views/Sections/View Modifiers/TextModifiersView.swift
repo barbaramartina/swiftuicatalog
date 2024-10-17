@@ -52,13 +52,16 @@ struct TextModifiersView: View, Comparable {
                     VStack(alignment: .leading) {
                         Text("Text view modifiers")
                             .fontWeight(.heavy)
+                            .font(.title)
                         
                         Text("Examples of modifiers that can be applied to Text Views")
                             .fontWeight(.light)
+                            .font(.title2)
                         // Font weights
                         Group {
                             Text("Font Weight Light")
                                 .fontWeight(.light)
+                                .font(.title2)
                             Text("Font Weight Medium")
                                 .fontWeight(.medium)
                             Text("Font Weight Bold")
@@ -71,6 +74,7 @@ struct TextModifiersView: View, Comparable {
                                 .fontWeight(.thin)
                             Text("Font Weight Ultralight")
                                 .fontWeight(.ultraLight)
+                                .font(.title3)
                             Text("Font Weight Black")
                                 .fontWeight(.heavy)
                         }
@@ -78,31 +82,31 @@ struct TextModifiersView: View, Comparable {
                 }
                 // end of Font weights
                 .modifier(Divided())
-
+                
                 GroupBox {
                     VStack(alignment: .leading) {
-                            Text("Font type Headline")
-                                .font(.headline)
-                            Text("Font type Subheadline")
-                                .font(.subheadline)
-                            Text("Font type Large title")
-                                .font(.largeTitle)
-                            Text("Font type Title")
-                                .font(.title)
-                            Text("Font type title 2")
-                                .font(.title2)
-                            Text("Font type title 3")
-                                .font(.title3)
-                            Text("Font type Body")
-                                .font(.body)
-                            Text("Font type Callout")
-                                .font(.callout)
-                            Text("Font type Caption")
-                                .font(.caption)
-                            Text("Font type Caption 2")
-                                .font(.caption2)
-                            Text("Font type Footnote")
-                                .font(.footnote)
+                        Text("Font type Headline")
+                            .font(.headline)
+                        Text("Font type Subheadline")
+                            .font(.subheadline)
+                        Text("Font type Large title")
+                            .font(.largeTitle)
+                        Text("Font type Title")
+                            .font(.title)
+                        Text("Font type title 2")
+                            .font(.title2)
+                        Text("Font type title 3")
+                            .font(.title3)
+                        Text("Font type Body")
+                            .font(.body)
+                        Text("Font type Callout")
+                            .font(.callout)
+                        Text("Font type Caption")
+                            .font(.caption)
+                        Text("Font type Caption 2")
+                            .font(.caption2)
+                        Text("Font type Footnote")
+                            .font(.footnote)
                     }
                     .frame(maxWidth: .infinity)
                 }
@@ -114,7 +118,7 @@ struct TextModifiersView: View, Comparable {
                     Text("Foregroung color: A pink text")
                         .foregroundColor(.pink)
                         .frame(maxWidth: .infinity)
-
+                    
                 }
                 .modifier(Divided())
                 // end of foreground colors
@@ -135,7 +139,8 @@ struct TextModifiersView: View, Comparable {
                     Text("Backgrounds: a text with a text background")
                         .font(.title)
                         .background(Text("AAAAAAAAAA")
-                            .fontWeight(.ultraLight))
+                            .fontWeight(.ultraLight)
+                            .font(.title3))
                         .padding()
                     
                     Text("Backgrounds: a text with a color as background")
@@ -235,6 +240,7 @@ struct TextModifiersView: View, Comparable {
                         
                         Text("iOS 15+")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .textSelection(.enabled)
@@ -252,6 +258,7 @@ struct TextModifiersView: View, Comparable {
                         
                         Text("iOS 13+")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -266,12 +273,13 @@ struct TextModifiersView: View, Comparable {
                         
                         Text("iOS 13+")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .modifier(Divided())
                 // end of text Shadow
-
+                
                 // text tracking
                 GroupBox {
                     VStack(alignment: .leading, spacing: 10) {
@@ -280,12 +288,13 @@ struct TextModifiersView: View, Comparable {
                         
                         Text("iOS 13+")
                             .fontWeight(.light)
+                            .font(.title2)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .modifier(Divided())
                 // end of text tracking
-
+                
                 // Keyboard types
                 GroupBox {
                     

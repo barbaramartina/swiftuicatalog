@@ -14,7 +14,7 @@ struct SensoryFeedbackInViews: View {
     @State private var warning: Bool = false
     /// triggers the error sensory feedback
     @State private var error: Bool = false
-
+    
     
     var body: some View {
         PageContainer(content:
@@ -22,8 +22,11 @@ struct SensoryFeedbackInViews: View {
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/sensoryfeedback")
             Text("Sensory feedback")
                 .fontWeight(.heavy)
+                .font(.title)
+            
             Text("Since iOS17 SwiftUI offers sensory feedback modifiers. To try out how each of the standard sensory feedback effect feels like, click on the buttons below. \nRemember that for hearing feedback, you have to activate it in your phone's Settings.")
                 .fontWeight(.light)
+                .font(.title2)
             
             HStack {
                 successButton
@@ -85,7 +88,7 @@ struct SensoryFeedbackInViews: View {
                                          lineWidth: 2))
         .padding(.leading, 2)
         .sensoryFeedback(.error, trigger: error)
-
+        
     }
     
     private var alignmentButton: some View {
@@ -99,7 +102,7 @@ struct SensoryFeedbackInViews: View {
                                          lineWidth: 2))
         .padding(.leading, 2)
         .sensoryFeedback(.alignment, trigger: error)
-
+        
     }
     private var decreaseButton: some View {
         Button(action: {

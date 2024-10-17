@@ -81,9 +81,11 @@ struct OutlinesGroupsView: View, Comparable {
             GroupBox {
                 Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. \nThis allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.\nTry it out by clicking on the > below:")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 Group {
                     OutlineGroup(data, children: \.children) { item in

@@ -74,8 +74,10 @@ struct GridsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Lazy Vertical Grid")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
                     .fontWeight(.light)
+                    .font(.title2)
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach((0...79), id: \.self) {
@@ -100,8 +102,10 @@ struct GridsView: View, Comparable {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid")
                 Text("Lazy Horizontal Grid")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("In the following example, a ScrollView contains a LazyHGrid that consists of a horizontally-arranged grid of Text views, aligned to the top of the scroll view.")
                     .fontWeight(.light)
+                    .font(.title2)
                 ScrollView(.horizontal) {
                     LazyHGrid(rows: rows, alignment: .top) {
                         ForEach((0...79), id: \.self) {
@@ -124,13 +128,17 @@ struct GridsView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Grid Item")
                 .fontWeight(.heavy)
+                .font(.title)
             Text("A description of a single grid item, such as a row or a column.")
                 .fontWeight(.light)
+                .font(.title2)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             Text("You use GridItem instances to configure the layout of items in LazyHGrid and LazyVGrid views. Each grid item specifies layout properties like spacing and alignment, which the grid view uses to size and position all items in a given column or row.")
                 .fontWeight(.light)
+                .font(.title2)
             Text("The grid is “lazy,” in that the grid view does not create items until they are needed.")
                 .fontWeight(.light)
+                .font(.title2)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
         }
     }

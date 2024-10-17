@@ -91,8 +91,10 @@ struct DatePickersView: View, Comparable {
                 Group {
                     Text("Style graphical")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("The graphical style renders a calendar component inline. Watch out for the minimum recommended height.")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 DatePicker(
@@ -114,8 +116,10 @@ struct DatePickersView: View, Comparable {
                 Group {
                     Text("Style compact")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("Compact styles make the date picker appear in one line, from which it is expanded")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 DatePicker(
@@ -137,8 +141,10 @@ struct DatePickersView: View, Comparable {
                 Group {
                     Text( "Style wheels")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("The date picker can adopt different style, here we show the WHEELS style")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 DatePicker(
@@ -160,8 +166,10 @@ struct DatePickersView: View, Comparable {
                 Group {
                     Text("Range limit")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("Ranges can be configured using the in: parameter")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 DatePicker(
@@ -183,8 +191,10 @@ struct DatePickersView: View, Comparable {
                 Group {
                     Text( "No range limit")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("By default date pickers do not have a limitation in the minimum or maximum day you can pick")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 DatePicker(

@@ -45,6 +45,7 @@ struct EffectsModifiersView: View, Comparable {
             
             Text("There are different effects that are provided out of the box and can be applied to any view, such as for example applying a degree of rotation, a shadow, a blurring effect.")
                 .fontWeight(.light)
+                .font(.title2)
             List {
                 rotation
                 masking
@@ -58,6 +59,7 @@ struct EffectsModifiersView: View, Comparable {
                     
                     Text("Border & blur effect")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
@@ -75,6 +77,7 @@ struct EffectsModifiersView: View, Comparable {
                     
                     Text("Clip Shape & color inverted effect")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
@@ -91,6 +94,8 @@ struct EffectsModifiersView: View, Comparable {
                 VStack(alignment: .leading) {
                     Text("Brigthness effect")
                         .fontWeight(.heavy)
+                        .font(.title)
+                    
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
@@ -103,6 +108,8 @@ struct EffectsModifiersView: View, Comparable {
                 VStack(alignment: .leading) {
                     Text("Color multiply & Contrast effect")
                         .fontWeight(.heavy)
+                        .font(.title)
+                    
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
@@ -120,6 +127,8 @@ struct EffectsModifiersView: View, Comparable {
                 VStack(alignment: .leading) {
                     Text("Blend mode effect")
                         .fontWeight(.heavy)
+                        .font(.title)
+                    
                     HStack {
                         BlendExamplesView()
                     }
@@ -137,6 +146,8 @@ struct EffectsModifiersView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Gray scale")
                 .fontWeight(.heavy)
+                .font(.title)
+            
             Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
@@ -150,6 +161,8 @@ struct EffectsModifiersView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Rotation with shadow")
                 .fontWeight(.heavy)
+                .font(.title)
+            
                 .padding(.bottom, 60)
             Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
@@ -166,12 +179,16 @@ struct EffectsModifiersView: View, Comparable {
         VStack(alignment: .leading) {
             Text("Masking")
                 .fontWeight(.heavy)
+                .font(.title)
+            
             Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
                 .mask(Text("An example to show how to mask an image with a text on top")
                     .font(.largeTitle)
                     .fontWeight(.heavy)
+                    .font(.title)
+                      
                     .multilineTextAlignment(.center)
                     .frame(width:320, height: 220))
             

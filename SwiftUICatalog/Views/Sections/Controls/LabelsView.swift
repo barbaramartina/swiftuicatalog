@@ -82,8 +82,10 @@ struct LabelsView: View, Comparable {
                 Group {
                     Text("Label Types")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("You can create a label in SwiftUI by adding an icon to it, using only a text or conbining text and icons in one label")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 VStack {
@@ -167,8 +169,10 @@ struct LabelsView: View, Comparable {
                     Group {
                         Text( "Label groups")
                             .fontWeight(.heavy)
+                            .font(.title)
                         Text("Labels can be grouped in other containers to layout them as a group")
                             .fontWeight(.light)
+                            .font(.title2)
                         
                     }
                     HStack {
@@ -214,8 +218,10 @@ struct LabelsView: View, Comparable {
                 Group {
                     Text("Truncations and multiline")
                         .fontWeight(.heavy)
+                        .font(.title)
                     Text("Similar configuration as there were in UIKit can be applied in SwiftUI to manage truncation and multiline text in a label")
                         .fontWeight(.light)
+                        .font(.title2)
                 }
                 
                 Label(
@@ -251,8 +257,10 @@ struct LabelsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text( "Label With Custom Views")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("It's also possible to make labels using views to compose the label's icon")
                     .fontWeight(.light)
+                    .font(.title2)
                 
                 /// It's also possible to make labels using views to compose the label's icon
                 /// programmatically, rather than using a pre-made image. In this example, the

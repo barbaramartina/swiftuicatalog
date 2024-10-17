@@ -15,7 +15,7 @@ struct TimingCurvesView: View {
     @State private var isActive5 = false
     @State private var isActive6 = false
     @State private var isActive7 = false
-
+    
     var body: some View {
         PageContainer(content:
                         
@@ -26,6 +26,7 @@ struct TimingCurvesView: View {
             VStack(alignment: .leading) {
                 Text("Since iOS17 spring animations can be applied to views and easily created.")
                     .fontWeight(.light)
+                    .font(.title2)
                 example1
                     .modifier(Divided())
                 example2
@@ -41,7 +42,7 @@ struct TimingCurvesView: View {
                 example7
                     .modifier(Divided())
             }
-
+            
         })
     }
     
@@ -50,6 +51,7 @@ struct TimingCurvesView: View {
             HStack {
                 Text("Creates a new curve using bezier control points.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Spacer()
             }
             Button(action: {
@@ -69,11 +71,12 @@ struct TimingCurvesView: View {
                 .foregroundColor(.accentColor)
         }
     }
-
+    
     private var example1: some View {
         GroupBox {
             Text("A bezier curve that starts out slowly, then speeds up as it finishes.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.timingCurve(.easeIn, duration: 4.0)) {
                     isActive1.toggle()
@@ -94,6 +97,7 @@ struct TimingCurvesView: View {
         GroupBox {
             Text("A bezier curve that starts out quickly, then slows down as it approaches the end.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.timingCurve(.easeOut, duration: 4.0)) {
                     isActive2.toggle()
@@ -114,6 +118,7 @@ struct TimingCurvesView: View {
         GroupBox {
             Text("A bezier curve that starts out slowly, speeds up over the middle, then slows down again as it approaches the end.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.timingCurve(.easeInOut, duration: 4.0)) {
                     isActive3.toggle()
@@ -134,6 +139,7 @@ struct TimingCurvesView: View {
         GroupBox {
             Text("A curve that starts out slowly, then speeds up as it finishes.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.timingCurve(.circularEaseIn, duration: 4.0)) {
                     isActive4.toggle()
@@ -154,6 +160,7 @@ struct TimingCurvesView: View {
         GroupBox {
             Text("A curve that starts out slowly, then speeds up as it finishes.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.timingCurve(.circularEaseOut, duration: 4.0)) {
                     isActive5.toggle()
@@ -174,6 +181,7 @@ struct TimingCurvesView: View {
         GroupBox {
             Text("A curve that starts out slowly, then speeds up as it finishes.")
                 .fontWeight(.light)
+                .font(.title2)
             Button(action: {
                 withAnimation(.timingCurve(.circularEaseInOut, duration: 4.0)) {
                     isActive6.toggle()

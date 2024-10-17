@@ -33,11 +33,14 @@ struct CommonlyUsedViews: View, Comparable {
             
             Text("A view with an image as header, a title and a longer text below")
                 .fontWeight(.heavy)
+                .font(.title)
+            
                 .padding(.top, 12)
             Text("You can combine a set of those in an array and iterate to create a collection layout. Padding, fonts and content are configurable.")
                 .fontWeight(.light)
+                .font(.title2)
             
-           HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "Snow flakes",
+            HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "Snow flakes",
                                                                                            titleFont: .title,
                                                                                            titleWeight: .bold,
                                                                                            subtitle: "Snow comprises individual ice crystals that grow while suspended in the atmosphere—usually within clouds—and then fall",
@@ -59,9 +62,12 @@ struct CommonlyUsedViews: View, Comparable {
         GroupBox {
             Text("A view with an icon, a title and a longer text below")
                 .fontWeight(.heavy)
+                .font(.title)
+            
                 .padding(.top, 12)
             Text("The size of the icon and the horizontal and vertical alignment can be configured.")
                 .fontWeight(.light)
+                .font(.title2)
             
             let configurationIcon1 = iconConfiguration(with: Color.pink,
                                                        title: snowTitle,
@@ -153,7 +159,7 @@ struct CommonlyUsedViews: View, Comparable {
     private var sunDescription: String {
         "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything – from the biggest planets to the smallest"
     }
-
+    
     private var rainIcon: String {
         "cloud.bolt.rain"
     }
@@ -165,7 +171,7 @@ struct CommonlyUsedViews: View, Comparable {
     private var rainDescription: String {
         "Rain is water droplets that have condensed from atmospheric water vapor and then fall under gravity. "
     }
-
+    
 }
 
 struct CommonlyUsedViews_Previews: PreviewProvider {

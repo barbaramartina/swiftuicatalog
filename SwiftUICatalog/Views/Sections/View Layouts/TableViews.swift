@@ -19,17 +19,22 @@ struct TableViews: View {
         User(id: 3, name: "User Number 3", score: 85)
     ]
     @State private var sortOrder = [KeyPathComparator(\User.name)]
-     
+    
     var body: some View {
-        Table(users, sortOrder: $sortOrder) {
+        Table(sortOrder: $sortOrder) {
             TableColumn("Name", value: \.name)
-            TableColumn("Score") { user in
+            TableColumn("Score", value: \.score) { user in
                 Text(String(user.score))
             }
+            .width(min: 50, max: 100)
+        } rows: {
+            ForEach(users) { user in
+                TableRow(user)
+            }
         }
-        .onChange(of: sortOrder) { oldValue, newValue in
-            users.sort(using: newValue)
-        }
+        .onChange(of: sortOrder, perform: { _ in  
+            users.sort(using: sortOrder)
+        })
     }
 }
 

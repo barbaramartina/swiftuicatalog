@@ -73,18 +73,21 @@ struct ProgressViews: View, Comparable {
         Group {
             Text("Progress views are used to indicate steps in a task, or to show feedback while waiting for results. \nExample 1: The first example is a linear progress view with a title shown at the top of the progress bar.")
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.bottom)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             Text("Example 2: Simple progress views can also be used, and the progress bar won't have an associated title.")
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             Text("Example 3: A spinner can also be shown with a text associated.")
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
-
-
+            
+            
             GroupBox {
                 VStack(alignment: .center) {
                     ProgressView("Downloading…",
@@ -95,12 +98,12 @@ struct ProgressViews: View, Comparable {
                     
                     ProgressView()
                         .padding(.vertical)
-                    .modifier(Divided())
-
+                        .modifier(Divided())
+                    
                     ProgressView("Downloading")
                         .padding(.vertical)
                         .modifier(Divided())
-
+                    
                     ProgressView("Please wait...")
                         .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
                         .padding(.bottom)
@@ -114,6 +117,7 @@ struct ProgressViews: View, Comparable {
         Group {
             Text("Also any view can be included inside the progress view, such as in this case, a button.")
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             
@@ -125,6 +129,7 @@ struct ProgressViews: View, Comparable {
                         }) {
                             Text("Cancel download")
                                 .fontWeight(.heavy)
+                                .font(.title)
                                 .foregroundColor(.accentColor)
                         }
                         .frame(maxWidth: .infinity)
@@ -143,6 +148,7 @@ struct ProgressViews: View, Comparable {
         Group {
             Text("The color of the spinner can be changed with a tint color of your choice.")
                 .fontWeight(.light)
+                .font(.title2)
                 .padding(.vertical, Style.VerticalPadding.medium.rawValue)
                 .modifier(ViewAlignmentModifier(alignment: .leading))
             

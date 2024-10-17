@@ -21,6 +21,9 @@ struct DocumentationLinkView: View, Identifiable {
     /// name of the component been documented
     let name: String
     
+    /// used to present the web view with the documentation link
+    @State private var isSheetPresented: Bool = false
+    
     init(link: String, name: String? = nil) {
         self.link = link
         self.name = name ?? "Documentation"
@@ -28,7 +31,7 @@ struct DocumentationLinkView: View, Identifiable {
     
     var body: some View {
         Button(action: {
-            UIApplication.shared.open(URL(string: link)!)
+            isSheetPresented.toggle()
         }, label: {
             HStack {
                 Image(systemName: "book.and.wrench")
@@ -44,6 +47,9 @@ struct DocumentationLinkView: View, Identifiable {
         .padding(.bottom, 16)
         .modifier(ViewAlignmentModifier(alignment: .trailing))
         .accessibilityAddTraits(.isButton)
+        .sheet(isPresented: $isSheetPresented) {
+            WebView(url: URL(string: link)!)
+        }
     }
 }
 

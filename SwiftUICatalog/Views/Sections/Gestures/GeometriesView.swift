@@ -59,9 +59,11 @@ struct GeometriesView: View, Comparable {
             GroupBox {
                 Text("Reading geometries")
                     .fontWeight(.heavy)
+                    .font(.title)
                 
                 Text("Geometry readers can be use to provide a layout definition by assigned percentages of the available width to each view")
                     .fontWeight(.light)
+                    .font(.title2)
                 GeometryReader { geometry in
                     HStack(spacing: 0) {
                         Spacer()
@@ -88,14 +90,17 @@ struct GeometriesView: View, Comparable {
             GroupBox {
                 Text("A geometry reader reads the size of the view he's executed in and return a geometry proxy to access width and height of the view")
                     .fontWeight(.light)
+                    .font(.title2)
                     .padding()
                 
                 Text("Effects on geometries")
                     .fontWeight(.heavy)
+                    .font(.title)
                 
                 Text("Geometry effects on views can be used to produce transformations to the frames and in that way create new animations")
                     .fontWeight(.light)
-
+                    .font(.title2)
+                
                 Text("Animated")
                     .modifier(PingPongEffect(offset: self.offset,
                                              direction: self.textDirection))
