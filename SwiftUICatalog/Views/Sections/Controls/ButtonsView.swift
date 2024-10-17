@@ -161,8 +161,10 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("Button with label")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("In the simplest of the forms, a button can be just connected to a text.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Button(action: {}, label: {
                     Text("Add ")
                         .modifier(ButtonFontModifier())
@@ -174,23 +176,33 @@ struct ButtonsComponentsView: View, Comparable {
     }
     
     private var styledButtons: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
-                Text("BorderlessButtonStyle")
-                    .fontWeight(.heavy)
-                Text("There is an specific button style called BorderlessButtonStyle which can be used to create simple buttons.")
-                    .fontWeight(.light)
-                Button("Style me: borderless", action: {})
-                    .buttonStyle(BorderlessButtonStyle())
-                    .padding()
-                Divider()
-                Text("PlainButtonStyle")
-                    .fontWeight(.heavy)
-                Text("A button style that, when in an idle state, does not style or decorate its content; instead, it may apply a visual effect to show if the button is pressed, focused, or enabled.")
-                    .fontWeight(.light)
-                Button("Style me: plain", action: {})
-                    .buttonStyle(PlainButtonStyle())
-                    .padding()
+        Group {
+            GroupBox {
+                VStack(alignment: .leading) {
+                    Text("BorderlessButtonStyle")
+                        .fontWeight(.heavy)
+                        .font(.title)
+                    Text("There is an specific button style called BorderlessButtonStyle which can be used to create simple buttons.")
+                        .fontWeight(.light)
+                        .font(.title2)
+                    Button("Style me: borderless", action: {})
+                        .buttonStyle(BorderlessButtonStyle())
+                        .padding()
+                }
+            }
+            .modifier(Divided())
+            GroupBox {
+                VStack(alignment: .leading) {
+                    Text("PlainButtonStyle")
+                        .fontWeight(.heavy)
+                        .font(.title)
+                    Text("A button style that, when in an idle state, does not style or decorate its content; instead, it may apply a visual effect to show if the button is pressed, focused, or enabled.")
+                        .fontWeight(.light)
+                        .font(.title2)
+                    Button("Style me: plain", action: {})
+                        .buttonStyle(PlainButtonStyle())
+                        .padding()
+                }
             }
         }
     }
@@ -200,8 +212,10 @@ struct ButtonsComponentsView: View, Comparable {
             VStack(alignment: .leading) {
                 Text("A button label can have different styles")
                     .fontWeight(.heavy)
+                    .font(.title)
                 Text("A modifier can be used to set a specific style for all labels within a view, to show only an icon, or only the title or both.")
                     .fontWeight(.light)
+                    .font(.title2)
                 Button("Label Syle Icon Only", systemImage: "message.badge",  action: {})
                     .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: textStyle2))))
                     .background(color2)
