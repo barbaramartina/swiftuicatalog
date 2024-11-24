@@ -297,16 +297,16 @@ struct ContentView: View {
             .font(.title)
             .modifier(ListSectionFontModifier())) {
                 
-                Link(destination: PopoversComponentView(),
-                     label: "Popovers")
-                Link(destination: SheetView(),
+//                Link(destination: PopoversComponentView(),
+//                     label: "Popovers")
+                Link(destination: SheetsView(),
                      label: "Sheets")
-                //            Link(destination: AlertsComponentView(),
-                //                 label: "Alerts")
-                Link(destination: TimelineViews(),
-                     label: "Timelines")
-                Link(destination: SpacersDividersView(),
-                     label: "Spacer")
+//                Link(destination: AlertsComponentView(),
+//                     label: "Alerts")
+//                Link(destination: TimelineViews(),
+//                     label: "Timelines")
+//                Link(destination: SpacersDividersView(),
+//                     label: "Spacer")
             }
             .listRowBackground(Color(sectionColor))
         
@@ -332,13 +332,10 @@ struct ContentView: View {
 
 // MARK: - preview
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         Group {
             ContentView()
                 .preferredColorScheme(.dark)
         }
-        
-    }
 }
-
