@@ -37,7 +37,7 @@ import SwiftUI
 ///
 
 struct GridsView: View, Comparable {
-    
+    @Environment(\.openURL) var openURL
     
     let id: String = "GridsView"
     
@@ -45,20 +45,25 @@ struct GridsView: View, Comparable {
     Array(repeating: .init(.fixed(20)), count: 2)
     var columns: [GridItem] =
     Array(repeating: .init(.flexible()), count: 2)
-    @Environment(\.openURL) var openURL
-    
+    private let adaptiveColumns: [GridItem] = [GridItem(.adaptive(minimum: 50))]
+
     var body: some View {
         
         PageContainer(content: ScrollView {
             
             VStack(alignment: .leading) {
                 DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/lazyhgrid", name: "GRID VIEWS")
-                
+                // intro
                 gridsIntroduction
+                // lazy H grid example with text an emojies
+                lazyAdaptiveGrid
+                    .modifier(Divided())
+                // vertical grid example with text and emojies
                 lazyHGrid
                     .modifier(Divided())
+                // vertical example with adaptive layout
                 lazyVGrid
-                
+
                 ContributedByView(name: "Ali Ghayeni H",
                                   link: "https://github.com/alighayeni")
                 .padding(.top, 80)
@@ -93,7 +98,37 @@ struct GridsView: View, Comparable {
             }
         }
     }
-    
+    private var lazyAdaptiveGrid: some View {
+        GroupBox {
+            VStack(alignment: .leading) {
+                Text("Adaptive Grid")
+                    .fontWeight(.heavy)
+                    .font(.title)
+                Text("An adaptive grid will fill in the rows/columns according to the space available in the screen. You can try it out by rotating your phone.")
+                    .fontWeight(.light)
+                    .font(.title2)
+                ScrollView {
+                    LazyVGrid(columns: adaptiveColumns) {
+                        ForEach((0...79), id: \.self) { index in
+                            VStack(spacing: 0) {
+                                let codepoint = index + 0x1f600
+                                let codepointString = String(format: "%02X", codepoint)
+                                Text("\(codepointString)")
+                                let emoji = String(Character(UnicodeScalar(codepoint)!))
+                                Text("\(emoji)")
+                            }
+                            .padding(4)
+                            .background(Color.secondary)
+                            .cornerRadius(8)
+                            .frame(width: CGFloat.random(in: 60...90))
+                        }
+                    }
+                }
+                .frame(height: 250, alignment: .center)
+            }
+        }
+    }
+
     // MARK: - Lazy Horizontal Grid
     
     private var lazyHGrid: some View {
