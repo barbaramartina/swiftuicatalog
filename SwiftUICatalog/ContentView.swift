@@ -316,14 +316,15 @@ struct ContentView: View {
         Section(header: Text("Composed components to help speed up development")
             .font(.title)
             .modifier(ListSectionFontModifier())) {
-                
                 Link(destination: CommonlyUsedViews(),
                      label: "Commonly used views")
-                //    Link(destination: CollectionsViews(),
-                //       label: "Collections of components")
+                Link(destination: CollectionsViews(),
+                       label: "Collections of components")
+                Link(destination: StackedCardsView<CardView>(elementsCount: 22),
+                     label: "Stacked cards with dragging")
             }
             .listRowBackground(Color(sectionColor))
-        // end of Group composed VIEWS
+        // end of composed VIEWS
         
     }
     
