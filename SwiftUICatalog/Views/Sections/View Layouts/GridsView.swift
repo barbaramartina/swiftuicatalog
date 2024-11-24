@@ -41,12 +41,10 @@ struct GridsView: View, Comparable {
     
     let id: String = "GridsView"
     
-    var rows: [GridItem] =
-    Array(repeating: .init(.fixed(20)), count: 2)
-    var columns: [GridItem] =
-    Array(repeating: .init(.flexible()), count: 2)
+    private let rows: [GridItem] = Array(repeating: .init(.fixed(20)), count: 2)
+    private let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     private let adaptiveColumns: [GridItem] = [GridItem(.adaptive(minimum: 50))]
-
+    
     var body: some View {
         
         PageContainer(content: ScrollView {
@@ -63,7 +61,7 @@ struct GridsView: View, Comparable {
                     .modifier(Divided())
                 // vertical example with adaptive layout
                 lazyVGrid
-
+                
                 ContributedByView(name: "Ali Ghayeni H",
                                   link: "https://github.com/alighayeni")
                 .padding(.top, 80)
@@ -86,11 +84,7 @@ struct GridsView: View, Comparable {
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach((0...79), id: \.self) {
-                            let codepoint = $0 + 0x1f600
-                            let codepointString = String(format: "%02X", codepoint)
-                            Text("\(codepointString)")
-                            let emoji = String(Character(UnicodeScalar(codepoint)!))
-                            Text("\(emoji)")
+                            emojieWith(index: $0)
                         }
                     }
                 }
@@ -98,6 +92,17 @@ struct GridsView: View, Comparable {
             }
         }
     }
+    
+    private func emojieWith(index: Int) -> some View {
+        VStack(spacing: 0) {
+            let codepoint = index + 0x1f600
+            let codepointString = String(format: "%02X", codepoint)
+            Text("\(codepointString)")
+            let emoji = String(Character(UnicodeScalar(codepoint)!))
+            Text("\(emoji)")
+        }
+    }
+    
     private var lazyAdaptiveGrid: some View {
         GroupBox {
             VStack(alignment: .leading) {
@@ -110,17 +115,11 @@ struct GridsView: View, Comparable {
                 ScrollView {
                     LazyVGrid(columns: adaptiveColumns) {
                         ForEach((0...79), id: \.self) { index in
-                            VStack(spacing: 0) {
-                                let codepoint = index + 0x1f600
-                                let codepointString = String(format: "%02X", codepoint)
-                                Text("\(codepointString)")
-                                let emoji = String(Character(UnicodeScalar(codepoint)!))
-                                Text("\(emoji)")
-                            }
-                            .padding(4)
-                            .background(Color.secondary)
-                            .cornerRadius(8)
-                            .frame(width: CGFloat.random(in: 60...90))
+                            emojieWith(index: index)
+                                .padding(4)
+                                .background(Color.secondary)
+                                .cornerRadius(8)
+                                .frame(width: CGFloat.random(in: 60...90))
                         }
                     }
                 }
@@ -128,7 +127,7 @@ struct GridsView: View, Comparable {
             }
         }
     }
-
+    
     // MARK: - Lazy Horizontal Grid
     
     private var lazyHGrid: some View {
@@ -144,13 +143,7 @@ struct GridsView: View, Comparable {
                 ScrollView(.horizontal) {
                     LazyHGrid(rows: rows, alignment: .top) {
                         ForEach((0...79), id: \.self) {
-                            let codepoint = $0 + 0x1f600
-                            let codepointString = String(format: "%02X", codepoint)
-                            Text("\(codepointString)")
-                                .font(.footnote)
-                            let emoji = String(Character(UnicodeScalar(codepoint)!))
-                            Text("\(emoji)")
-                                .font(.largeTitle)
+                            emojieWith(index: $0)
                         }
                     }
                     .frame(width: 100, height: 100, alignment: .center)
@@ -199,5 +192,6 @@ extension GridsView {
     
     
 }
+
 
 
