@@ -30,7 +30,7 @@ struct HeaderImageTitleSubtitle: View, Identifiable {
         
         VStack {
             
-            Image(configuration.header)
+            Image(systemName: configuration.header)
                 .resizable()
                 .scaledToFit()
             
