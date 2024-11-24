@@ -27,19 +27,19 @@ Easily install the catalog on your device or share it with anyone!
 
 
 # How to contribute?
-- Select a VIEW you want to develop (example "toggles" or "sliders"). Focus on the minimal required to showcase a component, if you want to add examples for only a modifier, we have a section for this. There are too many component and it is important to keep it lean.
+- There are views which are explicitly marked as NEED CONTRIBUTION. Therefore, you can select a VIEW that you want to develop (example "toggles" or "sliders"). Focus on the minimal required to showcase a component, if you want to add examples for only a modifier, we have a section for this. There are too many component and it is important to keep it lean.
+- To avoid double work, or work which won't fit the purpose of this repository, if you want to contribute some other view not already marked as Need contribution, please open an ISSUE in the repository and ask me a question. 
 - Only develop for the latest iOS SDK, we focus on showcasing the most up to date components.
-- If you have doubts before adding a contribution, open an issue so we can discuss it.
-- Once discussed, check if it is free to take (no other PR is made)
+- Once you have clear what you want to contribute, check if it is free to take (no other PR is made).
 - Create a branch named like the VIEW you want to contribute to (the name is the one you see when you run the demo App, example "toggles")
 - Replace this section "{ YOUR NAME HERE 🏆 }" with your name. Commit it.
-- Inmediately create a DRAFT Pull Request (So other can see it's taken)
+- Inmediately create a DRAFT Pull Request (So other can see it's taken).
 - Develop
-- Convert the DRAFT to an OPEN Pull Request
-- I'll review and merge your PR
+- Convert the DRAFT to an OPEN Pull Request.
+- I'll review and merge your PR.
 
 If you have any other suggestion or wish regarding this catalog please open an ISSUE and we can discuss it there.
-
+Since I have a full-time job and other life commitments, I might be slow to reply, please do not expect a reply in hours, it usually will take something between 3 days and 3 weeks. 
 
 # Goal
 We'd like to promote this as a collaborative initiative developed over time, you're very welcomed to join the catalog with your contributions or to make use of the code which has been already created and shared.
