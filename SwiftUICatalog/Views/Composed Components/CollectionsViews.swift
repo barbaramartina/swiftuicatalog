@@ -20,8 +20,7 @@ struct CollectionsViews: View, Comparable {
     }
 }
 
-struct CollectionsViews_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         CollectionsViews()
-    }
 }

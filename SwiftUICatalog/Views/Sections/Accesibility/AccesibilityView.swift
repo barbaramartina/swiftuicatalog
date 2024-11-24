@@ -155,8 +155,8 @@ struct AccesibilityView: View {
     }
 }
 
-struct AccesibilityView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         AccesibilityView()
-    }
+    
 }

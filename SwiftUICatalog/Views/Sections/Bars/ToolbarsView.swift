@@ -82,10 +82,10 @@ struct ToolbarsComponentView: View, Comparable {
     }
 }
 
-struct ToolbarsComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ToolbarsComponentView()
-    }
+    
 }
 
 // MARK: - HASHABLE

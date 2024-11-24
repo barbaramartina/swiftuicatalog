@@ -103,9 +103,9 @@ struct TitleSubtitleIconView: View, Identifiable {
     
 }
 
-struct TitleSubtitleIconView_Previews: PreviewProvider {
+#Preview {
     
-    static var previews: some View {
+    
         TitleSubtitleIconView(configuration:  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "Sun"
                                                                                   , titleFont: .title,
                                                                                   titleWeight: .bold,
@@ -120,5 +120,5 @@ struct TitleSubtitleIconView_Previews: PreviewProvider {
                                                                                   paddingTrailing: 16,
                                                                                   paddingBottom: 16)
         )
-    }
+    
 }

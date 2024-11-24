@@ -107,10 +107,10 @@ struct ScrollViewsView: View, Comparable {
     }
 }
 
-struct ScrollViewsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ScrollViewsView()
-    }
+    
 }
 
 // MARK: - HASHABLE

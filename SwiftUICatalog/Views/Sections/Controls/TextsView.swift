@@ -282,10 +282,10 @@ struct TextsComponentsView: View, Comparable {
     
 }
 
-struct TextsComponentsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         TextsComponentsView()
-    }
+    
 }
 
 // MARK: - HASHABLE

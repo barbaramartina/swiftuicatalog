@@ -79,8 +79,8 @@ struct InterfacingWithUIKitView<Page: View>: View {
     
 }
 
-struct InterfacingWithUIKitView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         InterfacingWithUIKitView(pages: ModelData().features.map { FeatureCardView(landmark: $0) })
-        .aspectRatio(3 / 2, contentMode: .fit)    }
+        .aspectRatio(3 / 2, contentMode: .fit)
 }

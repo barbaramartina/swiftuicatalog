@@ -149,10 +149,10 @@ struct LayoutModifiersView: View, Comparable {
     }
 }
 
-struct LayoutModifiersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         LayoutModifiersView()
-    }
+    
 }
 
 

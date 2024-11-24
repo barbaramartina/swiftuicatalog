@@ -77,10 +77,9 @@ struct PopoversComponentView: View, Comparable {
     }
 }
 
-struct PopoversComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         PopoversComponentView()
-    }
 }
 
 // MARK: - HASHABLE

@@ -157,10 +157,10 @@ struct SlidersView: View, Comparable {
     
 }
 
-struct SlidersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         SlidersView()
-    }
+    
 }
 
 // MARK: - HASHABLE

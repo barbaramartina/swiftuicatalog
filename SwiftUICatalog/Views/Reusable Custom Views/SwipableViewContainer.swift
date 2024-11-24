@@ -116,8 +116,8 @@ struct SwipableViewContainer: View {
     }
 }
 
-struct SwipableView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         
         let configurationIcon =  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "Sun"
                                                                      , titleFont: .title,
@@ -174,7 +174,7 @@ struct SwipableView_Previews: PreviewProvider {
         let subviews = [subview1, subview2, subview3]
         
         SwipableViewContainer(subviews: subviews)
-    }
+    
 }
 
 // MARK: - AnyTransition

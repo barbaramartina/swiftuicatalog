@@ -214,10 +214,9 @@ struct RedBorderMenuStyle: MenuStyle {
     }
 }
 
-struct MenusComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         MenusComponentView()
-    }
 }
 
 // MARK: - HASHABLE

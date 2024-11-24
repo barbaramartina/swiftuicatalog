@@ -135,10 +135,10 @@ struct ComposingGesturesView: View, Comparable {
     
 }
 
-struct ComposingGesturesView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ComposingGesturesView()
-    }
+    
 }
 
 // MARK: - HASHABLE

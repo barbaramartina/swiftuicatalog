@@ -171,10 +171,8 @@ struct CanvasView: View, Comparable {
     }
 }
 
-struct CanvasView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
         CanvasView()
-    }
 }
 
 // MARK: - HASHABLE

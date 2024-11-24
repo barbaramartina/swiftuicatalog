@@ -45,10 +45,10 @@ struct AlertsComponentView: View, Comparable {
     }
 }
 
-struct AlertsComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         AlertsComponentView()
-    }
+    
 }
 
 // MARK: - HASHABLE

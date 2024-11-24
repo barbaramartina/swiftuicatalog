@@ -28,8 +28,8 @@ struct PageContainer<Content>: View where Content: View {
     }
 }
 
-struct PageContainer_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         PageContainer(content: Text("Content"))
     }
-}
+

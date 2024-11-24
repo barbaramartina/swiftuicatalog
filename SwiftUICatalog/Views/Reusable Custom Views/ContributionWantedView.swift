@@ -47,8 +47,8 @@ struct ContributionWantedView: View, Identifiable {
     }
 }
 
-struct ContributionWantedView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ContributionWantedView()
-    }
+    
 }

@@ -89,10 +89,9 @@ struct MotionAnimationView: View, Comparable {
     }
 }
 
-struct MotionAnimationView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         MotionAnimationView()
-    }
 }
 
 // MARK: - HASHABLE

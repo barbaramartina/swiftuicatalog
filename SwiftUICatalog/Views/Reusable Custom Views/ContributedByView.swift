@@ -39,8 +39,8 @@ struct ContributedByView: View, Identifiable {
     }
 }
 
-struct ContributedByView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ContributedByView(name: "Johnny", link: "www.google.com")
-    }
+    
 }

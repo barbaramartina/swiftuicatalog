@@ -53,8 +53,8 @@ struct DocumentationLinkView: View, Identifiable {
     }
 }
 
-struct DocumentationLinkView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         DocumentationLinkView(link: "www.apple.com")
-    }
+    
 }

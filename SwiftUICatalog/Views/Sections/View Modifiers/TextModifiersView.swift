@@ -352,10 +352,10 @@ struct TextModifiersView: View, Comparable {
     }
 }
 
-struct TextModifiersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         TextModifiersView()
-    }
+    
 }
 
 // MARK: - HASHABLE

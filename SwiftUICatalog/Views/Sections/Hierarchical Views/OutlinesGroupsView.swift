@@ -101,10 +101,10 @@ struct OutlinesGroupsView: View, Comparable {
     }
 }
 
-struct OutlinesGroupsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         OutlinesGroupsView()
-    }
+    
 }
 
 // MARK: - HASHABLE

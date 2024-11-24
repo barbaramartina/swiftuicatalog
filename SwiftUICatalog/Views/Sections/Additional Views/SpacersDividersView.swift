@@ -52,10 +52,10 @@ struct SpacersDividersView: View, Comparable {
     }
 }
 
-struct SpacersDividersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         SpacersDividersView()
-    }
+    
 }
 
 // MARK: - HASHABLE

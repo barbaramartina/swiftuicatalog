@@ -174,9 +174,9 @@ struct CommonlyUsedViews: View, Comparable {
     
 }
 
-struct CommonlyUsedViews_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         CommonlyUsedViews()
-    }
+    
 }
 

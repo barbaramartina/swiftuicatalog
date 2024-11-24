@@ -174,10 +174,10 @@ struct ShapesView: View, Comparable {
     
 }
 
-struct ShapesView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ShapesView()
-    }
+    
 }
 
 struct CustomShape: Shape {

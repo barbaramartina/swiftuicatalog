@@ -88,10 +88,10 @@ struct TabsView: View, Comparable {
     }
 }
 
-struct TabsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         TabsView()
-    }
+    
 }
 
 // MARK: - HASHABLE

@@ -294,10 +294,9 @@ struct RedBorderedLabelStyle: LabelStyle {
     }
 }
 
-struct LabelsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         LabelsView()
-    }
 }
 
 // MARK: - HASHABLE

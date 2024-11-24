@@ -13,8 +13,8 @@ struct LayoutsView: View {
     }
 }
 
-struct LayoutsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         LayoutsView()
-    }
+    
 }

@@ -187,10 +187,9 @@ extension Flavor {
     }
 }
 
-struct PickersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         PickersView()
-    }
 }
 
 // MARK: - HASHABLE

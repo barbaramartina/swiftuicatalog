@@ -61,8 +61,8 @@ struct HeaderImageTitleSubtitle: View, Identifiable {
     }
 }
 
-struct HeaderImageTitleSubtitle_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         HeaderImageTitleSubtitle(configuration: HeaderImageTitleSubtitle.Configuration(title: "Snow flakes",
                                                                                        titleFont: .title,
                                                                                        titleWeight: .bold,
@@ -74,5 +74,4 @@ struct HeaderImageTitleSubtitle_Previews: PreviewProvider {
                                                                                        paddingLeading: 16,
                                                                                        paddingTrailing: 16,
                                                                                        paddingBottom: 16))
-    }
 }

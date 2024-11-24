@@ -129,10 +129,10 @@ struct ContainersView: View, Comparable {
     }
 }
 
-struct ContainersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ContainersView()
-    }
+    
 }
 
 // MARK: - HASHABLE

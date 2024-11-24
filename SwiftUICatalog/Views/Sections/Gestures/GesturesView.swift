@@ -140,10 +140,10 @@ struct GesturesView: View, Comparable {
     
 }
 
-struct GesturesView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         GesturesView()
-    }
+    
 }
 
 // MARK: - HASHABLE

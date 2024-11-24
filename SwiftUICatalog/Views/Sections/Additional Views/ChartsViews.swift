@@ -203,8 +203,8 @@ struct ChartsViews: View {
     }
 }
 
-struct ChartsViews_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ChartsViews()
-    }
+    
 }

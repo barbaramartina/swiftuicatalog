@@ -177,10 +177,10 @@ extension ToggleStyle where Self == CustomToggleStyle {
     static var custom: CustomToggleStyle { CustomToggleStyle() }
 }
 
-struct TogglesView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         TogglesView()
-    }
+    
 }
 
 // MARK: - HASHABLE

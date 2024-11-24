@@ -48,9 +48,9 @@ struct RobbieWithPulseView: View, Comparable {
     
 }
 
-struct RobbieWithPulse_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         RobbieWithPulseView()
-    }
+    
 }
 

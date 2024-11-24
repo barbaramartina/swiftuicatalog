@@ -116,10 +116,10 @@ struct GeometriesView: View, Comparable {
     
 }
 
-struct GeomtriesView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         GeometriesView()
-    }
+    
 }
 
 struct PingPongEffect: GeometryEffect {

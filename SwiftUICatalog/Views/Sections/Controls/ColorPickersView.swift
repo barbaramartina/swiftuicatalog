@@ -83,10 +83,10 @@ struct ColorPickersView: View, Comparable {
     }
 }
 
-struct ColorPickersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ColorPickersView()
-    }
+    
 }
 
 // MARK: - HASHABLE

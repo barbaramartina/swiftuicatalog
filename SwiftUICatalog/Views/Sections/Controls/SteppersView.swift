@@ -133,10 +133,10 @@ struct SteppersView: View, Comparable {
     }
 }
 
-struct SteppersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         SteppersView()
-    }
+    
 }
 
 // MARK: - HASHABLE

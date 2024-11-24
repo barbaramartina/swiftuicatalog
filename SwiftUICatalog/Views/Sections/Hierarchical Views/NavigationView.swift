@@ -83,10 +83,9 @@ struct NavigationBarsComponentView: View, Comparable {
     }
 }
 
-struct NavigationBarsComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         NavigationBarsComponentView()
-    }
 }
 
 // MARK: - HASHABLE

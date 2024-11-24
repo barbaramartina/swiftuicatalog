@@ -197,10 +197,9 @@ struct EffectsModifiersView: View, Comparable {
     }
 }
 
-struct EffectsModifiersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         EffectsModifiersView()
-    }
 }
 
 struct BlendExamplesView: View {

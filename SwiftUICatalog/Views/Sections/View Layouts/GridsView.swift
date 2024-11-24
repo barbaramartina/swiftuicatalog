@@ -172,10 +172,10 @@ struct GridsView: View, Comparable {
     }
 }
 
-struct GridsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         GridsView()
-    }
+    
 }
 
 // MARK: - HASHABLE

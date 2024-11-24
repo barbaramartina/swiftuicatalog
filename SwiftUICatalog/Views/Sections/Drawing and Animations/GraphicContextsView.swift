@@ -187,10 +187,9 @@ struct GraphicContextsView: View, Comparable {
     
 }
 
-struct GraphicContextsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         GraphicContextsView()
-    }
 }
 
 /// Auxiliar view to stack a gradient in a horizontal stack view

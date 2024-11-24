@@ -46,10 +46,10 @@ struct TimelineViews: View, Comparable {
     }
 }
 
-struct TimelineViews_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         TimelineViews()
-    }
+    
 }
 
 // MARK: - HASHABLE

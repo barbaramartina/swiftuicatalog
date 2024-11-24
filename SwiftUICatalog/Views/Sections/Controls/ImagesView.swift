@@ -171,11 +171,11 @@ struct ImagesComponentView: View, Comparable {
     
 }
 
-struct ImagesComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ImagesComponentView()
-            .previewLayout(.sizeThatFits)
-    }
+            
+    
 }
 
 // MARK: - HASHABLE

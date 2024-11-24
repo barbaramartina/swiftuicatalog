@@ -272,10 +272,10 @@ struct ListsComponentView: View, Comparable {
     
 }
 
-struct ListsComponentView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ListsComponentView()
-    }
+    
 }
 
 struct WeatherFieldQuality: Hashable, Identifiable {

@@ -91,10 +91,9 @@ struct DisclosureGroupsView: View, Comparable {
     }
 }
 
-struct DisclosureGroupsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         DisclosureGroupsView()
-    }
 }
 
 // MARK: - HASHABLE

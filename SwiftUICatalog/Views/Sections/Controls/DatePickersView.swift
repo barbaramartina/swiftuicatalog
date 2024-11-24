@@ -214,10 +214,9 @@ struct DatePickersView: View, Comparable {
 
 // MARK: - preview
 
-struct DatePickersView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         DatePickersView()
-    }
 }
 
 // MARK: - HASHABLE

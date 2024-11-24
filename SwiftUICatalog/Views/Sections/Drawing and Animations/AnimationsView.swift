@@ -111,11 +111,11 @@ struct AnimationsView: View, Comparable {
 
 // MARK: - previews
 
-struct AnimationsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         AnimationsView()
-            .previewLayout(.sizeThatFits)
-    }
+            
+    
 }
 
 // MARK: - extensions of animations

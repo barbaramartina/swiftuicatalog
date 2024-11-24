@@ -392,10 +392,10 @@ struct StylesView: View, Comparable {
     
 }
 
-struct StylesView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         StylesView()
-    }
+    
 }
 
 // MARK: - HASHABLE

@@ -469,11 +469,10 @@ struct ButtonsComponentsView: View, Comparable {
 
 // MARK: - previews
 
-struct ButtonsComponentsView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ButtonsComponentsView()
-            .previewLayout(.sizeThatFits)
-    }
+            
 }
 
 // MARK: - custom borders shape

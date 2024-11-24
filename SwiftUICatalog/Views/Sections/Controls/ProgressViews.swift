@@ -168,10 +168,10 @@ struct ProgressViews: View, Comparable {
     }
 }
 
-struct ProgressViews_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         ProgressViews()
-    }
+    
 }
 
 // MARK: - HASHABLE

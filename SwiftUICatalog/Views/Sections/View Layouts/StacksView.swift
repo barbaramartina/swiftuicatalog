@@ -230,10 +230,10 @@ struct StacksView: View, Comparable {
     }
 }
 
-struct StacksView_Previews: PreviewProvider {
-    static var previews: some View {
+#Preview {
+    
         StacksView()
-    }
+    
 }
 
 // MARK: - HASHABLE
