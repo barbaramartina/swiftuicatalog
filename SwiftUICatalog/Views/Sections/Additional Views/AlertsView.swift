@@ -51,6 +51,7 @@ struct AlertsComponentView: View, Comparable {
                         VStack {
             
             DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/alert(_:ispresented:actions:)", name: "ALERT")
+            
             simpleAlert
                 .modifier(Divided())
             customActionsAlert
@@ -68,11 +69,11 @@ struct AlertsComponentView: View, Comparable {
             })
             
             .alert("Value reached to maximum!", isPresented: $showAlertWithItem, presenting: $stepperValue, actions: { _ in
-                Button("Ok") {
+                Button("OK") {
                     stepperValue = 0
                 }
             }, message: { value in
-                Text("stepper value has become \(value.wrappedValue).")
+                Text("Stepper value has become \(value.wrappedValue).")
             })
             
             .alert("Alert with two actions", isPresented: $showAlertWithTwoActions, actions: {
@@ -88,7 +89,7 @@ struct AlertsComponentView: View, Comparable {
             })
             .alert("Alert with different roles actions", isPresented: $showAlertWithActionRoles, actions: {
                 
-                Button("Save") {}
+                Button("Default") {}
                 Button("Destructive", role: .destructive) {}
                 Button("Cancel", role: .cancel) {}
             })
@@ -151,7 +152,7 @@ For presenting the most simple alert, the only required parameter is a title. Th
                     .font(.title)
                 
                 Text("""
-                Localizable errors can be used to create Alerts. The alert title will be the error's errorDescription, and the error can also be used to create the alert's message and actions.
+                Localizable errors can be used to create alerts. The alert title will be the error's errorDescription, and the error can also be used to create the alert's message and actions.
                 Consider this localizable error;
                 """)
                     .fontWeight(.light)
