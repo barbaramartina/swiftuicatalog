@@ -35,48 +35,59 @@ import SwiftUI
 ///
 
 struct DisclosureGroupsView: View, Comparable {
-    
+
     let id: String = "DisclosureGroupsView"
-    
+
     @Environment(\.openURL) var openURL
-    
+
     struct ToggleStates {
         var oneIsOn: Bool = false
         var twoIsOn: Bool = true
     }
     @State private var toggleStates = ToggleStates()
     @State private var topExpanded: Bool = true
-    
+
     var body: some View {
-        
-        PageContainer(content: 
-                        
-                        ScrollView {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/disclosuregroup", name: "DISCLOSURE GROUP")
-            
-            GroupBox {
-                VStack(alignment: .leading) {
-                    Text("A view that shows or hides another content view, based on the state of a disclosure control.")
-                        .fontWeight(.light)
-                        .font(.title2)
-                    
-                    Text("A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”.")
-                        .fontWeight(.light)
-                        .font(.title2)
-                    disclosureGroupsExample
+
+        PageContainer(
+            content:
+
+                ScrollView {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/disclosuregroup",
+                        name: "DISCLOSURE GROUP"
+                    )
+
+                    GroupBox {
+                        VStack(alignment: .leading) {
+                            Text(
+                                "A view that shows or hides another content view, based on the state of a disclosure control."
+                            )
+                            .fontWeight(.light)
+                            .font(.title2)
+
+                            Text(
+                                "A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”."
+                            )
+                            .fontWeight(.light)
+                            .font(.title2)
+                            disclosureGroupsExample
+                        }
+                    }
+
+                    Spacer()
+                    ContributedByView(
+                        name: "Ali Ghayeni H",
+                        link: "https://github.com/alighayeni"
+                    )
+                    .padding(.top, 80)
                 }
-            }
-            
-            Spacer()
-            ContributedByView(name: "Ali Ghayeni H",
-                              link: "https://github.com/alighayeni")
-            .padding(.top, 80)
-        }
         )
-        
+
     }
-    
+
     private var disclosureGroupsExample: some View {
         DisclosureGroup("Items", isExpanded: $topExpanded) {
             Toggle("Toggle 1", isOn: $toggleStates.oneIsOn)
@@ -87,28 +98,27 @@ struct DisclosureGroupsView: View, Comparable {
                 Text("  Sub-item 1")
             }
         }
-        
+
     }
 }
 
 #Preview {
-    
-        DisclosureGroupsView()
+
+    DisclosureGroupsView()
 }
 
 // MARK: - HASHABLE
 
 extension DisclosureGroupsView {
-    
-    static func == (lhs: DisclosureGroupsView, rhs: DisclosureGroupsView) -> Bool {
+
+    static func == (lhs: DisclosureGroupsView, rhs: DisclosureGroupsView)
+        -> Bool
+    {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

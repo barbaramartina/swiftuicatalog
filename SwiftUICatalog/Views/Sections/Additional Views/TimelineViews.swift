@@ -35,11 +35,11 @@ import SwiftUI
 ///
 
 struct TimelineViews: View, Comparable {
-    
+
     let id: String = "TimelineViews"
-    
+
     var body: some View {
-        
+
         VStack {
             ContributionWantedView()
         }
@@ -47,24 +47,21 @@ struct TimelineViews: View, Comparable {
 }
 
 #Preview {
-    
-        TimelineViews()
-    
+
+    TimelineViews()
+
 }
 
 // MARK: - HASHABLE
 
 extension TimelineViews {
-    
+
     static func == (lhs: TimelineViews, rhs: TimelineViews) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

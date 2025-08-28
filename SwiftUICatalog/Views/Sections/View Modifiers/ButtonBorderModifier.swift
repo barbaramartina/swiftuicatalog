@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ButtonBorderModifier: ViewModifier {
-    
+
     func body(content: Content) -> some View {
         content
             .border(Color.accentColor, width: 5)
-        
+
     }
 }

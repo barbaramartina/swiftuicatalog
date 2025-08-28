@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StackedLayoutView: View {
-    
+
     /// just to distinguish one view from the other / color palette access
     private let style = Style()
 

@@ -25,8 +25,6 @@
 // SOFTWARE.
 //
 
-
-
 import SwiftUI
 
 ///
@@ -34,74 +32,89 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/label
 ///
 struct LabelsView: View, Comparable {
-    
+
     let id: String = "LabelsView"
-    
+
     // Label Style
     // https://developer.apple.com/documentation/swiftui/labelstyle
     // please note that: some of the label style is available from iOS version 14.5 or above.
     var titleOnly: TitleOnlyLabelStyle = TitleOnlyLabelStyle.init()
-    
+
     // Custom label Style
     /// For more extensive customization or to create a completely new label style,
     /// you'll need to adopt the ``LabelStyle`` protocol and implement a
     /// ``LabelStyleConfiguration`` for the new style.
-    var redBorderedLabelStyle: RedBorderedLabelStyle = RedBorderedLabelStyle.init()
-    
+    var redBorderedLabelStyle: RedBorderedLabelStyle =
+        RedBorderedLabelStyle.init()
+
     var body: some View {
-        
-        PageContainer(content:
-                        ScrollView {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/label", name: nil)
-            
-            VStack(alignment: .leading) {
-                labelTypes
-                    .modifier(Divided())
-                labelsGroups
-                    .modifier(Divided())
-                labelsCustomViews
-                    .modifier(Divided())
-                truncationAndMultilineLabels
-            }
-            
-            ContributedByView(name: "Ali Ghayeni H",
-                              link: "https://github.com/alighayeni")
-            .padding(.top, 80)
-            
-        })
+
+        PageContainer(
+            content:
+                ScrollView {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/label",
+                        name: nil
+                    )
+
+                    VStack(alignment: .leading) {
+                        labelTypes
+                            .modifier(Divided())
+                        labelsGroups
+                            .modifier(Divided())
+                        labelsCustomViews
+                            .modifier(Divided())
+                        truncationAndMultilineLabels
+                    }
+
+                    ContributedByView(
+                        name: "Ali Ghayeni H",
+                        link: "https://github.com/alighayeni"
+                    )
+                    .padding(.top, 80)
+
+                }
+        )
     }
-    
+
     // MARK: - LABEL TYPE
-    
+
     private var labelTypes: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                
+
                 // Contextual information: a short intro to the elements we are showcasing
                 Group {
                     Text("Label Types")
                         .fontWeight(.heavy)
                         .font(.title)
-                    Text("You can create a label in SwiftUI by adding an icon to it, using only a text or conbining text and icons in one label")
-                        .fontWeight(.light)
-                        .font(.title2)
+                    Text(
+                        "You can create a label in SwiftUI by adding an icon to it, using only a text or conbining text and icons in one label"
+                    )
+                    .fontWeight(.light)
+                    .font(.title2)
                 }
-                
+
                 VStack {
                     Spacer()
                     HStack {
                         Text("Label with icon:")
                         Spacer()
-                        Label("Lightning",
-                              systemImage: "bolt.fill")
+                        Label(
+                            "Lightning",
+                            systemImage: "bolt.fill"
+                        )
                     }
                     Spacer()
-                    HStack{
+                    HStack {
                         Text("Only label:")
                         Spacer()
-                        Label("Lightning",
-                              systemImage: "bolt.fill")
+                        Label(
+                            "Lightning",
+                            systemImage: "bolt.fill"
+                        )
                         .labelStyle(titleOnly)
                     }
                     /* available only on iOS version 14.5 or above */
@@ -128,9 +141,9 @@ struct LabelsView: View, Comparable {
                     ///         }
                     ///     }
                     ///
-                    
+
                     Spacer()
-                    HStack{
+                    HStack {
                         Text("Only icon:")
                         Spacer()
                         Label("", systemImage: "bolt.fill")
@@ -139,41 +152,47 @@ struct LabelsView: View, Comparable {
                     HStack {
                         Text("Label, icon and custom style:")
                         Spacer()
-                        Label("Lightning",
-                              systemImage: "bolt.fill")
+                        Label(
+                            "Lightning",
+                            systemImage: "bolt.fill"
+                        )
                         .labelStyle(redBorderedLabelStyle)
-                        
+
                     }
                     Spacer()
-                    
+
                     /// you csn customise the label with Text views check the following example
                     HStack {
                         Text("Label, icon and font:")
                         Spacer()
-                        Label("Lightning",
-                              systemImage: "bolt.fill")
+                        Label(
+                            "Lightning",
+                            systemImage: "bolt.fill"
+                        )
                         .font(.title)
                     }
                 }
             }
         }
-        
+
     }
-    
+
     // MARK: - LABEL GROUPS
-    
+
     private var labelsGroups: some View {
         GroupBox {
             VStack(alignment: .leading) {
                 VStack(alignment: .leading) {
                     Group {
-                        Text( "Label groups")
+                        Text("Label groups")
                             .fontWeight(.heavy)
                             .font(.title)
-                        Text("Labels can be grouped in other containers to layout them as a group")
-                            .fontWeight(.light)
-                            .font(.title2)
-                        
+                        Text(
+                            "Labels can be grouped in other containers to layout them as a group"
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
+
                     }
                     HStack {
                         VStack {
@@ -183,7 +202,7 @@ struct LabelsView: View, Comparable {
                         }
                         .foregroundColor(.accentColor)
                         .modifier(Divided())
-                        
+
                         /// To apply a common label style to a group of labels, apply the style
                         /// to the view hierarchy that contains the labels:
                         VStack {
@@ -193,25 +212,25 @@ struct LabelsView: View, Comparable {
                         }
                         .labelStyle(titleOnly)
                         .modifier(Divided())
-                        
+
                         VStack {
                             Label("", systemImage: "cloud.rain")
                             Label("", systemImage: "snow")
                             Label("", systemImage: "sun.max")
                         }
                         .foregroundColor(.accentColor)
-                        
+
                     }
                     .modifier(ViewAlignmentModifier(alignment: .center))
-                    
+
                 }
             }
         }
-        
+
     }
-    
+
     // MARK: - TRUNCATION AND MULTILINE
-    
+
     private var truncationAndMultilineLabels: some View {
         GroupBox {
             VStack(alignment: .leading) {
@@ -219,13 +238,16 @@ struct LabelsView: View, Comparable {
                     Text("Truncations and multiline")
                         .fontWeight(.heavy)
                         .font(.title)
-                    Text("Similar configuration as there were in UIKit can be applied in SwiftUI to manage truncation and multiline text in a label")
-                        .fontWeight(.light)
-                        .font(.title2)
+                    Text(
+                        "Similar configuration as there were in UIKit can be applied in SwiftUI to manage truncation and multiline text in a label"
+                    )
+                    .fontWeight(.light)
+                    .font(.title2)
                 }
-                
+
                 Label(
-                    title: { Text("Very long text truncated")
+                    title: {
+                        Text("Very long text truncated")
                             .multilineTextAlignment(.center)
                     },
                     icon: {}
@@ -234,10 +256,13 @@ struct LabelsView: View, Comparable {
                 .lineLimit(1)
                 .allowsTightening(false)
                 .truncationMode(.middle)
-                
+
                 Label(
-                    title: { Text("Multiline text arranged in how many lines as it is needed")
-                            .multilineTextAlignment(.center)
+                    title: {
+                        Text(
+                            "Multiline text arranged in how many lines as it is needed"
+                        )
+                        .multilineTextAlignment(.center)
                     },
                     icon: {}
                 )
@@ -247,21 +272,23 @@ struct LabelsView: View, Comparable {
                 .truncationMode(.middle)
             }
         }
-        
+
     }
-    
+
     // MARK: - LABEL WITH CUSTOM VIEWS
-    
+
     private var labelsCustomViews: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                Text( "Label With Custom Views")
+                Text("Label With Custom Views")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("It's also possible to make labels using views to compose the label's icon")
-                    .fontWeight(.light)
-                    .font(.title2)
-                
+                Text(
+                    "It's also possible to make labels using views to compose the label's icon"
+                )
+                .fontWeight(.light)
+                .font(.title2)
+
                 /// It's also possible to make labels using views to compose the label's icon
                 /// programmatically, rather than using a pre-made image. In this example, the
                 /// icon portion of the label uses a filled ``Circle`` overlaid
@@ -281,7 +308,7 @@ struct LabelsView: View, Comparable {
                 }
             }
         }
-        
+
     }
 }
 
@@ -290,28 +317,28 @@ struct LabelsView: View, Comparable {
 struct RedBorderedLabelStyle: LabelStyle {
     func makeBody(configuration: Configuration) -> some View {
         Label(configuration)
-            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: 2)
+            .border( /*@START_MENU_TOKEN@*/
+                Color.black /*@END_MENU_TOKEN@*/,
+                width: 2
+            )
     }
 }
 
 #Preview {
-    
-        LabelsView()
+
+    LabelsView()
 }
 
 // MARK: - HASHABLE
 
 extension LabelsView: Hashable {
-    
+
     static func == (lhs: LabelsView, rhs: LabelsView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

@@ -34,93 +34,112 @@ import SwiftUI
 ///
 
 struct ProgressViews: View, Comparable {
-    
+
     let id: String = "ProgressViews"
-    
+
     @State private var progress = 0.0
-    private let timer = Timer.publish(every: 0.5,
-                                      on: .main,
-                                      in: .common).autoconnect()
-    
-    
+    private let timer = Timer.publish(
+        every: 0.5,
+        on: .main,
+        in: .common
+    ).autoconnect()
+
     var body: some View {
-        
-        PageContainer(content: ScrollView {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/progressview", name: "PROGRESS VIEW")
-            
-            plainProgressViews
-                .modifier(Divided())
-            tintedProgressView
-                .modifier(Divided())
-            subviewsInProgressView
-            
-            ContributedByView(name: "Barbara Martina",
-                              link: "https://github.com/barbaramartina")
-            .padding(.top, 80)
-            
-        }
+
+        PageContainer(
+            content: ScrollView {
+
+                DocumentationLinkView(
+                    link:
+                        "https://developer.apple.com/documentation/swiftui/progressview",
+                    name: "PROGRESS VIEW"
+                )
+
+                plainProgressViews
+                    .modifier(Divided())
+                tintedProgressView
+                    .modifier(Divided())
+                subviewsInProgressView
+
+                ContributedByView(
+                    name: "Barbara Martina",
+                    link: "https://github.com/barbaramartina"
+                )
+                .padding(.top, 80)
+
+            }
             .onReceive(timer) { _ in
                 if progress < 100 {
                     progress += 2
                 }
             }
         )
-        
+
     }
-    
+
     private var plainProgressViews: some View {
         Group {
-            Text("Progress views are used to indicate steps in a task, or to show feedback while waiting for results. \nExample 1: The first example is a linear progress view with a title shown at the top of the progress bar.")
-                .fontWeight(.light)
-                .font(.title2)
-                .padding(.bottom)
-                .modifier(ViewAlignmentModifier(alignment: .leading))
-            Text("Example 2: Simple progress views can also be used, and the progress bar won't have an associated title.")
-                .fontWeight(.light)
-                .font(.title2)
-                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-                .modifier(ViewAlignmentModifier(alignment: .leading))
-            Text("Example 3: A spinner can also be shown with a text associated.")
-                .fontWeight(.light)
-                .font(.title2)
-                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-                .modifier(ViewAlignmentModifier(alignment: .leading))
-            
-            
+            Text(
+                "Progress views are used to indicate steps in a task, or to show feedback while waiting for results. \nExample 1: The first example is a linear progress view with a title shown at the top of the progress bar."
+            )
+            .fontWeight(.light)
+            .font(.title2)
+            .padding(.bottom)
+            .modifier(ViewAlignmentModifier(alignment: .leading))
+            Text(
+                "Example 2: Simple progress views can also be used, and the progress bar won't have an associated title."
+            )
+            .fontWeight(.light)
+            .font(.title2)
+            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+            .modifier(ViewAlignmentModifier(alignment: .leading))
+            Text(
+                "Example 3: A spinner can also be shown with a text associated."
+            )
+            .fontWeight(.light)
+            .font(.title2)
+            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+            .modifier(ViewAlignmentModifier(alignment: .leading))
+
             GroupBox {
                 VStack(alignment: .center) {
-                    ProgressView("Downloading…",
-                                 value: progress,
-                                 total: 100)
+                    ProgressView(
+                        "Downloading…",
+                        value: progress,
+                        total: 100
+                    )
                     .padding(.vertical)
                     .modifier(Divided())
-                    
+
                     ProgressView()
                         .padding(.vertical)
                         .modifier(Divided())
-                    
+
                     ProgressView("Downloading")
                         .padding(.vertical)
                         .modifier(Divided())
-                    
+
                     ProgressView("Please wait...")
-                        .progressViewStyle(CircularProgressViewStyle(tint: .accentColor))
+                        .progressViewStyle(
+                            CircularProgressViewStyle(tint: .accentColor)
+                        )
                         .padding(.bottom)
-                    
+
                 }
             }
         }
     }
-    
+
     private var subviewsInProgressView: some View {
         Group {
-            Text("Also any view can be included inside the progress view, such as in this case, a button.")
-                .fontWeight(.light)
-                .font(.title2)
-                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-                .modifier(ViewAlignmentModifier(alignment: .leading))
-            
+            Text(
+                "Also any view can be included inside the progress view, such as in this case, a button."
+            )
+            .fontWeight(.light)
+            .font(.title2)
+            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+            .modifier(ViewAlignmentModifier(alignment: .leading))
+
             GroupBox {
                 VStack(alignment: .leading) {
                     ProgressView {
@@ -138,30 +157,37 @@ struct ProgressViews: View, Comparable {
                         .cornerRadius(5)
                         .padding()
                     }
-                    
+
                 }
             }
         }
     }
-    
+
     private var tintedProgressView: some View {
         Group {
-            Text("The color of the spinner can be changed with a tint color of your choice.")
-                .fontWeight(.light)
-                .font(.title2)
-                .padding(.vertical, Style.VerticalPadding.medium.rawValue)
-                .modifier(ViewAlignmentModifier(alignment: .leading))
-            
+            Text(
+                "The color of the spinner can be changed with a tint color of your choice."
+            )
+            .fontWeight(.light)
+            .font(.title2)
+            .padding(.vertical, Style.VerticalPadding.medium.rawValue)
+            .modifier(ViewAlignmentModifier(alignment: .leading))
+
             GroupBox {
                 VStack(alignment: .leading) {
-                    
-                    ProgressView("Please wait...", value: progress,
-                                 
-                                 total: 100)
-                    .progressViewStyle(LinearProgressViewStyle(tint: .accentColor))
+
+                    ProgressView(
+                        "Please wait...",
+                        value: progress,
+
+                        total: 100
+                    )
+                    .progressViewStyle(
+                        LinearProgressViewStyle(tint: .accentColor)
+                    )
                     .foregroundColor(Color("Medium"))
                     .padding(.vertical)
-                    
+
                 }
             }
         }
@@ -169,25 +195,21 @@ struct ProgressViews: View, Comparable {
 }
 
 #Preview {
-    
-        ProgressViews()
-    
+
+    ProgressViews()
+
 }
 
 // MARK: - HASHABLE
 
 extension ProgressViews {
-    
+
     static func == (lhs: ProgressViews, rhs: ProgressViews) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-
-

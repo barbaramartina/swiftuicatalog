@@ -34,11 +34,11 @@ import SwiftUI
 ///
 
 struct OutlinesGroupsView: View, Comparable {
-    
+
     let id: String = "OutlinesGroupsView"
-    
+
     @Environment(\.openURL) var openURL
-    
+
     struct FileItem: Hashable, Identifiable, CustomStringConvertible {
         var id: Self { self }
         var name: String
@@ -52,74 +52,97 @@ struct OutlinesGroupsView: View, Comparable {
             }
         }
     }
-    
+
     let data =
-    FileItem(name: "Users", children:
-                [FileItem(name: " user1234", children:
-                            [FileItem(name: "   Photos", children:
-                                        [FileItem(name: "photo001.jpg"),
-                                         FileItem(name: "photo002.jpg")]),
-                             FileItem(name: "   Movies", children:
-                                        [FileItem(name: "movie001.mp4")]),
-                             FileItem(name: "   Documents", children: [])
-                            ]),
-                 FileItem(name: " newuser", children:
-                            [FileItem(name: "   Documents", children: [])
-                            ])
-                ])
-    
-    
+        FileItem(
+            name: "Users",
+            children: [
+                FileItem(
+                    name: " user1234",
+                    children: [
+                        FileItem(
+                            name: "   Photos",
+                            children: [
+                                FileItem(name: "photo001.jpg"),
+                                FileItem(name: "photo002.jpg"),
+                            ]
+                        ),
+                        FileItem(
+                            name: "   Movies",
+                            children: [FileItem(name: "movie001.mp4")]
+                        ),
+                        FileItem(name: "   Documents", children: []),
+                    ]
+                ),
+                FileItem(
+                    name: " newuser",
+                    children: [
+                        FileItem(name: "   Documents", children: [])
+                    ]
+                ),
+            ]
+        )
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        VStack(alignment: .leading) {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/outlinegroup")
-                .padding()
-            
-            GroupBox {
-                Text("A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data.")
-                    .fontWeight(.light)
-                    .font(.title2)
-                
-                Text("Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. \nThis allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.\nTry it out by clicking on the > below:")
-                    .fontWeight(.light)
-                    .font(.title2)
-                
-                Group {
-                    OutlineGroup(data, children: \.children) { item in
-                        Text("\(item.description)")}
+
+        PageContainer(
+            content:
+
+                VStack(alignment: .leading) {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/outlinegroup"
+                    )
+                    .padding()
+
+                    GroupBox {
+                        Text(
+                            "A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data."
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
+
+                        Text(
+                            "Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. \nThis allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.\nTry it out by clicking on the > below:"
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
+
+                        Group {
+                            OutlineGroup(data, children: \.children) { item in
+                                Text("\(item.description)")
+                            }
+                        }
+                    }
+                    Spacer()
+                    ContributedByView(
+                        name: "Ali Ghayeni H",
+                        link: "https://github.com/alighayeni"
+                    )
+                    .padding(.top, 80)
+
                 }
-            }
-            Spacer()
-            ContributedByView(name: "Ali Ghayeni H",
-                              link: "https://github.com/alighayeni")
-            .padding(.top, 80)
-            
-        })
+        )
     }
 }
 
 #Preview {
-    
-        OutlinesGroupsView()
-    
+
+    OutlinesGroupsView()
+
 }
 
 // MARK: - HASHABLE
 
 extension OutlinesGroupsView {
-    
+
     static func == (lhs: OutlinesGroupsView, rhs: OutlinesGroupsView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

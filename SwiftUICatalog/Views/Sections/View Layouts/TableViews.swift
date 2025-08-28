@@ -16,10 +16,10 @@ struct TableViews: View {
     @State private var users = [
         User(id: 1, name: "User Number 1", score: 95),
         User(id: 2, name: "User Number 2", score: 80),
-        User(id: 3, name: "User Number 3", score: 85)
+        User(id: 3, name: "User Number 3", score: 85),
     ]
     @State private var sortOrder = [KeyPathComparator(\User.name)]
-    
+
     var body: some View {
         Table(sortOrder: $sortOrder) {
             TableColumn("Name", value: \.name)
@@ -32,9 +32,12 @@ struct TableViews: View {
                 TableRow(user)
             }
         }
-        .onChange(of: sortOrder, perform: { _ in  
-            users.sort(using: sortOrder)
-        })
+        .onChange(
+            of: sortOrder,
+            perform: { _ in
+                users.sort(using: sortOrder)
+            }
+        )
     }
 }
 

@@ -34,40 +34,47 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/view-styles
 ///
 struct StylesView: View, Comparable {
-    
+
     let id: String = "StylesView"
-    
+
     @State private var selectedPickerString: String = ""
     @State private var toggleValue: Bool = false
-    
+
     var body: some View {
-        
-        PageContainer(content:
-                        VStack(alignment: .leading) {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view-styles", name: "STYLE VIEW")
-            
-            // contextual information
-            Text("Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view.")
-                .fontWeight(.light)
-                .font(.title2)
-                .modifier(Divided())
-            gauges
-                .modifier(Divided())
-            progress
-                .modifier(Divided())
-            pickers
-                .modifier(Divided())
-            toggles
-                .modifier(Divided())
-            buttons
-                .modifier(Divided())
-            menues
-            
-        }
+
+        PageContainer(
+            content:
+                VStack(alignment: .leading) {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/view-styles",
+                        name: "STYLE VIEW"
+                    )
+
+                    // contextual information
+                    Text(
+                        "Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view."
+                    )
+                    .fontWeight(.light)
+                    .font(.title2)
+                    .modifier(Divided())
+                    gauges
+                        .modifier(Divided())
+                    progress
+                        .modifier(Divided())
+                    pickers
+                        .modifier(Divided())
+                    toggles
+                        .modifier(Divided())
+                    buttons
+                        .modifier(Divided())
+                    menues
+
+                }
         )
     }
-    
+
     private var pickers: some View {
         // styling Pickers
         // https://developer.apple.com/documentation/swiftui/pickerstyle
@@ -125,7 +132,7 @@ struct StylesView: View, Comparable {
                 }
                 .pickerStyle(.wheel)
             }
-            
+
             HStack {
                 Text("Navigation Link style:")
                 Spacer()
@@ -138,9 +145,9 @@ struct StylesView: View, Comparable {
             }
         }
         // end of styling pickers
-        
+
     }
-    
+
     private var buttons: some View {
         // Styling buttons with all the possible already implemented styles in Swift + 1 custom style
         GroupBox {
@@ -152,7 +159,7 @@ struct StylesView: View, Comparable {
                     .fontWeight(.light)
                     .font(.title2)
                 Spacer()
-                Button("Example action") { }
+                Button("Example action") {}
                     .buttonStyle(.automatic)
             }
             HStack {
@@ -160,7 +167,7 @@ struct StylesView: View, Comparable {
                     .fontWeight(.light)
                     .font(.title2)
                 Spacer()
-                Button("Example action") { }
+                Button("Example action") {}
                     .buttonStyle(.bordered)
             }
             HStack {
@@ -168,7 +175,7 @@ struct StylesView: View, Comparable {
                     .fontWeight(.light)
                     .font(.title2)
                 Spacer()
-                Button("Example action") { }
+                Button("Example action") {}
                     .buttonStyle(.borderless)
             }
             HStack {
@@ -176,7 +183,7 @@ struct StylesView: View, Comparable {
                     .fontWeight(.light)
                     .font(.title2)
                 Spacer()
-                Button("Example action") { }
+                Button("Example action") {}
                     .buttonStyle(.borderedProminent)
             }
             HStack {
@@ -184,7 +191,7 @@ struct StylesView: View, Comparable {
                     .fontWeight(.light)
                     .font(.title2)
                 Spacer()
-                Button("Example action") { }
+                Button("Example action") {}
                     .buttonStyle(.plain)
             }
             HStack {
@@ -192,14 +199,14 @@ struct StylesView: View, Comparable {
                     .fontWeight(.light)
                     .font(.title2)
                 Spacer()
-                Button("Example action") { }
+                Button("Example action") {}
                     .buttonStyle(MyOwnButtonStyle())
             }
-            
+
         }
         // end buttons styles
     }
-    
+
     private var toggles: some View {
         // styling Toggles
         // https://developer.apple.com/documentation/swiftui/togglestyle
@@ -231,11 +238,11 @@ struct StylesView: View, Comparable {
                 }
                 .toggleStyle(.switch)
             }
-            
+
         }
         // end styling toggles
     }
-    
+
     private var menues: some View {
         // styling menues
         GroupBox {
@@ -247,8 +254,10 @@ struct StylesView: View, Comparable {
                 Spacer()
                 Menu("Open Menu") {
                     Button("Menu option 1", action: {})
-                    Button("Menu option 2",
-                           action: {})
+                    Button(
+                        "Menu option 2",
+                        action: {}
+                    )
                 }
                 .menuStyle(ButtonMenuStyle())
             }
@@ -257,8 +266,10 @@ struct StylesView: View, Comparable {
                 Spacer()
                 Menu("Open Menu") {
                     Button("Menu option 1", action: {})
-                    Button("Menu option 2",
-                           action: {})
+                    Button(
+                        "Menu option 2",
+                        action: {}
+                    )
                 }
                 .menuStyle(.automatic)
             }
@@ -266,17 +277,21 @@ struct StylesView: View, Comparable {
                 Text("My own style:")
                 Spacer()
                 Menu("Open Menu") {
-                    Button("Menu option 1",
-                           action: {})
-                    Button("Menu option 2",
-                           action: {})
+                    Button(
+                        "Menu option 1",
+                        action: {}
+                    )
+                    Button(
+                        "Menu option 2",
+                        action: {}
+                    )
                 }
                 .menuStyle(MyOwnMenuStyle())
             }
         }
         // end of styling menues
     }
-    
+
     private var progress: some View {
         GroupBox {
             Group {
@@ -287,25 +302,31 @@ struct StylesView: View, Comparable {
                 VStack {
                     Text("Automatic style:")
                     Spacer()
-                    ProgressView("Downloading…",
-                                 value: 76,
-                                 total: 100)
+                    ProgressView(
+                        "Downloading…",
+                        value: 76,
+                        total: 100
+                    )
                     .progressViewStyle(.automatic)
                 }
                 VStack {
                     Text("Linear style:")
                     Spacer()
-                    ProgressView("Downloading…",
-                                 value: 76,
-                                 total: 100)
+                    ProgressView(
+                        "Downloading…",
+                        value: 76,
+                        total: 100
+                    )
                     .progressViewStyle(.linear)
                 }
                 VStack {
                     Text("Circular style:")
                     Spacer()
-                    ProgressView("Downloading…",
-                                 value: 76,
-                                 total: 100)
+                    ProgressView(
+                        "Downloading…",
+                        value: 76,
+                        total: 100
+                    )
                     .progressViewStyle(.circular)
                 }
             }
@@ -339,13 +360,13 @@ struct StylesView: View, Comparable {
                         Text("1")
                     }
                     .gaugeStyle(.accessoryCircular)
-                    
+
                     // level of clouds today :D
                     Gauge(value: 0.6) {
                         Image(systemName: "cloud")
                     }
                     .gaugeStyle(.accessoryCircular)
-                    
+
                     Gauge(value: 45, in: 0...100) {
                         Label("Sun", systemImage: "sunrise.circle")
                     } currentValueLabel: {
@@ -389,29 +410,25 @@ struct StylesView: View, Comparable {
         }
         // end indicators
     }
-    
+
 }
 
 #Preview {
-    
-        StylesView()
-    
+
+    StylesView()
+
 }
 
 // MARK: - HASHABLE
 
 extension StylesView {
-    
+
     static func == (lhs: StylesView, rhs: StylesView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-
-

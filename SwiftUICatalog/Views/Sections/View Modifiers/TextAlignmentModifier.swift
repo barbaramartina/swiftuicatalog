@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 import SwiftUI
 
 /// Text alignment only aligns the content/text inside the portion of the screen that the text container occupies
@@ -14,9 +13,9 @@ import SwiftUI
 /// to simulate the container being aligned to the leading or trailing, spacers need to be added before or after the container
 /// if the container remains in the middle, then spacers are added to both ends.
 struct ViewAlignmentModifier: ViewModifier {
-    
+
     var alignment: TextAlignment
-    
+
     func body(content: Content) -> some View {
         HStack {
             if alignment == .trailing || alignment == .center {
@@ -29,4 +28,3 @@ struct ViewAlignmentModifier: ViewModifier {
         }
     }
 }
-

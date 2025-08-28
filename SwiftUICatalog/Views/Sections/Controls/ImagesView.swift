@@ -35,34 +35,42 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/image
 ///
 struct ImagesComponentView: View, Comparable {
-    
+
     let id: String = "ImagesComponentView"
-    
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        ScrollView {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/image", name: "IMAGE VIEW")
-            
-            sfSymbols
-                .modifier(Divided())
-            imagesFromBundle
-                .modifier(Divided())
-            fixedFrameImages
-                .modifier(Divided())
-            
-            ContributedByView(name: "Barbara Martina",
-                              link: "https://github.com/barbaramartina")
-            .padding(.top, 80)
-            Spacer()
-            
-        })
+
+        PageContainer(
+            content:
+
+                ScrollView {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/image",
+                        name: "IMAGE VIEW"
+                    )
+
+                    sfSymbols
+                        .modifier(Divided())
+                    imagesFromBundle
+                        .modifier(Divided())
+                    fixedFrameImages
+                        .modifier(Divided())
+
+                    ContributedByView(
+                        name: "Barbara Martina",
+                        link: "https://github.com/barbaramartina"
+                    )
+                    .padding(.top, 80)
+                    Spacer()
+
+                }
+        )
         // end of page container
-        
+
     }
-    
+
     // Contextual information: a short intro to the elements we are showcasing
     private var sfSymbols: some View {
         GroupBox {
@@ -70,18 +78,25 @@ struct ImagesComponentView: View, Comparable {
                 Text("Images with SF Symbols")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("SF Symbols is a collection of iconography that has over 5,000 symbols and is made to work perfectly with San Francisco, the system font used by Apple platforms. Symbols automatically align with text and are available in three scales and nine weights. Using vector graphics editing software, they can be altered and exported to produce unique symbols with shared accessibility features and design elements. With SF Symbols 5, you can now create bespoke symbols with improved tools, over 700 new symbols, and a variety of expressive animations. You can find more about SF Symbols in [the SF Official page](https://developer.apple.com/design/resources/#sf-symbols)")
-                    .fontWeight(.light)
-                    .font(.title2)
+                Text(
+                    "SF Symbols is a collection of iconography that has over 5,000 symbols and is made to work perfectly with San Francisco, the system font used by Apple platforms. Symbols automatically align with text and are available in three scales and nine weights. Using vector graphics editing software, they can be altered and exported to produce unique symbols with shared accessibility features and design elements. With SF Symbols 5, you can now create bespoke symbols with improved tools, over 700 new symbols, and a variety of expressive animations. You can find more about SF Symbols in [the SF Official page](https://developer.apple.com/design/resources/#sf-symbols)"
+                )
+                .fontWeight(.light)
+                .font(.title2)
                 ScrollView(.horizontal) {
                     HStack(alignment: .center, spacing: 20) {
                         Image(systemName: "house.circle")
                         Image(systemName: "square.circle")
                         Image(systemName: "dpad")
-                        Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
+                        Image(
+                            systemName:
+                                "square.and.arrow.up.trianglebadge.exclamationmark"
+                        )
                         Image(systemName: "eraser")
                         Image(systemName: "paperplane.circle")
-                        Image(systemName: "externaldrive.connected.to.line.below")
+                        Image(
+                            systemName: "externaldrive.connected.to.line.below"
+                        )
                         Image(systemName: "keyboard.badge.eye")
                         Image(systemName: "printer.dotmatrix.fill")
                         Image(systemName: "figure.2")
@@ -98,16 +113,18 @@ struct ImagesComponentView: View, Comparable {
             }
         }
     }
-    
+
     private var imagesFromBundle: some View {
         GroupBox {
             VStack(alignment: .leading) {
                 Text("Images from Bundle")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes.")
-                    .fontWeight(.light)
-                    .font(.title2)
+                Text(
+                    "Images can be uploaded from the app bundle, just the same as with UIKit, images can be scaled, resized, tiled, framed and also you can overlays on top of images to mask them to different shapes."
+                )
+                .fontWeight(.light)
+                .font(.title2)
                 // Credits: https://pixabay.com/photos/dog-pet-corgi-animal-canine-6394502/
                 Text("Image scaled to fit")
                     .fontWeight(.semibold)
@@ -142,11 +159,11 @@ struct ImagesComponentView: View, Comparable {
                     )
                     .clipShape(Circle())
                     .frame(width: 200, height: 200)
-                
+
             }
         }
     }
-    
+
     private var fixedFrameImages: some View {
         GroupBox {
             VStack(alignment: .leading) {
@@ -158,9 +175,11 @@ struct ImagesComponentView: View, Comparable {
                     .frame(width: 250, height: 250, alignment: .topLeading)
                     .border(Color.blue)
                     .clipped()
-                
-                Text("Tiled Image: A mode to repeat the image at its original size, as many times as necessary to fill the available space.")
-                    .fontWeight(.semibold)
+
+                Text(
+                    "Tiled Image: A mode to repeat the image at its original size, as many times as necessary to fill the available space."
+                )
+                .fontWeight(.semibold)
                 Image("github")
                     .resizable(resizingMode: .tile)
                     .frame(width: 300, height: 900, alignment: .topLeading)
@@ -168,29 +187,26 @@ struct ImagesComponentView: View, Comparable {
             }
         }
     }
-    
+
 }
 
 #Preview {
-    
-        ImagesComponentView()
-            
-    
+
+    ImagesComponentView()
+
 }
 
 // MARK: - HASHABLE
 
 extension ImagesComponentView {
-    
-    static func == (lhs: ImagesComponentView, rhs: ImagesComponentView) -> Bool {
+
+    static func == (lhs: ImagesComponentView, rhs: ImagesComponentView) -> Bool
+    {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

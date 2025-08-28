@@ -15,13 +15,13 @@ import SwiftUI
 /// be presented as an overlay on top of an image
 ///
 struct ImageWithOverlayView<Overlay: View>: View, Identifiable {
-    
+
     let id: String = "ImageWithOverlayView"
-    
+
     let image: String
     let overlay: Overlay
     let alignment: Alignment
-    
+
     var body: some View {
         ZStack(alignment: alignment) {
             Image(image)
@@ -30,21 +30,25 @@ struct ImageWithOverlayView<Overlay: View>: View, Identifiable {
             overlay
                 .padding()
         }
-        
-        // Another Alternative implementation for simple composiitions can be done by using the standard overlay modifier
+
+        // Another Alternative implementation for simple compositions can be done by using the standard overlay modifier
         //        Image(image)
         //            .resizable()
         //            .scaledToFit()
         //            .overlay(overlay, alignment: aligment)
-        
+
     }
 }
 
 #Preview {
-    
-        ImageWithOverlayView(image: "snowflake",
-                             overlay: Text("A cold snowflake"),
-                             alignment: Alignment(horizontal: .leading,
-                                                  vertical: .top))
-    
+
+    ImageWithOverlayView(
+        image: "snowflake",
+        overlay: Text("A cold snowflake"),
+        alignment: Alignment(
+            horizontal: .leading,
+            vertical: .top
+        )
+    )
+
 }

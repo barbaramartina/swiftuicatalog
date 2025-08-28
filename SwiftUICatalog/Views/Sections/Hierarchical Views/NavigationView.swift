@@ -34,73 +34,87 @@ import SwiftUI
 /// https://developer.apple.com/documentation/swiftui/navigationlink
 ///
 struct NavigationBarsComponentView: View, Comparable {
-    
+
     struct Reminder {
         let title: String
         let text: String
     }
-    
+
     let id: String = "NavigationBarsComponentView"
-    
+
     @State private var reminders: [Reminder] = [
         Reminder(title: "2021-10-21", text: "Pick up John from school"),
         Reminder(title: "Coffee", text: "we are running out of coffee"),
-        Reminder(title: "Washing machine", text: "Call the handy man, the machine broke"),
-        Reminder(title: "Hairdresser", text: "Johninstrasse 14, 09:00")
+        Reminder(
+            title: "Washing machine",
+            text: "Call the handy man, the machine broke"
+        ),
+        Reminder(title: "Hairdresser", text: "Johninstrasse 14, 09:00"),
     ]
-    
+
     var body: some View {
-        
+
         NavigationStack {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/navigationstack")
-            
+
+            DocumentationLinkView(
+                link:
+                    "https://developer.apple.com/documentation/swiftui/navigationstack"
+            )
+
             List {
-                NavigationLink(reminders[0].title,
-                               destination: Text(reminders[0].text))
-                NavigationLink(reminders[1].title,
-                               destination: Text(reminders[1].text))
-                NavigationLink(reminders[2].title,
-                               destination: Text(reminders[2].text))
-                NavigationLink(reminders[3].title,
-                               destination: Text(reminders[3].text))
-                
-                
+                NavigationLink(
+                    reminders[0].title,
+                    destination: Text(reminders[0].text)
+                )
+                NavigationLink(
+                    reminders[1].title,
+                    destination: Text(reminders[1].text)
+                )
+                NavigationLink(
+                    reminders[2].title,
+                    destination: Text(reminders[2].text)
+                )
+                NavigationLink(
+                    reminders[3].title,
+                    destination: Text(reminders[3].text)
+                )
+
             }
             .navigationTitle("Reminders")
             // adjusting the navigation view style with these options: https://developer.apple.com/documentation/swiftui/navigationviewstyle
             .navigationViewStyle(DoubleColumnNavigationViewStyle())
             // end of list
-            
-            ContributedByView(name: "Barbara Martina",
-                              link: "https://github.com/barbaramartina")
+
+            ContributedByView(
+                name: "Barbara Martina",
+                link: "https://github.com/barbaramartina"
+            )
             .padding(.top, 80)
         }
         .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         // end of navigation view
-        
-        
+
     }
 }
 
 #Preview {
-    
-        NavigationBarsComponentView()
+
+    NavigationBarsComponentView()
 }
 
 // MARK: - HASHABLE
 
 extension NavigationBarsComponentView {
-    
-    static func == (lhs: NavigationBarsComponentView, rhs: NavigationBarsComponentView) -> Bool {
+
+    static func == (
+        lhs: NavigationBarsComponentView,
+        rhs: NavigationBarsComponentView
+    ) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

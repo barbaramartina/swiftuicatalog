@@ -10,7 +10,7 @@ import SwiftUI
 
 /// Defining a custom menu style
 struct MyOwnMenuStyle: MenuStyle {
-    
+
     /// - Parameter configuration : The properties of the menu .
     public func makeBody(configuration: MenuStyle.Configuration) -> some View {
         Menu(configuration)
@@ -23,5 +23,5 @@ struct MyOwnMenuStyle: MenuStyle {
         //            Menu(configuration)
         //        }
     }
-    
+
 }

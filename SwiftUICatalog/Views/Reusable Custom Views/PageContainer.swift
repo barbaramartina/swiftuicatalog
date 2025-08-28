@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct PageContainer<Content>: View where Content: View {
-    
     let content: Content
-    
+    private let toolbackColor: Color = {
+        Color(uiColor: UIColor(patternImage: UIImage(named: "gradient")!))
+    }()
+
     var body: some View {
         ZStack {
             Color("PageContainerColor")
                 .ignoresSafeArea()
-            
+
             ScrollView {
                 content
             }
@@ -23,13 +25,13 @@ struct PageContainer<Content>: View where Content: View {
             .padding(.horizontal, Style.HorizontalPadding.medium.rawValue)
         }
         .navigationBarTitleDisplayMode(.inline)
-        .toolbarBackground(Color("Medium"), for: .navigationBar)
+        .toolbarColorScheme(.dark, for: .navigationBar)
+        .toolbarBackground(toolbackColor, for: .navigationBar)
         .toolbarBackground(.visible, for: .navigationBar)
     }
 }
 
 #Preview {
-    
-        PageContainer(content: Text("Content"))
-    }
 
+    PageContainer(content: Text("Content"))
+}

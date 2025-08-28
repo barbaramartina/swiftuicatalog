@@ -29,72 +29,85 @@
 import SwiftUI
 
 struct PopoversComponentView: View, Comparable {
-    
+
     let id: String = "PopoversComponentView"
-    
+
     @State private var showingPopover = false
-    private let documentationURLString = "https://developer.apple.com/documentation/swiftui/button/popover(ispresented:attachmentanchor:arrowedge:content:)"
-    
+    private let documentationURLString =
+        "https://developer.apple.com/documentation/swiftui/button/popover(ispresented:attachmentanchor:arrowedge:content:)"
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        ScrollView {
-            DocumentationLinkView(link: documentationURLString, name: "POPOVERS")
-            
-            WebView(url: URL(string: documentationURLString)!)
-                .frame(height: 400)
-            
-            Button(action: {
-                showingPopover = true
-            },
-                   label: {
-                Text("Show menu")
-                    .modifier(ButtonFontModifier())
-                    .overlay(
-                        RoundedCorners(tl: 10,
-                                       tr: 0,
-                                       bl: 0,
-                                       br: 10)
-                        .stroke(Color.accentColor, lineWidth: 5)
+
+        PageContainer(
+            content:
+
+                ScrollView {
+                    DocumentationLinkView(
+                        link: documentationURLString,
+                        name: "POPOVERS"
                     )
-            })
-            .popover(isPresented: $showingPopover,
-                     arrowEdge: .bottom) {
-                VStack {
-                    Text("Here you can insert any other type of view for your popover")
-                        .modifier(Divided())
-                    Button("Click to dismiss") {
-                        showingPopover = false
+
+                    WebView(url: URL(string: documentationURLString)!)
+                        .frame(height: 400)
+
+                    Button(
+                        action: {
+                            showingPopover = true
+                        },
+                        label: {
+                            Text("Show menu")
+                                .modifier(ButtonFontModifier())
+                                .overlay(
+                                    RoundedCorners(
+                                        tl: 10,
+                                        tr: 0,
+                                        bl: 0,
+                                        br: 10
+                                    )
+                                    .stroke(Color.accentColor, lineWidth: 5)
+                                )
+                        }
+                    )
+                    .popover(
+                        isPresented: $showingPopover,
+                        arrowEdge: .bottom
+                    ) {
+                        VStack {
+                            Text(
+                                "Here you can insert any other type of view for your popover"
+                            )
+                            .modifier(Divided())
+                            Button("Click to dismiss") {
+                                showingPopover = false
+                            }
+                        }
+                        .padding()
                     }
+
                 }
-                .padding()
-            }
-            
-        })
+        )
         //end of page container
-        
+
     }
 }
 
 #Preview {
-    
-        PopoversComponentView()
+
+    PopoversComponentView()
 }
 
 // MARK: - HASHABLE
 
 extension PopoversComponentView {
-    
-    static func == (lhs: PopoversComponentView, rhs: PopoversComponentView) -> Bool {
+
+    static func == (lhs: PopoversComponentView, rhs: PopoversComponentView)
+        -> Bool
+    {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

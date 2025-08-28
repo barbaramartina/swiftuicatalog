@@ -36,41 +36,40 @@ import SwiftUI
 ///
 
 struct SpacersDividersView: View, Comparable {
-    
+
     let id: String = "SpacersDividersView"
-    
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        VStack {
-            ContributionWantedView()
-        }
-                      
+
+        PageContainer(
+            content:
+
+                VStack {
+                    ContributionWantedView()
+                }
+
         )
         // end of page container
     }
 }
 
 #Preview {
-    
-        SpacersDividersView()
-    
+
+    SpacersDividersView()
+
 }
 
 // MARK: - HASHABLE
 
 extension SpacersDividersView {
-    
-    static func == (lhs: SpacersDividersView, rhs: SpacersDividersView) -> Bool {
+
+    static func == (lhs: SpacersDividersView, rhs: SpacersDividersView) -> Bool
+    {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

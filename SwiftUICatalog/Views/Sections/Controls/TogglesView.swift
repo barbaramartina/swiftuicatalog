@@ -32,28 +32,34 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/toggle
 ///
 struct TogglesView: View, Comparable {
-    
+
     let id: String = "TogglesView"
-    
+
     @State var isBasicToggleOn: Bool = true
     @State var isSwitchToggleOn: Bool = true
     @State var isCustomToggleOn: Bool = true
     @State var isButtonToggleOn: Bool = true
-    
+
     var body: some View {
         PageContainer(
             content:
                 Group {
                     VStack(alignment: .leading) {
-                        DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/toggle", name: "TOGGLES")
-                        
+                        DocumentationLinkView(
+                            link:
+                                "https://developer.apple.com/documentation/swiftui/toggle",
+                            name: "TOGGLES"
+                        )
+
                         GroupBox {
                             Text("Toggles")
                                 .fontWeight(.heavy)
                                 .font(.title)
-                            Text("You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off")
-                                .fontWeight(.light)
-                                .font(.title2)
+                            Text(
+                                "You create a toggle by providing an isOn binding and a label. Bind isOn to a Boolean property that determines whether the toggle is on or off"
+                            )
+                            .fontWeight(.light)
+                            .font(.title2)
                             defaultToggle
                                 .modifier(Divided())
                             switchToggle
@@ -62,22 +68,26 @@ struct TogglesView: View, Comparable {
                                 .modifier(Divided())
                             toggleWithStyle
                         }
-                        
+
                         Spacer()
-                        
-                        ContributedByView(name: "Freddy Hernandez Jr",
-                                          link: "https://github.com/freddy1h")
+
+                        ContributedByView(
+                            name: "Freddy Hernandez Jr",
+                            link: "https://github.com/freddy1h"
+                        )
                         .padding(.top, 80)
                     }
                 }
         )
     }
-    
+
     private var defaultToggle: some View {
         Group {
-            Text("The default toggle style is 'switch', which draws a rounded rectangle with a tint color, usually green, that can be changed.")
-                .fontWeight(.light)
-                .font(.title2)
+            Text(
+                "The default toggle style is 'switch', which draws a rounded rectangle with a tint color, usually green, that can be changed."
+            )
+            .fontWeight(.light)
+            .font(.title2)
             Toggle(
                 isOn: $isBasicToggleOn,
                 label: {
@@ -88,7 +98,7 @@ struct TogglesView: View, Comparable {
             .toggleStyle(.automatic)
         }
     }
-    
+
     private var switchToggle: some View {
         Toggle(
             isOn: $isSwitchToggleOn,
@@ -100,12 +110,14 @@ struct TogglesView: View, Comparable {
         .tint(Color.purple)
         .toggleStyle(.switch)
     }
-    
+
     private var customToggle: some View {
         Group {
-            Text("In this custom toggle, the background color has changed and there is a narrower indicator when the toggle is switched.")
-                .fontWeight(.light)
-                .font(.title2)
+            Text(
+                "In this custom toggle, the background color has changed and there is a narrower indicator when the toggle is switched."
+            )
+            .fontWeight(.light)
+            .font(.title2)
             Toggle(
                 isOn: $isCustomToggleOn,
                 label: {
@@ -117,12 +129,14 @@ struct TogglesView: View, Comparable {
             .frame(maxWidth: .infinity)
         }
     }
-    
+
     private var toggleWithStyle: some View {
         Group {
-            Text("In this toggle we have assigned a custom BUTTON style, therefore the behaviour of the component keeps working as a toggle but it looks like a button, switching on and off the associated value.")
-                .fontWeight(.light)
-                .font(.title2)
+            Text(
+                "In this toggle we have assigned a custom BUTTON style, therefore the behaviour of the component keeps working as a toggle but it looks like a button, switching on and off the associated value."
+            )
+            .fontWeight(.light)
+            .font(.title2)
             Toggle(
                 isOn: $isButtonToggleOn,
                 label: {
@@ -147,7 +161,10 @@ struct CustomToggleStyle: ToggleStyle {
                 },
                 label: {
                     Rectangle()
-                        .fill(configuration.isOn ? Color.purple : .blue.opacity(0.5))
+                        .fill(
+                            configuration.isOn
+                                ? Color.purple : .blue.opacity(0.5)
+                        )
                         .frame(
                             width: 50,
                             height: 30
@@ -163,7 +180,10 @@ struct CustomToggleStyle: ToggleStyle {
                                     x: configuration.isOn ? 11 : -11,
                                     y: 0
                                 )
-                                .animation(.easeInOut, value: configuration.isOn)
+                                .animation(
+                                    .easeInOut,
+                                    value: configuration.isOn
+                                )
                         )
                         .cornerRadius(20)
                 }
@@ -178,9 +198,9 @@ extension ToggleStyle where Self == CustomToggleStyle {
 }
 
 #Preview {
-    
-        TogglesView()
-    
+
+    TogglesView()
+
 }
 
 // MARK: - HASHABLE
@@ -189,7 +209,7 @@ extension TogglesView {
     static func == (lhs: TogglesView, rhs: TogglesView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }

@@ -46,19 +46,22 @@ struct StackedCardsView<T: IndexedView>: View {
     /// be able to see the cards which are behind
     private var offsets: [CGFloat] = [10, 20, 30, 40]
 
-    
     init(elementsCount: Int) {
         self.elementsCount = elementsCount
     }
-    
+
     // MARK: - body
-    
+
     var body: some View {
         ZStack {
             ForEach(0..<elementsCount) { index in
                 T(index: index)
-                    .offset(CGSize(width: offsets[index % offsets.count],
-                                   height: offsets[index % offsets.count]))
+                    .offset(
+                        CGSize(
+                            width: offsets[index % offsets.count],
+                            height: offsets[index % offsets.count]
+                        )
+                    )
             }
         }
     }
@@ -67,7 +70,7 @@ struct StackedCardsView<T: IndexedView>: View {
 // MARK: - CardView an example of an IndexedView
 
 struct CardView: IndexedView {
-    
+
     /// the index of the card
     private let index: Int
     /// dragging related/view state
@@ -76,7 +79,7 @@ struct CardView: IndexedView {
     @GestureState private var dragState = DragState.inactive
     /// initially to activate the drag in a card, you need to press and hold for this amount of time
     private let minimumLongPressDuration = 0.5
-    
+
     /// to track the finger movements and interactions
     private enum DragState: Equatable {
         /// no finger on top of the card
@@ -85,7 +88,7 @@ struct CardView: IndexedView {
         case pressing
         /// finger already pressed-hold and now is moving
         case dragging(translation: CGSize)
-        
+
         var translation: CGSize {
             switch self {
             case .inactive, .pressing:
@@ -94,7 +97,7 @@ struct CardView: IndexedView {
                 return translation
             }
         }
-        
+
         var isActive: Bool {
             switch self {
             case .inactive:
@@ -103,7 +106,7 @@ struct CardView: IndexedView {
                 return true
             }
         }
-        
+
         var isDragging: Bool {
             switch self {
             case .inactive, .pressing:
@@ -113,38 +116,40 @@ struct CardView: IndexedView {
             }
         }
     }
-    
+
     // MARK: - Initializer
-    
+
     init(index: Int) {
         self.index = index
     }
-    
+
     // MARK: - Body
 
     var body: some View {
-        
+
         // we create a long press gesture for the card
-        let longPressDrag = LongPressGesture(minimumDuration: minimumLongPressDuration)
-            .sequenced(before: DragGesture())
-            .updating($dragState) { value, state, transaction in
-                switch value {
-                    // Long press begins.
-                case .first(true):
-                    state = .pressing
-                    // Long press confirmed, dragging may begin.
-                case .second(true, let drag):
-                    state = .dragging(translation: drag?.translation ?? .zero)
-                    // Dragging ended or the long press cancelled.
-                default:
-                    state = .inactive
-                }
+        let longPressDrag = LongPressGesture(
+            minimumDuration: minimumLongPressDuration
+        )
+        .sequenced(before: DragGesture())
+        .updating($dragState) { value, state, transaction in
+            switch value {
+            // Long press begins.
+            case .first(true):
+                state = .pressing
+            // Long press confirmed, dragging may begin.
+            case .second(true, let drag):
+                state = .dragging(translation: drag?.translation ?? .zero)
+            // Dragging ended or the long press cancelled.
+            default:
+                state = .inactive
             }
-            .onEnded { value in
-                guard case .second(true, let drag?) = value else { return }
-                self.viewState.width += drag.translation.width
-                self.viewState.height += drag.translation.height
-            }
+        }
+        .onEnded { value in
+            guard case .second(true, let drag?) = value else { return }
+            self.viewState.width += drag.translation.width
+            self.viewState.height += drag.translation.height
+        }
 
         // now create the card vertical stack and connect to the gesture
         VStack {
@@ -153,12 +158,17 @@ struct CardView: IndexedView {
                 .font(.largeTitle)
         }
         .frame(width: 250, height: 400)
-        .background([.lightYellow, .cyan, .mint, .blue, .pink, .green, .gray, .yellow].randomElement()!)
+        .background(
+            [.lightYellow, .cyan, .mint, .blue, .pink, .green, .gray, .yellow]
+                .randomElement()!
+        )
         .cornerRadius(8)
         .overlay(content: {
             RoundedRectangle(cornerRadius: 8)
-                .stroke(.black,
-                        lineWidth: 2)
+                .stroke(
+                    .black,
+                    lineWidth: 2
+                )
         })
         .offset(
             x: viewState.width + dragState.translation.width,
@@ -166,7 +176,10 @@ struct CardView: IndexedView {
         )
         .animation(.easeInOut, value: dragState)
         .shadow(radius: dragState.isActive ? 8 : 0)
-        .animation(.linear(duration: minimumLongPressDuration), value: dragState)
+        .animation(
+            .linear(duration: minimumLongPressDuration),
+            value: dragState
+        )
         .gesture(longPressDrag)
     }
 }

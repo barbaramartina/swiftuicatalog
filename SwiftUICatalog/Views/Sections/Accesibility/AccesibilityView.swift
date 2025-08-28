@@ -40,56 +40,82 @@ struct AccesibilityView: View {
     @State var seeMorePressed = false
     @State var likePressed = false
     @State var buyPressed = false
-    
+
     let id: String = "AccesibilityView"
-    
+
     var body: some View {
-        NavigationStack{
-            VStack(alignment: .leading){
-                
+        NavigationStack {
+            VStack(alignment: .leading) {
+
                 /// Header Level 2
                 Text("A list of grocery items")
                     .font(.headline)
                     .accessibilityAddTraits(.isHeader)
                     .accessibilityHeading(.h2)
                     .padding()
-                
+
                 /// Header Level 3
                 List {
                     Section(header: Text("Cans").font(.title)) {
                         Group {
-                            
+
                             VStack(alignment: .leading) {
                                 Text("Green peas")
                                 Divider()
-                                HStack{
-                                    Button(action: {
-                                        // see more action
-                                        seeMorePressed.toggle()
-                                    }, label: {
-                                        Text("See more \(seeMorePressed ? "pressed" : "")")
-                                    })
+                                HStack {
+                                    Button(
+                                        action: {
+                                            // see more action
+                                            seeMorePressed.toggle()
+                                        },
+                                        label: {
+                                            Text(
+                                                "See more \(seeMorePressed ? "pressed" : "")"
+                                            )
+                                        }
+                                    )
                                     .padding()
-                                    .border(seeMorePressed ? .purple : .black, width: 1)
-                                    Button(action: {
-                                        // like action
-                                        likePressed.toggle()
-                                    }, label: {
-                                        Text("Like \(likePressed ? "pressed" : "")")
-                                    })
+                                    .border(
+                                        seeMorePressed ? .purple : .black,
+                                        width: 1
+                                    )
+                                    Button(
+                                        action: {
+                                            // like action
+                                            likePressed.toggle()
+                                        },
+                                        label: {
+                                            Text(
+                                                "Like \(likePressed ? "pressed" : "")"
+                                            )
+                                        }
+                                    )
                                     .padding()
-                                    .border(likePressed ? .purple : .black, width: 1)
-                                    Button(action: {
-                                        // buy action
-                                        buyPressed.toggle()
-                                    }, label: {
-                                        Text("Buy \(buyPressed ? "pressed" : "")")
-                                    })
+                                    .border(
+                                        likePressed ? .purple : .black,
+                                        width: 1
+                                    )
+                                    Button(
+                                        action: {
+                                            // buy action
+                                            buyPressed.toggle()
+                                        },
+                                        label: {
+                                            Text(
+                                                "Buy \(buyPressed ? "pressed" : "")"
+                                            )
+                                        }
+                                    )
                                     .padding()
-                                    .border(buyPressed ? .purple : .black, width: 1)
+                                    .border(
+                                        buyPressed ? .purple : .black,
+                                        width: 1
+                                    )
                                 }
                                 .accessibilityElement(children: .ignore)
-                                .accessibilityLabel("In this view you can access some actions on Green Peas")
+                                .accessibilityLabel(
+                                    "In this view you can access some actions on Green Peas"
+                                )
                                 .accessibilityAction(named: Text("See more")) {
                                     // see more logic
                                     seeMorePressed.toggle()
@@ -110,9 +136,9 @@ struct AccesibilityView: View {
                         .font(.title2)
                     }
                     .accessibilityHeading(.h3)
-                    
+
                     Section(header: Text("Fruits")) {
-                        
+
                         if sizeCategory > DynamicTypeSize.medium {
                             // if the size category grows then let's just display each fruit in a separate row
                             Text("Dry fruits:")
@@ -138,7 +164,7 @@ struct AccesibilityView: View {
                         }
                     }
                     .accessibilityHeading(.h3)
-                    
+
                     Section(header: Text("Cheese")) {
                         Text("Fresh cheese")
                         Text("Roquefort")
@@ -146,17 +172,17 @@ struct AccesibilityView: View {
                     .accessibilityHeading(.h3)
                 }
                 .listStyle(GroupedListStyle())
-                
+
                 /// Header level 1 by default
                 .navigationTitle("Headings example")
-                
+
             }
         }
     }
 }
 
 #Preview {
-    
-        AccesibilityView()
-    
+
+    AccesibilityView()
+
 }

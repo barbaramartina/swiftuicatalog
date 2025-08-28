@@ -35,7 +35,7 @@ import SwiftUI
 ///
 
 struct TabsView: View, Comparable {
-    
+
     let id: String = "TabsView"
     /// required to allow customization in iPads / style side bar
     @State private var customization = TabViewCustomization()
@@ -43,7 +43,7 @@ struct TabsView: View, Comparable {
     @State private var currentTab = 0
 
     @Environment(\.openURL) var openURL
-    
+
     var body: some View {
         example1
             .onAppear {
@@ -51,7 +51,7 @@ struct TabsView: View, Comparable {
                 currentTab = 2
             }
     }
-    
+
     private var example1: some View {
         // for selection to work, do not forget to add "value", this was tricky and I could not find much examples about it
         TabView(selection: $currentTab) {
@@ -89,24 +89,21 @@ struct TabsView: View, Comparable {
 }
 
 #Preview {
-    
-        TabsView()
-    
+
+    TabsView()
+
 }
 
 // MARK: - HASHABLE
 
 extension TabsView {
-    
+
     static func == (lhs: TabsView, rhs: TabsView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

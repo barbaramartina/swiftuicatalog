@@ -34,47 +34,52 @@ import SwiftUI
 ///
 
 struct EffectsModifiersView: View, Comparable {
-    
+
     let id: String = "EffectsModifiersView"
-    
+
     var body: some View {
-        
+
         VStack(alignment: .leading) {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/view/rotationeffect(_:anchor:)")
-            
-            Text("There are different effects that are provided out of the box and can be applied to any view, such as for example applying a degree of rotation, a shadow, a blurring effect.")
-                .fontWeight(.light)
-                .font(.title2)
+
+            DocumentationLinkView(
+                link:
+                    "https://developer.apple.com/documentation/swiftui/view/rotationeffect(_:anchor:)"
+            )
+
+            Text(
+                "There are different effects that are provided out of the box and can be applied to any view, such as for example applying a degree of rotation, a shadow, a blurring effect."
+            )
+            .fontWeight(.light)
+            .font(.title2)
             List {
                 rotation
                 masking
                 grayScale
-                
+
                 // todo: keep extracting views
-                
+
                 // MARK: - Border & blur effect
-                
+
                 VStack(alignment: .leading) {
-                    
+
                     Text("Border & blur effect")
                         .fontWeight(.heavy)
                         .font(.title)
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
-                    // border effect
+                        // border effect
                         .border(Color.pink, width: 10)
                         .frame(width: 200, height: 200)
                 }
                 // blur effect
                 .blur(radius: 1.0)
                 // end of group
-                
+
                 // MARK: - Clip Shape & color inverted effect
-                
+
                 VStack(alignment: .leading) {
-                    
+
                     Text("Clip Shape & color inverted effect")
                         .fontWeight(.heavy)
                         .font(.title)
@@ -83,37 +88,36 @@ struct EffectsModifiersView: View, Comparable {
                         .scaledToFill()
                         .frame(width: 300, height: 300)
                         .clipShape(Circle())
-                    
-                    
+
                 }
                 .colorInvert()
                 // end of group
-                
+
                 // MARK: - Brigthness effect
-                
+
                 VStack(alignment: .leading) {
                     Text("Brigthness effect")
                         .fontWeight(.heavy)
                         .font(.title)
-                    
+
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
                         .brightness(0.3)
                 }
                 // end of group
-                
+
                 // MARK: - Color multiply & Contrast effect
-                
+
                 VStack(alignment: .leading) {
                     Text("Color multiply & Contrast effect")
                         .fontWeight(.heavy)
                         .font(.title)
-                    
+
                     Image(systemName: "hands.and.sparkles.fill")
                         .resizable()
                         .scaledToFill()
-                    
+
                 }
                 // color effect
                 .colorMultiply(.blue)
@@ -121,19 +125,19 @@ struct EffectsModifiersView: View, Comparable {
                 .contentShape(Circle())
                 .contrast(3.0)
                 // end of group
-                
+
                 // MARK: - Blend mode effect
-                
+
                 VStack(alignment: .leading) {
                     Text("Blend mode effect")
                         .fontWeight(.heavy)
                         .font(.title)
-                    
+
                     HStack {
                         BlendExamplesView()
                     }
                 }
-                
+
             }
             .listStyle(PlainListStyle())
             // accent color effect
@@ -141,28 +145,28 @@ struct EffectsModifiersView: View, Comparable {
         }
         .padding(.horizontal)
     }
-    
+
     private var grayScale: some View {
         VStack(alignment: .leading) {
             Text("Gray scale")
                 .fontWeight(.heavy)
                 .font(.title)
-            
+
             Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
                 .grayscale(0.30)
                 .hoverEffect(.highlight)
         }
-        
+
     }
-    
+
     private var rotation: some View {
         VStack(alignment: .leading) {
             Text("Rotation with shadow")
                 .fontWeight(.heavy)
                 .font(.title)
-            
+
                 .padding(.bottom, 60)
             Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
@@ -174,32 +178,36 @@ struct EffectsModifiersView: View, Comparable {
                 .padding(.horizontal, 30)
         }
     }
-    
+
     private var masking: some View {
         VStack(alignment: .leading) {
             Text("Masking")
                 .fontWeight(.heavy)
                 .font(.title)
-            
+
             Image(systemName: "hands.and.sparkles.fill")
                 .resizable()
                 .scaledToFill()
-                .mask(Text("An example to show how to mask an image with a text on top")
+                .mask(
+                    Text(
+                        "An example to show how to mask an image with a text on top"
+                    )
                     .font(.largeTitle)
                     .fontWeight(.heavy)
                     .font(.title)
-                      
+
                     .multilineTextAlignment(.center)
-                    .frame(width:320, height: 220))
-            
+                    .frame(width: 320, height: 220)
+                )
+
         }
-        
+
     }
 }
 
 #Preview {
-    
-        EffectsModifiersView()
+
+    EffectsModifiersView()
 }
 
 struct BlendExamplesView: View {
@@ -209,7 +217,7 @@ struct BlendExamplesView: View {
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-            // blend mode
+                // blend mode
                 .blendMode(.colorBurn)
         }
         .padding(20)
@@ -218,7 +226,7 @@ struct BlendExamplesView: View {
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-            // blend mode
+                // blend mode
                 .blendMode(.luminosity)
         }
         .padding(20)
@@ -227,37 +235,36 @@ struct BlendExamplesView: View {
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-            // blend mode
+                // blend mode
                 .blendMode(.lighten)
         }
         .padding(20)
-        
+
         VStack {
             Color("Medium").frame(width: 50, height: 50, alignment: .center)
             Color.red.frame(width: 50, height: 50, alignment: .center)
                 .rotationEffect(.degrees(45))
                 .padding(-20)
-            // blend mode
+                // blend mode
                 .blendMode(.exclusion)
         }
         .padding(20)
-        
+
     }
 }
 
 // MARK: - HASHABLE
 
 extension EffectsModifiersView {
-    
-    static func == (lhs: EffectsModifiersView, rhs: EffectsModifiersView) -> Bool {
+
+    static func == (lhs: EffectsModifiersView, rhs: EffectsModifiersView)
+        -> Bool
+    {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

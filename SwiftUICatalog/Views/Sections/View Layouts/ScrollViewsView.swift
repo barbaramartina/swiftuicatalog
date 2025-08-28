@@ -36,58 +36,66 @@ import SwiftUI
 ///
 
 struct ScrollViewsView: View, Comparable {
-    
-    
+
     let id: String = "ScrollViewsView"
-    
+
     @State private var topButtonId: String = "top-button"
     @State private var bottomButtonId: String = "bottom-button"
-    
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        
-                        ScrollViewReader { proxy in
-            
-            VStack(alignment: .leading) {
-                
-                DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/scrollview", name: "SCROLL VIEWS")
-                
-                GroupBox {
-                    introductionTexts
-                    scrollToBottomButton(proxy: proxy)
-                    VStack(spacing: 0) {
-                        ForEach(0..<100) { i in
-                            Text("Row \(i)")
-                                .multilineTextAlignment(.leading)
+
+        PageContainer(
+            content:
+
+                ScrollViewReader { proxy in
+
+                    VStack(alignment: .leading) {
+
+                        DocumentationLinkView(
+                            link:
+                                "https://developer.apple.com/documentation/swiftui/scrollview",
+                            name: "SCROLL VIEWS"
+                        )
+
+                        GroupBox {
+                            introductionTexts
+                            scrollToBottomButton(proxy: proxy)
+                            VStack(spacing: 0) {
+                                ForEach(0..<100) { i in
+                                    Text("Row \(i)")
+                                        .multilineTextAlignment(.leading)
+                                }
+                            }
+                            .frame(maxWidth: .infinity)
+                            scrollToTopButton(proxy: proxy)
                         }
                     }
-                    .frame(maxWidth: .infinity)
-                    scrollToTopButton(proxy: proxy)
+
+                    ContributedByView(
+                        name: "Barbara Martina",
+                        link: "https://github.com/barbaramartina"
+                    )
+                    .padding(.top, 80)
+
                 }
-            }
-            
-            ContributedByView(name: "Barbara Martina",
-                              link: "https://github.com/barbaramartina")
-            .padding(.top, 80)
-            
-        })
+        )
         // end of page container
-        
+
     }
-    
+
     private var introductionTexts: some View {
         Group {
             Text("Scrollviews in SwiftUI")
                 .fontWeight(.heavy)
                 .font(.title)
-            Text("Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views")
-                .fontWeight(.light)
-                .font(.title2)
+            Text(
+                "Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views"
+            )
+            .fontWeight(.light)
+            .font(.title2)
         }
     }
-    
+
     private func scrollToTopButton(proxy: ScrollViewProxy) -> some View {
         Button("Back to Top") {
             withAnimation {
@@ -103,29 +111,26 @@ struct ScrollViewsView: View, Comparable {
             }
         }
         .id(topButtonId)
-        
+
     }
 }
 
 #Preview {
-    
-        ScrollViewsView()
-    
+
+    ScrollViewsView()
+
 }
 
 // MARK: - HASHABLE
 
 extension ScrollViewsView {
-    
+
     static func == (lhs: ScrollViewsView, rhs: ScrollViewsView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

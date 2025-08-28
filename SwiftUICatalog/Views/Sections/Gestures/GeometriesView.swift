@@ -42,96 +42,116 @@ import SwiftUI
 ///
 
 struct GeometriesView: View, Comparable {
-    
+
     let id: String = "GeometriesView"
-    
+
     @State private var offset: CGFloat = 200
     @State private var textDirection: CGFloat = 1
-    
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        VStack(alignment: .leading) {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/geometryreader", name: "GEOMETRY")
-            
-            GroupBox {
-                Text("Reading geometries")
-                    .fontWeight(.heavy)
-                    .font(.title)
-                
-                Text("Geometry readers can be use to provide a layout definition by assigned percentages of the available width to each view")
-                    .fontWeight(.light)
-                    .font(.title2)
-                GeometryReader { geometry in
-                    HStack(spacing: 0) {
-                        Spacer()
-                        Text("First item")
-                            .font(.largeTitle)
-                            .foregroundColor(Color("Medium"))
-                            .frame(width: geometry.size.width * 0.30)
-                            .background(.primary)
-                            .minimumScaleFactor(0.5)
-                        
-                        Text("Second item")
-                            .font(.largeTitle)
-                            .foregroundColor(.primary)
-                            .frame(width: geometry.size.width * 0.60)
-                            .background(Color("Medium"))
-                            .minimumScaleFactor(0.5)
-                        Spacer()
+
+        PageContainer(
+            content:
+
+                VStack(alignment: .leading) {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/geometryreader",
+                        name: "GEOMETRY"
+                    )
+
+                    GroupBox {
+                        Text("Reading geometries")
+                            .fontWeight(.heavy)
+                            .font(.title)
+
+                        Text(
+                            "Geometry readers can be use to provide a layout definition by assigned percentages of the available width to each view"
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
+                        GeometryReader { geometry in
+                            HStack(spacing: 0) {
+                                Spacer()
+                                Text("First item")
+                                    .font(.largeTitle)
+                                    .foregroundColor(Color("Medium"))
+                                    .frame(width: geometry.size.width * 0.30)
+                                    .background(.primary)
+                                    .minimumScaleFactor(0.5)
+
+                                Text("Second item")
+                                    .font(.largeTitle)
+                                    .foregroundColor(.primary)
+                                    .frame(width: geometry.size.width * 0.60)
+                                    .background(Color("Medium"))
+                                    .minimumScaleFactor(0.5)
+                                Spacer()
+                            }
+                        }
+                        .frame(height: 50)
+                    }
+                    .modifier(Divided())
+
+                    GroupBox {
+                        Text(
+                            "A geometry reader reads the size of the view he's executed in and return a geometry proxy to access width and height of the view"
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
+                        .padding()
+
+                        Text("Effects on geometries")
+                            .fontWeight(.heavy)
+                            .font(.title)
+
+                        Text(
+                            "Geometry effects on views can be used to produce transformations to the frames and in that way create new animations"
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
+
+                        Text("Animated")
+                            .modifier(
+                                PingPongEffect(
+                                    offset: self.offset,
+                                    direction: self.textDirection
+                                )
+                            )
+                            .onAppear {
+                                withAnimation(
+                                    Animation.easeInOut(duration: 2.0)
+                                        .repeatForever()
+                                ) {
+                                    self.offset = (-1) * self.offset
+                                    self.textDirection =
+                                        (-1) * self.textDirection
+                                }
+                            }
                     }
                 }
-                .frame(height: 50)
-            }
-            .modifier(Divided())
-            
-            GroupBox {
-                Text("A geometry reader reads the size of the view he's executed in and return a geometry proxy to access width and height of the view")
-                    .fontWeight(.light)
-                    .font(.title2)
-                    .padding()
-                
-                Text("Effects on geometries")
-                    .fontWeight(.heavy)
-                    .font(.title)
-                
-                Text("Geometry effects on views can be used to produce transformations to the frames and in that way create new animations")
-                    .fontWeight(.light)
-                    .font(.title2)
-                
-                Text("Animated")
-                    .modifier(PingPongEffect(offset: self.offset,
-                                             direction: self.textDirection))
-                    .onAppear {
-                        withAnimation(Animation.easeInOut(duration: 2.0).repeatForever()) {
-                            self.offset = (-1) * self.offset
-                            self.textDirection = (-1) * self.textDirection
-                        }
-                    }
-            }
-        })
+        )
     }
-    
+
 }
 
 #Preview {
-    
-        GeometriesView()
-    
+
+    GeometriesView()
+
 }
 
 struct PingPongEffect: GeometryEffect {
-    
+
     private var offset: CGFloat
     private var direction: CGFloat
-    
+
     init(offset: CGFloat, direction: CGFloat) {
         self.offset = offset
         self.direction = direction
     }
-    
+
     var animatableData: AnimatablePair<CGFloat, CGFloat> {
         get { AnimatablePair(offset, direction) }
         set {
@@ -139,30 +159,31 @@ struct PingPongEffect: GeometryEffect {
             direction = newValue.second
         }
     }
-    
+
     func effectValue(size: CGSize) -> ProjectionTransform {
-        return ProjectionTransform(CGAffineTransform(a: 1,
-                                                     b: 0,
-                                                     c: self.direction,
-                                                     d: 1,
-                                                     tx: self.offset,
-                                                     ty: 0))
+        return ProjectionTransform(
+            CGAffineTransform(
+                a: 1,
+                b: 0,
+                c: self.direction,
+                d: 1,
+                tx: self.offset,
+                ty: 0
+            )
+        )
     }
 }
 
 // MARK: - HASHABLE
 
 extension GeometriesView {
-    
+
     static func == (lhs: GeometriesView, rhs: GeometriesView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

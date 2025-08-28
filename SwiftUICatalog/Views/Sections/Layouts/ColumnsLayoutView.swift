@@ -16,7 +16,7 @@ struct ColumnsLayoutView: View {
         Column(boxes: [.rectangle, .squared, .rectangle]),
         Column(boxes: [.squared, .squared, .rectangle, .squared, .squared]),
         Column(boxes: [.rectangle, .squared, .rectangle]),
-        Column(boxes: [.squared, .squared, .rectangle, .squared, .squared])
+        Column(boxes: [.squared, .squared, .rectangle, .squared, .squared]),
     ]
 
     var body: some View {

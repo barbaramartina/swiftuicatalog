@@ -32,39 +32,44 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/menu
 ///
 struct MenusComponentView: View, Comparable {
-    
+
     let id: String = "MenusComponentView"
-    
-    
+
     //Custom Menu item Style
-    private let redBorderMenuStyle: RedBorderMenuStyle = RedBorderMenuStyle.init()
-    
+    private let redBorderMenuStyle: RedBorderMenuStyle =
+        RedBorderMenuStyle.init()
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        ScrollView{
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/menu", name: "MENUES")
-            
-            example1
-                .modifier(Divided())
-            example2
-                .modifier(Divided())
-            example3
-                .modifier(Divided())
-            example4
-            
-            ContributedByView(name: "Ali Ghayeni H",
-                              link: "https://github.com/alighayeni")
-            .padding(.top, 80)
-            
-            
-            
-            
-        })
+
+        PageContainer(
+            content:
+
+                ScrollView {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/menu",
+                        name: "MENUES"
+                    )
+
+                    example1
+                        .modifier(Divided())
+                    example2
+                        .modifier(Divided())
+                    example3
+                        .modifier(Divided())
+                    example4
+
+                    ContributedByView(
+                        name: "Ali Ghayeni H",
+                        link: "https://github.com/alighayeni"
+                    )
+                    .padding(.top, 80)
+
+                }
+        )
     }
-    
+
     func duplicate() { action() }
     func rename() { action() }
     func delete() { action() }
@@ -77,33 +82,33 @@ struct MenusComponentView: View, Comparable {
     func bookmarkAll() { action() }
     func show() { action() }
     func addBookmark() { action() }
-    
+
     func action() {
-#if DEBUG
-        print("The Action function called")
-#endif
+        #if DEBUG
+            print("The Action function called")
+        #endif
     }
-    
+
     func primaryAction() {
-#if DEBUG
-        print("The primary action function called")
-#endif
+        #if DEBUG
+            print("The primary action function called")
+        #endif
     }
-    
+
     private var example1: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                
+
                 // Contextual information: a short intro to the elements we are showcasing
                 Group {
-                    Text( "Menus")
+                    Text("Menus")
                         .fontWeight(.heavy)
                         .font(.title)
                     Text("A control for presenting a menu of actions.")
                         .fontWeight(.light)
                         .font(.title2)
                 }
-                
+
                 HStack {
                     Text("Menu + Sub-Menu").fontWeight(.light)
                         .font(.title2)
@@ -119,16 +124,16 @@ struct MenusComponentView: View, Comparable {
                         }
                     }
                 }
-                
+
             }
         }
-        
+
     }
-    
+
     private var example2: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                HStack{
+                HStack {
                     Text("Menu + image").fontWeight(.light)
                         .font(.title2)
                     Spacer()
@@ -141,9 +146,9 @@ struct MenusComponentView: View, Comparable {
                 }
             }
         }
-        
+
     }
-    
+
     private var example3: some View {
         /*
          Styling Menus
@@ -161,19 +166,21 @@ struct MenusComponentView: View, Comparable {
                     }
                     .menuStyle(redBorderMenuStyle)
                 }
-                
+
             }
         }
-        
+
     }
-    
+
     private var example4: some View {
         GroupBox {
             VStack(alignment: .leading) {
                 Text("Primary Action")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a Medium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu.").fontWeight(.light)
+                Text(
+                    "Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a Medium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu."
+                ).fontWeight(.light)
                     .font(.title2)
                 HStack {
                     Text("Menu + primary action").fontWeight(.light)
@@ -181,13 +188,22 @@ struct MenusComponentView: View, Comparable {
                     Spacer()
                     Menu {
                         Button(action: addCurrentTabToReadingList) {
-                            Label("Add to Reading List", systemImage: "eyeglasses")
+                            Label(
+                                "Add to Reading List",
+                                systemImage: "eyeglasses"
+                            )
                         }
                         Button(action: bookmarkAll) {
-                            Label("Add Bookmarks for All Tabs", systemImage: "book")
+                            Label(
+                                "Add Bookmarks for All Tabs",
+                                systemImage: "book"
+                            )
                         }
                         Button(action: show) {
-                            Label("Show All Bookmarks", systemImage: "books.vertical")
+                            Label(
+                                "Show All Bookmarks",
+                                systemImage: "books.vertical"
+                            )
                         }
                     } label: {
                         Label("Add Bookmark", systemImage: "book")
@@ -197,7 +213,7 @@ struct MenusComponentView: View, Comparable {
                 }
             }
         }
-        
+
     }
 }
 
@@ -215,23 +231,20 @@ struct RedBorderMenuStyle: MenuStyle {
 }
 
 #Preview {
-    
-        MenusComponentView()
+
+    MenusComponentView()
 }
 
 // MARK: - HASHABLE
 
 extension MenusComponentView {
-    
+
     static func == (lhs: MenusComponentView, rhs: MenusComponentView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

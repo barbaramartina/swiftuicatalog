@@ -33,75 +33,86 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/colorpicker
 ///
 struct ColorPickersView: View, Comparable {
-    
+
     let id: String = "ColorPickersView"
-    
+
     @State private var bgColor1 =
-    Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+        Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
     @State private var bgColor2 =
-    Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
-    
+        Color(.sRGB, red: 0.98, green: 0.9, blue: 0.2)
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        ScrollView {
-            Group {
-                VStack(alignment: .leading) {
-                    DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/colorpicker", name: "COLOR PICKER")
-                    
-                    Text("The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color.")
-                    GroupBox {
-                        ColorPicker("Alignment Guides",
-                                    selection: $bgColor1)
-                        HStack{
-                            Text("with opacity")
-                                .fontWeight(.ultraLight)
-                                .font(.title3)
-                            Spacer()
-                        }
-                    }
-                    .modifier(Divided())
-                    GroupBox {
-                        ColorPicker("Alignment Guides",
+
+        PageContainer(
+            content:
+
+                ScrollView {
+                    Group {
+                        VStack(alignment: .leading) {
+                            DocumentationLinkView(
+                                link:
+                                    "https://developer.apple.com/documentation/swiftui/colorpicker",
+                                name: "COLOR PICKER"
+                            )
+
+                            Text(
+                                "The color picker provides a color well that shows the currently selected color, and displays the larger system color picker that allows users to select a new color."
+                            )
+                            GroupBox {
+                                ColorPicker(
+                                    "Alignment Guides",
+                                    selection: $bgColor1
+                                )
+                                HStack {
+                                    Text("with opacity")
+                                        .fontWeight(.ultraLight)
+                                        .font(.title3)
+                                    Spacer()
+                                }
+                            }
+                            .modifier(Divided())
+                            GroupBox {
+                                ColorPicker(
+                                    "Alignment Guides",
                                     selection: $bgColor2,
-                                    supportsOpacity: false)
-                        HStack{
-                            Text("without opacity")
-                                .fontWeight(.ultraLight)
-                                .font(.title3)
-                            Spacer()
+                                    supportsOpacity: false
+                                )
+                                HStack {
+                                    Text("without opacity")
+                                        .fontWeight(.ultraLight)
+                                        .font(.title3)
+                                    Spacer()
+                                }
+                            }
                         }
+                        ContributedByView(
+                            name: "Ali Ghayeni H",
+                            link: "https://github.com/alighayeni"
+                        )
+                        .padding(.top, 80)
+
                     }
                 }
-                ContributedByView(name: "Ali Ghayeni H",
-                                  link: "https://github.com/alighayeni")
-                .padding(.top, 80)
-                
-            }
-        })
+        )
     }
 }
 
 #Preview {
-    
-        ColorPickersView()
-    
+
+    ColorPickersView()
+
 }
 
 // MARK: - HASHABLE
 
 extension ColorPickersView {
-    
+
     static func == (lhs: ColorPickersView, rhs: ColorPickersView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

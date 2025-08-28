@@ -40,68 +40,87 @@ import SwiftUI
 ///
 
 struct AnimationsView: View, Comparable {
-    
+
     // MARK: - Properties
-    
+
     let id: String = "AnimationsView"
-    
+
     @State private var animate1 = false
     @State private var animate2 = false
     @State private var animate3 = false
-    
-    
+
     // MARK: - Body
-    
-    
+
     var body: some View {
-        
+
         NavigationStack {
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/animation")
-                .padding(.trailing)
+            DocumentationLinkView(
+                link:
+                    "https://developer.apple.com/documentation/swiftui/animation"
+            )
+            .padding(.trailing)
             List {
-                Link(destination:                         RobbieWithPulseView(),
-                     label: "Pulse animation",
-                     textColor: .black)
+                Link(
+                    destination: RobbieWithPulseView(),
+                    label: "Pulse animation",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination:                         MyCustomAnimationView(),
-                     label: "Custom animations",
-                     textColor: .black)
+                Link(
+                    destination: MyCustomAnimationView(),
+                    label: "Custom animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination:                         SpringAnimationView(),
-                     label: "Springs animations",
-                     textColor: .black)
+                Link(
+                    destination: SpringAnimationView(),
+                    label: "Springs animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination:                         IconsAnimationsView(),
-                     label: "Icons animations",
-                     textColor: .black)
+                Link(
+                    destination: IconsAnimationsView(),
+                    label: "Icons animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination:                         TimingCurvesView(),
-                     label: "Timing curves in animations",
-                     textColor: .black)
+                Link(
+                    destination: TimingCurvesView(),
+                    label: "Timing curves in animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination: PropertiesAnimationsView(),
-                     label: "Properties animations",
-                     textColor: .black)
+                Link(
+                    destination: PropertiesAnimationsView(),
+                    label: "Properties animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination: TransitionsAnimationsView(),
-                     label: "Transitions animations",
-                     textColor: .black)
+                Link(
+                    destination: TransitionsAnimationsView(),
+                    label: "Transitions animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
-                Link(destination: VStack(alignment: .leading) {
-                    Group {
-                        Text("Circles in motion animation")
-                            .fontWeight(.heavy)
-                            .font(.title)
-                            .padding(.top)
-                        Text("A custom complex animation using geometry reader to create shapes and make them move and scale around the screen")
+                Link(
+                    destination: VStack(alignment: .leading) {
+                        Group {
+                            Text("Circles in motion animation")
+                                .fontWeight(.heavy)
+                                .font(.title)
+                                .padding(.top)
+                            Text(
+                                "A custom complex animation using geometry reader to create shapes and make them move and scale around the screen"
+                            )
                             .fontWeight(.light)
                             .font(.title2)
-                        MotionAnimationView()
-                    }
-                    .padding(.horizontal)
-                } ,
-                     label: "Moving circles animations",
-                     textColor: .black)
+                            MotionAnimationView()
+                        }
+                        .padding(.horizontal)
+                    },
+                    label: "Moving circles animations",
+                    textColor: .black
+                )
                 .listRowBackground(Color.white)
             }
             .navigationTitle("Animations")
@@ -112,14 +131,12 @@ struct AnimationsView: View, Comparable {
 // MARK: - previews
 
 #Preview {
-    
-        AnimationsView()
-            
-    
+
+    AnimationsView()
+
 }
 
 // MARK: - extensions of animations
-
 
 extension Animation {
     static func ripple(index: Int) -> Animation {
@@ -144,42 +161,43 @@ extension AnyTransition {
 // MARK: - HASHABLE
 
 extension AnimationsView {
-    
+
     static func == (lhs: AnimationsView, rhs: AnimationsView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
 
 extension TransitionsAnimationsView {
-    
-    static func == (lhs: TransitionsAnimationsView, rhs: TransitionsAnimationsView) -> Bool {
+
+    static func == (
+        lhs: TransitionsAnimationsView,
+        rhs: TransitionsAnimationsView
+    ) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
 
 extension PropertiesAnimationsView {
-    
-    static func == (lhs: PropertiesAnimationsView, rhs: PropertiesAnimationsView) -> Bool {
+
+    static func == (
+        lhs: PropertiesAnimationsView,
+        rhs: PropertiesAnimationsView
+    ) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

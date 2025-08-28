@@ -14,7 +14,7 @@ struct LayoutsView: View {
 }
 
 #Preview {
-    
-        LayoutsView()
-    
+
+    LayoutsView()
+
 }

@@ -35,84 +35,100 @@ import SwiftUI
 /// OFFICIAL DOCUMENTATION https://developer.apple.com/documentation/swiftui/text
 ///
 struct TextsComponentsView: View, Comparable {
-    
+
     let id: String = "TextsComponentsView"
-    
+
     @State private var textFieldValue: String = ""
     @State private var secureFieldValue: String = ""
-    
+
     var body: some View {
-        
-        PageContainer(content:
-                        
-                        ScrollView {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/text", name: nil)
-            
-            
-            fontTypes
-                .modifier(Divided())
-            fontWeights
-                .modifier(Divided())
-            fontModifiers
-                .modifier(Divided())
-            textTruncation
-                .modifier(Divided())
-            textDates
-                .modifier(Divided())
-            textControls
-            
-            ContributedByView(name: "Barbara Martina",
-                              link: "https://github.com/barbaramartina")
-            .padding(.top, 80)
-        })
+
+        PageContainer(
+            content:
+
+                ScrollView {
+
+                    DocumentationLinkView(
+                        link:
+                            "https://developer.apple.com/documentation/swiftui/text",
+                        name: nil
+                    )
+
+                    fontTypes
+                        .modifier(Divided())
+                    fontWeights
+                        .modifier(Divided())
+                    fontModifiers
+                        .modifier(Divided())
+                    textTruncation
+                        .modifier(Divided())
+                    textDates
+                        .modifier(Divided())
+                    textControls
+
+                    ContributedByView(
+                        name: "Barbara Martina",
+                        link: "https://github.com/barbaramartina"
+                    )
+                    .padding(.top, 80)
+                }
+        )
     }
-    
+
     private var textControls: some View {
         GroupBox {
             VStack(alignment: .leading) {
                 Group {
-                    
+
                     Group {
                         Text("Text controls")
                             .fontWeight(.heavy)
                             .font(.title)
-                        Text("SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries.")
-                            .fontWeight(.light)
-                            .font(.title2)
+                        Text(
+                            "SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries."
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
                     }
-                    
+
                     HStack {
                         Text("Text field:")
                         Spacer()
-                        TextField("text-field-localised-key", text: $textFieldValue)
+                        TextField(
+                            "text-field-localised-key",
+                            text: $textFieldValue
+                        )
                     }
                     HStack {
                         Text("Secure Text field")
                         Spacer()
-                        SecureField("Secure field",
-                                    text: $secureFieldValue)
+                        SecureField(
+                            "Secure field",
+                            text: $secureFieldValue
+                        )
                     }
                     .padding(10)
                 }
                 Spacer()
             }
         }
-        
+
     }
-    
+
     /// Font types
     private var fontTypes: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                
+
                 // Contextual information: a short intro to the elements we are showcasing
                 Text("Available fonts")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined")
-                    .fontWeight(.light)
-                    .font(.title2)
+                Text(
+                    "To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined"
+                )
+                .fontWeight(.light)
+                .font(.title2)
                 VStack(alignment: .center) {
                     Text("Headline")
                         .font(.headline)
@@ -142,16 +158,18 @@ struct TextsComponentsView: View, Comparable {
             }
         }
     }
-    
+
     private var fontWeights: some View {
         GroupBox {
             VStack(alignment: .leading) {
                 Text("Available font weights")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("Fonts can also be assigned a weight, which will change the appereance of the font")
-                    .fontWeight(.light)
-                    .font(.title2)
+                Text(
+                    "Fonts can also be assigned a weight, which will change the appereance of the font"
+                )
+                .fontWeight(.light)
+                .font(.title2)
                 VStack(alignment: .center) {
                     Text("Weight Black")
                         .fontWeight(.black)
@@ -179,11 +197,11 @@ struct TextsComponentsView: View, Comparable {
             }
         }
     }
-    
+
     private var fontModifiers: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                Text( "Text, italic, bold")
+                Text("Text, italic, bold")
                     .fontWeight(.heavy)
                     .font(.title)
                 VStack(alignment: .center) {
@@ -200,40 +218,44 @@ struct TextsComponentsView: View, Comparable {
                     Text("Tracking")
                         .tracking(3.0)
                     Text("With shadow")
-                        .shadow(color: .blue,
-                                radius: 12,
-                                x: 1.0,
-                                y: 3.0)
-                    
+                        .shadow(
+                            color: .blue,
+                            radius: 12,
+                            x: 1.0,
+                            y: 3.0
+                        )
+
                 }
                 .modifier(ViewAlignmentModifier(alignment: .center))
                 .padding()
-                
+
             }
         }
-        
+
     }
-    
+
     private var textTruncation: some View {
         GroupBox {
             VStack(alignment: .leading) {
-                Text( "Text, truncations and multiline")
+                Text("Text, truncations and multiline")
                     .fontWeight(.heavy)
                     .font(.title)
-                
+
                 Text("Very long text truncated")
                     .frame(width: 150)
                     .lineLimit(1)
                     .minimumScaleFactor(0.8)
                     .allowsTightening(false)
                     .truncationMode(.middle)
-                Text("Multiline text arranged in how many lines as it is needed")
-                    .multilineTextAlignment(.center)
+                Text(
+                    "Multiline text arranged in how many lines as it is needed"
+                )
+                .multilineTextAlignment(.center)
             }
         }
-        
+
     }
-    
+
     private var textDates: some View {
         GroupBox {
             VStack(alignment: .leading) {
@@ -242,11 +264,13 @@ struct TextsComponentsView: View, Comparable {
                         Text("Text and dates")
                             .fontWeight(.heavy)
                             .font(.title)
-                        Text("There are ways to present a date inside a text element allowing it to be formatted with different styles and timers.")
-                            .fontWeight(.light)
-                            .font(.title2)
+                        Text(
+                            "There are ways to present a date inside a text element allowing it to be formatted with different styles and timers."
+                        )
+                        .fontWeight(.light)
+                        .font(.title2)
                     }
-                    
+
                     HStack {
                         Text("Text with date:")
                         Spacer()
@@ -277,31 +301,28 @@ struct TextsComponentsView: View, Comparable {
                 Spacer()
             }
         }
-        
+
     }
-    
+
 }
 
 #Preview {
-    
-        TextsComponentsView()
-    
+
+    TextsComponentsView()
+
 }
 
 // MARK: - HASHABLE
 
 extension TextsComponentsView {
-    
-    static func == (lhs: TextsComponentsView, rhs: TextsComponentsView) -> Bool {
+
+    static func == (lhs: TextsComponentsView, rhs: TextsComponentsView) -> Bool
+    {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-
-

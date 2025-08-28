@@ -9,12 +9,14 @@ import Foundation
 import SwiftUI
 
 struct LabelStylePicker: View {
-    
+
     @Binding var selection: LabelStyleWrapper
-    
+
     /// font styles options
-    private let options: [LabelStyleWrapper] = [.iconOnly, .automatic, .labelOnly, .iconAndLabel]
-    
+    private let options: [LabelStyleWrapper] = [
+        .iconOnly, .automatic, .labelOnly, .iconAndLabel,
+    ]
+
     var body: some View {
         Picker(selection: $selection, label: Text("Label Style")) {
             ForEach(options, id: \.self) {
@@ -29,7 +31,7 @@ enum LabelStyleWrapper: Hashable {
     case labelOnly
     case iconAndLabel
     case automatic
-    
+
     var labelStyle: any LabelStyle {
         switch self {
         case .iconOnly: return IconOnlyLabelStyle.iconOnly
@@ -38,7 +40,7 @@ enum LabelStyleWrapper: Hashable {
         case .automatic: return DefaultLabelStyle.automatic
         }
     }
-    
+
     var description: String {
         switch self {
         case .iconOnly: return "IconOnlyLabelStyle.iconOnly"

@@ -49,37 +49,46 @@ import SwiftUI
 ///
 
 struct ShapesView: View, Comparable {
-    
+
     let id: String = "ShapesView"
-    
+
     var body: some View {
-        
-        PageContainer(content: VStack(alignment: .leading) {
-            
-            DocumentationLinkView(link: "https://developer.apple.com/documentation/swiftui/shape", name: "SHAPES")
-            
-            standardExamples
-            customExamples
-            shapeExample
-            
-            ContributedByView(name: "Barbara Martina",
-                              link: "https://github.com/barbaramartina")
-            .padding(.top, 80)
-            
-        }
+
+        PageContainer(
+            content: VStack(alignment: .leading) {
+
+                DocumentationLinkView(
+                    link:
+                        "https://developer.apple.com/documentation/swiftui/shape",
+                    name: "SHAPES"
+                )
+
+                standardExamples
+                customExamples
+                shapeExample
+
+                ContributedByView(
+                    name: "Barbara Martina",
+                    link: "https://github.com/barbaramartina"
+                )
+                .padding(.top, 80)
+
+            }
         )
-        
+
     }
-    
+
     private var standardExamples: some View {
         GroupBox {
             VStack(alignment: .leading) {
                 Text("Rectangles, circles, ellipse and capsules")
                     .fontWeight(.heavy)
                     .font(.title)
-                Text("SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path")
-                    .fontWeight(.light)
-                    .font(.title2)
+                Text(
+                    "SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path"
+                )
+                .fontWeight(.light)
+                .font(.title2)
                 HStack {
                     // MARK: - rectangle
                     Rectangle()
@@ -97,7 +106,7 @@ struct ShapesView: View, Comparable {
                     Capsule()
                         .fill(Color("Medium"))
                         .frame(width: 50, height: 120)
-                    
+
                     // MARK: - rounded rectangle
                     RoundedRectangle(cornerSize: CGSize(width: 10, height: 10))
                         .fill(Color("Medium"))
@@ -106,9 +115,9 @@ struct ShapesView: View, Comparable {
             }
             .frame(maxWidth: .infinity)
         }
-        
+
     }
-    
+
     private var customExamples: some View {
         GroupBox {
             VStack(alignment: .leading) {
@@ -125,7 +134,7 @@ struct ShapesView: View, Comparable {
             .frame(maxWidth: .infinity)
         }
     }
-    
+
     private var shapeExample: some View {
         GroupBox {
             VStack(alignment: .leading) {
@@ -134,36 +143,52 @@ struct ShapesView: View, Comparable {
                     .font(.title)
                 HStack {
                     Rectangle()
-                        .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                         lineCap: CGLineCap.butt,
-                                                         lineJoin: CGLineJoin.miter,
-                                                         miterLimit: 2,
-                                                         dash: [1, 2],
-                                                         dashPhase: 1))
+                        .strokeBorder(
+                            style: StrokeStyle(
+                                lineWidth: 5,
+                                lineCap: CGLineCap.butt,
+                                lineJoin: CGLineJoin.miter,
+                                miterLimit: 2,
+                                dash: [1, 2],
+                                dashPhase: 1
+                            )
+                        )
                         .frame(width: 50, height: 50)
                     Rectangle()
-                        .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                         lineCap: CGLineCap.round,
-                                                         lineJoin: CGLineJoin.miter,
-                                                         miterLimit: 2,
-                                                         dash: [1, 2],
-                                                         dashPhase: 1))
+                        .strokeBorder(
+                            style: StrokeStyle(
+                                lineWidth: 5,
+                                lineCap: CGLineCap.round,
+                                lineJoin: CGLineJoin.miter,
+                                miterLimit: 2,
+                                dash: [1, 2],
+                                dashPhase: 1
+                            )
+                        )
                         .frame(width: 50, height: 50)
                     Rectangle()
-                        .strokeBorder(style: StrokeStyle(lineWidth: 5,
-                                                         lineCap: CGLineCap.square,
-                                                         lineJoin: CGLineJoin.round,
-                                                         miterLimit: 2,
-                                                         dash: [1, 7],
-                                                         dashPhase: 10))
+                        .strokeBorder(
+                            style: StrokeStyle(
+                                lineWidth: 5,
+                                lineCap: CGLineCap.square,
+                                lineJoin: CGLineJoin.round,
+                                miterLimit: 2,
+                                dash: [1, 7],
+                                dashPhase: 10
+                            )
+                        )
                         .frame(width: 50, height: 50)
                     Rectangle()
-                        .strokeBorder(style: StrokeStyle(lineWidth: 10,
-                                                         lineCap: CGLineCap.round,
-                                                         lineJoin: CGLineJoin.round,
-                                                         miterLimit: 4,
-                                                         dash: [1, 3],
-                                                         dashPhase: 2))
+                        .strokeBorder(
+                            style: StrokeStyle(
+                                lineWidth: 10,
+                                lineCap: CGLineCap.round,
+                                lineJoin: CGLineJoin.round,
+                                miterLimit: 4,
+                                dash: [1, 3],
+                                dashPhase: 2
+                            )
+                        )
                         .frame(width: 50, height: 50)
                     Spacer()
                 }
@@ -171,33 +196,34 @@ struct ShapesView: View, Comparable {
             .frame(maxWidth: .infinity)
         }
     }
-    
+
 }
 
 #Preview {
-    
-        ShapesView()
-    
+
+    ShapesView()
+
 }
 
 struct CustomShape: Shape {
-    
+
     func path(in rect: CGRect) -> Path {
         var path = Path()
-        
+
         let radius = min(rect.midX, rect.midY)
-        
+
         path.addArc(
             center: CGPoint(x: rect.midX, y: rect.midY),
             radius: radius,
             startAngle: Angle(degrees: 0),
             endAngle: Angle(degrees: 180),
-            clockwise: true)
-        
+            clockwise: true
+        )
+
         path.addLine(to: CGPoint(x: rect.minX, y: rect.minY))
-        
+
         path.closeSubpath()
-        
+
         return path
     }
 }
@@ -205,16 +231,13 @@ struct CustomShape: Shape {
 // MARK: - HASHABLE
 
 extension ShapesView {
-    
+
     static func == (lhs: ShapesView, rhs: ShapesView) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
-    
+
 }
-
-

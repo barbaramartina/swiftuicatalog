@@ -18,9 +18,9 @@ import SwiftUI
 ///  As well as the font, weight and paddings of the view.
 ///
 struct TitleSubtitleIconView: View, Identifiable {
-    
+
     let id = UUID()
-    
+
     struct Configuration {
         let backgroundColor: Color
         let title: String
@@ -39,86 +39,105 @@ struct TitleSubtitleIconView: View, Identifiable {
         let paddingBottom: CGFloat
     }
     @State var configuration: Configuration
-    
+
     var body: some View {
-        
+
         VStack(alignment: .center) {
             HStack(alignment: configuration.iconVerticalAlignment) {
-                
+
                 if configuration.iconHorizontalAlignment == .leading {
                     Image(systemName: configuration.icon)
                         .resizable()
                         .scaledToFit()
                         .padding(.top)
-                        .frame(width: configuration.iconSize.width, height: configuration.iconSize.height)
-                    
+                        .frame(
+                            width: configuration.iconSize.width,
+                            height: configuration.iconSize.height
+                        )
+
                 }
-                
-                VStack(alignment: configuration.iconHorizontalAlignment == .center ? .center : .leading) {
-                    
+
+                VStack(
+                    alignment: configuration.iconHorizontalAlignment == .center
+                        ? .center : .leading
+                ) {
+
                     if configuration.iconHorizontalAlignment == .center {
                         Image(systemName: configuration.icon)
                             .resizable()
                             .scaledToFit()
-                            .frame(width: configuration.iconSize.width, height: configuration.iconSize.height,
-                                   alignment: .center)
-                        
+                            .frame(
+                                width: configuration.iconSize.width,
+                                height: configuration.iconSize.height,
+                                alignment: .center
+                            )
+
                     }
-                    
+
                     Text(configuration.title)
                         .font(configuration.titleFont)
                         .fontWeight(configuration.titleWeight)
                         .padding(.top, 16)
-                    
+
                     Text(configuration.subtitle)
                         .font(configuration.subtitleFont)
                         .fontWeight(configuration.subtitleWeight)
                         .padding(.top, 16)
                 }
-                
+
                 if configuration.iconHorizontalAlignment == .trailing {
                     Image(systemName: configuration.icon)
                         .resizable()
                         .scaledToFit()
-                        .frame(width: configuration.iconSize.width, height: configuration.iconSize.height)
-                    
+                        .frame(
+                            width: configuration.iconSize.width,
+                            height: configuration.iconSize.height
+                        )
+
                 }
-                
+
             }
             Rectangle()
                 .fill(Color.gray)
-                .frame(width: nil,
-                       height: 1,
-                       alignment: .center)
+                .frame(
+                    width: nil,
+                    height: 1,
+                    alignment: .center
+                )
                 .padding(.top, 12)
-            
+
         }
         .background(configuration.backgroundColor)
         .padding(.top, configuration.paddingTop)
         .padding(.bottom, configuration.paddingBottom)
         .padding(.leading, configuration.paddingLeading)
         .padding(.trailing, configuration.paddingTrailing)
-        
+
     }
-    
+
 }
 
 #Preview {
-    
-    
-        TitleSubtitleIconView(configuration:  TitleSubtitleIconView.Configuration(backgroundColor: Color.brown, title: "Sun"
-                                                                                  , titleFont: .title,
-                                                                                  titleWeight: .bold,
-                                                                                  subtitle: "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything – from the biggest planets to the smallest"
-                                                                                  , subtitleFont: .body,
-                                                                                  subtitleWeight: .regular,
-                                                                                  icon: "sun.max", iconSize: CGSize(width: 60, height: 60),
-                                                                                  iconVerticalAlignment: .center, iconHorizontalAlignment: .leading
-                                                                                  ,
-                                                                                  paddingTop: 16,
-                                                                                  paddingLeading: 16,
-                                                                                  paddingTrailing: 16,
-                                                                                  paddingBottom: 16)
+
+    TitleSubtitleIconView(
+        configuration: TitleSubtitleIconView.Configuration(
+            backgroundColor: Color.brown,
+            title: "Sun",
+            titleFont: .title,
+            titleWeight: .bold,
+            subtitle:
+                "The Sun is the star at the heart of our solar system. Its gravity holds the solar system together, keeping everything – from the biggest planets to the smallest",
+            subtitleFont: .body,
+            subtitleWeight: .regular,
+            icon: "sun.max",
+            iconSize: CGSize(width: 60, height: 60),
+            iconVerticalAlignment: .center,
+            iconHorizontalAlignment: .leading,
+            paddingTop: 16,
+            paddingLeading: 16,
+            paddingTrailing: 16,
+            paddingBottom: 16
         )
-    
+    )
+
 }

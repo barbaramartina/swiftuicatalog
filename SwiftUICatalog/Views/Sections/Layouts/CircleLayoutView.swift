@@ -9,11 +9,11 @@ import SwiftUI
 
 /// Example displaying some numbers around a circle
 struct CircleLayoutView: View {
-    
+
     /// will toggle the animation from 360 to 0 degrees
     @State
     private var isSpinning: Bool = false
-    
+
     var body: some View {
         spinButton
         CircleLayout {
@@ -34,9 +34,9 @@ struct CircleLayoutView: View {
         .rotationEffect(.degrees(isSpinning ? 360 : 0))
         .animation(.easeInOut(duration: 1), value: isSpinning)
     }
-    
+
     // MARK: - private
-    
+
     private var spinButton: some View {
         Button {
             isSpinning.toggle()
