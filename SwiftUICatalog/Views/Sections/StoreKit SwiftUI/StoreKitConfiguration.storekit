@@ -1,4 +1,14 @@
 {
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
   "identifier" : "D1DE4F48",
   "nonRenewingSubscriptions" : [
     {
@@ -130,8 +140,8 @@
               "displayPrice" : "0.99",
               "eligibility" : [
                 "expired",
-                "new",
-                "existing"
+                "existing",
+                "new"
               ],
               "internalID" : "381FBBE3",
               "isStackable" : true,
@@ -156,13 +166,16 @@
           "recurringSubscriptionPeriod" : "P1M",
           "referenceName" : "Hairdresser session",
           "subscriptionGroupID" : "71DCD07D",
-          "type" : "RecurringSubscription"
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
         }
       ]
     }
   ],
   "version" : {
-    "major" : 3,
+    "major" : 4,
     "minor" : 0
   }
 }
