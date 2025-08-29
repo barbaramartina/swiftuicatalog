@@ -42,7 +42,7 @@ struct TitleSubtitleIconView: View, Identifiable {
 
     var body: some View {
 
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing: 16) {
             HStack(alignment: configuration.iconVerticalAlignment) {
 
                 if configuration.iconHorizontalAlignment == .leading {

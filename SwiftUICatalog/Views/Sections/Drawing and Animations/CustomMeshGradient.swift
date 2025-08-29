@@ -29,7 +29,7 @@ struct CustomMeshGradient: View {
 
     var body: some View {
         PageContainer(
-            content: ScrollView {
+            content: ScrollView(showsIndicators: false) {
                 Group {
                     VStack {
                         HStack {

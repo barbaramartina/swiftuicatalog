@@ -48,34 +48,31 @@ struct DisclosureGroupsView: View, Comparable {
     @State private var topExpanded: Bool = true
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/disclosuregroup",
                         name: "DISCLOSURE GROUP"
                     )
 
-                    GroupBox {
-                        VStack(alignment: .leading) {
+                  
+                        VStack(alignment: .leading, spacing: 16) {
                             Text(
                                 "A view that shows or hides another content view, based on the state of a disclosure control."
                             )
                             .fontWeight(.light)
-                            .font(.title2)
+                            .font(.body)
 
                             Text(
                                 "A disclosure group view consists of a label to identify the contents, and a control to show and hide the contents. Showing the contents puts the disclosure group into the “expanded” state, and hiding them makes the disclosure group “collapsed”."
                             )
                             .fontWeight(.light)
-                            .font(.title2)
+                            .font(.body)
                             disclosureGroupsExample
                         }
-                    }
+                    
 
                     Spacer()
                     ContributedByView(

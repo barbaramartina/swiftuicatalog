@@ -37,13 +37,13 @@ struct InterfacingWithUIKitView<Page: View>: View {
     
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 Group(){
                     HStack(){
                         Text("Framework Integration")
                             .fontWeight(.light)
-                            .font(.title2)
+                            .font(.body)
                     }
                     HStack{
                         Text("Framework Integration Interfacing with UIKit")

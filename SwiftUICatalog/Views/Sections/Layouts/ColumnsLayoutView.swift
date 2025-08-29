@@ -20,7 +20,7 @@ struct ColumnsLayoutView: View {
     ]
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             ColumnsLayout(columns: columns) {
                 ForEach(0..<30) { index in
                     style.colorPalette1.randomElement()!

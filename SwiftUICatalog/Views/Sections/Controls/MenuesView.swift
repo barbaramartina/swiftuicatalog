@@ -40,12 +40,9 @@ struct MenusComponentView: View, Comparable {
         RedBorderMenuStyle.init()
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/menu",
@@ -96,8 +93,9 @@ struct MenusComponentView: View, Comparable {
     }
 
     private var example1: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      
+        
+            VStack(alignment: .leading, spacing: 16) {
 
                 // Contextual information: a short intro to the elements we are showcasing
                 Group {
@@ -106,12 +104,12 @@ struct MenusComponentView: View, Comparable {
                         .font(.title)
                     Text("A control for presenting a menu of actions.")
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                 }
 
                 HStack {
                     Text("Menu + Sub-Menu").fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     Spacer()
                     Menu("Menu") {
                         Button("Duplicate", action: duplicate)
@@ -126,16 +124,15 @@ struct MenusComponentView: View, Comparable {
                 }
 
             }
-        }
-
+      
     }
 
     private var example2: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+    
+            VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Text("Menu + image").fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     Spacer()
                     Menu {
                         Button("Open in Preview", action: action)
@@ -145,8 +142,7 @@ struct MenusComponentView: View, Comparable {
                     }
                 }
             }
-        }
-
+       
     }
 
     private var example3: some View {
@@ -154,11 +150,11 @@ struct MenusComponentView: View, Comparable {
          Styling Menus
          Use the menuStyle(_:) modifier to change the style of all menus in a view.
          */
-        GroupBox {
-            VStack(alignment: .leading) {
+     
+            VStack(alignment: .leading, spacing: 16) {
                 HStack {
                     Text("Styling Menus + action").fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     Spacer()
                     Menu("Editing") {
                         Button("Set In Point", action: setInPoint)
@@ -168,23 +164,22 @@ struct MenusComponentView: View, Comparable {
                 }
 
             }
-        }
-
+      
     }
 
     private var example4: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Primary Action")
                     .fontWeight(.heavy)
                     .font(.title)
                 Text(
                     "Menus can be created with a custom primary action. The primary action will be performed when the user taps or clicks on the body of the control, and the menu presentation will happen on a Medium gesture, such as on long press or on click of the menu indicator. The following example creates a menu that adds bookmarks, with advanced options that are presented in a menu."
                 ).fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 HStack {
                     Text("Menu + primary action").fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     Spacer()
                     Menu {
                         Button(action: addCurrentTabToReadingList) {
@@ -212,7 +207,7 @@ struct MenusComponentView: View, Comparable {
                     }
                 }
             }
-        }
+      
 
     }
 }

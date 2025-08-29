@@ -41,19 +41,16 @@ struct PickersView: View, Comparable {
     @State var suggestedTopping: Topping = .cookies
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/picker",
                         name: nil
                     )
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
 
                         example1
                             .modifier(Divided())
@@ -73,8 +70,8 @@ struct PickersView: View, Comparable {
     }
 
     private var example1: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Pickers in SwiftUI")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -82,7 +79,7 @@ struct PickersView: View, Comparable {
                     "You create a picker by providing a selection binding, a label, and the content for the picker to display. Set the selection parameter to a bound property that provides the value to display as the current selection. Set the label to a view that visually describes the purpose of selecting content in the picker, and then provide the content for the picker to display."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 Spacer()
                 Text("Selected flavor: \(selectedFlavor.rawValue)")
                 Picker("Flavor", selection: $selectedFlavor) {
@@ -98,13 +95,13 @@ struct PickersView: View, Comparable {
                 }
                 .background(Color("Medium"))
             }
-        }
+     
 
     }
 
     private var example2: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Iterating Over a Picker’s Options")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -112,7 +109,7 @@ struct PickersView: View, Comparable {
                     "Choose your flavor and check the suggested topping options."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 Text("suggestedTopping: \(suggestedTopping.rawValue)")
                 /**
                  To provide selection values for the Picker without explicitly listing each option, you can create the picker with a ForEach construct, like this:
@@ -135,13 +132,12 @@ struct PickersView: View, Comparable {
                 }
                 .background(Color.green)
             }
-        }
-
+        
     }
 
     private var example3: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Styling Pickers").fontWeight(.heavy)
                     .font(.title)
 
@@ -149,8 +145,8 @@ struct PickersView: View, Comparable {
                     "You can customize the appearance and interaction of pickers by creating styles that conform to the PickerStyle protocol. You create your own style or use one of the styles provided by SwiftUI, like segmented or menu."
                 )
                 .fontWeight(.light)
-                .font(.title2)
-                VStack(alignment: .leading) {
+                .font(.body)
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Selected flavor: \(selectedFlavor.rawValue)")
                         .padding(.vertical)
                     Text("Selected topping: \(selectedTopping.rawValue)")
@@ -171,7 +167,7 @@ struct PickersView: View, Comparable {
                 }
                 .pickerStyle(SegmentedPickerStyle())
             }
-        }
+        
 
     }
 }

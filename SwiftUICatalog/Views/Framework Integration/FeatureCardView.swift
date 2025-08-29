@@ -57,7 +57,7 @@ struct TextOverlay: View {
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             gradient
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 Text(landmark.name)
                     .font(.title)
                     .bold()

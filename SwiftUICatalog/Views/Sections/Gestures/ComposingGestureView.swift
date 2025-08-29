@@ -102,7 +102,7 @@ struct ComposingGesturesView: View, Comparable {
             self.viewState.height += drag.translation.height
         }
 
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             DocumentationLinkView(
                 link:
                     "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures",
@@ -113,7 +113,7 @@ struct ComposingGesturesView: View, Comparable {
                 "Try to click and hold your finger, then drag the circle and enjoy this gesture in SwiftUI."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Text(
                 "Offset = x: \(viewState.width + dragState.translation.width) - y: \(viewState.height + dragState.translation.height)"
             )

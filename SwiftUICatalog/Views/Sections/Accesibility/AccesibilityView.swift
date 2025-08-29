@@ -45,7 +45,7 @@ struct AccesibilityView: View {
 
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
 
                 /// Header Level 2
                 Text("A list of grocery items")
@@ -58,8 +58,7 @@ struct AccesibilityView: View {
                 List {
                     Section(header: Text("Cans").font(.title)) {
                         Group {
-
-                            VStack(alignment: .leading) {
+                            VStack(alignment: .leading, spacing: 16) {
                                 Text("Green peas")
                                 Divider()
                                 HStack {
@@ -133,7 +132,7 @@ struct AccesibilityView: View {
                             Text("Cat food")
                             Text("Canned tunna")
                         }
-                        .font(.title2)
+                        .font(.body)
                     }
                     .accessibilityHeading(.h3)
 

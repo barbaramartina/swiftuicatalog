@@ -92,7 +92,7 @@ struct ContentView: View {
             )
             .font(.footnote)
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             .padding(.top, 24)
             .padding(.bottom, 16)
             .foregroundColor(.white)

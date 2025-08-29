@@ -13,23 +13,20 @@ struct SpringAnimationView: View {
     @State private var isActive3 = false
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/animation/spring"
                     )
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text(
                             "Since iOS17 spring animations can be applied to views and easily created."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         example1
                             .modifier(Divided())
                         example2
@@ -43,7 +40,7 @@ struct SpringAnimationView: View {
     }
 
     private var example1: some View {
-        GroupBox {
+        Group {
             Button(
                 action: {
                     withAnimation(
@@ -73,7 +70,7 @@ struct SpringAnimationView: View {
         }
     }
     private var example2: some View {
-        GroupBox {
+        Group {
             Button(
                 action: {
                     withAnimation(
@@ -103,7 +100,7 @@ struct SpringAnimationView: View {
         }
     }
     private var example3: some View {
-        GroupBox {
+        Group {
             Button(
                 action: {
                     withAnimation(

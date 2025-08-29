@@ -80,8 +80,8 @@ struct GesturesView: View, Comparable {
                 print("View Pressed for two seconds!")
             }
 
-        ScrollView {
-            VStack(alignment: .leading) {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .leading, spacing: 16) {
                 DocumentationLinkView(
                     link:
                         "https://developer.apple.com/documentation/swiftui/adding-interactivity-with-gestures",

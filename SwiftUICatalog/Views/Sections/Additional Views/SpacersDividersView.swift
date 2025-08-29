@@ -40,7 +40,6 @@ struct SpacersDividersView: View, Comparable {
     let id: String = "SpacersDividersView"
 
     var body: some View {
-
         PageContainer(
             content:
 

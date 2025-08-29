@@ -103,7 +103,7 @@ struct AnimationsView: View, Comparable {
                 )
                 .listRowBackground(Color.white)
                 Link(
-                    destination: VStack(alignment: .leading) {
+                    destination: VStack(alignment: .leading, spacing: 16) {
                         Group {
                             Text("Circles in motion animation")
                                 .fontWeight(.heavy)
@@ -113,7 +113,7 @@ struct AnimationsView: View, Comparable {
                                 "A custom complex animation using geometry reader to create shapes and make them move and scale around the screen"
                             )
                             .fontWeight(.light)
-                            .font(.title2)
+                            .font(.body)
                             MotionAnimationView()
                         }
                         .padding(.horizontal)

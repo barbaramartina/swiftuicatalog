@@ -19,20 +19,18 @@ struct TimingCurvesView: View {
     var body: some View {
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/animation/spring"
                     )
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text(
                             "Since iOS17 spring animations can be applied to views and easily created."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         example1
                             .modifier(Divided())
                         example2
@@ -54,11 +52,11 @@ struct TimingCurvesView: View {
     }
 
     private var example7: some View {
-        GroupBox {
+        Group {
             HStack {
                 Text("Creates a new curve using bezier control points.")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
             }
             Button(
@@ -94,12 +92,12 @@ struct TimingCurvesView: View {
     }
 
     private var example1: some View {
-        GroupBox {
+        Group {
             Text(
                 "A bezier curve that starts out slowly, then speeds up as it finishes."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Button(
                 action: {
                     withAnimation(.timingCurve(.easeIn, duration: 4.0)) {
@@ -124,12 +122,12 @@ struct TimingCurvesView: View {
         }
     }
     private var example2: some View {
-        GroupBox {
+        Group {
             Text(
                 "A bezier curve that starts out quickly, then slows down as it approaches the end."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Button(
                 action: {
                     withAnimation(.timingCurve(.easeOut, duration: 4.0)) {
@@ -154,12 +152,12 @@ struct TimingCurvesView: View {
         }
     }
     private var example3: some View {
-        GroupBox {
+        Group {
             Text(
                 "A bezier curve that starts out slowly, speeds up over the middle, then slows down again as it approaches the end."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Button(
                 action: {
                     withAnimation(.timingCurve(.easeInOut, duration: 4.0)) {
@@ -184,12 +182,12 @@ struct TimingCurvesView: View {
         }
     }
     private var example4: some View {
-        GroupBox {
+        Group {
             Text(
                 "A curve that starts out slowly, then speeds up as it finishes."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Button(
                 action: {
                     withAnimation(.timingCurve(.circularEaseIn, duration: 4.0))
@@ -215,12 +213,12 @@ struct TimingCurvesView: View {
         }
     }
     private var example5: some View {
-        GroupBox {
+        Group {
             Text(
                 "A curve that starts out slowly, then speeds up as it finishes."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Button(
                 action: {
                     withAnimation(.timingCurve(.circularEaseOut, duration: 4.0))
@@ -246,12 +244,12 @@ struct TimingCurvesView: View {
         }
     }
     private var example6: some View {
-        GroupBox {
+        Group {
             Text(
                 "A curve that starts out slowly, then speeds up as it finishes."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             Button(
                 action: {
                     withAnimation(

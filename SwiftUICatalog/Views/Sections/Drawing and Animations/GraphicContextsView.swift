@@ -53,9 +53,8 @@ struct GraphicContextsView: View, Comparable {
     ]
 
     var body: some View {
-
         PageContainer(
-            content: ScrollView {
+            content: ScrollView(showsIndicators: false) {
 
                 DocumentationLinkView(
                     link:
@@ -63,7 +62,7 @@ struct GraphicContextsView: View, Comparable {
                     name: "GRAPHIC CONTEXTS"
                 )
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     intro
                     // Canvas 1: context and copy of context
                     example1
@@ -215,7 +214,7 @@ struct GraphicContextsView: View, Comparable {
                 "A view providing a space for 2D drawing, images, texts or even other views. You can create copies of the initial context, this will add an extra drawing (transparent) layer in a tree"
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
         }
     }
 

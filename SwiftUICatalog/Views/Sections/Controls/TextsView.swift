@@ -42,12 +42,9 @@ struct TextsComponentsView: View, Comparable {
     @State private var secureFieldValue: String = ""
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/text",
@@ -76,8 +73,8 @@ struct TextsComponentsView: View, Comparable {
     }
 
     private var textControls: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Group {
 
                     Group {
@@ -88,7 +85,7 @@ struct TextsComponentsView: View, Comparable {
                             "SwiftUI comes with 2 pre-defined text controls: text fields and secure text field to utilise with for example password entries."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     }
 
                     HStack {
@@ -111,14 +108,14 @@ struct TextsComponentsView: View, Comparable {
                 }
                 Spacer()
             }
-        }
+       
 
     }
 
     /// Font types
     private var fontTypes: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
 
                 // Contextual information: a short intro to the elements we are showcasing
                 Text("Available fonts")
@@ -128,8 +125,8 @@ struct TextsComponentsView: View, Comparable {
                     "To apply a specific font to an individual Text View you can use the font modifier. There are already different type of fonts pre-defined"
                 )
                 .fontWeight(.light)
-                .font(.title2)
-                VStack(alignment: .center) {
+                .font(.body)
+                VStack(alignment: .center, spacing: 16) {
                     Text("Headline")
                         .font(.headline)
                     Text("Sub headline")
@@ -139,7 +136,7 @@ struct TextsComponentsView: View, Comparable {
                     Text("Title")
                         .font(.title)
                     Text("Title 2")
-                        .font(.title2)
+                        .font(.body)
                     Text("Title 3")
                         .font(.title3)
                     Text("Body")
@@ -156,12 +153,12 @@ struct TextsComponentsView: View, Comparable {
                 .modifier(ViewAlignmentModifier(alignment: .center))
                 .padding()
             }
-        }
+        
     }
 
     private var fontWeights: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Available font weights")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -169,8 +166,8 @@ struct TextsComponentsView: View, Comparable {
                     "Fonts can also be assigned a weight, which will change the appereance of the font"
                 )
                 .fontWeight(.light)
-                .font(.title2)
-                VStack(alignment: .center) {
+                .font(.body)
+                VStack(alignment: .center, spacing: 16) {
                     Text("Weight Black")
                         .fontWeight(.black)
                     Text("Weight Heavy")
@@ -185,7 +182,7 @@ struct TextsComponentsView: View, Comparable {
                         .fontWeight(.regular)
                     Text("Weight Light")
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     Text("Weight Ultra light")
                         .fontWeight(.ultraLight)
                         .font(.title3)
@@ -195,16 +192,16 @@ struct TextsComponentsView: View, Comparable {
                 .modifier(ViewAlignmentModifier(alignment: .center))
                 .padding()
             }
-        }
+        
     }
 
     private var fontModifiers: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+     
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Text, italic, bold")
                     .fontWeight(.heavy)
                     .font(.title)
-                VStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 16) {
                     Text("Italic")
                         .italic()
                     Text("Bold")
@@ -230,13 +227,13 @@ struct TextsComponentsView: View, Comparable {
                 .padding()
 
             }
-        }
+        
 
     }
 
     private var textTruncation: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+    
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Text, truncations and multiline")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -252,13 +249,13 @@ struct TextsComponentsView: View, Comparable {
                 )
                 .multilineTextAlignment(.center)
             }
-        }
+        
 
     }
 
     private var textDates: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Group {
                     Group {
                         Text("Text and dates")
@@ -268,7 +265,7 @@ struct TextsComponentsView: View, Comparable {
                             "There are ways to present a date inside a text element allowing it to be formatted with different styles and timers."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                     }
 
                     HStack {
@@ -300,7 +297,7 @@ struct TextsComponentsView: View, Comparable {
                 .padding(5)
                 Spacer()
             }
-        }
+        
 
     }
 

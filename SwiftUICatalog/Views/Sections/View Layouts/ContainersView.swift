@@ -43,11 +43,10 @@ struct ContainersView: View, Comparable {
     @State var toggleOn: Bool = true
 
     var body: some View {
-
         PageContainer(
             content:
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     DocumentationLinkView(
                         link:
@@ -79,7 +78,7 @@ struct ContainersView: View, Comparable {
                 "Similarly, GroupBox is used for distinguishing a set of views in the screen (in an alert type box)"
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
 
             GroupBox(
                 label:
@@ -116,7 +115,7 @@ struct ContainersView: View, Comparable {
                 "Some controls in SwiftUI allows grouping of other views, for example the Form component allows to group other views together and platform specific styling is then applied to all the contained views"
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
 
         }
 

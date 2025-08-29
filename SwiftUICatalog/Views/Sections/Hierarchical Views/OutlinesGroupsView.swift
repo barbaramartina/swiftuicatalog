@@ -84,11 +84,10 @@ struct OutlinesGroupsView: View, Comparable {
         )
 
     var body: some View {
-
         PageContainer(
             content:
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     DocumentationLinkView(
                         link:
@@ -96,18 +95,18 @@ struct OutlinesGroupsView: View, Comparable {
                     )
                     .padding()
 
-                    GroupBox {
+                    Group {
                         Text(
                             "A structure that computes views and disclosure groups on demand from an underlying collection of tree-structured, identified data."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         Text(
                             "Use an outline group when you need a view that can represent a hierarchy of data by using disclosure views. \nThis allows the user to navigate the tree structure by using the disclosure views to expand and collapse branches.\nTry it out by clicking on the > below:"
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         Group {
                             OutlineGroup(data, children: \.children) { item in

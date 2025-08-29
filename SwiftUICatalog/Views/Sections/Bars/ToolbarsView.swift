@@ -41,7 +41,6 @@ struct ToolbarsComponentView: View, Comparable {
     @State private var fontSize = 12.0
 
     var body: some View {
-
         PageContainer(
             content:
 

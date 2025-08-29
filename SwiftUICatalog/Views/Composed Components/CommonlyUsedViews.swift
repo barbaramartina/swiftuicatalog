@@ -13,7 +13,7 @@ struct CommonlyUsedViews: View, Comparable {
 
     var body: some View {
 
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             example1
             example2
             example3
@@ -26,7 +26,7 @@ struct CommonlyUsedViews: View, Comparable {
     // Big header - title - description view
     private var example1: some View {
 
-        GroupBox {
+        Group {
 
             Text(
                 "A view with an image as header, a title and a longer text below"
@@ -39,7 +39,7 @@ struct CommonlyUsedViews: View, Comparable {
                 "You can combine a set of those in an array and iterate to create a collection layout. Padding, fonts and content are configurable."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
 
             HeaderImageTitleSubtitle(
                 configuration: HeaderImageTitleSubtitle.Configuration(
@@ -65,7 +65,7 @@ struct CommonlyUsedViews: View, Comparable {
 
     // Card with icons - title - description
     private var example2: some View {
-        GroupBox {
+        Group {
             Text("A view with an icon, a title and a longer text below")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -75,7 +75,7 @@ struct CommonlyUsedViews: View, Comparable {
                 "The size of the icon and the horizontal and vertical alignment can be configured."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
 
             let configurationIcon1 = iconConfiguration(
                 with: Color.pink,
@@ -135,7 +135,7 @@ struct CommonlyUsedViews: View, Comparable {
 
     // swipable view
     private var example3: some View {
-        GroupBox {
+        Group {
 
             let configurationIcon1 = iconConfiguration(
                 with: Color.pink,

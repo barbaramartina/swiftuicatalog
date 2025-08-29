@@ -53,9 +53,8 @@ struct ShapesView: View, Comparable {
     let id: String = "ShapesView"
 
     var body: some View {
-
         PageContainer(
-            content: VStack(alignment: .leading) {
+            content: VStack(alignment: .leading, spacing: 16) {
 
                 DocumentationLinkView(
                     link:
@@ -79,8 +78,7 @@ struct ShapesView: View, Comparable {
     }
 
     private var standardExamples: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
                 Text("Rectangles, circles, ellipse and capsules")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -88,7 +86,7 @@ struct ShapesView: View, Comparable {
                     "SwiftUI brings some pre-defined shapes like rectangles and circles. But there is also the chance to define your own shapes by creating a path"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     // MARK: - rectangle
                     Rectangle()
@@ -114,13 +112,12 @@ struct ShapesView: View, Comparable {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
-
+        
     }
 
     private var customExamples: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+        
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Custom shape")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -132,12 +129,12 @@ struct ShapesView: View, Comparable {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+      
     }
 
     private var shapeExample: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Shapes can also be decorated with stroke borders")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -194,7 +191,7 @@ struct ShapesView: View, Comparable {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+        
     }
 
 }

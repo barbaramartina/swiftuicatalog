@@ -43,13 +43,11 @@ struct ScrollViewsView: View, Comparable {
     @State private var bottomButtonId: String = "bottom-button"
 
     var body: some View {
-
         PageContainer(
             content:
-
                 ScrollViewReader { proxy in
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
 
                         DocumentationLinkView(
                             link:
@@ -57,7 +55,7 @@ struct ScrollViewsView: View, Comparable {
                             name: "SCROLL VIEWS"
                         )
 
-                        GroupBox {
+                        Group {
                             introductionTexts
                             scrollToBottomButton(proxy: proxy)
                             VStack(spacing: 0) {
@@ -92,7 +90,7 @@ struct ScrollViewsView: View, Comparable {
                 "Examples on using ScrollViews and programatically manipulate them by assigning identifiers to its child views"
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
         }
     }
 

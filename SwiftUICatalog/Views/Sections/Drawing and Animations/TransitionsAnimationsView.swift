@@ -81,14 +81,14 @@ struct TransitionsAnimationsView: View, Comparable {
 
     var body: some View {
         PageContainer(
-            content: ScrollView {
-                VStack(alignment: .leading) {
+            content: ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 16) {
                     HStack {
                         Text(
                             "Tap each button to see how the animation mentioned would look like, and then tap it again to see how the animation reverses."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         Spacer()
                     }
 

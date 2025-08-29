@@ -20,9 +20,8 @@ struct Link<Destination>: View, Hashable, Identifiable where Destination: View {
     var body: some View {
         NavigationLink(destination: destination) {
             Text(label)
-                .font(.title2)
+                .font(.body)
                 .fontWeight(.light)
-                .font(.title2)
                 .foregroundColor(textColor)
         }
         .padding(.bottom, 5)

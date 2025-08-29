@@ -47,7 +47,7 @@ struct CoreGraphics: View {
     private var viewModel = CoreGraphicsViewModel()
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 starShape
                 waveShape

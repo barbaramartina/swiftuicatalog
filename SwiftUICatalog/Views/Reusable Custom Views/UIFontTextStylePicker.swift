@@ -16,7 +16,7 @@ struct UIFontTextStylePicker: View {
     private let options: [UIFont.TextStyle] = [
         .body, .callout, .caption1, .footnote, .caption2, .extraLargeTitle,
         .extraLargeTitle2, .headline, .subheadline, .largeTitle, .title1,
-        .title2, .title3,
+        .body, .title3,
     ]
 
     var body: some View {
@@ -42,7 +42,7 @@ extension UIFont.TextStyle {
         case .subheadline: return "subheadline"
         case .largeTitle: return "largeTitle"
         case .title1: return "title1"
-        case .title2: return "title2"
+        case .body: return "title2"
         case .title3: return "title3"
         default: return ""
         }

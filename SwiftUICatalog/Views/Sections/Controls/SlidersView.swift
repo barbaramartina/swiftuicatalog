@@ -47,7 +47,6 @@ struct SlidersView: View, Comparable {
     // MARK: - Body
 
     var body: some View {
-
         PageContainer(
             content:
 
@@ -59,7 +58,7 @@ struct SlidersView: View, Comparable {
                         name: "SLIDER"
                     )
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         sliderGrams
                             .modifier(Divided())
                         sliderWithVoiceOver
@@ -77,8 +76,8 @@ struct SlidersView: View, Comparable {
     }
 
     private var sliderGrams: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+    
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Slider with continued values")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -86,7 +85,7 @@ struct SlidersView: View, Comparable {
                     "A slider can be configured with a range of values through which continued numbers can be selected. In this example there is a selection of grams for some tasty receipt."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 Slider(
                     value: $grams1,
                     in: 0...1000,
@@ -97,12 +96,12 @@ struct SlidersView: View, Comparable {
                 Text("\(grams1)")
                     .foregroundColor(isEditing1 ? .blue : .black)
             }
-        }
+       
 
     }
 
     private var sliderSteps: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Slider with steps")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -110,21 +109,21 @@ struct SlidersView: View, Comparable {
                 "A slider can also be configured with a step value, that will make the choose values jump depending on the size of the step, for example here from 20 to 20 more."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
         }
 
     }
 
     private var sliderWithVoiceOver: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Slider with VoiceOver Label & min / max values")
                     .fontWeight(.heavy)
                 Text(
                     "A slider can also be contained between a minimum and a maximum value. Here a label is also added to the slider, whose text will be spoken in VoiceOver to improve accessibility"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 VStack {
                     Slider(
                         value: $grams3,
@@ -147,7 +146,7 @@ struct SlidersView: View, Comparable {
                     )
                 }
             }
-        }
+        
     }
 
     private var sliderGrams2: some View {

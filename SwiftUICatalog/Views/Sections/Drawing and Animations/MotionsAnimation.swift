@@ -46,7 +46,7 @@ struct MotionAnimationView: View, Comparable {
 
     var body: some View {
 
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             GeometryReader { geometry in
                 ZStack {
 

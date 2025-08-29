@@ -45,9 +45,8 @@ struct ProgressViews: View, Comparable {
     ).autoconnect()
 
     var body: some View {
-
         PageContainer(
-            content: ScrollView {
+            content: ScrollView(showsIndicators: false) {
 
                 DocumentationLinkView(
                     link:
@@ -83,26 +82,26 @@ struct ProgressViews: View, Comparable {
                 "Progress views are used to indicate steps in a task, or to show feedback while waiting for results. \nExample 1: The first example is a linear progress view with a title shown at the top of the progress bar."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             .padding(.bottom)
             .modifier(ViewAlignmentModifier(alignment: .leading))
             Text(
                 "Example 2: Simple progress views can also be used, and the progress bar won't have an associated title."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             .padding(.vertical, Style.VerticalPadding.medium.rawValue)
             .modifier(ViewAlignmentModifier(alignment: .leading))
             Text(
                 "Example 3: A spinner can also be shown with a text associated."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             .padding(.vertical, Style.VerticalPadding.medium.rawValue)
             .modifier(ViewAlignmentModifier(alignment: .leading))
 
-            GroupBox {
-                VStack(alignment: .center) {
+            
+                VStack(alignment: .center, spacing: 16) {
                     ProgressView(
                         "Downloading…",
                         value: progress,
@@ -125,7 +124,7 @@ struct ProgressViews: View, Comparable {
                         )
                         .padding(.bottom)
 
-                }
+                
             }
         }
     }
@@ -136,12 +135,12 @@ struct ProgressViews: View, Comparable {
                 "Also any view can be included inside the progress view, such as in this case, a button."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             .padding(.vertical, Style.VerticalPadding.medium.rawValue)
             .modifier(ViewAlignmentModifier(alignment: .leading))
 
-            GroupBox {
-                VStack(alignment: .leading) {
+           
+                VStack(alignment: .leading, spacing: 16) {
                     ProgressView {
                         Button(action: {
                             // to do: your cancellation logic
@@ -159,7 +158,7 @@ struct ProgressViews: View, Comparable {
                     }
 
                 }
-            }
+          
         }
     }
 
@@ -169,12 +168,12 @@ struct ProgressViews: View, Comparable {
                 "The color of the spinner can be changed with a tint color of your choice."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             .padding(.vertical, Style.VerticalPadding.medium.rawValue)
             .modifier(ViewAlignmentModifier(alignment: .leading))
 
-            GroupBox {
-                VStack(alignment: .leading) {
+           
+                VStack(alignment: .leading, spacing: 16) {
 
                     ProgressView(
                         "Please wait...",
@@ -189,7 +188,7 @@ struct ProgressViews: View, Comparable {
                     .padding(.vertical)
 
                 }
-            }
+           
         }
     }
 }

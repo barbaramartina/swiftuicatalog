@@ -53,7 +53,7 @@ struct LayoutModifiersView: View, Comparable {
 
     var body: some View {
 
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             anchorPreferences
             alignmentExamples
         }
@@ -62,7 +62,7 @@ struct LayoutModifiersView: View, Comparable {
 
     private var anchorPreferences: some View {
         Group {
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 DocumentationLinkView(
                     link:
                         "https://developer.apple.com/documentation/swiftui/view/alignmentguide(_:computevalue:)-6y3u2",
@@ -73,7 +73,7 @@ struct LayoutModifiersView: View, Comparable {
                     "A view can be modified in its aspect ratio and content mode"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 Image(systemName: "paperplane")
                     .resizable()
                     .aspectRatio(aspectRatio, contentMode: mode.contentMode)
@@ -105,7 +105,7 @@ struct LayoutModifiersView: View, Comparable {
                     "Views can be vertically aligned in respect to each other using precise offsets for each view, or using the view dimensions to calculate offsets"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 .padding()
                 VStack {
                     ForEach(0..<offsets.count, id: \.self) { index in
@@ -132,7 +132,7 @@ struct LayoutModifiersView: View, Comparable {
                     "Horizontal stack views can have different alignments in each of their views, which could make the overall layout look nicer or achieve a particular design requirement"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 .padding()
                 HStack(alignment: verticalAlignment) {
                     Image(systemName: "eraser")
@@ -147,15 +147,15 @@ struct LayoutModifiersView: View, Comparable {
                     .pickerStyle(.wheel)
             }
             Divider()
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "Views typically have a default priority of 0 which causes space to be apportioned evenly to all sibling views. Raising a view’s layout priority encourages the higher priority view to shrink later when the group is shrunk and stretch sooner when the group is stretched."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 .padding()
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Life is too short to wait! Start now.")
                         Text("layoutPriority(1)")
                     }

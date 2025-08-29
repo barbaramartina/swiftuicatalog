@@ -39,7 +39,7 @@ struct EffectsModifiersView: View, Comparable {
 
     var body: some View {
 
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
 
             DocumentationLinkView(
                 link:
@@ -50,7 +50,7 @@ struct EffectsModifiersView: View, Comparable {
                 "There are different effects that are provided out of the box and can be applied to any view, such as for example applying a degree of rotation, a shadow, a blurring effect."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
             List {
                 rotation
                 masking
@@ -60,7 +60,7 @@ struct EffectsModifiersView: View, Comparable {
 
                 // MARK: - Border & blur effect
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     Text("Border & blur effect")
                         .fontWeight(.heavy)
@@ -78,7 +78,7 @@ struct EffectsModifiersView: View, Comparable {
 
                 // MARK: - Clip Shape & color inverted effect
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     Text("Clip Shape & color inverted effect")
                         .fontWeight(.heavy)
@@ -95,7 +95,7 @@ struct EffectsModifiersView: View, Comparable {
 
                 // MARK: - Brigthness effect
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Brigthness effect")
                         .fontWeight(.heavy)
                         .font(.title)
@@ -109,7 +109,7 @@ struct EffectsModifiersView: View, Comparable {
 
                 // MARK: - Color multiply & Contrast effect
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Color multiply & Contrast effect")
                         .fontWeight(.heavy)
                         .font(.title)
@@ -128,7 +128,7 @@ struct EffectsModifiersView: View, Comparable {
 
                 // MARK: - Blend mode effect
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Blend mode effect")
                         .fontWeight(.heavy)
                         .font(.title)
@@ -147,7 +147,7 @@ struct EffectsModifiersView: View, Comparable {
     }
 
     private var grayScale: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Gray scale")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -162,7 +162,7 @@ struct EffectsModifiersView: View, Comparable {
     }
 
     private var rotation: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Rotation with shadow")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -180,7 +180,7 @@ struct EffectsModifiersView: View, Comparable {
     }
 
     private var masking: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             Text("Masking")
                 .fontWeight(.heavy)
                 .font(.title)

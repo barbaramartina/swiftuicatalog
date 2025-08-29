@@ -41,11 +41,9 @@ struct TextModifiersView: View, Comparable {
     @State private var text1: String = ""
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/text",
@@ -53,45 +51,43 @@ struct TextModifiersView: View, Comparable {
                     )
 
                     Group {
-                        GroupBox {
-                            VStack(alignment: .leading) {
-                                Text("Text view modifiers")
-                                    .fontWeight(.heavy)
-                                    .font(.title)
+                        VStack(alignment: .leading, spacing: 16) {
+                            Text("Text view modifiers")
+                                .fontWeight(.heavy)
+                                .font(.title)
 
-                                Text(
-                                    "Examples of modifiers that can be applied to Text Views"
-                                )
-                                .fontWeight(.light)
-                                .font(.title2)
-                                // Font weights
-                                Group {
-                                    Text("Font Weight Light")
-                                        .fontWeight(.light)
-                                        .font(.title2)
-                                    Text("Font Weight Medium")
-                                        .fontWeight(.medium)
-                                    Text("Font Weight Bold")
-                                        .fontWeight(.bold)
-                                    Text("Font Weight regular")
-                                        .fontWeight(.regular)
-                                    Text("Font Weight Semibold")
-                                        .fontWeight(.semibold)
-                                    Text("Font Weight thin")
-                                        .fontWeight(.thin)
-                                    Text("Font Weight Ultralight")
-                                        .fontWeight(.ultraLight)
-                                        .font(.title3)
-                                    Text("Font Weight Black")
-                                        .fontWeight(.heavy)
-                                }
+                            Text(
+                                "Examples of modifiers that can be applied to Text Views"
+                            )
+                            .fontWeight(.light)
+                            .font(.body)
+                            // Font weights
+                            Group {
+                                Text("Font Weight Light")
+                                    .fontWeight(.light)
+                                    .font(.body)
+                                Text("Font Weight Medium")
+                                    .fontWeight(.medium)
+                                Text("Font Weight Bold")
+                                    .fontWeight(.bold)
+                                Text("Font Weight regular")
+                                    .fontWeight(.regular)
+                                Text("Font Weight Semibold")
+                                    .fontWeight(.semibold)
+                                Text("Font Weight thin")
+                                    .fontWeight(.thin)
+                                Text("Font Weight Ultralight")
+                                    .fontWeight(.ultraLight)
+                                    .font(.title3)
+                                Text("Font Weight Black")
+                                    .fontWeight(.heavy)
                             }
                         }
+
                         // end of Font weights
                         .modifier(Divided())
 
-                        GroupBox {
-                            VStack(alignment: .leading) {
+                        Group {                            VStack(alignment: .leading, spacing: 16) {
                                 Text("Font type Headline")
                                     .font(.headline)
                                 Text("Font type Subheadline")
@@ -101,7 +97,7 @@ struct TextModifiersView: View, Comparable {
                                 Text("Font type Title")
                                     .font(.title)
                                 Text("Font type title 2")
-                                    .font(.title2)
+                                    .font(.body)
                                 Text("Font type title 3")
                                     .font(.title3)
                                 Text("Font type Body")
@@ -121,7 +117,7 @@ struct TextModifiersView: View, Comparable {
                         // end of font types
 
                         // Foreground colors
-                        GroupBox {
+                        Group {
                             Text("Foregroung color: A pink text")
                                 .foregroundColor(.pink)
                                 .frame(maxWidth: .infinity)
@@ -131,7 +127,7 @@ struct TextModifiersView: View, Comparable {
                         // end of foreground colors
 
                         // Line limit
-                        GroupBox {
+                        Group {
 
                             Text(
                                 "Line limit: A very long text that can only occupy 2 lines. A very long text that can only occupy 2 lines.A very long text that can only occupy 2 lines.A very long text that can only occupy 2 lines. "
@@ -143,7 +139,7 @@ struct TextModifiersView: View, Comparable {
                         // end of line limit
 
                         // Backgrounds
-                        GroupBox {
+                        Group {
 
                             Text("Backgrounds: a text with a text background")
                                 .font(.title)
@@ -178,9 +174,8 @@ struct TextModifiersView: View, Comparable {
                         .modifier(Divided())
 
                         // Opacity
-                        GroupBox {
-
-                            VStack(alignment: .leading) {
+                        Group {
+                            VStack(alignment: .leading, spacing: 16) {
                                 Text("A text with opacity 0.3")
                                     .opacity(0.3)
                                 Text("A text with opacity 0.6")
@@ -194,9 +189,8 @@ struct TextModifiersView: View, Comparable {
                         // end of opacity
 
                         // Bold , underlined..
-                        GroupBox {
-
-                            VStack(alignment: .leading) {
+                        Group {
+                            VStack(alignment: .leading, spacing: 16) {
                                 Text("Bold text")
                                     .bold()
                                 Text("Underlined text")
@@ -215,7 +209,7 @@ struct TextModifiersView: View, Comparable {
                     Group {
 
                         // tightening
-                        GroupBox {
+                        Group {
 
                             Text(
                                 "Example of a text which is slightly long for a line and we set a modifier to allow the characters to tighten"
@@ -235,9 +229,8 @@ struct TextModifiersView: View, Comparable {
                         // end of tightening
 
                         // Layout direction
-                        GroupBox {
-
-                            VStack(alignment: .leading) {
+                        Group {
+                            VStack(alignment: .leading, spacing: 16) {
                                 Link(
                                     destination: Text(
                                         "https://developer.apple.com/documentation/swiftui/environmentvalues/layoutdirection"
@@ -255,8 +248,7 @@ struct TextModifiersView: View, Comparable {
                         // end of layout direction
 
                         // text selection
-                        GroupBox {
-                            VStack(alignment: .leading, spacing: 10) {
+                        Group {                            VStack(alignment: .leading, spacing: 10) {
                                 Text("textSelection():")
                                     .padding(.top, 3)
                                     .textSelection(.enabled)
@@ -269,7 +261,7 @@ struct TextModifiersView: View, Comparable {
 
                                 Text("iOS 15+")
                                     .fontWeight(.light)
-                                    .font(.title2)
+                                    .font(.body)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .textSelection(.enabled)
@@ -278,8 +270,7 @@ struct TextModifiersView: View, Comparable {
                         // end of text selection
 
                         // text rotation
-                        GroupBox {
-                            VStack(alignment: .leading, spacing: 10) {
+                        Group {                            VStack(alignment: .leading, spacing: 10) {
                                 Text("Text Rotation Effect")
 
                                 Text("This text is rotated")
@@ -290,7 +281,7 @@ struct TextModifiersView: View, Comparable {
 
                                 Text("iOS 13+")
                                     .fontWeight(.light)
-                                    .font(.title2)
+                                    .font(.body)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -298,8 +289,7 @@ struct TextModifiersView: View, Comparable {
                         // end of text rotation
 
                         // text Shadow
-                        GroupBox {
-                            VStack(alignment: .leading, spacing: 10) {
+                        Group {                            VStack(alignment: .leading, spacing: 10) {
                                 Text("Text Shadow")
                                     .shadow(
                                         color: .green,
@@ -310,7 +300,7 @@ struct TextModifiersView: View, Comparable {
 
                                 Text("iOS 13+")
                                     .fontWeight(.light)
-                                    .font(.title2)
+                                    .font(.body)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -318,14 +308,13 @@ struct TextModifiersView: View, Comparable {
                         // end of text Shadow
 
                         // text tracking
-                        GroupBox {
-                            VStack(alignment: .leading, spacing: 10) {
+                        Group {                            VStack(alignment: .leading, spacing: 10) {
                                 Text("Space between characters")
                                     .tracking(2.5)
 
                                 Text("iOS 13+")
                                     .fontWeight(.light)
-                                    .font(.title2)
+                                    .font(.body)
                             }
                             .frame(maxWidth: .infinity, alignment: .leading)
                         }
@@ -333,7 +322,7 @@ struct TextModifiersView: View, Comparable {
                         // end of text tracking
 
                         // Keyboard types
-                        GroupBox {
+                        Group {
 
                             Group {
                                 TextField(

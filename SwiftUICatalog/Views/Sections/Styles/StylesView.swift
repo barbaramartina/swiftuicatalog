@@ -41,10 +41,9 @@ struct StylesView: View, Comparable {
     @State private var toggleValue: Bool = false
 
     var body: some View {
-
         PageContainer(
             content:
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     DocumentationLinkView(
                         link:
@@ -57,7 +56,7 @@ struct StylesView: View, Comparable {
                         "Styling views is giving the views a certain appereance. Swift provides styles depending on the type of view, and it also allows you to define your custom style for a particular type of view."
                     )
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                     .modifier(Divided())
                     gauges
                         .modifier(Divided())
@@ -78,7 +77,7 @@ struct StylesView: View, Comparable {
     private var pickers: some View {
         // styling Pickers
         // https://developer.apple.com/documentation/swiftui/pickerstyle
-        GroupBox {
+        Group {
             Text("Styling Pickers")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -150,14 +149,14 @@ struct StylesView: View, Comparable {
 
     private var buttons: some View {
         // Styling buttons with all the possible already implemented styles in Swift + 1 custom style
-        GroupBox {
+        Group {
             Text("Styling buttons")
                 .fontWeight(.heavy)
                 .font(.title)
             HStack {
                 Text("Automatic button style: ")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
                 Button("Example action") {}
                     .buttonStyle(.automatic)
@@ -165,7 +164,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Bordered button style: ")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
                 Button("Example action") {}
                     .buttonStyle(.bordered)
@@ -173,7 +172,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Border less button style: ")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
                 Button("Example action") {}
                     .buttonStyle(.borderless)
@@ -181,7 +180,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Border prominent less button style: ")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
                 Button("Example action") {}
                     .buttonStyle(.borderedProminent)
@@ -189,7 +188,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("Plain button style: ")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
                 Button("Example action") {}
                     .buttonStyle(.plain)
@@ -197,7 +196,7 @@ struct StylesView: View, Comparable {
             HStack {
                 Text("My own button style: ")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 Spacer()
                 Button("Example action") {}
                     .buttonStyle(MyOwnButtonStyle())
@@ -210,7 +209,7 @@ struct StylesView: View, Comparable {
     private var toggles: some View {
         // styling Toggles
         // https://developer.apple.com/documentation/swiftui/togglestyle
-        GroupBox {
+        Group {
             Text("Styling Toggles")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -245,7 +244,7 @@ struct StylesView: View, Comparable {
 
     private var menues: some View {
         // styling menues
-        GroupBox {
+        Group {
             Text("Styling Menues")
                 .fontWeight(.heavy)
                 .font(.title)
@@ -293,7 +292,7 @@ struct StylesView: View, Comparable {
     }
 
     private var progress: some View {
-        GroupBox {
+        Group {
             Group {
                 // https://developer.apple.com/documentation/swiftui/progressviewstyle
                 Text("Styling progress indicator")
@@ -333,13 +332,13 @@ struct StylesView: View, Comparable {
         }
     }
     private var gauges: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+        Group {
+            VStack(alignment: .leading, spacing: 16) {
                 // https://developer.apple.com/documentation/swiftui/gaugestyle
                 Text("Styling gauges")
                     .fontWeight(.heavy)
                     .font(.title)
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Automatic style:")
                     Spacer()
                     Gauge(value: 0.6) {
@@ -347,7 +346,7 @@ struct StylesView: View, Comparable {
                     }
                     .gaugeStyle(.automatic)
                 }
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("Accessory Circular style:")
                     Spacer()
                     Gauge(value: 0.75) {
@@ -382,7 +381,7 @@ struct StylesView: View, Comparable {
                     .labelStyle(.iconOnly)
                     .gaugeStyle(.accessoryCircular)
                 }
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("accessoryCircularCapacity style:")
                     Spacer()
                     Gauge(value: 0.6) {
@@ -390,7 +389,7 @@ struct StylesView: View, Comparable {
                     }
                     .gaugeStyle(.accessoryCircularCapacity)
                 }
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("linearCapacity style:")
                     Spacer()
                     Gauge(value: 0.6) {
@@ -398,7 +397,7 @@ struct StylesView: View, Comparable {
                     }
                     .gaugeStyle(.linearCapacity)
                 }
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text("accessoryLinearCapacity style:")
                     Spacer()
                     Gauge(value: 0.6) {

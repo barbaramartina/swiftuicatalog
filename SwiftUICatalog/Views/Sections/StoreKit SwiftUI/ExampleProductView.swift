@@ -21,7 +21,7 @@ struct ExampleProductView: View {
     var body: some View {
         PageContainer(
             content:
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/videos/play/wwdc2023/10013/",
@@ -70,7 +70,7 @@ struct ExampleProductView: View {
 
     /// a view with a custom ProductViewStyle showing a spinner while loading
     private var customStyleView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text("Compact Product Style with self configuration")
                     .fontWeight(.heavy)
@@ -86,7 +86,7 @@ struct ExampleProductView: View {
 
     /// A custom product style, where we also re-draw the view elements (not just style some of the loading phases)
     private var customStyleViewReDrawing: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text("Compact Product Style re-drawing elements")
                     .fontWeight(.heavy)
@@ -102,7 +102,7 @@ struct ExampleProductView: View {
 
     /// A product view with a spinner for the "loading" phase
     private var customizedLoadingView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text(
                     "Compact Product Style with customized loading and background"
@@ -141,7 +141,7 @@ struct ExampleProductView: View {
 
     /// A regular layour for presenting a product
     private var regularProductView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text("Regular Product Style")
                     .fontWeight(.heavy)
@@ -157,7 +157,7 @@ struct ExampleProductView: View {
 
     /// A product view with a compact style
     private var compactProductView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text("Compact Product Style")
                     .fontWeight(.heavy)
@@ -173,7 +173,7 @@ struct ExampleProductView: View {
 
     /// A product view with a large presentation style
     private var largeProductView: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
                 Text("Large Product Style")
                     .fontWeight(.heavy)
@@ -235,7 +235,7 @@ struct CustomProductViewStyle: ProductViewStyle {
                 "Error while loading the product: \(error.localizedDescription)"
             )
         case .success(let product):
-            VStack(alignment: .center) {
+            VStack(alignment: .center, spacing: 16) {
                 Text(product.displayName)
                     .font(.title)
                     .foregroundColor(.white)

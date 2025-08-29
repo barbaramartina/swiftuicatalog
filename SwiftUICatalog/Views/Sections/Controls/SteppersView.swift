@@ -65,12 +65,9 @@ struct SteppersView: View, Comparable {
     }
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/stepper",
@@ -94,8 +91,8 @@ struct SteppersView: View, Comparable {
     }
 
     private var customStepper: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+        Group {
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Stepper View + custom step")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -107,7 +104,7 @@ struct SteppersView: View, Comparable {
                     "The following example shows a stepper that displays the effect of incrementing or decrementing a value with the step size of step with the bounds defined by range:"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 .accessibilityAddTraits(.isStaticText)
                 .accessibilityHint(
                     "What you heard was the description of the example presented"
@@ -135,8 +132,8 @@ struct SteppersView: View, Comparable {
     }
 
     private var plainStepper: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Stepper View")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -144,7 +141,7 @@ struct SteppersView: View, Comparable {
                     "Use a stepper control when you want the user to have granular control while incrementing or decrementing a value. "
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 Stepper(
                     "Position: \(firstStepperValue) \nColor: \(colors[firstStepperValue].description)",
                     onIncrement: {
@@ -155,8 +152,7 @@ struct SteppersView: View, Comparable {
                     }
                 )
             }
-        }
-
+      
     }
 }
 

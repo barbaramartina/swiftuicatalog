@@ -78,14 +78,14 @@ struct ListsComponentView: View, Comparable {
 
     var body: some View {
 
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             documentationView
 
             Text(
                 "A list is a container with data rows organized in a single column and an optional selection field for one or more members. \nThe first example shows a list with sections, each section font weight and color have been customized. The style of this list is 'PlainListStyle'."
             )
             .fontWeight(.light)
-            .font(.title2)
+            .font(.body)
 
             list1
                 .modifier(Divided())
@@ -113,7 +113,55 @@ struct ListsComponentView: View, Comparable {
     }
 
     private var list1: some View {
-        GroupBox {
+
+        List(selection: $singleSelection) {
+            ForEach(countries) { c in
+                Section(
+                    header: Text("\(c.name)")
+                        .fontWeight(.thin)
+                        .foregroundColor(.black)
+                ) {
+                    ForEach(c.weatherFields) { d in
+                        HStack(alignment: .center) {
+                            Image(systemName: d.image)
+                                .resizable()
+                                .scaledToFill()
+                                .frame(width: 50, height: 50)
+                                .clipped()
+                                .clipShape(Circle())
+                            Text(d.name)
+                                .font(.subheadline)
+                                .fontWeight(.heavy)
+                                .font(.title)
+                                .foregroundColor(.accentColor)
+                        }
+                    }
+                    .onDelete(perform: { indexSet in
+                        // action
+                    })
+                    .onMove(perform: { indices, newOffset in
+                        // action
+                    })
+                    // end of for each
+                }
+            }
+
+        }
+        .frame(height: 300)
+        .listStyle(PlainListStyle())
+        .toolbar { EditButton() }
+
+    }
+
+    private var list2: some View {
+
+        VStack(alignment: .leading, spacing: 16) {
+            Text(
+                "This second example is using the style 'GroupedListStyle'."
+            )
+            .fontWeight(.light)
+            .font(.body)
+
             List(selection: $singleSelection) {
                 ForEach(countries) { c in
                     Section(
@@ -148,159 +196,107 @@ struct ListsComponentView: View, Comparable {
 
             }
             .frame(height: 300)
-            .listStyle(PlainListStyle())
-            .toolbar { EditButton() }
-        }
-        // end of list 1
+            .listStyle(GroupedListStyle())
+            // end of list 2
 
-    }
-
-    private var list2: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
-                Text(
-                    "This second example is using the style 'GroupedListStyle'."
-                )
-                .fontWeight(.light)
-                .font(.title2)
-
-                List(selection: $singleSelection) {
-                    ForEach(countries) { c in
-                        Section(
-                            header: Text("\(c.name)")
-                                .fontWeight(.thin)
-                                .foregroundColor(.black)
-                        ) {
-                            ForEach(c.weatherFields) { d in
-                                HStack(alignment: .center) {
-                                    Image(systemName: d.image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 50, height: 50)
-                                        .clipped()
-                                        .clipShape(Circle())
-                                    Text(d.name)
-                                        .font(.subheadline)
-                                        .fontWeight(.heavy)
-                                        .font(.title)
-                                        .foregroundColor(.accentColor)
-                                }
-                            }
-                            .onDelete(perform: { indexSet in
-                                // action
-                            })
-                            .onMove(perform: { indices, newOffset in
-                                // action
-                            })
-                            // end of for each
-                        }
-                    }
-
-                }
-                .frame(height: 300)
-                .listStyle(GroupedListStyle())
-                // end of list 2
-
-            }
         }
     }
 
     private var list3: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
-                Text("This next example is using the style 'InsetListStyle'.")
-                    .fontWeight(.light)
-                    .font(.title2)
 
-                List(selection: $singleSelection) {
-                    ForEach(countries) { c in
-                        Section(
-                            header: Text("\(c.name)")
-                                .fontWeight(.thin)
-                                .foregroundColor(.black)
-                        ) {
-                            ForEach(c.weatherFields) { d in
-                                HStack(alignment: .center) {
-                                    Image(systemName: d.image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 24, height: 24)
-                                        .clipped()
-                                        .clipShape(Circle())
-                                    Text(d.name)
-                                        .font(.subheadline)
-                                        .fontWeight(.heavy)
-                                        .font(.title)
-                                        .foregroundColor(.accentColor)
-                                }
+        VStack(alignment: .leading, spacing: 16) {
+            Text("This next example is using the style 'InsetListStyle'.")
+                .fontWeight(.light)
+                .font(.body)
+
+            List(selection: $singleSelection) {
+                ForEach(countries) { c in
+                    Section(
+                        header: Text("\(c.name)")
+                            .fontWeight(.thin)
+                            .foregroundColor(.black)
+                    ) {
+                        ForEach(c.weatherFields) { d in
+                            HStack(alignment: .center) {
+                                Image(systemName: d.image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 24, height: 24)
+                                    .clipped()
+                                    .clipShape(Circle())
+                                Text(d.name)
+                                    .font(.subheadline)
+                                    .fontWeight(.heavy)
+                                    .font(.title)
+                                    .foregroundColor(.accentColor)
                             }
-                            .onDelete(perform: { indexSet in
-                                // action
-                            })
-                            .onMove(perform: { indices, newOffset in
-                                // action
-                            })
-                            // end of for each
                         }
+                        .onDelete(perform: { indexSet in
+                            // action
+                        })
+                        .onMove(perform: { indices, newOffset in
+                            // action
+                        })
+                        // end of for each
                     }
-
                 }
-                .frame(height: 300)
-                .listStyle(InsetListStyle())
-                // end of list 3
 
             }
+            .frame(height: 300)
+            .listStyle(InsetListStyle())
+            // end of list 3
+
         }
     }
 
     private var list4: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
-                Text(
-                    "This next example is using the style 'InsetGroupedListStyle'."
-                )
-                .fontWeight(.light)
-                .font(.title2)
 
-                List(selection: $singleSelection) {
-                    ForEach(countries) { c in
-                        Section(
-                            header: Text("\(c.name)")
-                                .fontWeight(.thin)
-                                .foregroundColor(.black)
-                        ) {
-                            ForEach(c.weatherFields) { d in
-                                HStack(alignment: .center) {
-                                    Image(systemName: d.image)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 50, height: 50)
-                                        .clipped()
-                                        .clipShape(Circle())
-                                    Text(d.name)
-                                        .font(.subheadline)
-                                        .fontWeight(.heavy)
-                                        .font(.title)
-                                        .foregroundColor(.accentColor)
-                                }
+        VStack(alignment: .leading, spacing: 16) {
+            Text(
+                "This next example is using the style 'InsetGroupedListStyle'."
+            )
+            .fontWeight(.light)
+            .font(.body)
+
+            List(selection: $singleSelection) {
+                ForEach(countries) { c in
+                    Section(
+                        header: Text("\(c.name)")
+                            .fontWeight(.thin)
+                            .foregroundColor(.black)
+                    ) {
+                        ForEach(c.weatherFields) { d in
+                            HStack(alignment: .center) {
+                                Image(systemName: d.image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 50, height: 50)
+                                    .clipped()
+                                    .clipShape(Circle())
+                                Text(d.name)
+                                    .font(.subheadline)
+                                    .fontWeight(.heavy)
+                                    .font(.title)
+                                    .foregroundColor(.accentColor)
                             }
-                            .onDelete(perform: { indexSet in
-                                // action
-                            })
-                            .onMove(perform: { indices, newOffset in
-                                // action
-                            })
-                            // end of for each
                         }
+                        .onDelete(perform: { indexSet in
+                            // action
+                        })
+                        .onMove(perform: { indices, newOffset in
+                            // action
+                        })
+                        // end of for each
                     }
-
                 }
-                .frame(height: 300)
-                .listStyle(InsetGroupedListStyle())
-                // end of list 3
 
             }
+            .frame(height: 300)
+            .listStyle(InsetGroupedListStyle())
+            // end of list 3
+
         }
+
     }
 
     private var documentationView: some View {

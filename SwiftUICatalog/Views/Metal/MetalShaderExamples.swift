@@ -17,7 +17,7 @@ struct MetalShaderExamples: View {
     @State private var touch: CGPoint = .zero
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             TimelineView(.animation) { context in
                 let time = context.date.timeIntervalSince(startDate)
                 VStack {

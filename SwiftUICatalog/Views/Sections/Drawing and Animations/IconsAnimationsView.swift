@@ -21,20 +21,18 @@ struct IconsAnimationsView: View {
     var body: some View {
         PageContainer(
             content:
-
-                ScrollView {
-
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/animation"
                     )
 
-                    VStack(alignment: .leading) {
+                    VStack(alignment: .leading, spacing: 16) {
                         Text(
                             "SwiftUI provides a wide range of animations which can be applied to some properties of the view elements, such as the scale, the opacity, the offset. It also provides a set of more complex animations. Here was have some examples of what is possible when it comes to using SwiftUI animations toolbox"
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         example8
                         example7
@@ -50,13 +48,13 @@ struct IconsAnimationsView: View {
     }
 
     private var example1: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      
+            VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "In this example, we have a button with an icon and we can play an animation when the offset of the image changes, combining it with a scale and rotation effect (press the icon to see it in action)"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     Button(
                         action: {
@@ -86,18 +84,17 @@ struct IconsAnimationsView: View {
                         .frame(width: 50, height: 60)
                     Spacer()
                 }
-            }
+            
         }
         .frame(maxWidth: .infinity)
     }
     private var example2: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "In this case we are using a scale effect on the image, combined with a bouncy spring animation. The animation is repeated 5 times which makes it feels like a heart beating"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     Button(
                         action: {
@@ -122,16 +119,16 @@ struct IconsAnimationsView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+       
     }
     private var example3: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "To catch users attention, we could also make an image rotate, when some event is triggered."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     Button(
                         action: {
@@ -156,16 +153,16 @@ struct IconsAnimationsView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+        
     }
     private var example6: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+        
+            VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "The corner radius of an element can change and we can also use an animation during the change, controlling the duration and repeating it adds a feeling of transformation to the element"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     Button(
                         action: {
@@ -187,7 +184,7 @@ struct IconsAnimationsView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+        
     }
     private let gradient2 = LinearGradient(
         colors: [.green, .blue, .white],
@@ -200,11 +197,11 @@ struct IconsAnimationsView: View {
         endPoint: .bottomTrailing
     )
     private var example7: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text("A gradient can also change with an animation")
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                 HStack {
                     Button(
                         action: {
@@ -224,16 +221,16 @@ struct IconsAnimationsView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+        
     }
     private var example5: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "The shadow of an object can also be animated with different effects to make the object seems like if it is moving"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     Button(
                         action: {
@@ -263,8 +260,9 @@ struct IconsAnimationsView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+        
     }
+    
     private struct AnimatedProperties {
         var scale: CGFloat = 1
         var rotation: Angle = Angle(degrees: 0)
@@ -273,13 +271,13 @@ struct IconsAnimationsView: View {
         var offsetY: CGFloat = 0
     }
     private var example8: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+        
+            VStack(alignment: .leading, spacing: 16) {
                 Text(
                     "Keyframe animator was introduced in iOS 17 and it allows to perform animations of several properties at the same time"
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 HStack {
                     Spacer()
                     Image(systemName: "figure.outdoor.cycle")
@@ -332,17 +330,17 @@ struct IconsAnimationsView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-        }
+        
     }
     private var example4: some View {
-        GroupBox {
+      
             GeometryReader { geometry in
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     Text(
                         "We could move an image around the screen as well, for example when a button is selected or the user has completed an action"
                     )
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                     HStack {
                         Button(
                             action: {
@@ -371,7 +369,7 @@ struct IconsAnimationsView: View {
                 .frame(maxWidth: .infinity)
             }
             .frame(height: 200)
-        }
+       
     }
 }
 

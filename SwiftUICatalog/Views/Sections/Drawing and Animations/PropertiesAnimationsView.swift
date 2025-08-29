@@ -22,14 +22,14 @@ struct PropertiesAnimationsView: View, Comparable {
 
     var body: some View {
 
-        ScrollView {
+        ScrollView(showsIndicators: false) {
 
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: 16) {
 
                 // MARK: - animating local properties
 
-                GroupBox {
-                    VStack(alignment: .leading) {
+             
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Animating an array of images")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -37,7 +37,7 @@ struct PropertiesAnimationsView: View, Comparable {
                             "Given an array of images, which together build a frame animation, they can be displayed in sequence, generating a lively effect. \n Press on top of the icons to play the animations."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         HStack {
                             Spacer()
                             AnimatableView(
@@ -61,12 +61,12 @@ struct PropertiesAnimationsView: View, Comparable {
                             .frame(width: 100, height: 100)
                             Spacer()
                         }
-                    }
+                    
                 }
                 .modifier(Divided())
 
-                GroupBox {
-                    VStack(alignment: .leading) {
+               
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Animating a toggle on a boolean")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -74,7 +74,7 @@ struct PropertiesAnimationsView: View, Comparable {
                             "Using a boolean you can play around with different types of animations. Tap the image below to see how each animation looks like."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         Button(action: {
                             withAnimation(.easeInOut(duration: 3)) {
                                 self.animate3.toggle()
@@ -93,14 +93,14 @@ struct PropertiesAnimationsView: View, Comparable {
                             // end of h stack
                         }
                         // end of h stack
-                    }
+                    
                 }
                 .modifier(Divided())
 
                 // MARK: - rotation animated
 
-                GroupBox {
-                    VStack(alignment: .leading) {
+            
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Rotation animated")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -108,7 +108,7 @@ struct PropertiesAnimationsView: View, Comparable {
                             "Using a rotation effect and changing the degrees of the angle you can achieve a different animation."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         Button(action: {
                             self.animate1.toggle()
@@ -128,13 +128,13 @@ struct PropertiesAnimationsView: View, Comparable {
                             }
                             // end of h stack
                         }
-                    }
+                    
                 }
                 .modifier(Divided())
 
                 // MARK: - Spring rotation
-                GroupBox {
-                    VStack(alignment: .leading) {
+              
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Rotation animation with Spring")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -142,7 +142,7 @@ struct PropertiesAnimationsView: View, Comparable {
                             "A different type of effect is achieved by using a spring animation."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         Button(action: {
                             self.animate2.toggle()
@@ -162,15 +162,14 @@ struct PropertiesAnimationsView: View, Comparable {
                             }
                             // end of h stack
                         }
-                    }
-                    // end of h stack
+                    
                 }
                 .modifier(Divided())
                 // end of group
 
                 // MARK: - ripple
-                GroupBox {
-                    VStack(alignment: .leading) {
+              
+                    VStack(alignment: .leading, spacing: 16) {
                         Text("Ripple animation")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -178,7 +177,7 @@ struct PropertiesAnimationsView: View, Comparable {
                             "Here's an example of how to use your custom defined animation to simulate a ripple effect on an image."
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         Button(action: {
                             self.animate4.toggle()
@@ -198,8 +197,7 @@ struct PropertiesAnimationsView: View, Comparable {
                             }
                             // end of h stack
                         }
-                    }
-                    // end of h stack
+                    
                 }
                 .modifier(Divided())
                 // end of group

@@ -37,11 +37,9 @@ struct PopoversComponentView: View, Comparable {
         "https://developer.apple.com/documentation/swiftui/button/popover(ispresented:attachmentanchor:arrowedge:content:)"
 
     var body: some View {
-
         PageContainer(
             content:
-
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     DocumentationLinkView(
                         link: documentationURLString,
                         name: "POPOVERS"

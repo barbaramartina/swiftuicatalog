@@ -25,7 +25,7 @@ struct SheetsView: View {
     var body: some View {
         PageContainer(
             content:
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     Spacer()
                     buttonSheet1
                     Spacer()
@@ -116,8 +116,8 @@ struct SheetsView: View {
     }
 
     private var sheetContentExample: some View {
-        ScrollView {
-            VStack(alignment: .center) {
+        ScrollView(showsIndicators: false) {
+            VStack(alignment: .center, spacing: 16) {
                 Text("Sheet example")
                     .font(.title)
                     .padding(50)
@@ -180,7 +180,7 @@ struct SingleButtonBasicSheet: View, Comparable {
     var body: some View {
         PageContainer(
             content:
-                VStack(alignment: .center) {
+                VStack(alignment: .center, spacing: 16) {
                     Button("Press to dismiss") {
                         presentationMode.wrappedValue.dismiss()
                     }

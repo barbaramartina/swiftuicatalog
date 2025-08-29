@@ -49,11 +49,10 @@ struct GeometriesView: View, Comparable {
     @State private var textDirection: CGFloat = 1
 
     var body: some View {
-
         PageContainer(
             content:
 
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     DocumentationLinkView(
                         link:
@@ -61,7 +60,7 @@ struct GeometriesView: View, Comparable {
                         name: "GEOMETRY"
                     )
 
-                    GroupBox {
+                    Group {
                         Text("Reading geometries")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -70,7 +69,7 @@ struct GeometriesView: View, Comparable {
                             "Geometry readers can be use to provide a layout definition by assigned percentages of the available width to each view"
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         GeometryReader { geometry in
                             HStack(spacing: 0) {
                                 Spacer()
@@ -94,12 +93,12 @@ struct GeometriesView: View, Comparable {
                     }
                     .modifier(Divided())
 
-                    GroupBox {
+                    Group {
                         Text(
                             "A geometry reader reads the size of the view he's executed in and return a geometry proxy to access width and height of the view"
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
                         .padding()
 
                         Text("Effects on geometries")
@@ -110,7 +109,7 @@ struct GeometriesView: View, Comparable {
                             "Geometry effects on views can be used to produce transformations to the frames and in that way create new animations"
                         )
                         .fontWeight(.light)
-                        .font(.title2)
+                        .font(.body)
 
                         Text("Animated")
                             .modifier(

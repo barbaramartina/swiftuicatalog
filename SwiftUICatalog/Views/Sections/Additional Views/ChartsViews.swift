@@ -128,7 +128,7 @@ struct ChartsViews: View {
     var body: some View {
         PageContainer(
             content:
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
 
                     DocumentationLinkView(
                         link:
@@ -140,11 +140,11 @@ struct ChartsViews: View {
                         "Since iOS16 Swift offers Swift Charts, there are different types of charts supported, we show many of them in the following examples."
                     )
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
                     .padding(.bottom)
 
                     // BAR CHART
-                    GroupBox {
+                    Group {
                         Text("Bar Chart example")
                             .fontWeight(.heavy)
                             .font(.title)
@@ -169,7 +169,7 @@ struct ChartsViews: View {
                     }
                     .modifier(Divided())
 
-                    GroupBox {
+                    Group {
                         // POINT CHART
                         Text("Point Chart examples")
                             .fontWeight(.heavy)
@@ -200,7 +200,7 @@ struct ChartsViews: View {
                         .padding()
                     }
                     .modifier(Divided())
-                    GroupBox {
+                    Group {
                         // LINE CHART
                         Text("Line Chart example")
                             .fontWeight(.heavy)

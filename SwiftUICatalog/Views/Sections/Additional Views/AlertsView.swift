@@ -46,7 +46,6 @@ struct AlertsComponentView: View, Comparable {
     @State private var stepperValue: Int = 0
 
     var body: some View {
-
         PageContainer(
             content:
                 VStack {
@@ -152,8 +151,8 @@ struct AlertsComponentView: View, Comparable {
     }
 
     private var simpleAlert: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+     
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Simple alerts")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -164,7 +163,7 @@ struct AlertsComponentView: View, Comparable {
                     """
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Button(
                     action: {
@@ -180,7 +179,7 @@ struct AlertsComponentView: View, Comparable {
                     "It's possible to attach a custom message to the alert, and it will be rendered under the title. The message can only be a SwiftUI Text, and any text styling will be ignored."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Button(
                     action: {
@@ -192,12 +191,12 @@ struct AlertsComponentView: View, Comparable {
                 )
 
             }
-        }
+       
     }
 
     private var advanceAlerts: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+       
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Alerts from errors")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -209,7 +208,7 @@ struct AlertsComponentView: View, Comparable {
                     """
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Text(
                     """
@@ -245,7 +244,7 @@ struct AlertsComponentView: View, Comparable {
                     """
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Stepper(
                     "\(stepperValue) / 5",
@@ -258,12 +257,12 @@ struct AlertsComponentView: View, Comparable {
                 )
 
             }
-        }
+       
     }
 
     private var customActionsAlert: some View {
-        GroupBox {
-            VStack(alignment: .leading) {
+      
+            VStack(alignment: .leading, spacing: 16) {
                 Text("Alerts with custom actions")
                     .fontWeight(.heavy)
                     .font(.title)
@@ -271,7 +270,7 @@ struct AlertsComponentView: View, Comparable {
                     "We can replace the alert's default OK action with different custom buttons."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Button(
                     action: {
@@ -286,7 +285,7 @@ struct AlertsComponentView: View, Comparable {
                     "If two actions are provided, they will be rendered horizontally side by side."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Button(
                     action: {
@@ -301,7 +300,7 @@ struct AlertsComponentView: View, Comparable {
                     "If more than two actions are provided, they will be rendered vertically."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
 
                 Button(
                     action: {
@@ -316,7 +315,7 @@ struct AlertsComponentView: View, Comparable {
                     "Actions can also have different roles. In addition to the default role, we can assign them to be destructive or cancel."
                 )
                 .fontWeight(.light)
-                .font(.title2)
+                .font(.body)
                 Button(
                     action: {
                         showAlertWithActionRoles = true
@@ -326,7 +325,7 @@ struct AlertsComponentView: View, Comparable {
                     }
                 )
             }
-        }
+        
     }
 
     private struct CustomError: LocalizedError {

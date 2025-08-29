@@ -18,7 +18,7 @@ struct SensoryFeedbackInViews: View {
     var body: some View {
         PageContainer(
             content:
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 16) {
                     DocumentationLinkView(
                         link:
                             "https://developer.apple.com/documentation/swiftui/sensoryfeedback"
@@ -31,7 +31,7 @@ struct SensoryFeedbackInViews: View {
                         "Since iOS17 SwiftUI offers sensory feedback modifiers. To try out how each of the standard sensory feedback effect feels like, click on the buttons below. \nRemember that for hearing feedback, you have to activate it in your phone's Settings."
                     )
                     .fontWeight(.light)
-                    .font(.title2)
+                    .font(.body)
 
                     HStack {
                         successButton
