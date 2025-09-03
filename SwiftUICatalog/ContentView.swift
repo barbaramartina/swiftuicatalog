@@ -238,6 +238,10 @@ struct ContentView: View {
                 destination: TableViews(),
                 label: "Table Views"
             )
+            Link(
+                destination: ColumnsLayoutView(),
+                label: "Custom gallery layout"
+            )
         }
         .listRowBackground(Color(sectionColor))
     }

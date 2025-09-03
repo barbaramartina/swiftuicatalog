@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct ColumnsLayoutView: View {
-
-    /// just to distinguish one view from the other / color palette access
-    private let style = Style()
+    private let imageNames = (1...8).map { "landmark\($0)" }
     /// columns for the layout
     private let columns = [
         Column(boxes: [.rectangle, .squared, .rectangle]),
-        Column(boxes: [.squared, .squared, .rectangle, .squared, .squared]),
-        Column(boxes: [.rectangle, .squared, .rectangle]),
-        Column(boxes: [.squared, .squared, .rectangle, .squared, .squared]),
+        Column(boxes: [.squared, .rectangle, .squared, .squared]),
+        Column(boxes: [.rectangle, .squared]),
     ]
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            ColumnsLayout(columns: columns) {
-                ForEach(0..<30) { index in
-                    style.colorPalette1.randomElement()!
-                        .border(.black, width: 3)
+            PhotoGalleryDynamicLayout(columns: 3, spacing: 2) {
+                ForEach(0..<80) { index in
+                    Color.clear
+                        .overlay {
+                            Image(imageNames.randomElement()!)
+                                .resizable()
+                                .scaledToFill()
+                        }
+                        .clipped()
                 }
             }
             .padding()

@@ -13,7 +13,8 @@ import SwiftUI
 struct Column {
     /// this will be the structural definition of the rows
     let boxes: [Box]
-
+    
+    
     /// total height of the column, depending on the boxes definitions
     /// - Parameters:
     ///   - width: the width to fill
@@ -30,7 +31,8 @@ struct Column {
         }
         return height
     }
-
+    
+    
     /// the height of the column at an specific element index
     /// - Parameters:
     ///   - width: width of the column
@@ -48,7 +50,7 @@ enum Box {
     case squared
     /// it will occupied double width
     case rectangle
-
+    
     func height(for width: CGFloat) -> CGFloat {
         switch self {
         case .squared: width
@@ -57,67 +59,46 @@ enum Box {
     }
 }
 
+
 /// Distributes the views in a set of columns, with squares / rectangles of different sizes
 struct ColumnsLayout: Layout {
-
+    
     private let columns: [Column]
-
+    
     init(columns: [Column]) {
         self.columns = columns
     }
-
+    
     /// calculating the height based on the longest column
-    func sizeThatFits(
-        proposal: ProposedViewSize,
-        subviews: Subviews,
-        cache: inout ()
-    ) -> CGSize {
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
         let totalViews = subviews.count
         let proposedSize = proposal.replacingUnspecifiedDimensions()
         let width = proposedSize.width
         let height = proposedSize.height
         let columnWidth = width / CGFloat(columns.count)
         let viewsPerColumn = totalViews / columns.count
-        let longestColumn =
-            (columns.map {
-                $0.height(for: columnWidth, elementsCount: viewsPerColumn)
-            }).sorted().first ?? height
-
+        let longestColumn = (columns.map { $0.height(for: columnWidth, elementsCount: viewsPerColumn + 4) }).sorted().first ?? height
+        
         return CGSize(width: width, height: longestColumn)
-
+        
     }
-
-    func placeSubviews(
-        in bounds: CGRect,
-        proposal: ProposedViewSize,
-        subviews: Subviews,
-        cache: inout ()
-    ) {
+    
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
         let columnWidth = bounds.width / CGFloat(columns.count)
         var columnIndex = 0
         var x = bounds.minX
 
         // iterates through the elements and columns, in each column it iterates through the boxes
         for (index, subview) in subviews.enumerated() {
-
+            
             let elementIndexForColumn = index / columns.count
-            let initialY = columns[columnIndex].height(
-                for: columnWidth,
-                elementsCount: elementIndexForColumn
-            )
-            let height = columns[columnIndex].height(
-                for: columnWidth,
-                elementIndex: elementIndexForColumn
-            )
+            let initialY = columns[columnIndex].height(for: columnWidth, elementsCount: elementIndexForColumn)
+            let height = columns[columnIndex].height(for: columnWidth, elementIndex: elementIndexForColumn)
 
             // position the subview
             let point = CGPoint(x: x, y: bounds.minY + initialY)
-            subview.place(
-                at: point,
-                anchor: .topLeading,
-                proposal: .init(width: columnWidth, height: height)
-            )
-
+            subview.place(at: point, anchor: .topLeading, proposal: .init(width: columnWidth, height: height))
+            
             // we increment the column index and then check that we are not going out of bounds
             columnIndex += 1
             columnIndex = columnIndex % columns.count
@@ -128,5 +109,7 @@ struct ColumnsLayout: Layout {
             }
         }
     }
-
+    
+    
+    
 }
