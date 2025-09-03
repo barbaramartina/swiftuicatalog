@@ -32,12 +32,9 @@ struct TableViews: View {
                 TableRow(user)
             }
         }
-        .onChange(
-            of: sortOrder,
-            perform: { _ in
-                users.sort(using: sortOrder)
-            }
-        )
+        .onChange(of: sortOrder, { oldValue, newValue in
+            users.sort(using: sortOrder)
+        })
     }
 }
 
