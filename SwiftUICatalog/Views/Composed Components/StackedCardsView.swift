@@ -53,16 +53,22 @@ struct StackedCardsView<T: IndexedView>: View {
     // MARK: - body
 
     var body: some View {
-        ZStack {
-            ForEach(0..<elementsCount) { index in
-                T(index: index)
-                    .offset(
-                        CGSize(
-                            width: offsets[index % offsets.count],
-                            height: offsets[index % offsets.count]
+        VStack {
+            Text("Press and hold for 1 second, and then drag the card around")
+                .padding(.horizontal)
+            Spacer()
+            ZStack {
+                ForEach(0..<elementsCount) { index in
+                    T(index: index)
+                        .offset(
+                            CGSize(
+                                width: offsets[index % offsets.count],
+                                height: offsets[index % offsets.count]
+                            )
                         )
-                    )
+                }
             }
+            Spacer()
         }
     }
 }
