@@ -17,7 +17,7 @@ struct CircleLayoutView: View {
     var body: some View {
         spinButton
         CircleLayout {
-            ForEach(1..<12) { index in
+            ForEach(1..<16) { index in
                 VStack {
                     Text("\(index)")
                         .fontWeight(.heavy)

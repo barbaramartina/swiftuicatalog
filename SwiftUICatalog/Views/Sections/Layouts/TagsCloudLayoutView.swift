@@ -15,12 +15,12 @@ struct TagsCloudLayoutView: View {
     private let style = Style()
     /// simulating random view's weight
     private var scales: [CGFloat] = [
-        0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.2, 1.3, 1.4, 1.5,
+        0.1, 0.2, 0.3, 0.4, 0.5, 0.6
     ]
 
     var body: some View {
         TagsCloudLayout {
-            ForEach(0..<150) { index in
+            ForEach(0..<190) { index in
                 VStack {
                     Text("\(index)")
                         .fontWeight(.heavy)

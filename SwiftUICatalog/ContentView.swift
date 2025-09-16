@@ -242,6 +242,18 @@ struct ContentView: View {
                 destination: ColumnsLayoutView(),
                 label: "Custom gallery layout"
             )
+            Link(
+                destination: CircleLayoutView(),
+                label: "Circles Layout"
+            )
+            Link(
+                destination: TagsCloudLayoutView(),
+                label: "Tags Cloud"
+            )
+            Link(
+                destination: StackedLayoutView(),
+                label: "Stacked Cards"
+            )
         }
         .listRowBackground(Color(sectionColor))
     }
