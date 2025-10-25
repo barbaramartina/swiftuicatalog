@@ -40,6 +40,7 @@ struct ChartsViews: View {
     private var xValuesHours: [Int] {
         stride(from: initialHour, to: finalHour, by: 1).map { $0 }
     }
+    @State private var pose: Chart3DPose = .default
 
     // MARK: - Bar chart example data
 
@@ -144,90 +145,13 @@ struct ChartsViews: View {
                     .padding(.bottom)
 
                     // BAR CHART
-                    Group {
-                        Text("Bar Chart example")
-                            .fontWeight(.heavy)
-                            .font(.title)
-                        Chart {
-                            ForEach(clothes) { item in
-                                BarMark(
-                                    x: .value("Item", item.type),
-                                    y: .value("Total Count", item.count)
-                                )
-                                .foregroundStyle(
-                                    by: .value("Color", item.color)
-                                )
-                            }
-                        }
-                        .chartForegroundStyleScale([
-                            "Green": .green,
-                            "Black": .black,
-                            "Pink": .pink,
-                            "Yellow": .yellow,
-                        ])
-                        .padding()
-                    }
-                    .modifier(Divided())
-
-                    Group {
-                        // POINT CHART
-                        Text("Point Chart examples")
-                            .fontWeight(.heavy)
-                            .font(.title)
-                        Chart {
-                            ForEach(appliances) {
-                                PointMark(
-                                    x: .value("Appliance Type", $0.type),
-                                    y: .value("count", $0.count)
-                                )
-                                .foregroundStyle(
-                                    by: .value("Storage Unit", $0.storageUnit)
-                                )
-                            }
-                        }
-                        .padding()
-                        Chart {
-                            ForEach(appliances) {
-                                PointMark(
-                                    x: .value("Appliance Type", $0.type),
-                                    y: .value("count", $0.count)
-                                )
-                                .symbol(
-                                    by: .value("Storage Unit", $0.storageUnit)
-                                )
-                            }
-                        }
-                        .padding()
-                    }
-                    .modifier(Divided())
-                    Group {
-                        // LINE CHART
-                        Text("Line Chart example")
-                            .fontWeight(.heavy)
-                            .font(.title)
-                        Chart {
-                            ForEach(rates) {
-                                LineMark(
-                                    x: .value("Hour", $0.hour),
-                                    y: .value("Value", $0.heartRate)
-                                )
-                                .foregroundStyle(
-                                    by: .value("Name", $0.personName)
-                                )
-                            }
-                        }
-                        // This is one way to define a custom range for an axis
-                        .chartXScale(
-                            domain: ClosedRange(
-                                uncheckedBounds: (lower: 9, upper: 14)
-                            )
-                        )
-                        // and this is how to set the labels for the custom defined axis
-                        .chartXAxis {
-                            AxisMarks(values: xValuesHours)
-                        }
-                        .padding()
-                    }
+                    barChart
+                    // POINT CHART
+                    pointChart
+                    // 3d charts
+                    threeDCharts
+                    // line chart
+                    lineChart
 
                     ContributedByView(
                         name: "Barbara Martina",
@@ -237,6 +161,126 @@ struct ChartsViews: View {
 
                 }
         )
+    }
+    
+    private var lineChart: some View {
+        Group {
+            // LINE CHART
+            Text("Line Chart example")
+                .fontWeight(.heavy)
+                .font(.title)
+            Chart {
+                ForEach(rates) {
+                    LineMark(
+                        x: .value("Hour", $0.hour),
+                        y: .value("Value", $0.heartRate)
+                    )
+                    .foregroundStyle(
+                        by: .value("Name", $0.personName)
+                    )
+                }
+            }
+            // This is one way to define a custom range for an axis
+            .chartXScale(
+                domain: ClosedRange(
+                    uncheckedBounds: (lower: 9, upper: 14)
+                )
+            )
+            // and this is how to set the labels for the custom defined axis
+            .chartXAxis {
+                AxisMarks(values: xValuesHours)
+            }
+            .padding()
+        }
+
+    }
+    
+    private var threeDCharts: some View {
+        Group {
+            Text("3D Charts: surface plot")
+                .fontWeight(.heavy)
+                .font(.title)
+            Text("Since iOS26, we can create tridimensional charts representing surfaces or points, distributed in the x,y,z axis")
+                .font(.body)
+            Chart3D {
+                SurfacePlot(x: "x", y: "y", z: "z") { x, z in
+                    sin(x) * cos(z)
+                }
+                // you can choose which kind of styling you would like to have for the surface
+               // .foregroundStyle(.normalBased)
+                .foregroundStyle(.heightBased(Gradient(colors: [.white, .yellow])))
+            }
+            .chart3DPose($pose)
+            .frame(height: 500)
+            // this is an example to show how to customize the name of the axis
+            .chartXAxisLabel("X axis")
+            .chartXScale(domain: -5...5)
+            .chartYScale(domain: -5...5)
+            .chartZScale(domain: -5...5)
+        }
+    }
+
+    private var barChart: some View {
+        Group {
+            Text("Bar Chart example")
+                .fontWeight(.heavy)
+                .font(.title)
+            Chart {
+                ForEach(clothes) { item in
+                    BarMark(
+                        x: .value("Item", item.type),
+                        y: .value("Total Count", item.count)
+                    )
+                    .foregroundStyle(
+                        by: .value("Color", item.color)
+                    )
+                }
+            }
+            .chartForegroundStyleScale([
+                "Green": .green,
+                "Black": .black,
+                "Pink": .pink,
+                "Yellow": .yellow,
+            ])
+            .padding()
+        }
+        .modifier(Divided())
+
+    }
+    
+    private var pointChart: some View {
+        Group {
+            // POINT CHART
+            Text("Point Chart examples")
+                .fontWeight(.heavy)
+                .font(.title)
+            Chart {
+                ForEach(appliances) {
+                    PointMark(
+                        x: .value("Appliance Type", $0.type),
+                        y: .value("count", $0.count)
+                    )
+                    .foregroundStyle(
+                        by: .value("Storage Unit", $0.storageUnit)
+                    )
+                }
+            }
+            .padding()
+            Chart {
+                ForEach(appliances) {
+                    PointMark(
+                        x: .value("Appliance Type", $0.type),
+                        y: .value("count", $0.count)
+                    )
+                    .symbol(
+                        by: .value("Storage Unit", $0.storageUnit)
+                    )
+                }
+            }
+            .padding()
+        }
+        .modifier(Divided())
+
     }
 }
 
