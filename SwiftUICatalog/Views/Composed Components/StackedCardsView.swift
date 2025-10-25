@@ -58,7 +58,7 @@ struct StackedCardsView<T: IndexedView>: View {
                 .padding(.horizontal)
             Spacer()
             ZStack {
-                ForEach(0..<elementsCount) { index in
+                ForEach(0..<elementsCount, id: \.self) { index in
                     T(index: index)
                         .offset(
                             CGSize(

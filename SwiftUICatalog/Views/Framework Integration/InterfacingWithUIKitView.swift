@@ -64,7 +64,7 @@ struct InterfacingWithUIKitView<Page: View>: View {
                             .frame(width: CGFloat(pages.count * 18))
                             .padding(.trailing)
                     }
-                    .frame(width: UIScreen.main.bounds.width, height: 250)
+                    .frame(width: 500, height: 250)
                 }
                 .padding(5)
                 ContributedByView(name: "Ali Ghayeni H",
@@ -72,7 +72,7 @@ struct InterfacingWithUIKitView<Page: View>: View {
                 .padding(.top, 80)
             }
         }
-        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        .frame(width: 500, height: 700)
         .padding(.top, 150)
     }
     
