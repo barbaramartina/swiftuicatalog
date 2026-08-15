@@ -36,6 +36,9 @@ struct AccesibilityView: View {
     /// accessing the user preference for reduced motion
     @Environment(\.accessibilityReduceMotion) var reduceMotion
 
+    /// the user has enabled the large content viewer option.
+    @Environment(\.accessibilityLargeContentViewerEnabled) var accessibilityLargeContentViewerEnabled
+
     /// toggles used to fake some action when tapping on the buttons
     @State var seeMorePressed = false
     @State var likePressed = false

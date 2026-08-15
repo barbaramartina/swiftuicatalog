@@ -307,6 +307,10 @@ struct ContentView: View {
                 label: "Shapes"
             )
             Link(
+                destination: AdvancedGraphicsView(),
+                label: "Advance Graphics"
+            )
+            Link(
                 destination: AnimationsView(),
                 label: "Animations"
             )
@@ -351,6 +355,10 @@ struct ContentView: View {
             Link(
                 destination: SensoryFeedbackInViews(),
                 label: "Sensory Feedback"
+            )
+            Link(
+                destination: DragDropDemo(),
+                label: "Drag and drop"
             )
         }
         .listRowBackground(Color(sectionColor))
