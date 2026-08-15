@@ -1,9 +1,10 @@
 # SwiftUI Catalog
 An open source catalog, under MIT License, containing components, controls, effects, styles, layouts, containers, modifiers and accessibility elements you can use to develop SwiftUI Interfaces in iOS and iPadOS.
 
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/4f9802fb-2f83-4157-846e-f6f715ea5a3b" alt="alt text"  height="400">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e60f62c3-a66f-4f13-933b-32761e070cca" alt="alt text"  height="400">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/079fa55d-5815-435b-910a-8349d164d749" alt="alt text"  height="400">
+<img height="400" alt="1" src="https://github.com/user-attachments/assets/a371ab33-e2dd-4ddc-b9a7-0e8e84f45768" />
+<img height="400" alt="2" src="https://github.com/user-attachments/assets/91b05aa5-d7e2-440e-ab50-c5583d6f816f" />
+<img height="400" alt="3" src="https://github.com/user-attachments/assets/c635b26e-caf2-4b7a-ac47-a31a41139fb6" />
+<img height="400" alt="4" src="https://github.com/user-attachments/assets/f5c0a892-bca8-4edb-bb62-8dfbcfda1abf" />
 
 
 - Quick preview of all SwiftUI components
@@ -13,9 +14,13 @@ An open source catalog, under MIT License, containing components, controls, effe
 - MIT License! free usage in commercial projects. 
 
 
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/6eead1ad-743f-4021-bd3f-7257fe04f6ce" alt="alt text"  height="400">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/c20ede87-4ef6-428f-b289-e2e300c115ca" alt="alt text"  height="400">
-<img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/aab92f9d-cb0c-478a-899a-17ac24619b88" alt="alt text"  height="400">
+
+https://github.com/user-attachments/assets/659823e5-0a3f-4795-8ef9-8bad04b79df3
+
+
+https://github.com/user-attachments/assets/3472b43e-493c-4810-8307-17a643c00edb
+
+
 
 
 # Get the catalog on your device
