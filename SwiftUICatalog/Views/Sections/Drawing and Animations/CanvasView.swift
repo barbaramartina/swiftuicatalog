@@ -88,18 +88,19 @@ struct CanvasView: View, Comparable {
                     }
                     .modifier(Divided())
                     Group {
-                        Text(
-                            "A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random images are plot on a graph"
-                        )
-                        .fontWeight(.light)
-                        .font(.body)
-                        canvas3
+//                        Text(
+//                            "A canvas can be a great ally when trying to draw custom graphs, like the one at continuation, where random images are plot on a graph"
+//                        )
+//                        .fontWeight(.light)
+//                        .font(.body)
+//                        canvas3
+                        canvas4
                     }
 
                     .modifier(Divided())
-                    Text(
-                        "Accessibility and interaction for specific elements—such as views that you pass in as symbols—are not provided by a canvas. However, a canvas perform better in the case of a complex drawing. To enhance performance for a drawing that doesn't primarily require interactive features or text you can use a canvas."
-                    )
+//                    Text(
+//                        "Accessibility and interaction for specific elements—such as views that you pass in as symbols—are not provided by a canvas. However, a canvas perform better in the case of a complex drawing. To enhance performance for a drawing that doesn't primarily require interactive features or text you can use a canvas."
+//                    )
                     .fontWeight(.light)
                     .font(.body)
                 }
@@ -198,6 +199,24 @@ struct CanvasView: View, Comparable {
             rects: randomRects,
             mark: Image(systemName: "hands.and.sparkles.fill")
         )
+    }
+    
+    private var canvas4: some View {
+        GeometryReader { geometry in
+            Canvas { context, size in
+                GeometryReader { geometry in
+                    Canvas { context, size in
+                        let rect = CGRect(x: 10, y: 10, width: 80, height: 80)
+                        if let radii = geometry.concentricCornerRadii(in: rect) {
+                            let path = Path(roundedRect: rect, cornerRadii: radii)
+                            context.fill(path, with: .color(.blue))
+                        }
+                    }
+                }
+                .containerShape(.rect(cornerRadius: 48))
+                                
+            }
+        }
     }
 }
 

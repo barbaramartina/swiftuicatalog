@@ -1,13 +1,11 @@
 import SwiftUI
 
-// 1. Model conforming to Identifiable
 struct Card: Identifiable {
     let id: String
     let color: Color
     let title: String
 }
 
-// 2. Helper extension on Array to apply the ReorderDifference
 extension Array {
     mutating func apply<CollectionID: Hashable & Sendable>(
         difference: ReorderDifference<Element.ID, CollectionID>
@@ -28,7 +26,6 @@ extension Array {
     }
 }
 
-// 3. Main Reorderable View
 struct DragDropDemo: View {
     @State private var cards: [Card] = [
         Card(id: "blue", color: .blue, title: "Blue Card"),

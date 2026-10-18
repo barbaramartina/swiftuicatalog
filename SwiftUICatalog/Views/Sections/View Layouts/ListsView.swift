@@ -75,6 +75,7 @@ struct ListsComponentView: View, Comparable {
             ? AnyScrollTargetBehavior(.paging)
             : AnyScrollTargetBehavior(.viewAligned)
     }
+    @State private var searchText: String = ""
 
     var body: some View {
 
@@ -145,12 +146,31 @@ struct ListsComponentView: View, Comparable {
                     // end of for each
                 }
             }
-
         }
-        .frame(height: 300)
+        .toolbarMinimizationBehavior(.never, for: .navigationBar)
         .listStyle(PlainListStyle())
-        .toolbar { EditButton() }
-
+        .searchable(text: $searchText)
+        .frame(height: 300)
+        .toolbar {
+            ToolbarItem {
+                EditButton()
+            }
+            ToolbarItem {
+                Button("Button 2",
+                       systemImage: "sun") { }
+            }
+            .visibilityPriority(.high)
+            ToolbarItem {
+                Button("Button 3",
+                       systemImage: "sun") { }
+            }
+            .visibilityPriority(ToolbarItemVisibilityPriority(higherThan: ToolbarItemVisibilityPriority(higherThan: .high)))
+            ToolbarItem {
+                Button("Button 4",
+                       systemImage: "sun") { }
+            }
+            .visibilityPriority(ToolbarItemVisibilityPriority(higherThan: .high))
+        }
     }
 
     private var list2: some View {
@@ -342,4 +362,30 @@ extension ListsComponentView {
         hasher.combine(id)
     }
 
+}
+
+struct MinimizationToolBar: View {
+    
+    var body: some View {
+        NavigationStack {
+            ScrollView {
+                ForEach(0 ..< 50) { index in
+                    Text("\(index)").padding()
+                        .frame(maxWidth: .infinity)
+                }
+            }
+            .toolbar(content: {
+                ToolbarItem(id: "1") {
+                    Button("button",
+                           systemImage: "sun.fill") {}
+                }
+            })
+            .navigationTitle("Minimizing Title")
+            .toolbarMinimizationBehavior(.onScrollDown, for: .navigationBar)
+        }
+    }
+}
+
+#Preview("Minimization") {
+    MinimizationToolBar()
 }

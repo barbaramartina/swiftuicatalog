@@ -153,6 +153,10 @@ struct ContentView: View {
                     destination: MenusComponentView(),
                     label: "Menus"
                 )
+                Link(
+                    destination: ExportView(),
+                    label: "Export View"
+                )
             }
             Group {
                 Link(
@@ -272,6 +276,10 @@ struct ContentView: View {
                 label: "Outlines"
             )
             Link(
+                destination: AnyNavigationTransitionView(),
+                label: "Any transition"
+            )
+            Link(
                 destination: DisclosureGroupsView(),
                 label: "Disclosures"
             )
@@ -359,6 +367,10 @@ struct ContentView: View {
             Link(
                 destination: DragDropDemo(),
                 label: "Drag and drop"
+            )
+            Link(
+                destination: AdvancedSwipeDemo(),
+                label: "Advance swipe"
             )
         }
         .listRowBackground(Color(sectionColor))

@@ -105,6 +105,24 @@ struct TextsComponentsView: View, Comparable {
                         )
                     }
                     .padding(10)
+                    VStack {
+                        Spacer()
+                        TextField(
+                            "Round Bordered System Styled TextField",
+                            text: $secureFieldValue
+                        )
+                        .textFieldStyle(.roundedBorder)
+                        .padding(.bottom, 8)
+                        TextField(
+                            "Bordered System Styled TextField",
+                            text: $secureFieldValue
+                        )
+                        .textFieldStyle(.bordered)
+                        .textInputBorderShape(
+                            .roundedRectangle
+                        )
+                    }
+                    .padding(10)
                 }
                 Spacer()
             }

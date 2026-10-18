@@ -35,6 +35,7 @@ struct AdvancedSwipeDemo: View {
         let id = UUID()
         let title: String
         let color: Color
+        let deleteId: Int
         let actionTitle: String  // For confirmation dialog context
     }
 
@@ -44,26 +45,28 @@ struct AdvancedSwipeDemo: View {
     
     // Sample data
     @State private var items: [Item] = [
-        AdvancedSwipeDemo.Item(title: "Delete Item 1", color: .red, actionTitle: "Invoice #INV-001"),
-        AdvancedSwipeDemo.Item(title: "Delete Item 2", color: .blue, actionTitle: "Invoice #INV-002"),
-        AdvancedSwipeDemo.Item(title: "Delete Item 3", color: .green, actionTitle: "Invoice #INV-003"),
-        AdvancedSwipeDemo.Item(title: "Delete Item 4", color: .orange, actionTitle: "Invoice #INV-004"),
-        AdvancedSwipeDemo.Item(title: "Delete Item 5", color: .purple, actionTitle: "Invoice #INV-005")
+        AdvancedSwipeDemo.Item(title: "Delete Item 1", color: .red, deleteId: 1, actionTitle: "Invoice #INV-001"),
+        AdvancedSwipeDemo.Item(title: "Delete Item 2", color: .blue, deleteId: 2, actionTitle: "Invoice #INV-002"),
+        AdvancedSwipeDemo.Item(title: "Delete Item 3", color: .green, deleteId: 3, actionTitle: "Invoice #INV-003"),
+        AdvancedSwipeDemo.Item(title: "Delete Item 4", color: .orange, deleteId: 4, actionTitle: "Invoice #INV-004"),
+        AdvancedSwipeDemo.Item(title: "Delete Item 5", color: .purple, deleteId: 5, actionTitle: "Invoice #INV-005")
     ]
     
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 12) {
                 ForEach(items) { item in
-                    HStack {
-                        Circle()
-                            .fill(item.color)
-                            .frame(width: 40, height: 40)
-                        
-                        Text(item.title)
-                            .font(.headline)
-                        
-                        Spacer()
+                    VStack {
+                        HStack {
+                            Circle()
+                                .fill(item.color)
+                                .frame(width: 40, height: 40)
+                            
+                            Text(item.title)
+                                .font(.headline)
+                            
+                            Spacer()
+                        }
                     }
                     .padding()
                     .background(Color(.systemBackground))
@@ -74,9 +77,11 @@ struct AdvancedSwipeDemo: View {
                             // Set item for confirmation dialog (item-based pattern)
                             selectedItem = item
                         } label: {
-                            Label("Delete", systemImage: "trash")
+                            Label("Delete (Press ⌘d to delete)"
+                                  , systemImage: "trash")
                         }
                         .tint(.red)
+                        .keyboardShortcut(KeyEquivalent(Character("d")), modifiers: [.command])
                         
                         Button {
                             // Archive action
@@ -85,14 +90,19 @@ struct AdvancedSwipeDemo: View {
                         }
                         .tint(.blue)
                     }
+
                 }
             }
             .padding()
         }
         // Crucial modifier: enables swipe coordination outside of List
         .swipeActionsContainer()
+        .toolbarOverflowMenu {
+            Button("Action 1") { }
+            Button("Action 2") { }
+        }
         .navigationTitle("Swipe & Confirmation Demo")
-        
+    
         // MARK: - Item-based confirmation dialog (iOS 27)
         .confirmationDialog(
             "Delete Invoice",

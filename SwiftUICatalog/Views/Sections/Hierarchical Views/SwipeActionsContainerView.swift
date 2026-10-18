@@ -94,7 +94,6 @@ struct SwipeActionsContainerDemo: View {
             }
             .padding()
         }
-        // Crucial modifier: enables swipe coordination outside of List
         .swipeActionsContainer()
         .navigationTitle("Swipe Actions Container Demo")
     }

@@ -47,13 +47,14 @@ struct GesturesView: View, Comparable {
     var body: some View {
 
         //MARK: Gestures
-        let tap = TapGesture()
+        let tap = TapGesture(count: 5, inputKinds: .directTouch)
             .onEnded { _ in
                 self.customText = "Tap Detected!"
                 print("View tapped!")
             }
 
-        let lognPress = LongPressGesture(minimumDuration: 2)
+        let lognPress = LongPressGesture(minimumDuration: 5,
+                                         maximumDistance: 60)
             /**
              - Update Transient UI State
              To update a view as a gesture changes, add a GestureState property to your view and update it in the updating(_:body:) callback. SwiftUI invokes the updating callback as soon as it recognizes the gesture and whenever the value of the gesture changes. For example, SwiftUI invokes the updating callback as soon as a magnification gesture begins and then again whenever the magnification value changes. SwiftUI doesn’t invoke the updating callback when the user ends or cancels a gesture. Instead, the gesture state property automatically resets its state back to its initial value.

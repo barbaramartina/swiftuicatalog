@@ -58,27 +58,33 @@ struct TabsView: View, Comparable {
             Tab("First", systemImage: "1.square.fill", value: 0) {
                 Text("Content of the first tab")
             }
+            
             .customizationID("tab.1")
-            Tab("Second", systemImage: "2.square.fill", value: 1) {
+            .help("This is a new modifier to explain more about what the tab content is about")
+            Tab("search", systemImage: "magnifyingglass", value: 1, role: .search) {
                 Text("Content of the second tab")
             }
             // this allow a tab or tab section to be customized (only in the style = sidebarAdaptable)
             .customizationID("tab.2")
-            .badge("P")
-            Tab("Thrid", systemImage: "3.square.fill", value: 2) {
+            .badge("Hei io!")
+            Tab("Prominent",
+                systemImage: "3.square.fill",
+                value: 2,
+                role: .prominent) {
                 Text("Content of the third tab")
             }
             .customizationID("tab.3")
-            .badge(10)
+            .badge("Promi")
             // use a section to organize the content - in iOS that does not have any effect, but it does in iPad.
             TabSection("Section") {
-                Tab("Tab section 1", systemImage: "3.square.fill", value: 3) {
+                Tab("Tab section 1", systemImage: "4.square.fill", value: 3) {
                     Text("Content - tab 1")
                 }
-                Tab("Tab section 2", systemImage: "3.square.fill", value: 4) {
+                Tab("Tab section 2", systemImage: "5.square.fill", value: 4) {
                     Text("Content - tab 2")
                 }
             }
+            .defaultSectionExpansion(.expanded)
             // this prevent customization from happening
             .customizationBehavior(.disabled, for: .sidebar, .tabBar)
         }

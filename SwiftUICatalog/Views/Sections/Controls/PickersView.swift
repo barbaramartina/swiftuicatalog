@@ -58,6 +58,8 @@ struct PickersView: View, Comparable {
                             .modifier(Divided())
                         example3
                             .modifier(Divided())
+                        example4
+                            .modifier(Divided())
                     }
                     ContributedByView(
                         name: "Ali Ghayeni H",
@@ -133,6 +135,16 @@ struct PickersView: View, Comparable {
                 .background(Color.green)
             }
         
+    }
+    
+    private var example4: some View {
+        Picker(selection: $selectedTopping, label: Text("Topping"))
+        {
+            ForEach(Topping.allCases, id: \.self) {
+                Text($0.rawValue.capitalized)
+            }
+        }
+        .pickerStyle(.tabs)
     }
 
     private var example3: some View {
