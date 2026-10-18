@@ -239,6 +239,10 @@ struct ContentView: View {
                 label: "Scrollviews"
             )
             Link(
+                destination: ContentMarginsView(),
+                label: "Content Margins"
+            )
+            Link(
                 destination: TableViews(),
                 label: "Table Views"
             )
