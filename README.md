@@ -24,6 +24,7 @@ https://github.com/user-attachments/assets/3472b43e-493c-4810-8307-17a643c00edb
 
 
 # Get the catalog on your device
+AT THE MOMENT (OCTOBER 2026) I TOOK A PAUSE IN THE DEVELOPER PROGRAM, SO THE CATALOG IS NOT DOWNLOADABLE FOR NOW
 Easily install the catalog on your device or share it with anyone!
 
 <img src="https://github.com/barbaramartina/swiftuicatalog/assets/815372/e3dadebe-98f1-44d8-bff3-89fc3894bbdf" alt="alt text"  height="200">
