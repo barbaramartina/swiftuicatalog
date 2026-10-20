@@ -8,3 +8,5 @@
 /SwiftUICatalog.xcodeproj/xcuserdata/barbararodeker.xcuserdatad/xcdebugger
 .mcp.json
 agents.config.json
+.opencode/skills/*
+opencode.jsonc
