@@ -10,19 +10,24 @@ import SwiftUI
 
 /// represents a section in the main menu
 struct MenuSection: Identifiable {
-
+    
     var id: String { name }
-
-    /// is the section ready? or it still needs to be added
+    
     enum State {
         case ready
         case notPublishable
         case needsContribution
     }
-
+    
     let name: String
     let state: State
-    let view: AnyView
+    let items: [CatalogItem]
+}
+
+struct CatalogItem: Identifiable {
+    let id = UUID()
+    let label: String
+    let destination: AnyView
 }
 
 /// Containing all the sections of the app

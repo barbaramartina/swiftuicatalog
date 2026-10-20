@@ -4,7 +4,6 @@
 //
 //  Created by Barbara Personal on 2024-05-12.
 //
-
 import Foundation
 import SwiftUI
 
@@ -16,67 +15,67 @@ extension ContentView {
         let controls = MenuSection(
             name: "Controls",
             state: .ready,
-            view: AnyView(controls)
+            items: controlsItems
         )
         let storeKit = MenuSection(
             name: "Store Kit",
             state: .notPublishable,
-            view: AnyView(storeKit)
+            items: storeKitItems
         )
         let layouts = MenuSection(
             name: "Layouts",
             state: .ready,
-            view: AnyView(layouts)
+            items: layoutsItems
         )
         let hierachicalViews = MenuSection(
             name: "Hierarchical Views",
             state: .ready,
-            view: AnyView(hierachicalViews)
+            items: hierachicalViewsItems
         )
         let drawings = MenuSection(
             name: "Drawings",
             state: .ready,
-            view: AnyView(drawings)
+            items: drawingsItems
         )
         let charts = MenuSection(
             name: "charts",
             state: .ready,
-            view: AnyView(charts)
+            items: chartsItems
         )
         let gestures = MenuSection(
             name: "Gestures",
             state: .ready,
-            view: AnyView(gestures)
+            items: gesturesItems
         )
         let viewModifiers = MenuSection(
             name: "View Modifiers",
             state: .ready,
-            view: AnyView(viewModifiers)
+            items: viewModifiersItems
         )
         let accessibility = MenuSection(
             name: "Accessibility",
             state: .ready,
-            view: AnyView(accessibility)
+            items: accessibilityItems
         )
         let statusBars = MenuSection(
             name: "Status Bars",
             state: .notPublishable,
-            view: AnyView(statusBars)
+            items: statusBarsItems
         )
         let stylingSection = MenuSection(
             name: "Styling",
             state: .ready,
-            view: AnyView(stylingSection)
+            items: stylingSectionItems
         )
         let popovers = MenuSection(
             name: "Popovers",
             state: .ready,
-            view: AnyView(popovers)
+            items: popoversItems
         )
         let composedComponents = MenuSection(
             name: "Composed Components",
             state: .ready,
-            view: AnyView(composedComponents)
+            items: composedComponentsItems
         )
 
         return SectionContainer(sections: [

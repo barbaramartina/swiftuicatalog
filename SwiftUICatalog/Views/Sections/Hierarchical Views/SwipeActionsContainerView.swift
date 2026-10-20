@@ -90,6 +90,12 @@ struct SwipeActionsContainerDemo: View {
                         }
                         .tint(.blue)
                     }
+                    .swipeActions(content: {
+                        Text("delete")
+                    }, onPresentationChanged: { isPresented in
+                        print("Swipe actions for \(item.title) are now \(isPresented ? "visible" : "hidden")")
+                    })
+
                 }
             }
             .padding()

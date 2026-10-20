@@ -21,7 +21,7 @@
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// AUTHORS OR COPYRIGHTHOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
@@ -33,6 +33,7 @@ protocol Comparable: Hashable & Equatable & Identifiable {}
 
 struct ContentView: View {
 
+    @State private var searchText = ""
     private let sectionColor = "Dark"
 
     private let gradient = MeshGradient(
@@ -52,7 +53,6 @@ struct ContentView: View {
     )
 
     init() {
-        // change the background of all the tables
         UITableView.appearance().backgroundColor = .clear
     }
 
@@ -69,18 +69,49 @@ struct ContentView: View {
 
                     topHeaderRow
                         .accessibilityHeading(.h1)
-                    ForEach(sectionContainer.readySections) { section in
-                        section.view
-                            .accessibilityHeading(.h2)
+                    
+                    ForEach(filteredSections) { section in
+                        Section(
+                            header: Text(section.name)
+                                .font(.title)
+                                .modifier(ListSectionFontModifier())
+                        ) {
+                            ForEach(section.items) { item in
+                                Link(destination: item.destination, label: item.label)
+                            }
+                        }
+                        .listRowBackground(Color(sectionColor))
+                        .accessibilityHeading(.h2)
                     }
 
                 }
                 .scrollContentBackground(.hidden)
                 .navigationTitle("SwiftUI Catalog")
+                .searchable(text: $searchText, prompt: "Search examples...")
             }
 
         }
-        // end of navigationview
+    }
+
+    private var filteredSections: [MenuSection] {
+        sectionContainer.readySections.filter { section in
+            if searchText.isEmpty { return true }
+            
+            let sectionMatches = section.name.localizedCaseInsensitiveContains(searchText)
+            let itemMatches = section.items.contains { $0.label.localizedCaseInsensitiveContains(searchText) }
+            
+            return sectionMatches || itemMatches
+        }.map { section in
+            if searchText.isEmpty {
+                return section
+            } else {
+                // Filter items within the section
+                let filteredItems = section.items.filter { item in
+                    item.label.localizedCaseInsensitiveContains(searchText) || section.name.localizedCaseInsensitiveContains(searchText)
+                }
+                return MenuSection(name: section.name, state: section.state, items: filteredItems)
+            }
+        }
     }
 
     // MARK: - Header sections
@@ -105,9 +136,9 @@ struct ContentView: View {
                             URL(
                                 string:
                                     "https://github.com/barbaramartina/swiftuicatalog/"
-                            )!
-                        )
-                    },
+                                )!
+                            )
+                        },
                     label: {
                         Image("github")
                             .resizable()
@@ -120,384 +151,137 @@ struct ContentView: View {
 
         }
         .listRowBackground(Color(sectionColor))
-        // end of section
-
     }
 
-    var controls: some View {
-        Section(
-            header: Text("Controls")
-                .font(.title)
-                // see more information here https://developer.apple.com/documentation/swiftui/textvariantpreference?changes=_4
-                .textVariant(.sizeDependent)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Group {
-                Link(
-                    destination: ButtonsComponentsView(),
-                    label: "Buttons"
-                )
-                Link(
-                    destination: ImagesComponentView(),
-                    label: "Images"
-                )
-                Link(
-                    destination: TextsComponentsView(),
-                    label: "Texts"
-                )
-                Link(
-                    destination: LabelsView(),
-                    label: "Labels"
-                )
-                Link(
-                    destination: MenusComponentView(),
-                    label: "Menus"
-                )
-                Link(
-                    destination: ExportView(),
-                    label: "Export View"
-                )
-            }
-            Group {
-                Link(
-                    destination: TogglesView(),
-                    label: "Toggles"
-                )
-                Link(
-                    destination: SlidersView(),
-                    label: "Sliders"
-                )
-                Link(
-                    destination: SteppersView(),
-                    label: "Steppers"
-                )
-                Link(
-                    destination: PickersView(),
-                    label: "Pickers"
-                )
-                Link(
-                    destination: DatePickersView(),
-                    label: "Date Pickers"
-                )
-                Link(
-                    destination: ColorPickersView(),
-                    label: "Color pickers"
-                )
-                Link(
-                    destination: ProgressViews(),
-                    label: "Progress View"
-                )
-            }
-        }
-        .listRowBackground(Color(sectionColor))
+    // MARK: - Section Items
+
+    var controlsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Buttons", destination: AnyView(ButtonsComponentsView())),
+            CatalogItem(label: "Images", destination: AnyView(ImagesComponentView())),
+            CatalogItem(label: "Texts", destination: AnyView(TextsComponentsView())),
+            CatalogItem(label: "Labels", destination: AnyView(LabelsView())),
+            CatalogItem(label: "Menus", destination: AnyView(MenusComponentView())),
+            CatalogItem(label: "AsyncImage Caching", destination: AnyView(AsyncImageCachingView())),
+            CatalogItem(label: "Export View", destination: AnyView(ExportView())),
+            CatalogItem(label: "Toggles", destination: AnyView(TogglesView())),
+            CatalogItem(label: "Sliders", destination: AnyView(SlidersView())),
+            CatalogItem(label: "Steppers", destination: AnyView(SteppersView())),
+            CatalogItem(label: "Pickers", destination: AnyView(PickersView())),
+            CatalogItem(label: "Date Pickers", destination: AnyView(DatePickersView())),
+            CatalogItem(label: "Color pickers", destination: AnyView(ColorPickersView())),
+            CatalogItem(label: "Progress View", destination: AnyView(ProgressViews())),
+        ]
     }
 
-    var storeKit: some View {
-        Section(
-            header: Text("Store Kit Views")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Group {
-                Link(
-                    destination: ExampleProductView(
-                        productId: "product.consumable.example.1",
-                        productImageName: "giftcard.fill"
-                    ),
-                    label: "Consumable Product View"
-                )
-            }
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var storeKitItems: [CatalogItem] {
+        [
+            CatalogItem(
+                label: "Consumable Product View",
+                destination: AnyView(ExampleProductView(
+                    productId: "product.consumable.example.1",
+                    productImageName: "giftcard.fill"
+                ))
+            )
+        ]
     }
 
-    var layouts: some View {
-        Section(
-            header: Text("Layouts")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: ListsComponentView(),
-                label: "Lists"
-            )
-            Link(
-                destination: StacksView(),
-                label: "Stacks"
-            )
-            Link(
-                destination: GridsView(),
-                label: "Grids"
-            )
-            Link(
-                destination: ContainersView(),
-                label: "Containers"
-            )
-            Link(
-                destination: ScrollViewsView(),
-                label: "Scrollviews"
-            )
-            Link(
-                destination: ContentMarginsView(),
-                label: "Content Margins"
-            )
-            Link(
-                destination: TableViews(),
-                label: "Table Views"
-            )
-            Link(
-                destination: ColumnsLayoutView(),
-                label: "Custom gallery layout"
-            )
-            Link(
-                destination: CircleLayoutView(),
-                label: "Circles Layout"
-            )
-            Link(
-                destination: TagsCloudLayoutView(),
-                label: "Tags Cloud"
-            )
-            Link(
-                destination: StackedLayoutView(),
-                label: "Stacked Cards"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
+    var layoutsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Lists", destination: AnyView(ListsComponentView())),
+            CatalogItem(label: "Stacks", destination: AnyView(StacksView())),
+            CatalogItem(label: "Grids", destination: AnyView(GridsView())),
+            CatalogItem(label: "Containers", destination: AnyView(ContainersView())),
+            CatalogItem(label: "Scrollviews", destination: AnyView(ScrollViewsView())),
+            CatalogItem(label: "Content Margins", destination: AnyView(ContentMarginsView())),
+            CatalogItem(label: "Table Views", destination: AnyView(TableViews())),
+            CatalogItem(label: "Custom gallery layout", destination: AnyView(ColumnsLayoutView())),
+            CatalogItem(label: "Circles Layout", destination: AnyView(CircleLayoutView())),
+            CatalogItem(label: "Tags Cloud", destination: AnyView(TagsCloudLayoutView())),
+            CatalogItem(label: "Stacked Cards", destination: AnyView(StackedLayoutView())),
+        ]
     }
 
-    var hierachicalViews: some View {
-        Section(
-            header: Text("Hierachical Views").font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: NavigationBarsComponentView(),
-                label: "Navigation"
-            )
-            Link(
-                destination: OutlinesGroupsView(),
-                label: "Outlines"
-            )
-            Link(
-                destination: AnyNavigationTransitionView(),
-                label: "Any transition"
-            )
-            Link(
-                destination: DisclosureGroupsView(),
-                label: "Disclosures"
-            )
-            Link(
-                destination: TabsView(),
-                label: "Tabs"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var hierachicalViewsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Navigation", destination: AnyView(NavigationBarsComponentView())),
+            CatalogItem(label: "Outlines", destination: AnyView(OutlinesGroupsView())),
+            CatalogItem(label: "Any transition", destination: AnyView(AnyNavigationTransitionView())),
+            CatalogItem(label: "Disclosures", destination: AnyView(DisclosureGroupsView())),
+            CatalogItem(label: "Tabs", destination: AnyView(TabsView())),
+            CatalogItem(label: "Swipe Actions Container", destination: AnyView(SwipeActionsContainerDemo())),
+        ]
     }
 
-    var drawings: some View {
-        Section(
-            header: Text("Drawing and animations")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: CanvasView(),
-                label: "Canvas"
-            )
-            Link(
-                destination: GraphicContextsView(),
-                label: "Graphic Context"
-            )
-            Link(
-                destination: CustomMeshGradient(),
-                label: "Mesh gradients"
-            )
-            Link(
-                destination: ShapesView(),
-                label: "Shapes"
-            )
-            Link(
-                destination: AdvancedGraphicsView(),
-                label: "Advance Graphics"
-            )
-            Link(
-                destination: AnimationsView(),
-                label: "Animations"
-            )
-            Link(
-                destination: GeometriesView(),
-                label: "Geometries"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var drawingsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Canvas", destination: AnyView(CanvasView())),
+            CatalogItem(label: "Graphic Context", destination: AnyView(GraphicContextsView())),
+            CatalogItem(label: "Mesh gradients", destination: AnyView(CustomMeshGradient())),
+            CatalogItem(label: "Shapes", destination: AnyView(ShapesView())),
+            CatalogItem(label: "Advance Graphics", destination: AnyView(AdvancedGraphicsView())),
+            CatalogItem(label: "Animations", destination: AnyView(AnimationsView())),
+            CatalogItem(label: "Shaders", destination: AnyView(MetalShaderExamples())),
+            CatalogItem(label: "Geometries", destination: AnyView(GeometriesView())),
+        ]
     }
 
-    var charts: some View {
-        Section(
-            header: Text("Charts")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: ChartsViews(),
-                label: "Swift Charts"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var chartsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Swift Charts", destination: AnyView(ChartsViews())),
+        ]
     }
 
-    var gestures: some View {
-        Section(
-            header: Text("Gestures")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: GesturesView(),
-                label: "Gestures"
-            )
-            Link(
-                destination: ComposingGesturesView(),
-                label: "Composing Gestures"
-            )
-            Link(
-                destination: SensoryFeedbackInViews(),
-                label: "Sensory Feedback"
-            )
-            Link(
-                destination: DragDropDemo(),
-                label: "Drag and drop"
-            )
-            Link(
-                destination: AdvancedSwipeDemo(),
-                label: "Advance swipe"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var gesturesItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Gestures", destination: AnyView(GesturesView())),
+            CatalogItem(label: "Composing Gestures", destination: AnyView(ComposingGesturesView())),
+            CatalogItem(label: "Sensory Feedback", destination: AnyView(SensoryFeedbackInViews())),
+            CatalogItem(label: "Drag and drop", destination: AnyView(DragDropDemo())),
+            CatalogItem(label: "Advance swipe", destination: AnyView(AdvancedSwipeDemo())),
+        ]
     }
 
-    var viewModifiers: some View {
-        Section(
-            header: Text("View modifiers")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: TextModifiersView(),
-                label: "Text modifiers"
-            )
-            Link(
-                destination: EffectsModifiersView(),
-                label: "Effect modifiers"
-            )
-            Link(
-                destination: LayoutModifiersView(),
-                label: "Layout modifiers"
-            )
-
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var viewModifiersItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Text modifiers", destination: AnyView(TextModifiersView())),
+            CatalogItem(label: "Effect modifiers", destination: AnyView(EffectsModifiersView())),
+            CatalogItem(label: "Layout modifiers", destination: AnyView(LayoutModifiersView())),
+        ]
     }
 
-    var accessibility: some View {
-        Section(
-            header: Text("Accesibility")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-
-            Link(
-                destination: AccesibilityView(),
-                label: "Accesibility"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var accessibilityItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Accesibility", destination: AnyView(AccesibilityView())),
+        ]
     }
 
-    var statusBars: some View {
-        Section(
-            header: Text("Status and tool bars")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: ToolbarsComponentView(),
-                label: "Tool Bars"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var statusBarsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Tool Bars", destination: AnyView(ToolbarsComponentView())),
+            CatalogItem(label: "Advanced Toolbars (iOS 27)", destination: AnyView(AdvancedToolbarView())),
+        ]
     }
 
-    var stylingSection: some View {
-        Section(
-            header: Text("Styling")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-
-            Link(
-                destination: StylesView(),
-                label: "Styles"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var stylingSectionItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Styles", destination: AnyView(StylesView())),
+        ]
     }
 
-    var popovers: some View {
-        Section(
-            header: Text("Popovers, alerts and sheets")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-
-            //                Link(destination: PopoversComponentView(),
-            //                     label: "Popovers")
-            Link(
-                destination: SheetsView(),
-                label: "Sheets"
-            )
-            //                Link(destination: AlertsComponentView(),
-            //                     label: "Alerts")
-            //                Link(destination: TimelineViews(),
-            //                     label: "Timelines")
-            //                Link(destination: SpacersDividersView(),
-            //                     label: "Spacer")
-        }
-        .listRowBackground(Color(sectionColor))
-
+    var popoversItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Sheets", destination: AnyView(SheetsView())),
+            CatalogItem(label: "Item-based Alerts", destination: AnyView(ItemBasedAlertsView())),
+        ]
     }
 
-    var composedComponents: some View {
-        Section(
-            header: Text("Composed components to help speed up development")
-                .font(.title)
-                .modifier(ListSectionFontModifier())
-        ) {
-            Link(
-                destination: CommonlyUsedViews(),
-                label: "Commonly used views"
-            )
-            Link(
-                destination: CollectionsViews(),
-                label: "Collections of components"
-            )
-            Link(
-                destination: StackedCardsView<CardView>(elementsCount: 22),
-                label: "Stacked cards with dragging"
-            )
-        }
-        .listRowBackground(Color(sectionColor))
-        // end of composed VIEWS
-
+    var composedComponentsItems: [CatalogItem] {
+        [
+            CatalogItem(label: "Commonly used views", destination: AnyView(CommonlyUsedViews())),
+            CatalogItem(label: "Collections of components", destination: AnyView(CollectionsViews())),
+            CatalogItem(label: "Stacked cards with dragging", destination: AnyView(StackedCardsView<CardView>(elementsCount: 22))),
+        ]
     }
 
 }
