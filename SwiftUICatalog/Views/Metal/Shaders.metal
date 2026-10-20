@@ -158,3 +158,177 @@ using namespace metal;
     float2 newPosition = delta * totalZoom + touchCenter;
     return layer.sample(newPosition * size);
 }
+
+// ----------------------------------------------
+// A small, deterministic random number generator.
+// It takes a 2D position and always returns the same
+// value for the same position.
+// ----------------------------------------------
+float hash21(float2 p) {
+    p = fract(p * float2(123.34, 456.21));
+    p += dot(p, p + 45.32);
+    return fract(p.x * p.y);
+}
+
+// ----------------------------------------------
+// Chromatic aberration.
+// The red and the blue channel of the layer are sampled
+// a little bit apart from each other, which reproduces the
+// colored fringes you can see on real lenses.
+// Use it with the 'layerEffect' modifier.
+// for example:
+//  Image("photo")
+//      .layerEffect(ShaderLibrary.chromaticAberration(.float2(proxy.size), .float(6.0)),
+//                   maxSampleOffset: CGSize(width: 6, height: 6))
+// ----------------------------------------------
+[[ stitchable ]] half4 chromaticAberration(float2 position, SwiftUI::Layer layer, float2 size, float amount) {
+    float2 safeSize = max(size, float2(1.0));
+    float2 uv = position / safeSize;
+
+    // the offset radiates from the center of the view
+    float2 direction = uv - 0.5;
+    float distance = length(direction);
+    direction = distance > 0.0001 ? direction / distance : float2(0.0);
+    float2 offset = direction * amount;
+
+    half4 red = layer.sample(position + offset);
+    half4 green = layer.sample(position);
+    half4 blue = layer.sample(position - offset);
+
+    // the layer is sampled premultiplied, so un-premultiply the channels before mixing them
+    float3 rgb = float3(
+        red.r / max(float(red.a), 0.0001),
+        green.g / max(float(green.a), 0.0001),
+        blue.b / max(float(blue.a), 0.0001)
+    );
+    float alpha = float(green.a);
+    return half4(float4(rgb * alpha, alpha));
+}
+
+// ----------------------------------------------
+// Ripple.
+// Expanding waves around the point the user is touching.
+// Use it with the 'distortionEffect' modifier and pass the
+// touch location together with the size of the view.
+// for example:
+//  Image("photo")
+//      .distortionEffect(ShaderLibrary.ripple(.float(time), .float2(proxy.size), .float2(touch)),
+//                        maxSampleOffset: CGSize(width: 12, height: 12))
+// ----------------------------------------------
+[[ stitchable ]] float2 ripple(float2 position, float time, float2 size, float2 touch) {
+    float2 safeSize = max(size, float2(1.0));
+
+    // work with normalized coordinates, so the effect looks the same on every view size
+    float2 uv = position / safeSize;
+    float2 touchUV = touch / safeSize;
+    float2 delta = uv - touchUV;
+    float distance = length(delta);
+
+    // the direction from the touch point towards the current pixel
+    float2 direction = distance > 0.0001 ? delta / distance : float2(0.0);
+
+    // the waves fade out the further they are away from the touch point
+    float falloff = 1.0 / (1.0 + distance * 8.0);
+    float wave = sin(distance * 60.0 - time * 5.0);
+
+    // the displacement is given in points, so it stays the same on every screen
+    float displacement = wave * falloff * 12.0;
+    return position + direction * displacement;
+}
+
+// ----------------------------------------------
+// Vignette.
+// Darkens the edges of the layer, the way a camera lens does.
+// Use it with the 'layerEffect' modifier.
+// for example:
+//  Image("photo")
+//      .layerEffect(ShaderLibrary.vignette(.float2(proxy.size), .float(0.9)),
+//                   maxSampleOffset: .zero)
+// ----------------------------------------------
+[[ stitchable ]] half4 vignette(float2 position, SwiftUI::Layer layer, float2 size, float intensity) {
+    float2 safeSize = max(size, float2(1.0));
+    float2 uv = position / safeSize;
+
+    float2 centered = (uv - 0.5) * 2.0;
+    // keep the vignette round, even when the view is not square
+    centered.x *= safeSize.x / safeSize.y;
+
+    // the distance is normalized, so 1 is reached in the corners of the view
+    float maxDistance = length(float2(safeSize.x / safeSize.y, 1.0));
+    float distance = length(centered) / maxDistance;
+
+    // 1 in the middle of the view, fading out towards the corners
+    float shade = 1.0 - intensity * smoothstep(0.5, 1.0, distance);
+
+    half4 color = layer.sample(position);
+    // the layer is premultiplied, so scaling the rgb keeps the alpha untouched
+    float3 rgb = float3(color.rgb) * shade;
+    return half4(float4(rgb, float(color.a)));
+}
+
+// ----------------------------------------------
+// Plasma.
+// A procedural, animated color field, built out of a few sine waves.
+// Use it with the 'colorEffect' modifier.
+// for example:
+//  Image(systemName: "circle")
+//      .colorEffect(ShaderLibrary.plasma(.float2(proxy.size), .float(time)))
+// ----------------------------------------------
+[[ stitchable ]] half4 plasma(float2 position, half4 color, float2 size, float time) {
+    float2 safeSize = max(size, float2(1.0));
+    float2 uv = position / safeSize;
+
+    // the sum of a few sine waves creates the plasma pattern
+    float value = sin(uv.x * 9.0 + time)
+                + sin(uv.y * 9.0 - time * 0.8)
+                + sin((uv.x + uv.y) * 9.0 + time * 0.5);
+    value = value / 3.0;
+
+    // shifting the color of every wave results in the rainbow
+    float3 tint = float3(
+        0.5 + 0.5 * sin(6.28318 * (value + time * 0.15)),
+        0.5 + 0.5 * sin(6.28318 * (value + 0.33 + time * 0.15)),
+        0.5 + 0.5 * sin(6.28318 * (value + 0.66 + time * 0.15))
+    );
+
+    // keep the alpha of the original pixel, so the shape of the view is preserved
+    float alpha = float(color.a);
+    return half4(float4(tint * alpha, alpha));
+}
+
+// ----------------------------------------------
+// Halftone.
+// Turns the view into a grid of dots, the bigger the darker the pixel
+// underneath is. This is the effect you know from printed photos.
+// Use it with the 'colorEffect' modifier.
+// for example:
+//  Image("photo")
+//      .colorEffect(ShaderLibrary.halftone(.float2(proxy.size), .float(8.0)))
+// ----------------------------------------------
+[[ stitchable ]] half4 halftone(float2 position, half4 color, float2 size, float spacing) {
+    float2 safeSize = max(size, float2(1.0));
+    float2 centered = position - safeSize * 0.5;
+
+    // rotate the grid by 45 degrees to get the classic print look
+    float2 rotated = float2(centered.x + centered.y, centered.x - centered.y);
+    float2 cell = floor(rotated / spacing);
+    float2 local = fract(rotated / spacing) - 0.5;
+
+    // a small offset per cell keeps the pattern from looking too regular
+    local -= (float2(hash21(cell), hash21(cell + 17.0)) - 0.5) * 0.3;
+
+    float distanceToDot = length(local);
+    float brightness = dot(float3(color.rgb), float3(0.2126, 0.7152, 0.0722));
+
+    // the darker the pixel, the bigger the dot
+    float radius = sqrt(clamp(1.0 - brightness, 0.0, 1.0)) * 0.7;
+    float dotMask = 1.0 - smoothstep(radius - 0.08, radius + 0.08, distanceToDot);
+
+    // the paper is white and the dots keep a darker version of the original color
+    float3 paper = float3(0.95);
+    float3 ink = float3(color.rgb) * 0.35;
+    float3 result = mix(paper, ink, dotMask);
+
+    float alpha = float(color.a);
+    return half4(float4(result * alpha, alpha));
+}
