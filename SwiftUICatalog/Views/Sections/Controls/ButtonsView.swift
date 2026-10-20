@@ -42,30 +42,46 @@ struct ButtonsComponentsView: View, Comparable {
 
     @State private var pastedText: String = ""
 
-    /// configuration of the first button: background color
-    @State private var color: Color = Color.clear
-    /// configuration of the first button: border color
-    @State private var colorBorder: Color = Color.accentColor
-    /// configuration of the first button: border width
-    @State private var borderWidth: Double = 1
-    /// configuration of the first button: custom font
-    @State private var font: UIFont = UIFont.preferredFont(forTextStyle: .body)
+    // MARK: - Configuration State
 
-    // MARK: - Interactive button configuration
-    /// radius configuration
-    @State private var radius2: CGFloat = 10.0
-    /// frame width
-    @State private var buttonWidth: CGFloat = 100
-    /// frame height
-    @State private var buttonHeight: CGFloat = 44
-    /// configuration of the : background color
-    @State private var color2: Color = Color.clear
-    /// configuration of the first button: border color
-    @State private var colorBorder2: Color = Color.accentColor
-    /// configuration of the first button: border width
-    @State private var borderWidth2: Double = 1
-    /// the style for the button's title
-    @State private var textStyle2: UIFont.TextStyle = .body
+    // General customizable button
+    @State private var mainBtnColor: Color = .clear
+    @State private var mainBtnBorderColor: Color = .accentColor
+    @State private var mainBtnBorderWidth: Double = 1
+    @State private var mainBtnFont: UIFont = UIFont.preferredFont(forTextStyle: .body)
+    @State private var mainBtnWidth: CGFloat = 100
+    @State private var mainBtnHeight: CGFloat = 44
+    @State private var mainBtnRadius: CGFloat = 10.0
+    @State private var mainBtnTextStyle: UIFont.TextStyle = .body
+
+    // Rounded Buttons
+    @State private var roundedBtnColor: Color = .clear
+    @State private var roundedBtnBorderColor: Color = .accentColor
+    @State private var roundedBtnBorderWidth: Double = 1
+    @State private var roundedBtnRadius: CGFloat = 10
+
+    // Custom Shape Buttons
+    @State private var shapeTLRadius: CGFloat = 10
+    @State private var shapeTRRadius: CGFloat = 0
+    @State private var shapeBLRadius: CGFloat = 0
+    @State private var shapeBRRadius: CGFloat = 10
+    @State private var shapeBorderColor: Color = .accentColor
+    @State private var shapeBorderWidth: Double = 5
+
+    // Stroked Border Buttons
+    @State private var strokeColor: Color = .accentColor
+    @State private var strokeLineWidth: Double = 5
+    @State private var strokeDash: Double = 10
+
+    // Plain Background Buttons
+    @State private var plainBgColor: Color = Color("Medium")
+
+    // Image/Icon Buttons
+    @State private var imagePadding: CGFloat = 12
+    @State private var imageColor: Color = .accentColor
+    @State private var iconBorderColor: Color = .accentColor
+    @State private var iconBorderWidth: Double = 5
+
 
     // MARK: - Body
 
@@ -86,28 +102,16 @@ struct ButtonsComponentsView: View, Comparable {
                         .fontWeight(.light)
                         .font(.body)
                         .padding(.bottom)
-                        // MARK: - basics of buttons
-                        Group {
+                        // MARK: - Modern Button Showcase
+                        VStack(spacing: 20) {
                             customizableButton
-                                .modifier(Divided())
                             roundedButtons
-                                .modifier(Divided())
                             customShapeButtons
-                                .modifier(Divided())
-                            labelStyledButton
-                                .modifier(Divided())
                             strokedBorderButtons
-                                .modifier(Divided())
                             plainBackgroundButtons
-                                .modifier(Divided())
-                            imagesInButtons
-                                .modifier(Divided())
-                            buttonsWithIcons
-                                .modifier(Divided())
-                            buttonWithLabels
-                                .modifier(Divided())
+                            iconicButtons
+                            labelStyledButton
                             styledButtons
-                                .modifier(Divided())
                         }
 
                         ContributedByView(
@@ -121,480 +125,227 @@ struct ButtonsComponentsView: View, Comparable {
 
     }
 
-    private var imagesInButtons: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Button with image")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "An Image view can be used instead of the usual title, the image just needs to be set as the label of the button."
-            )
-            .fontWeight(.light)
-            .font(.body)
-            Button(
-                action: {},
-                label: {
-                    Image(systemName: "person")
-                        .padding()
-                }
-            )
-            .border(Color.accentColor, width: 5)
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-        }
-
-    }
-
-    private var buttonsWithIcons: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Button with icon & label")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "Any other combination of views can be used as the 'label' of the button, this allows for a lot of flexibility when it comes to have clicks areas which are bigger, while conserving the highlighting state of the button component."
-            )
-            Button(
-                action: {},
-                label: {
-                    Label {
-                        Text("Add person")
-                            .modifier(ButtonFontModifier())
-                    } icon: {
-                        Image(systemName: "person")
-                            .padding()
+    private var iconicButtons: some View {
+        ButtonControlCard(
+            title: "Iconic Buttons",
+            description: "From simple icons to complex labels, explore how to combine images and text to create intuitive and visually appealing call-to-actions.",
+            content: HStack(spacing: 20) {
+                VStack(spacing: 12) {
+                    Button(action: {}) {
+                        Image(systemName: "person.fill")
+                            .font(.title2)
+                            .padding(imagePadding)
+                            .foregroundColor(imageColor)
                     }
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(iconBorderColor, lineWidth: iconBorderWidth)
+                    )
+                    Text("Icon Only").font(.caption2).foregroundColor(.secondary)
                 }
-            )
-            .modifier(ButtonBorderModifier())
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-        }
 
-    }
+                VStack(spacing: 12) {
+                    Button(action: {}) {
+                        Label {
+                            Text("Add User")
+                                .modifier(ButtonFontModifier())
+                        } icon: {
+                            Image(systemName: "person.badge.plus")
+                                .padding(.trailing, imagePadding)
+                                .foregroundColor(imageColor)
+                        }
+                    }
+                    .modifier(ButtonBorderModifier())
+                    Text("Icon & Label").font(.caption2).foregroundColor(.secondary)
+                }
 
-    private var buttonWithLabels: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Button with label")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "In the simplest of the forms, a button can be just connected to a text."
-            )
-            .fontWeight(.light)
-            .font(.body)
-            Button(
-                action: {},
-                label: {
-                    Text("Add ")
+                VStack(spacing: 12) {
+                    Button("Add User", action: {})
                         .modifier(ButtonFontModifier())
+                        .modifier(ButtonBorderModifier())
+                    Text("Text Only").font(.caption2).foregroundColor(.secondary)
                 }
-            )
-            .modifier(ButtonBorderModifier())
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-        }
-
+            },
+            controls: VStack(spacing: 12) {
+                ControlRow(label: "Icon Color", control: ColorPicker("", selection: $imageColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Color", control: ColorPicker("", selection: $iconBorderColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Width", control: Slider(value: $iconBorderWidth, in: 0...10, step: 1).frame(width: 100))
+                ControlRow(label: "Icon Padding", control: Slider(value: $imagePadding, in: 4...32, step: 1).frame(width: 100))
+            }
+        )
     }
 
     private var styledButtons: some View {
-        Group {
-
-            VStack(alignment: .leading, spacing: 16) {
-                Text("BorderlessButtonStyle")
-                    .fontWeight(.heavy)
-                    .font(.title)
-                Text(
-                    "There is an specific button style called BorderlessButtonStyle which can be used to create simple buttons."
-                )
-                .fontWeight(.light)
-                .font(.body)
-                Button("Style me: borderless", action: {})
+        ButtonControlCard(
+            title: "Predefined Button Styles",
+            description: "SwiftUI provides several built-in styles like Borderless and Plain that change how buttons interact and appear across platforms.",
+            content: HStack(spacing: 20) {
+                Button("Borderless", action: {})
                     .buttonStyle(BorderlessButtonStyle())
-                    .padding()
-            }
-
-            .modifier(Divided())
-
-            VStack(alignment: .leading, spacing: 16) {
-                Text("PlainButtonStyle")
-                    .fontWeight(.heavy)
-                    .font(.title)
-                Text(
-                    "A button style that, when in an idle state, does not style or decorate its content; instead, it may apply a visual effect to show if the button is pressed, focused, or enabled."
-                )
-                .fontWeight(.light)
-                .font(.body)
-                Button("Style me: plain", action: {})
+                
+                Button("Plain", action: {})
                     .buttonStyle(PlainButtonStyle())
-                    .padding()
-
-            }
-        }
+            },
+            controls: Text("These styles are system-defaults and have limited direct customization beyond the label content.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        )
     }
 
     private var labelStyledButton: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("A button label can have different styles")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "A modifier can be used to set a specific style for all labels within a view, to show only an icon, or only the title or both."
-            )
-            .fontWeight(.light)
-            .font(.body)
-            Button(
-                "Label Syle Icon Only",
-                systemImage: "message.badge",
-                action: {}
-            )
-            .modifier(
-                ButtonFontModifier(
-                    font: Font(
-                        UIFont.preferredFont(forTextStyle: textStyle2)
-                    )
-                )
-            )
-            .background(color2)
-            .labelStyle(.iconOnly)
-            .modifier(
-                RoundedBordersModifier(
-                    radius: 10,
-                    lineWidth: CGFloat(borderWidth),
-                    color: colorBorder
-                )
-            )
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-            Button(
-                "Label Syle Title Only",
-                systemImage: "message.badge",
-                action: {}
-            )
-            .modifier(
-                ButtonFontModifier(
-                    font: Font(
-                        UIFont.preferredFont(forTextStyle: textStyle2)
-                    )
-                )
-            )
-            .background(color2)
-            .labelStyle(.titleOnly)
-            .modifier(
-                RoundedBordersModifier(
-                    radius: 10,
-                    lineWidth: CGFloat(borderWidth),
-                    color: colorBorder
-                )
-            )
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-            Button(
-                "Label Syle Icon and Title",
-                systemImage: "message.badge",
-                action: {}
-            )
-            .modifier(
-                ButtonFontModifier(
-                    font: Font(
-                        UIFont.preferredFont(forTextStyle: textStyle2)
-                    )
-                )
-            )
-            .background(color2)
-            .labelStyle(.titleAndIcon)
-            .modifier(
-                RoundedBordersModifier(
-                    radius: 10,
-                    lineWidth: CGFloat(borderWidth),
-                    color: colorBorder
-                )
-            )
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-
-        }
+        ButtonControlCard(
+            title: "Label Styles",
+            description: "Control whether the button shows only the icon, only the title, or both, using the labelStyle modifier.",
+            content: HStack(spacing: 20) {
+                Button("Label Only", systemImage: "message.badge", action: {})
+                    .labelStyle(.titleOnly)
+                    .modifier(ButtonBorderModifier())
+                
+                Button("Icon Only", systemImage: "message.badge", action: {})
+                    .labelStyle(.iconOnly)
+                    .modifier(ButtonBorderModifier())
+                
+                Button("Both", systemImage: "message.badge", action: {})
+                    .labelStyle(.titleAndIcon)
+                    .modifier(ButtonBorderModifier())
+            },
+            controls: Text("Label styles are powerful for creating adaptive UIs that change based on available screen space.")
+                .font(.caption)
+                .foregroundColor(.secondary)
+        )
     }
 
     private var customizableButton: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Customizable button")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "At continuation, we show a button and some properties, so that you can adjust them interactively and see how the button changes. If you change the font style to extraLargeTitle, you will need to increase the width of the button to make the size fit. Since we're showcasing how a fixed size affects the content of a button in this case, we choose to fix a width. But you can easily give your buttons a min and max width values to make them react to different font styles."
-            )
-            .fontWeight(.light)
-            .font(.body)
-            Button("change me", systemImage: "message.badge", action: {})
-                .frame(width: buttonWidth, height: buttonHeight)
-                .modifier(
-                    ButtonFontModifier(
-                        font: Font(
-                            UIFont.preferredFont(forTextStyle: textStyle2)
-                        )
-                    )
-                )
-                .background(color2)
-                .modifier(
-                    RoundedBordersModifier(
-                        radius: radius2,
-                        lineWidth: CGFloat(borderWidth2),
-                        color: colorBorder2
-                    )
-                )
-                .padding(.leading, Style.HorizontalPadding.small.rawValue)
-                .padding(.vertical)
-
-            ColorPicker(
-                "Background color:",
-                selection: $color2,
-                supportsOpacity: false
-            )
-
-            ColorPicker(
-                "Border color:",
-                selection: $colorBorder2,
-                supportsOpacity: false
-            )
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Text("Border width:")
-                    Slider(
-                        value: $borderWidth2,
-                        in: 0...10,
-                        step: 1,
-                        label: {
-                            Text("\(borderWidth2)")
-                        },
-                        minimumValueLabel: {
-                            Text("0")
-                        },
-                        maximumValueLabel: {
-                            Text("10")
-                        },
-                        onEditingChanged: { _ in }
-                    )
-                }
-                Text("current value: \(Int(borderWidth2))")
-                    .font(.footnote)
+        ButtonControlCard(
+            title: "Customizable Button",
+            description: "Adjust properties interactively to see how the button changes. Note how fixed sizes affect content across different font styles.",
+            content: Button("Change Me", systemImage: "message.badge", action: {})
+                .frame(width: mainBtnWidth, height: mainBtnHeight)
+                .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: mainBtnTextStyle))))
+                .background(mainBtnColor)
+                .modifier(RoundedBordersModifier(
+                    radius: mainBtnRadius,
+                    lineWidth: CGFloat(mainBtnBorderWidth),
+                    color: mainBtnBorderColor
+                )),
+            controls: VStack(spacing: 12) {
+                ControlRow(label: "Background", control: ColorPicker("", selection: $mainBtnColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Color", control: ColorPicker("", selection: $mainBtnBorderColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Width", control: Slider(value: $mainBtnBorderWidth, in: 0...10, step: 1).frame(width: 100))
+                ControlRow(label: "Width", control: Slider(value: $mainBtnWidth, in: 50...300, step: 1).frame(width: 100))
+                ControlRow(label: "Height", control: Slider(value: $mainBtnHeight, in: 35...100, step: 1).frame(width: 100))
+                ControlRow(label: "Radius", control: Slider(value: $mainBtnRadius, in: 0...50, step: 1).frame(width: 100))
+                ControlRow(label: "Font Style", control: UIFontTextStylePicker(selection: $mainBtnTextStyle))
             }
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Text("Frame width:")
-                    Slider(
-                        value: $buttonWidth,
-                        in: 50...300,
-                        step: 1,
-                        label: {
-                            Text("\(Int(buttonWidth))")
-                        },
-                        minimumValueLabel: {
-                            Text("50")
-                        },
-                        maximumValueLabel: {
-                            Text("300")
-                        },
-                        onEditingChanged: { _ in }
-                    )
-                }
-                Text("current value: \(Int(buttonWidth))")
-                    .font(.footnote)
-            }
-            VStack(alignment: .leading, spacing: 16) {
-                HStack {
-                    Text("Frame height:")
-                    Slider(
-                        value: $buttonHeight,
-                        in: 35...100,
-                        step: 1,
-                        label: {
-                            Text("\(Int(buttonHeight))")
-                        },
-                        minimumValueLabel: {
-                            Text("35")
-                        },
-                        maximumValueLabel: {
-                            Text("100")
-                        },
-                        onEditingChanged: { _ in }
-                    )
-                }
-                Text("current value: \(Int(buttonHeight))")
-                    .font(.footnote)
-            }
-            HStack {
-                Text("Font Style:")
-                UIFontTextStylePicker(selection: $textStyle2)
-            }
-        }
-
+        )
     }
 
     // MARK: - views
 
     private var roundedButtons: some View {
-        // Contextual information: a short intro to the elements we are showcasing
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Rounded Button")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "One of the most usual designs for buttons is to include rounded corners. You can see how to achieve that here, using a custon view modifier."
-            )
-            .fontWeight(.light)
-            .font(.body)
-
-            Button(
-                action: {},
-                label: {
-                    Text("Click")
-                        .modifier(ButtonFontModifier(font: Font(font)))
-                        .modifier(
-                            RoundedBordersModifier(
-                                radius: 10,
-                                lineWidth: CGFloat(borderWidth),
-                                color: colorBorder
-                            )
-                        )
-                }
-            )
-            .background(color)
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-
-            ColorPicker(
-                "Background color:",
-                selection: $color,
-                supportsOpacity: false
-            )
-
-            ColorPicker(
-                "Border color:",
-                selection: $colorBorder,
-                supportsOpacity: false
-            )
-
-            HStack {
-                Text("Border width:")
-                    .fontWeight(.light)
-                    .font(.body)
-                Slider(
-                    value: $borderWidth,
-                    in: 0...10,
-                    step: 1,
-                    onEditingChanged: { _ in }
-                )
-
+        ButtonControlCard(
+            title: "Rounded Button",
+            description: "One of the most common designs for buttons is incorporating rounded corners for a modern, friendly feel.",
+            content: Button("Click Me", action: {})
+                .modifier(ButtonFontModifier())
+                .modifier(RoundedBordersModifier(
+                    radius: roundedBtnRadius,
+                    lineWidth: CGFloat(roundedBtnBorderWidth),
+                    color: roundedBtnBorderColor
+                ))
+                .background(roundedBtnColor),
+            controls: VStack(spacing: 12) {
+                ControlRow(label: "Background", control: ColorPicker("", selection: $roundedBtnColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Color", control: ColorPicker("", selection: $roundedBtnBorderColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Width", control: Slider(value: $roundedBtnBorderWidth, in: 0...10, step: 1).frame(width: 100))
+                ControlRow(label: "Corner Radius", control: Slider(value: $roundedBtnRadius, in: 0...50, step: 1).frame(width: 100))
             }
-        }
+        )
     }
 
     private var customShapeButtons: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Specific Rounded borders with custom shape")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "Sometimes we want to give the borders of a button a rounded style, but not to all of them. This can be achieved with a custom shape as an overlay for the standard Button View. This can also be achieved by using an UnevenRectangle as a clip shape and giving each corner a different radius."
-            )
-            .fontWeight(.light)
-            .font(.body)
-
-            HStack {
-                Button(
-                    action: {},
-                    label: {
-                        Text("Click")
-                            .modifier(ButtonFontModifier())
-                            .overlay(
-                                RoundedCorners(
-                                    tl: 10,
-                                    tr: 0,
-                                    bl: 0,
-                                    br: 10
-                                )
-                                .stroke(Color.accentColor, lineWidth: 5)
-                            )
-                    }
-                )
-                Button(
-                    action: {},
-                    label: {
-                        Text("Click")
-                            .modifier(ButtonFontModifier())
-                            .border(.black, width: 3)
-                            .clipShape(
-                                UnevenRoundedRectangle(
-                                    topLeadingRadius: 3,
-                                    bottomLeadingRadius: 18,
-                                    bottomTrailingRadius: 0,
-                                    topTrailingRadius: 10
-                                )
-                            )
-                            .overlay(
-                                UnevenRoundedRectangle(
-                                    topLeadingRadius: 3,
-                                    bottomLeadingRadius: 18,
-                                    bottomTrailingRadius: 0,
-                                    topTrailingRadius: 10
-                                )
-                                .stroke(Color.accentColor, lineWidth: 5)
-                            )
-                    }
-                )
+        ButtonControlCard(
+            title: "Custom Shape Button",
+            description: "Precision control over each corner's radius. This is useful for creating tabs or specific UI elements that don't follow standard rounded rectangles.",
+            content: HStack(spacing: 20) {
+                Button("Shape 1", action: {})
+                    .modifier(ButtonFontModifier())
+                    .overlay(
+                        RoundedCorners(
+                            tl: shapeTLRadius,
+                            tr: shapeTRRadius,
+                            bl: shapeBLRadius,
+                            br: shapeBRRadius
+                        )
+                        .stroke(shapeBorderColor, lineWidth: shapeBorderWidth)
+                    )
+                
+                Button("Shape 2", action: {})
+                    .modifier(ButtonFontModifier())
+                    .clipShape(
+                        UnevenRoundedRectangle(
+                            topLeadingRadius: shapeTLRadius,
+                            bottomLeadingRadius: shapeBLRadius,
+                            bottomTrailingRadius: shapeBRRadius,
+                            topTrailingRadius: shapeTRRadius
+                        )
+                    )
+                    .overlay(
+                        UnevenRoundedRectangle(
+                            topLeadingRadius: shapeTLRadius,
+                            bottomLeadingRadius: shapeBLRadius,
+                            bottomTrailingRadius: shapeBRRadius,
+                            topTrailingRadius: shapeTRRadius
+                        )
+                        .stroke(shapeBorderColor, lineWidth: shapeBorderWidth)
+                    )
+            },
+            controls: VStack(spacing: 12) {
+                ControlRow(label: "Border Color", control: ColorPicker("", selection: $shapeBorderColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Border Width", control: Slider(value: $shapeBorderWidth, in: 0...20, step: 1).frame(width: 100))
+                Divider()
+                ControlRow(label: "Top Left", control: Slider(value: $shapeTLRadius, in: 0...50, step: 1).frame(width: 100))
+                ControlRow(label: "Top Right", control: Slider(value: $shapeTRRadius, in: 0...50, step: 1).frame(width: 100))
+                ControlRow(label: "Bottom Left", control: Slider(value: $shapeBLRadius, in: 0...50, step: 1).frame(width: 100))
+                ControlRow(label: "Bottom Right", control: Slider(value: $shapeBRRadius, in: 0...50, step: 1).frame(width: 100))
             }
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-        }
-
+        )
     }
 
     private var strokedBorderButtons: some View {
-
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Stroked borders")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "Borders can also be drawn with a certain stroke pattern by using an overlay and a specific StrokeStyle."
-            )
-            .fontWeight(.light)
-            .font(.body)
-            Button(action: {}) {
-                Text("Click")
-                    .modifier(ButtonFontModifier())
-                    .overlay(
-                        Capsule(style: .continuous)
-                            .stroke(
-                                Color.accentColor,
-                                style: StrokeStyle(lineWidth: 5, dash: [10])
-                            )
-                    )
+        ButtonControlCard(
+            title: "Stroked Border Button",
+            description: "Use custom stroke styles to create dashed or dotted borders, adding a distinct visual rhythm to your UI elements.",
+            content: Button("Dashed Button", action: {})
+                .modifier(ButtonFontModifier())
+                .overlay(
+                    Capsule(style: .continuous)
+                        .stroke(
+                            strokeColor,
+                            style: StrokeStyle(lineWidth: strokeLineWidth, dash: [strokeDash])
+                        )
+                ),
+            controls: VStack(spacing: 12) {
+                ControlRow(label: "Stroke Color", control: ColorPicker("", selection: $strokeColor, supportsOpacity: false).labelsHidden())
+                ControlRow(label: "Line Width", control: Slider(value: $strokeLineWidth, in: 1...20, step: 1).frame(width: 100))
+                ControlRow(label: "Dash Length", control: Slider(value: $strokeDash, in: 0...30, step: 1).frame(width: 100))
             }
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-        }
+        )
     }
 
     private var plainBackgroundButtons: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            Text("Button with plain background")
-                .fontWeight(.heavy)
-                .font(.title)
-            Text(
-                "Using the background modifier an color can be added as the background of the button."
-            )
-            .fontWeight(.light)
-            .font(.body)
-            Button(
-                action: {},
-                label: {
-                    Text("Click")
-                        .padding()
-                        .modifier(ButtonFontModifier())
-                }
-            )
-            .background(Color("Medium"))
-            .padding(.leading, Style.HorizontalPadding.small.rawValue)
-        }
+        ButtonControlCard(
+            title: "Plain Background Button",
+            description: "Simple, high-contrast buttons that use a solid fill color. Ideal for primary actions or strong brand presence.",
+            content: Button("Filled Button", action: {})
+                .padding()
+                .modifier(ButtonFontModifier())
+                .background(plainBgColor)
+                .cornerRadius(12),
+            controls: VStack(spacing: 12) {
+                ControlRow(label: "Fill Color", control: ColorPicker("", selection: $plainBgColor, supportsOpacity: false).labelsHidden())
+            }
+        )
     }
 }
 
@@ -667,6 +418,69 @@ struct RoundedCorners: Shape {
         return path
     }
 
+}
+
+// MARK: - Helper Views
+
+struct ButtonControlCard<Content: View, Controls: View>: View {
+    let title: String
+    let description: String
+    let content: Content
+    let controls: Controls
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            Text(title)
+                .font(.title2)
+                .fontWeight(.bold)
+                .foregroundColor(.primary)
+
+            Text(description)
+                .font(.subheadline)
+                .fontWeight(.medium)
+                .foregroundColor(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            ZStack {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color(UIColor.secondarySystemBackground))
+                    .frame(maxWidth: .infinity, minHeight: 120)
+                
+                content
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .padding(.vertical)
+
+            DisclosureGroup("Customization") {
+                controls
+                    .padding(.top, 8)
+            }
+            .padding(.bottom, 8)
+        }
+        .padding()
+        .background(
+            RoundedRectangle(cornerRadius: 24)
+                .fill(Color(UIColor.tertiarySystemBackground))
+                .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
+        )
+        .padding(.horizontal)
+    }
+}
+
+struct ControlRow<V: View>: View {
+    let label: String
+    let control: V
+
+    var body: some View {
+        HStack {
+            Text(label)
+                .font(.footnote)
+                .foregroundColor(.secondary)
+            Spacer()
+            control
+        }
+        .padding(.vertical, 4)
+    }
 }
 
 // MARK: - HASHABLE
