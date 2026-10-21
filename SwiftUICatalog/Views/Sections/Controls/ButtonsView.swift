@@ -171,7 +171,8 @@ struct ButtonsComponentsView: View, Comparable {
                 ControlRow(label: "Border Color", control: ColorPicker("", selection: $iconBorderColor, supportsOpacity: false).labelsHidden())
                 ControlRow(label: "Border Width", control: Slider(value: $iconBorderWidth, in: 0...10, step: 1).frame(width: 100))
                 ControlRow(label: "Icon Padding", control: Slider(value: $imagePadding, in: 4...32, step: 1).frame(width: 100))
-            }
+            },
+            code: CodeSamples.iconicButtons
         )
     }
 
@@ -188,7 +189,8 @@ struct ButtonsComponentsView: View, Comparable {
             },
             controls: Text("These styles are system-defaults and have limited direct customization beyond the label content.")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundColor(.secondary),
+            code: CodeSamples.predefinedButtonStyles
         )
     }
 
@@ -211,7 +213,8 @@ struct ButtonsComponentsView: View, Comparable {
             },
             controls: Text("Label styles are powerful for creating adaptive UIs that change based on available screen space.")
                 .font(.caption)
-                .foregroundColor(.secondary)
+                .foregroundColor(.secondary),
+            code: CodeSamples.labelStyles
         )
     }
 
@@ -236,7 +239,8 @@ struct ButtonsComponentsView: View, Comparable {
                 ControlRow(label: "Height", control: Slider(value: $mainBtnHeight, in: 35...100, step: 1).frame(width: 100))
                 ControlRow(label: "Radius", control: Slider(value: $mainBtnRadius, in: 0...50, step: 1).frame(width: 100))
                 ControlRow(label: "Font Style", control: UIFontTextStylePicker(selection: $mainBtnTextStyle))
-            }
+            },
+            code: CodeSamples.customizableButton
         )
     }
 
@@ -259,7 +263,8 @@ struct ButtonsComponentsView: View, Comparable {
                 ControlRow(label: "Border Color", control: ColorPicker("", selection: $roundedBtnBorderColor, supportsOpacity: false).labelsHidden())
                 ControlRow(label: "Border Width", control: Slider(value: $roundedBtnBorderWidth, in: 0...10, step: 1).frame(width: 100))
                 ControlRow(label: "Corner Radius", control: Slider(value: $roundedBtnRadius, in: 0...50, step: 1).frame(width: 100))
-            }
+            },
+            code: CodeSamples.roundedButton
         )
     }
 
@@ -308,7 +313,8 @@ struct ButtonsComponentsView: View, Comparable {
                 ControlRow(label: "Top Right", control: Slider(value: $shapeTRRadius, in: 0...50, step: 1).frame(width: 100))
                 ControlRow(label: "Bottom Left", control: Slider(value: $shapeBLRadius, in: 0...50, step: 1).frame(width: 100))
                 ControlRow(label: "Bottom Right", control: Slider(value: $shapeBRRadius, in: 0...50, step: 1).frame(width: 100))
-            }
+            },
+            code: CodeSamples.customShapeButton
         )
     }
 
@@ -329,7 +335,8 @@ struct ButtonsComponentsView: View, Comparable {
                 ControlRow(label: "Stroke Color", control: ColorPicker("", selection: $strokeColor, supportsOpacity: false).labelsHidden())
                 ControlRow(label: "Line Width", control: Slider(value: $strokeLineWidth, in: 1...20, step: 1).frame(width: 100))
                 ControlRow(label: "Dash Length", control: Slider(value: $strokeDash, in: 0...30, step: 1).frame(width: 100))
-            }
+            },
+            code: CodeSamples.strokedBorderButton
         )
     }
 
@@ -344,7 +351,155 @@ struct ButtonsComponentsView: View, Comparable {
                 .cornerRadius(12),
             controls: VStack(spacing: 12) {
                 ControlRow(label: "Fill Color", control: ColorPicker("", selection: $plainBgColor, supportsOpacity: false).labelsHidden())
-            }
+            },
+            code: CodeSamples.plainBackgroundButton
+        )
+    }
+}
+
+// MARK: - Code samples
+
+extension ButtonsComponentsView {
+
+    /// The code of every example shown in this view.
+    ///
+    /// Each snippet is displayed in a collapsible block at the bottom of its
+    /// card, so the code can be read, copied and shared without taking up
+    /// any space until it is expanded.
+    enum CodeSamples {
+
+        static let customizableButton = CodeSnippet(
+            title: "Customizable Button",
+            code: """
+                Button("Change Me", systemImage: "message.badge", action: {})
+                    .frame(width: mainBtnWidth, height: mainBtnHeight)
+                    .modifier(ButtonFontModifier(font: Font(UIFont.preferredFont(forTextStyle: mainBtnTextStyle))))
+                    .background(mainBtnColor)
+                    .modifier(
+                        RoundedBordersModifier(
+                            radius: mainBtnRadius,
+                            lineWidth: CGFloat(mainBtnBorderWidth),
+                            color: mainBtnBorderColor
+                        )
+                    )
+                """
+        )
+
+        static let roundedButton = CodeSnippet(
+            title: "Rounded Button",
+            code: """
+                Button("Click Me", action: {})
+                    .modifier(ButtonFontModifier())
+                    .modifier(
+                        RoundedBordersModifier(
+                            radius: roundedBtnRadius,
+                            lineWidth: CGFloat(roundedBtnBorderWidth),
+                            color: roundedBtnBorderColor
+                        )
+                    )
+                    .background(roundedBtnColor)
+                """
+        )
+
+        static let customShapeButton = CodeSnippet(
+            title: "Custom Shape Button",
+            code: """
+                Button("Shape 1", action: {})
+                    .modifier(ButtonFontModifier())
+                    .overlay(
+                        RoundedCorners(
+                            tl: shapeTLRadius,
+                            tr: shapeTRRadius,
+                            bl: shapeBLRadius,
+                            br: shapeBRRadius
+                        )
+                        .stroke(shapeBorderColor, lineWidth: shapeBorderWidth)
+                    )
+                """
+        )
+
+        static let strokedBorderButton = CodeSnippet(
+            title: "Stroked Border Button",
+            code: """
+                Button("Dashed Button", action: {})
+                    .modifier(ButtonFontModifier())
+                    .overlay(
+                        Capsule(style: .continuous)
+                            .stroke(
+                                strokeColor,
+                                style: StrokeStyle(lineWidth: strokeLineWidth, dash: [strokeDash])
+                            )
+                    )
+                """
+        )
+
+        static let plainBackgroundButton = CodeSnippet(
+            title: "Plain Background Button",
+            code: """
+                Button("Filled Button", action: {})
+                    .padding()
+                    .modifier(ButtonFontModifier())
+                    .background(plainBgColor)
+                    .cornerRadius(12)
+                """
+        )
+
+        static let iconicButtons = CodeSnippet(
+            title: "Iconic Buttons",
+            code: """
+                // Icon only
+                Button(action: {}) {
+                    Image(systemName: "person.fill")
+                        .font(.title2)
+                        .padding(imagePadding)
+                        .foregroundColor(imageColor)
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(iconBorderColor, lineWidth: iconBorderWidth)
+                )
+
+                // Icon and label
+                Button(action: {}) {
+                    Label {
+                        Text("Add User")
+                            .modifier(ButtonFontModifier())
+                    } icon: {
+                        Image(systemName: "person.badge.plus")
+                            .padding(.trailing, imagePadding)
+                            .foregroundColor(imageColor)
+                    }
+                }
+                .modifier(ButtonBorderModifier())
+                """
+        )
+
+        static let labelStyles = CodeSnippet(
+            title: "Label Styles",
+            code: """
+                Button("Label Only", systemImage: "message.badge", action: {})
+                    .labelStyle(.titleOnly)
+                    .modifier(ButtonBorderModifier())
+
+                Button("Icon Only", systemImage: "message.badge", action: {})
+                    .labelStyle(.iconOnly)
+                    .modifier(ButtonBorderModifier())
+
+                Button("Both", systemImage: "message.badge", action: {})
+                    .labelStyle(.titleAndIcon)
+                    .modifier(ButtonBorderModifier())
+                """
+        )
+
+        static let predefinedButtonStyles = CodeSnippet(
+            title: "Predefined Button Styles",
+            code: """
+                Button("Borderless", action: {})
+                    .buttonStyle(BorderlessButtonStyle())
+
+                Button("Plain", action: {})
+                    .buttonStyle(PlainButtonStyle())
+                """
         )
     }
 }
@@ -428,6 +583,10 @@ struct ButtonControlCard<Content: View, Controls: View>: View {
     let content: Content
     let controls: Controls
 
+    /// The code of the example. It is displayed in a collapsible block at the
+    /// bottom of the card, so it does not take up any space until it is expanded.
+    var code: CodeSnippet? = nil
+
     var body: some View {
         VStack(alignment: .leading, spacing: 16) {
             Text(title)
@@ -456,6 +615,10 @@ struct ButtonControlCard<Content: View, Controls: View>: View {
                     .padding(.top, 8)
             }
             .padding(.bottom, 8)
+
+            if let code = code {
+                CodeSampleView(snippet: code)
+            }
         }
         .padding()
         .background(
@@ -463,7 +626,6 @@ struct ButtonControlCard<Content: View, Controls: View>: View {
                 .fill(Color(UIColor.tertiarySystemBackground))
                 .shadow(color: Color.black.opacity(0.05), radius: 10, x: 0, y: 5)
         )
-        .padding(.horizontal)
     }
 }
 
