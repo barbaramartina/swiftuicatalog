@@ -21,7 +21,28 @@ https://github.com/user-attachments/assets/659823e5-0a3f-4795-8ef9-8bad04b79df3
 https://github.com/user-attachments/assets/3472b43e-493c-4810-8307-17a643c00edb
 
 
+# Setup as local MCP
+You can also take advantage of the SwiftUI Catalog locally, and configure it as a local MCP, in the harness of your choice.
+This will allow to search for proven SwiftUI snippets, collected over 5 years, to make sure that you local models have more accurate information on how to use SwiftUI.
 
+ <img width="701" height="412" alt="Screenshot 2026-10-21 at 21 47 51" src="https://github.com/user-attachments/assets/8034aefb-d415-40d5-8d04-20374c9016d9" />
+
+## How to setup the local MCP?
+- download the repository locally
+- make sure to have python3 installed
+- configure your harness to use the mcp, for example for nanocoder I use the following configuration:
+
+```
+{
+  "mcpServers": {
+      "swiftui-catalog": {
+        "command": "python3",
+        "args": [
+          "/fullPathToTheRepo/SwiftUICatalog/swiftui-catalog-mcp-server.py"
+        ]
+      }
+}
+```
 
 # Get the catalog on your device
 AT THE MOMENT (OCTOBER 2026) I TOOK A PAUSE IN THE DEVELOPER PROGRAM, SO THE CATALOG IS NOT DOWNLOADABLE FOR NOW
