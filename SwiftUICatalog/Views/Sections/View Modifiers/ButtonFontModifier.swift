@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ButtonFontModifier
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  ButtonTextModifier.swift
 //  SwiftUICatalog

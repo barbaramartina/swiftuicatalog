@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TableViews
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  TableViews.swift
 //  Catalog

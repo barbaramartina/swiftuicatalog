@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AlertsView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  AlertsComponentView.swift
 //  SwiftUICatalog

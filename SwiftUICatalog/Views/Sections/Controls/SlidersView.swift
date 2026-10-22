@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SlidersView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  SlidersView.swift
 //  SwiftUICatalog

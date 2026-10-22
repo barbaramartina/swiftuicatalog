@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AnimatableView
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  AnimatableView.swift
 //  Catalog

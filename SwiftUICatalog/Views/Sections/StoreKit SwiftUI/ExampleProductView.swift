@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ExampleProductView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  ExampleProductView.swift
 //  SwiftUICatalog

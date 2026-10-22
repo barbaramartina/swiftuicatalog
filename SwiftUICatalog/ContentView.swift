@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ContentView
+// @category: swiftui
+// @tags: containers, controls, hierarchical, layouts, navigation, user-input
+// ---
+
 //
 //  ContentView.swift
 //  SwiftUICatalog

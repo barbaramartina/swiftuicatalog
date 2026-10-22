@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ButtonsView
+// @category: swiftui
+// @tags: containers, controls, hierarchical, layouts, navigation, user-input
+// ---
+
 //
 //  ButtonsComponentsView.swift
 //  SwiftUICatalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: VerticalAlignmentPicker
+// @category: swiftui
+// @tags: controls, user-input
+// ---
+
 //
 //  VerticalAlignmentPicker.swift
 //  SwiftUICatalog

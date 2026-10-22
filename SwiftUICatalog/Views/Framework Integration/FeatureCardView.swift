@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: FeatureCardView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  FeatureCardView.swift
 //  SwiftUICatalog

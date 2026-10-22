@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: PhotoGalleryDynamicLayout
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  PhotoGalleryDynamicLayout.swift
 //  SwiftUICatalog

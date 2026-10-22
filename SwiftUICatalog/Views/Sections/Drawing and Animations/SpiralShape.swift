@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SpiralShape
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  SpiralShape.swift
 //  Catalog

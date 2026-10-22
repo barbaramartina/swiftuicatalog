@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: GridsView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  GridsView.swift
 //  SwiftUICatalog

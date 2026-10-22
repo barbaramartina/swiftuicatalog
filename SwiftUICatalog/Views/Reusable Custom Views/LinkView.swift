@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: LinkView
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  LinkView.swift
 //  SwiftUICatalog

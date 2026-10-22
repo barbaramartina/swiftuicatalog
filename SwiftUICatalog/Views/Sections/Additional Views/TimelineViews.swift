@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TimelineViews
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  TimelineViews.swift
 //  SwiftUICatalog

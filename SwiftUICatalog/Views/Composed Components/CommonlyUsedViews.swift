@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CommonlyUsedViews
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  CommonlyUsedViews.swift
 //  SwiftUICatalog

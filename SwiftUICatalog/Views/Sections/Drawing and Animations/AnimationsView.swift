@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AnimationsView
+// @category: swiftui
+// @tags: containers, hierarchical, layouts, navigation
+// ---
+
 //
 //  AnimationsView.swift
 //  SwiftUICatalog

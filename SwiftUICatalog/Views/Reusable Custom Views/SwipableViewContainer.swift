@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SwipableViewContainer
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  SwipableView.swift
 //  SwiftUICatalog

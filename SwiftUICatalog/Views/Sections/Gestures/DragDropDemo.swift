@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: DragDropDemo
+// @category: swiftui
+// @tags: containers, hierarchical, layouts, navigation
+// ---
+
 import SwiftUI
 
 struct Card: Identifiable {

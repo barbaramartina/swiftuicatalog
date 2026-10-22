@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: IconsAnimationsView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  IconsAnimationsView.swift
 //  Catalog

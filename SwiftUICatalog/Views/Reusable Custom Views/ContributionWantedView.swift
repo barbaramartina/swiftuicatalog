@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ContributionWantedView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  ContributionWantedView.swift
 //  SwiftUICatalog

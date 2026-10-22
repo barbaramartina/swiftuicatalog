@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: RobbieWithPulse
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  RobbieWithPulse.swift
 //  SwiftUICatalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CloverShape
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  CloverShape.swift
 //  Catalog

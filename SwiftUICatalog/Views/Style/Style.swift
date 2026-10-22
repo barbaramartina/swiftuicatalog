@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: Style
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  Style.swift
 //  SwiftUICatalog

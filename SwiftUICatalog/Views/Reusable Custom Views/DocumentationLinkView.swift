@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: DocumentationLinkView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  DocumentationLinkView.swift
 //  SwiftUICatalog

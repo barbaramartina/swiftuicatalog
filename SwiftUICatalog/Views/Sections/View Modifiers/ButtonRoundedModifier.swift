@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ButtonRoundedModifier
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  RoundedBordersModifier.swift
 //  SwiftUICatalog

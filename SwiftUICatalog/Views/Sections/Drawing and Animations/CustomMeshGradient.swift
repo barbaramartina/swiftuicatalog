@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CustomMeshGradient
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  CustomMeshGradient.swift
 //  Catalog

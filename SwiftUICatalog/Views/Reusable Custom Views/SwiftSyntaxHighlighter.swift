@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SwiftSyntaxHighlighter
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  SwiftSyntaxHighlighter.swift
 //  SwiftUICatalog

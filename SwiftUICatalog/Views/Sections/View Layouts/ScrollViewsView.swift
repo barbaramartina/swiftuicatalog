@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ScrollViewsView
+// @category: swiftui
+// @tags: animations, containers, controls, layouts, motion, user-input
+// ---
+
 //
 //  ScrollViewsView.swift
 //  SwiftUICatalog

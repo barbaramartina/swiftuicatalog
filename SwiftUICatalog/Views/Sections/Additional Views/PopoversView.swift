@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: PopoversView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  PopoversComponentView.swift
 //  SwiftUICatalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: PageContainer
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  PageContainer.swift
 //  SwiftUICatalog

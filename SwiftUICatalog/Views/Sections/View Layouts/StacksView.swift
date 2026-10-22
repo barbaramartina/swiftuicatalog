@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: StacksView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  StacksView.swift
 //  SwiftUICatalog

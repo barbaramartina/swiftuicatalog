@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ListsView
+// @category: swiftui
+// @tags: containers, controls, hierarchical, layouts, navigation, user-input
+// ---
+
 //
 //  ListsComponentView.swift
 //  SwiftUICatalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TextAlignmentModifier
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  ViewAlignmentModifier.swift
 //  SwiftUICatalog

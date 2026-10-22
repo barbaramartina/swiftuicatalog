@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: HeartShape
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  HeartShape.swift
 //  Catalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TransitionsAnimationsView
+// @category: swiftui
+// @tags: animations, containers, controls, layouts, motion, user-input
+// ---
+
 //
 //  TransitionsAnimationsView.swift
 //  Catalog

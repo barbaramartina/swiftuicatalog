@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CircleLayout
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  RadialLayout.swift
 //  Catalog

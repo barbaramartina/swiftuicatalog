@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SpacersDividersView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  SpacersDividersView.swift
 //  SwiftUICatalog

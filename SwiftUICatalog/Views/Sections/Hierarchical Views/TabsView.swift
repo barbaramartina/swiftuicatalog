@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TabsView
+// @category: swiftui
+// @tags: hierarchical, navigation
+// ---
+
 //
 //  TabsView.swift
 //  SwiftUICatalog

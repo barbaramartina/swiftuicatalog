@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ProgressViews
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  ProgressViews.swift
 //  SwiftUICatalog

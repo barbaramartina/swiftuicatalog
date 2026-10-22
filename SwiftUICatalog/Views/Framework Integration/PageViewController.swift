@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: PageViewController
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  PageViewController.swift
 //  SwiftUICatalog

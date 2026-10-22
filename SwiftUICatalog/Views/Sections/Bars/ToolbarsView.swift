@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ToolbarsView
+// @category: swiftui
+// @tags: controls, user-input
+// ---
+
 //
 //  ToolbarsComponentView.swift
 //  SwiftUICatalog

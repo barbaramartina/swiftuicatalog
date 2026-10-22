@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: PickersView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  PickersView.swift
 //  SwiftUICatalog

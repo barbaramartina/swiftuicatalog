@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ShapesView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  ShapesView.swift
 //  SwiftUICatalog

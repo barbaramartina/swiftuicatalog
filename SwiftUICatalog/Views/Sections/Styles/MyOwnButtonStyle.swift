@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MyOwnButtonStyle
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  MyOwnButtonStyle.swift
 //  SwiftUICatalog

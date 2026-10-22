@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: GraphicContextsView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  GraphicContextsView.swift
 //  SwiftUICatalog

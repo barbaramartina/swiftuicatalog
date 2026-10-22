@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: NavigatableModifier
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  NavigatableModifier.swift
 //  SwiftUICatalog

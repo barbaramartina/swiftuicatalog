@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ImageWithOverlayView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  ImageWithOverlayView.swift
 //  SwiftUICatalog

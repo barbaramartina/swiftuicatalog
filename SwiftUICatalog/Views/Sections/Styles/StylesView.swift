@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: StylesView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  StylesView.swift
 //  SwiftUICatalog

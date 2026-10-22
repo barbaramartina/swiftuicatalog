@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TogglesView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  TogglesView.swift
 //  SwiftUICatalog

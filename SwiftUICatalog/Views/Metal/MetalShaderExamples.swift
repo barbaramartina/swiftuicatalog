@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MetalShaderExamples
+// @category: metal
+// @tags: containers, effects, layouts, metal, shaders
+// ---
+
 //
 //  MetalShaderExamples.swift
 //  Catalog

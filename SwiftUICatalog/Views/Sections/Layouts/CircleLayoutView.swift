@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CircleLayoutView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  CircleLayoutView.swift
 //  Catalog

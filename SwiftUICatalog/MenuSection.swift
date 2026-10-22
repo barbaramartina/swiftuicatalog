@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MenuSection
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  Section.swift
 //  Catalog

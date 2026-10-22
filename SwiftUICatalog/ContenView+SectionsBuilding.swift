@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ContenView+SectionsBuilding
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  ContenView+SectionsBuilding.swift
 //  Catalog

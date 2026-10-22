@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AsyncImageCachingView
+// @category: swiftui
+// @tags: hierarchical, navigation
+// ---
+
 import SwiftUI
 
 struct AsyncImageCachingView: View {

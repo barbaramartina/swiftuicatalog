@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: GeometriesView
+// @category: swiftui
+// @tags: animations, containers, layouts, motion
+// ---
+
 //
 //  GeomtriesView.swift
 //  SwiftUICatalog

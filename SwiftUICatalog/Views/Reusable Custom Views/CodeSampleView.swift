@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CodeSampleView
+// @category: swiftui
+// @tags: animations, containers, controls, hierarchical, layouts, motion, navigation, user-input
+// ---
+
 //
 //  CodeSampleView.swift
 //  SwiftUICatalog

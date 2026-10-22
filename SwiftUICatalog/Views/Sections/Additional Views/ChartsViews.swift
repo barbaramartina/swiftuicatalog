@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ChartsViews
+// @category: charts
+// @tags: charts, containers, data-visualization, layouts
+// ---
+
 //
 //  ChartsViews.swift
 //  SwiftUICatalog

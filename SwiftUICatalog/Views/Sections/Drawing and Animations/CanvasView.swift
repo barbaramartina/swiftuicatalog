@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CanvasView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  CanvasView.swift
 //  SwiftUICatalog

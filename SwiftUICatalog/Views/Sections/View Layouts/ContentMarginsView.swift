@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ContentMarginsView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  ContentMarginsView.swift
 //  SwiftUICatalog

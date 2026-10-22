@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SheetsView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  SheetsView.swift
 //  SwiftUICatalog

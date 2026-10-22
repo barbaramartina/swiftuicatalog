@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: HeaderImageTitleSubtitleView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  HeaderImageTitleSubtitle.swift
 //  SwiftUICatalog

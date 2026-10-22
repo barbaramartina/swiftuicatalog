@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ColumnsLayout
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  ColumnsLayout.swift
 //  Catalog

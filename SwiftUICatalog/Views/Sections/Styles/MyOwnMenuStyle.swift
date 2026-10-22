@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MyOwnMenuStyle
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  MyOwnMenuStyle.swift
 //  SwiftUICatalog

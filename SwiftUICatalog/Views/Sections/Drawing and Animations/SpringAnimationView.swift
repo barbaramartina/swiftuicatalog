@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SpringAnimationView
+// @category: swiftui
+// @tags: animations, containers, controls, layouts, motion, user-input
+// ---
+
 //
 //  SpringAnimation.swift
 //  Catalog

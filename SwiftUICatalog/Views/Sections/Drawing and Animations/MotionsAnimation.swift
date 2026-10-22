@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MotionsAnimation
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  MotionsAnimation.swift
 //  SwiftUICatalog

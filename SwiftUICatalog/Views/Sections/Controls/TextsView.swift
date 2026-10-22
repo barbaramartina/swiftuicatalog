@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TextsView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  TextsComponentsView.swift
 //  SwiftUICatalog

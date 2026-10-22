@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MenuesView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  MenusComponentView.swift
 //  SwiftUICatalog

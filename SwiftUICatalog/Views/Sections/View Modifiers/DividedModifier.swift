@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: DividedModifier
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  Divided.swift
 //  SwiftUICatalog

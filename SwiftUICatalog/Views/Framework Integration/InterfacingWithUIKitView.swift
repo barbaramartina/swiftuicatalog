@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: InterfacingWithUIKitView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  InterfacingWithUIKitView.swift
 //  SwiftUICatalog

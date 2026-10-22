@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SteppersView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  SteppersView.swift
 //  SwiftUICatalog

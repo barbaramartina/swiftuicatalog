@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: DatePickersView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  DatePickersView.swift
 //  SwiftUICatalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AccesibilityView
+// @category: swiftui
+// @tags: containers, controls, hierarchical, layouts, navigation, user-input
+// ---
+
 //
 //  AccesibilityView.swift
 //  SwiftUICatalog

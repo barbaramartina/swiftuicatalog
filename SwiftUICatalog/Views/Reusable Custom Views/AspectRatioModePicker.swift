@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AspectRatioModePicker
+// @category: swiftui
+// @tags: controls, user-input
+// ---
+
 //
 //  AspectRatioModePicker.swift
 //  SwiftUICatalog

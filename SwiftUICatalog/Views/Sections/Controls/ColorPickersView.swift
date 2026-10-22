@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ColorPickersView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  ColorPickersView.swift
 //  SwiftUICatalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ImagesView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  ImagesComponentView.swift
 //  SwiftUICatalog

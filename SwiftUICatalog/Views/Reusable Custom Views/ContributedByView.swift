@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ContributedByView
+// @category: swiftui
+// @tags: controls, user-input
+// ---
+
 //
 //  ContributedByView.swift
 //  SwiftUICatalog

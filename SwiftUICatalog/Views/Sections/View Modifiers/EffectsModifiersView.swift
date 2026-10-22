@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: EffectsModifiersView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  EffectsModifiersView.swift
 //  SwiftUICatalog

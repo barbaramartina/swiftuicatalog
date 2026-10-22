@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: GesturesView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  GesturesView.swift
 //  SwiftUICatalog

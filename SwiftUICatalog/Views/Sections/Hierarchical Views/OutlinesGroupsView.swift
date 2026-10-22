@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: OutlinesGroupsView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  OutlinesGroupsView.swift
 //  SwiftUICatalog

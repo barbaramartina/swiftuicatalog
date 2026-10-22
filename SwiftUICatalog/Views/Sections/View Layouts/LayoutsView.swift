@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: LayoutsView
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  LayoutsView.swift
 //  SwiftUICatalog

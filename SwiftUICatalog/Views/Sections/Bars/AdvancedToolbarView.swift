@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AdvancedToolbarView
+// @category: swiftui
+// @tags: containers, controls, hierarchical, layouts, navigation, user-input
+// ---
+
 import SwiftUI
 
 struct AdvancedToolbarView: View {

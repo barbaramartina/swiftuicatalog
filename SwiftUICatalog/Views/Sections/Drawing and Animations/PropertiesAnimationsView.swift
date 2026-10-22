@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: PropertiesAnimationsView
+// @category: swiftui
+// @tags: animations, containers, controls, layouts, motion, user-input
+// ---
+
 //
 //  PropertiesAnimationsView.swift
 //  Catalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: MyCustomAnimationView
+// @category: swiftui
+// @tags: animations, containers, controls, layouts, motion, user-input
+// ---
+
 //
 //  MyCustomAnimationView.swift
 //  Catalog

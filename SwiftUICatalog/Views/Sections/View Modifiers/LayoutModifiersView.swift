@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: LayoutModifiersView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  LayoutModifiersView.swift
 //  SwiftUICatalog

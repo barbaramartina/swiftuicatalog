@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AnyNavigationTransitionView
+// @category: swiftui
+// @tags: containers, controls, layouts, user-input
+// ---
+
 //
 //  NavigationBarsComponentView.swift
 //  SwiftUICatalog

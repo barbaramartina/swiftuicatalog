@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: StackedCardsView
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  StackedCardsView.swift
 //  Catalog

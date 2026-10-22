@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TimingCurvesView
+// @category: swiftui
+// @tags: animations, containers, controls, layouts, motion, user-input
+// ---
+
 //
 //  TimingCurvesView.swift
 //  Catalog

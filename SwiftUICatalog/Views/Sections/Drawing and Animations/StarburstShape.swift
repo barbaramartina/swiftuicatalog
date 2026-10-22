@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: StarburstShape
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  StarburstShape.swift
 //  Catalog

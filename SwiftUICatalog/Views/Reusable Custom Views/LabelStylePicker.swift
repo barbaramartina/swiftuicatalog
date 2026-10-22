@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: LabelStylePicker
+// @category: swiftui
+// @tags: controls, user-input
+// ---
+
 //
 //  LabelStylePicker.swift
 //  SwiftUICatalog

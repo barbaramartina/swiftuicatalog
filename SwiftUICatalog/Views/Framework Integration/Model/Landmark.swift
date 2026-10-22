@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: Landmark
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  Landmark.swift
 //  SwiftUICatalog

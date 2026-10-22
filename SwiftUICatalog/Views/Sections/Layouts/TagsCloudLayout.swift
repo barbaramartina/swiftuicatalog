@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: TagsCloudLayout
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  TagsCloudLayout.swift
 //  Catalog

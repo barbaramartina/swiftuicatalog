@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: UIFontTextStylePicker
+// @category: swiftui
+// @tags: controls, user-input
+// ---
+
 //
 //  UIFontTextStylePicker.swift
 //  SwiftUICatalog

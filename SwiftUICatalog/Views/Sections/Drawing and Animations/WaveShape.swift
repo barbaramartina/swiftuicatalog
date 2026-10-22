@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: WaveShape
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  WaveShape.swift
 //  Catalog

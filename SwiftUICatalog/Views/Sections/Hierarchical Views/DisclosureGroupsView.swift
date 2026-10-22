@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: DisclosureGroupsView
+// @category: swiftui
+// @tags: containers, controls, hierarchical, layouts, navigation, user-input
+// ---
+
 //
 //  DisclosureGroupsView.swift
 //  SwiftUICatalog

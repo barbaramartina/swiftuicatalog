@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: NavigationView
+// @category: swiftui
+// @tags: hierarchical, navigation
+// ---
+
 //
 //  NavigationBarsComponentView.swift
 //  SwiftUICatalog

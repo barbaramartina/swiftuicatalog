@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CoreGraphics
+// @category: swiftui
+// @tags: containers, layouts
+// ---
+
 //
 //  CoreGraphics.swift
 //  Catalog

@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ButtonBorderModifier
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  ButtonBorderModifier.swift
 //  SwiftUICatalog

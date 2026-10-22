@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: AdvancedGraphicsView
+// @category: metal
+// @tags: effects, metal, shaders
+// ---
+
 //
 //  AnimationsView.swift
 //  SwiftUICatalog

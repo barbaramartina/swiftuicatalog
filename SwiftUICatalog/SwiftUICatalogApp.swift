@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: SwiftUICatalogApp
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  SwiftUICatalogApp.swift
 //  SwiftUICatalog

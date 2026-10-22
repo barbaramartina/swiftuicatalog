@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: CustomAnimation
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  CustomAnimation.swift
 //  Catalog

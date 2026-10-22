@@ -1,3 +1,9 @@
+// MARK: - MCP Metadata
+// @symbol: ModelData
+// @category: swiftui
+// @tags: views
+// ---
+
 //
 //  ModelData.swift
 //  SwiftUICatalog
